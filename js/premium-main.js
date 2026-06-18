@@ -14,6 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
       stage.classList.add('loaded');
       document.documentElement.classList.add('pp-ready');
     }, 2200);
+  } else {
+    // Subpages don't have a loader; unlock scroll immediately
+    document.documentElement.classList.add('pp-ready');
   }
 
   // 2. Navigation Menu Toggle
