@@ -1,0 +1,9 @@
+<!-- Giant P-mark watermark — bleeds off the right edge of the onboarding canvas.
+     Single flat fill (currentColor) so the host controls tone + opacity via CSS.
+     On Proxy Blue it reads as a faintly darker-blue silhouette of the brand mark. -->
+<svg viewBox="0 0 755.212 1129.77" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <g fill="currentColor">
+    <path d="M377.606 376.591V1099.68C377.606 1116.34 364.037 1129.77 347.43 1129.77H60.4534C27.037 1129.77 6.46412e-05 1102.81 6.46412e-05 1069.48V778.126C6.46412e-05 762.17 6.37957 746.819 17.7209 735.508L377.606 376.591Z"/>
+    <path d="M755.212 210.867V692.891C755.212 726.217 728.175 753.182 694.758 753.182H377.505V376.591H60.4534C27.037 376.591 6.46412e-05 349.627 6.46412e-05 316.3V60.2909C6.46412e-05 26.9643 27.037 0 60.4534 0H543.777C660.532 0 755.212 94.4254 755.212 210.867Z"/>
+  </g>
+</svg>
