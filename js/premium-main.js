@@ -24,13 +24,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (menuBtn && menuOverlay) {
     const toggleMenu = () => {
-      const isOpen = menuOverlay.classList.contains('open');
+      const isOpen = menuOverlay.getAttribute('data-state') === 'open';
       if (isOpen) {
-        menuOverlay.classList.remove('open');
+        menuOverlay.setAttribute('data-state', 'closed');
         menuNav.classList.remove('Navbar-module__HP0XWa__navMenuOpen');
         menuBtn.setAttribute('aria-expanded', 'false');
       } else {
-        menuOverlay.classList.add('open');
+        menuOverlay.setAttribute('data-state', 'open');
         menuNav.classList.add('Navbar-module__HP0XWa__navMenuOpen');
         menuBtn.setAttribute('aria-expanded', 'true');
       }
