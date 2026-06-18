@@ -57,8 +57,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const trackRight = document.getElementById('trackRight');
 
   if (trackLeft && trackRight) {
-    let xLeft = 0;
-    let xRight = -1500; // start halfway offset
+    let xLeft = null;
+    let xRight = null;
 
     const speed = 0.6; // pixels per frame
 
@@ -75,18 +75,26 @@ document.addEventListener('DOMContentLoaded', () => {
     cloneNodes(trackRight);
 
     const animateConveyors = () => {
-      // Move left conveyor to the left
-      xLeft -= speed;
-      // If shifted more than half of scroll width, reset
       const halfWidthLeft = trackLeft.scrollWidth / 2;
-      if (Math.abs(xLeft) >= halfWidthLeft) {
-        xLeft = 0;
+      const halfWidthRight = trackRight.scrollWidth / 2;
+
+      // Initialize dynamically on first frame based on actual widths
+      if (xLeft === null) {
+        xLeft = -halfWidthLeft / 2; // Offset by half of scrollable width
+      }
+      if (xRight === null) {
+        xRight = -halfWidthRight; // Start fully offset
+      }
+
+      // Move left conveyor to the right
+      xLeft += speed;
+      if (xLeft >= 0) {
+        xLeft = -halfWidthLeft;
       }
       trackLeft.style.transform = `translateX(${xLeft}px)`;
 
       // Move right conveyor to the right
       xRight += speed;
-      const halfWidthRight = trackRight.scrollWidth / 2;
       if (xRight >= 0) {
         xRight = -halfWidthRight;
       }
