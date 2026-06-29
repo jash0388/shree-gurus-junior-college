@@ -610,3 +610,37 @@ html.js .Navbar-module__HP0XWa__navMenuOpen [data-nav-logo] {
     display: none;
   }
 }
+
+/* Custom logo image styling */
+.Navbar-module__HP0XWa__logoImg {
+  height: calc(34 * var(--pp-scale));
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+@media (max-width: 1023px) {
+  .Navbar-module__HP0XWa__logoImg {
+    height: 24px;
+  }
+}
+
+.Menu-module__YsnlLq__logoImg {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.Footer-module__1TnpDG__markImg {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Animate loader logo image if JS is not ready yet */
+html.js:not(.pp-ready) img.ob-lockup {
+  opacity: 0;
+  animation: ob-fade-in 1s 0.4s forwards !important;
+}
+

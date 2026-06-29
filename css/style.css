@@ -1281,3 +1281,17 @@ textarea.form-control {
     gap: 0;
   }
 }
+
+/* Custom logo image styling for standard layout */
+.logo-img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+@media (max-width: 768px) {
+  .logo-img {
+    height: 40px;
+  }
+}
+
