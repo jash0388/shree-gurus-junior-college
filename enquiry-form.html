@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admission Enquiry — Shree GURUS Group of Institutions</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  :root{
+    --primary:#1E6FEA;
+    --primary-dark:#1557C0;
+    --ink:#344054;
+    --muted:#98A2B3;
+    --border:#E4E7EC;
+    --bg:#FFFFFF;
+    --success:#1F8A55;
+    --success-bg:#E8F6EE;
+    --error:#E11D48;
+    --error-bg:#FDECEF;
+    font-size:16px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Segoe UI', Roboto, Arial, sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    padding:2.5rem 1.25rem 3.5rem;
+    line-height:1.5;
+  }
+  .wrap{max-width:760px;margin:0 auto;}
+  h1{
+    font-size:1.9rem;
+    font-weight:700;
+    color:var(--primary);
+    text-align:center;
+    margin:0 0 1.25rem;
+    padding-bottom:1.25rem;
+    border-bottom:1px solid var(--border);
+  }
+  .grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1.25rem 1.5rem;
+  }
+  .field{margin-bottom:1.1rem;}
+  .field.full{grid-column:1 / -1;}
+  label{
+    display:flex;
+    align-items:center;
+    gap:0.4rem;
+    font-size:0.9rem;
+    color:var(--muted);
+    margin-bottom:0.4rem;
+  }
+  label i{color:var(--muted);width:14px;text-align:center;}
+  label .req{color:var(--error);}
+  input, select{
+    width:100%;
+    padding:0.65rem 0.85rem;
+    border:1px solid var(--border);
+    border-radius:6px;
+    background:#fff;
+    font-size:0.95rem;
+    color:var(--ink);
+  }
+  input::placeholder{color:#C0C5D0;}
+  input:disabled, select:disabled{background:#f7f7f9;color:#b0b5c0;}
+  input:focus, select:focus{
+    outline:none;
+    border-color:var(--primary);
+    box-shadow:0 0 0 3px rgba(30,111,234,0.12);
+  }
+  .mobile-row{display:flex;gap:0.6rem;}
+  .mobile-row select{max-width:110px;flex:0 0 auto;}
+  .mobile-row input{flex:1;}
+  button{
+    margin-top:0.5rem;
+    width:100%;
+    padding:0.8rem;
+    background:var(--primary);
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    font-size:1rem;
+    font-weight:600;
+    cursor:pointer;
+    display:flex;align-items:center;justify-content:center;gap:0.5rem;
+    transition:background 0.15s;
+  }
+  button:hover{background:var(--primary-dark);}
+  button:disabled{background:#B6C8EB;cursor:not-allowed;}
+  button.secondary{
+    background:#fff;
+    color:var(--primary);
+    border:1px solid var(--primary);
+  }
+  button.secondary:hover{background:#EEF3FE;}
+  #status{
+    margin-top:1.1rem;
+    padding:0.8rem 1rem;
+    border-radius:8px;
+    font-size:0.9rem;
+    display:none;
+    align-items:center;
+    gap:0.5rem;
+  }
+  #status.ok{display:flex;background:var(--success-bg);color:var(--success);border:1px solid #BFE6D0;}
+  #status.err{display:flex;background:var(--error-bg);color:var(--error);border:1px solid #F5C6D1;}
+  #otpSection{
+    display:none;
+    margin-top:1.25rem;
+    padding-top:1.25rem;
+    border-top:1px solid var(--border);
+  }
+  #otpSection.show{display:block;}
+  .otp-row{display:flex;gap:0.6rem;align-items:flex-end;}
+  .otp-row .field{flex:1;margin-bottom:0;}
+  .otp-row input{letter-spacing:0.3em;font-weight:600;text-align:center;}
+  .hint{
+    font-size:0.85rem;
+    color:var(--muted);
+    margin:0 0 0.9rem;
+  }
+  @media (max-width:560px){
+    .grid{grid-template-columns:1fr;}
+    .otp-row{flex-direction:column;align-items:stretch;}
+    h1{font-size:1.5rem;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <form id="enquiryForm">
+    <div class="field full">
+      <label for="branch_key"><i class="fas fa-building"></i> Preferred Branch <span class="req">*</span></label>
+      <select id="branch_key" name="branch_key" required>
+        <option value="">Select Branch</option>
+        <option value="VJCASRMA6I7NQBP8TF4">Shree GURUS Group of Institutions - AS Rao Nagar</option>
+        <option value="VJCTIMA6I7NQBP8TF4">Shree GURUS's Vision Jr College, Thimmapuram</option>
+        <option value="VJCDWNMA6I7NQBP8TF4">Shree GURUS's Vision Jr College, Dwaraka Nagar</option>
+        <option value="VJCBNCMA6I7NQBP8TF4">Shree GURUS's Vision Jr College - Benz Circle</option>
+        <option value="VJCDILMA6I7NQBP8TF4">Shree GURUS Group of Institutions - Dilsukhnagar</option>
+        <option value="GT6E49OER2QA9FOE0O">Shree GURUS Group of Institutions (Nizampet)</option>
+        <option value="DE45RT6Y6SWE39I8R4S78U">Shree GURUS Vidyalayam Jr College (Medchal)</option>
+      </select>
+    </div>
+
+    <div class="grid">
+      <div class="field">
+        <label for="student_name"><i class="fas fa-user"></i> Name <span class="req">*</span></label>
+        <input type="text" id="student_name" name="student_name" placeholder="Enter your full name" required>
+      </div>
+      <div class="field">
+        <label for="mobile"><i class="fas fa-phone"></i> Mobile Number <span class="req">*</span></label>
+        <div class="mobile-row">
+          <select id="country_code" name="country_code">
+            <option value="+91" selected>+91</option>
+          </select>
+          <input type="tel" id="mobile" name="mobile" placeholder="Enter your mobile number" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="father_name"><i class="fas fa-user-tie"></i> Father's Name <span class="req">*</span></label>
+        <input type="text" id="father_name" name="father_name" placeholder="Enter father's name" required>
+      </div>
+      <div class="field">
+        <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+        <input type="email" id="email" name="email" placeholder="Email Address">
+      </div>
+      <div class="field">
+        <label for="mother_name"><i class="fas fa-user"></i> Mother's Name</label>
+        <input type="text" id="mother_name" name="mother_name" placeholder="Enter mother's name">
+      </div>
+      <div class="field">
+        <label for="father_occupation"><i class="fas fa-briefcase"></i> Father's Occupation</label>
+        <input type="text" id="father_occupation" name="father_occupation" placeholder="Enter father's occupation">
+      </div>
+      <div class="field">
+        <label for="dob"><i class="fas fa-calendar-alt"></i> Date of Birth</label>
+        <input type="date" id="dob" name="dob">
+      </div>
+      <div class="field">
+        <label for="gender"><i class="fas fa-venus-mars"></i> Gender</label>
+        <select id="gender" name="gender">
+          <option value="">Select Gender</option>
+          <option value="boy">Boy</option>
+          <option value="girl">Girl</option>
+        </select>
+      </div>
+      <div class="field full">
+        <label for="present_school"><i class="fas fa-school"></i> Present School</label>
+        <input type="text" id="present_school" name="present_school" placeholder="Enter present school name">
+      </div>
+    </div>
+
+    <div class="field full">
+      <label for="admission_opted_for"><i class="fas fa-book"></i> Courses <span class="req">*</span></label>
+      <select id="admission_opted_for" name="admission_opted_for" required>
+        <option value="">Select Course</option>
+        <option value="1">1st Year - MPC - JEE Main</option>
+        <option value="2">1st Year - MPC - JEE Advanced</option>
+        <option value="3">1st Year - MPC - EAPCET/EAMCET</option>
+        <option value="4">1st Year - BiPC - NEET</option>
+        <option value="5">2nd Year - MPC - JEE Main</option>
+        <option value="6">2nd Year - MPC - JEE Advanced</option>
+        <option value="7">2nd Year - MPC - EAPCET/EAMCET</option>
+        <option value="8">2nd Year - BiPC - NEET</option>
+        <option value="9">1st Year - BiPC - EAPCET/EAMCET</option>
+        <option value="10">2nd Year - BiPC - EAPCET/EAMCET</option>
+        <option value="11">JEE Main - Long Term</option>
+        <option value="12">JEE Advanced - Long Term</option>
+        <option value="13">EAPCET/EAMCET - Long Term</option>
+        <option value="14">NEET - Long Term</option>
+      </select>
+    </div>
+
+    <input type="hidden" name="source" value="2"><!-- 2 = Webleads (direct website form) -->
+    <input type="hidden" name="campaign_id" id="campaign_id" value=""><!-- filled automatically from the vjc_campaign_id cookie set by utm-capture.js -->
+
+    <button type="button" id="sendOtpBtn"><i class="fas fa-shield-halved"></i> Send OTP to Verify Mobile</button>
+
+    <div id="otpSection">
+      <p class="hint">Enter the 6-digit OTP sent to your mobile number.</p>
+      <div class="otp-row">
+        <div class="field">
+          <label for="otp"><i class="fas fa-key"></i> OTP</label>
+          <input type="text" id="otp" name="otp" inputmode="numeric" maxlength="6">
+        </div>
+        <button type="button" class="secondary" id="resendOtpBtn" style="width:auto;padding:0.6rem 1.1rem;">Resend</button>
+      </div>
+      <button type="button" id="verifySubmitBtn" style="margin-top:1rem;"><i class="fas fa-paper-plane"></i> Submit Application</button>
+    </div>
+
+    <div id="status"></div>
+  </form>
+</div>
+
+<script>
+const form           = document.getElementById('enquiryForm');
+const statusBox       = document.getElementById('status');
+const sendOtpBtn       = document.getElementById('sendOtpBtn');
+const resendOtpBtn     = document.getElementById('resendOtpBtn');
+const verifySubmitBtn  = document.getElementById('verifySubmitBtn');
+const otpSection       = document.getElementById('otpSection');
+
+let txId = null;
+
+// ---- Read the Meta Campaign ID cookie (set by utm-capture.js on the main site) ----
+// Also falls back to reading utm_campaign directly from this page's own URL,
+// in case the form is opened standalone (not inside the iframe) with the param.
+function getCookie(name) {
+  var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+  return match ? decodeURIComponent(match[2]) : '';
+}
+(function populateCampaignId() {
+  var fromCookie = getCookie('vjc_campaign_id');
+  var fromUrl = new URLSearchParams(window.location.search).get('utm_campaign');
+  var campaignId = fromCookie || fromUrl || '';
+  var field = document.getElementById('campaign_id');
+  if (field) field.value = campaignId;
+})();
+
+function showStatus(kind, message) {
+  const icon = kind === 'ok' ? '<i class="fas fa-circle-check"></i>' : '<i class="fas fa-circle-exclamation"></i>';
+  statusBox.className = kind;
+  statusBox.innerHTML = icon + ' ' + message;
+  statusBox.style.display = 'flex';
+}
+
+function clearStatus() {
+  statusBox.className = '';
+  statusBox.style.display = 'none';
+}
+
+function requiredFieldsFilled() {
+  const required = ['branch_key', 'student_name', 'father_name', 'mobile', 'admission_opted_for'];
+  for (const name of required) {
+    const el = form.elements[name];
+    if (!el || !el.value.trim()) return false;
+  }
+  return true;
+}
+
+async function sendOtp() {
+  clearStatus();
+  if (!requiredFieldsFilled()) {
+    showStatus('err', 'Please fill Branch, Name, Father Name, Mobile and Course before requesting an OTP.');
+    return;
+  }
+
+  sendOtpBtn.disabled = true;
+  sendOtpBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending OTP...';
+
+  try {
+    const fd = new FormData();
+    fd.append('mobile', form.elements['mobile'].value.trim());
+    fd.append('country_code', form.elements['country_code'].value.trim());
+
+    const res = await fetch('send-otp.php', { method: 'POST', body: fd });
+    const data = await res.json();
+
+    if (data.status === 'SUCCESS' && data.txId) {
+      txId = data.txId;
+      otpSection.classList.add('show');
+      showStatus('ok', 'OTP sent to your mobile number. Please enter it below.');
+      sendOtpBtn.style.display = 'none';
+    } else {
+      showStatus('err', data.message || 'Could not send OTP. Please check the mobile number.');
+    }
+  } catch (err) {
+    showStatus('err', 'Network error while sending OTP. Please try again.');
+  } finally {
+    sendOtpBtn.disabled = false;
+    sendOtpBtn.innerHTML = '<i class="fas fa-shield-halved"></i> Send OTP to Verify Mobile';
+  }
+}
+
+async function verifyAndSubmit() {
+  clearStatus();
+  const otpVal = form.elements['otp'].value.trim();
+  if (!otpVal) {
+    showStatus('err', 'Please enter the OTP.');
+    return;
+  }
+  if (!txId) {
+    showStatus('err', 'Please request an OTP first.');
+    return;
+  }
+
+  verifySubmitBtn.disabled = true;
+  verifySubmitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+
+  try {
+    const fd = new FormData(form);
+    fd.append('otp', otpVal);
+    fd.append('txId', txId);
+
+    const res = await fetch('submit-enquiry.php', { method: 'POST', body: fd });
+    const data = await res.json();
+
+    if (data.status === 'SUCCESS') {
+      showStatus('ok', data.message || 'Thank you! Your enquiry has been submitted.');
+      form.reset();
+      otpSection.classList.remove('show');
+      sendOtpBtn.style.display = 'flex';
+      txId = null;
+      // Redirect to the Thank You page (redirects the top/parent window,
+      // since this form usually runs inside an iframe on the website).
+      setTimeout(function () {
+        try {
+          window.top.location.href = 'https://shreegurus.edu.in/thank-you';
+        } catch (e) {
+          window.location.href = 'https://shreegurus.edu.in/thank-you';
+        }
+      }, 1200);
+    } else {
+      showStatus('err', data.message || 'Something went wrong. Please try again.');
+    }
+  } catch (err) {
+    showStatus('err', 'Network error while submitting. Please try again.');
+  } finally {
+    verifySubmitBtn.disabled = false;
+    verifySubmitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Application';
+  }
+}
+
+sendOtpBtn.addEventListener('click', sendOtp);
+resendOtpBtn.addEventListener('click', sendOtp);
+verifySubmitBtn.addEventListener('click', verifyAndSubmit);
+</script>
+</body>
+</html>

@@ -1,0 +1,2231 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="ie=edge" http-equiv="x-ua-compatible"/>
+<title>Our History  and  Legacy | 49 Years of Shree GURUS Group of Institutionss</title>
+<meta content="Explore the 49-year journey of Shree GURUS Group of Institutions. From a humble start to a leader in IIT-JEE and NEET coaching in AP  and  Telangana. Discover our roots." name="description"/>
+<meta content="Shree GURUS History, Legacy of Shree GURUS, Evolution of Shree GURUS Group of Institutionss, Top junior colleges" name="keywords"/>
+<link href="history.html" rel="canonical"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="website" property="og:type"/>
+<meta content="shreegurus colleges" property="og:title"/>
+<meta content="https://shreegurus.edu.in/" property="og:url"/>
+<meta content="https://shreegurus.edu.in/assets/frontend/img/future-2.jpg" property="og:image"/>
+<meta content="Top junior college in Hyderabad offering MPC with IIT-JEE &amp; BiPC with NEET coaching. Residential &amp; day scholar options. Enroll now!" property="og:description"/>
+<!-- Favicon -->
+<link href="assets/frontend/img/favicon.png?v=3" rel="shortcut icon" type="image/x-icon"/>
+<!-- CSS -->
+<link href="assets/frontend/css/vendor/bootstrap.min.css" rel="stylesheet"/>
+<link href="assets/frontend/css/vendor/animate.min.css" rel="stylesheet"/>
+<link href="assets/frontend/css/plugins/swiper.min.css" rel="stylesheet"/>
+<link href="assets/frontend/css/vendor/magnific-popup.css" rel="stylesheet"/>
+<link href="assets/frontend/css/vendor/fontawesome-pro.css" rel="stylesheet"/>
+<link href="assets/frontend/css/plugins/nouislider.min.css" rel="stylesheet"/>
+<link href="assets/frontend/css/vendor/icomoon.css" rel="stylesheet"/>
+<link href="assets/frontend/css/vendor/spacing.css" rel="stylesheet"/>
+<link href="assets/frontend/css/plugins/apexcharts.css" rel="stylesheet"/>
+<link href="assets/frontend/css/main.css" rel="stylesheet"/>
+<link href="assets/frontend/css/branch-pages-styles.css" rel="stylesheet"/>
+<meta content="1dTigTBkwwi7vh6UYQHypLPMTORoePGI-vrTVyHQV5M" name="google-site-verification">
+<script type="application/ld+json">
+        {
+            "@context": "https://schema.org/",
+            "@type": "WebSite",
+            "name": "Shree GURUS Group of Institutions",
+            "url": "https://shreegurus.edu.in/",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://shreegurus.edu.in/admissions{search_term_string}",
+                "query-input": "required name=search_term_string"
+            }
+        }
+    </script>
+<!-- Google Tag Manager -->
+<script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-MLQQLZH3');
+    </script>
+<!-- End Google Tag Manager -->
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-Z0LX7MGEG5"></script>
+<script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-Z0LX7MGEG5');
+    </script>
+<script>
+        document.getElementById("brochureForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            let form = this;
+            let formData = new FormData(form);
+
+            // Clear old errors
+            document.querySelectorAll("#brochureForm small.text-danger").forEach(el => {
+                el.innerHTML = "";
+            });
+
+            fetch("https://shreegurus.edu.in/brochure-submit", {
+                    method: "POST",
+                    headers: {
+                        "X-CSRF-TOKEN": document.querySelector('input[name="_token"]').value,
+                        "Accept": "application/json"
+                    },
+                    body: formData
+                })
+                .then(res => res.json())
+                .then(data => {
+
+                    if (data.status == false) {
+
+                        if (data.errors) {
+                            if (data.errors.name) document.querySelector(".error-name").innerHTML = data.errors
+                                .name[0];
+                            if (data.errors.phone) document.querySelector(".error-phone").innerHTML = data
+                                .errors.phone[0];
+                            if (data.errors.email) document.querySelector(".error-email").innerHTML = data
+                                .errors.email[0];
+                            if (data.errors.subject) document.querySelector(".error-subject").innerHTML = data
+                                .errors.subject[0];
+                            if (data.errors.message) document.querySelector(".error-message").innerHTML = data
+                                .errors.message[0];
+                        }
+
+                    } else {
+
+                        // Close modal
+                        let modalEl = document.getElementById("contactModal");
+                        let modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+                        modal.hide();
+
+                        // Reset form
+                        form.reset();
+
+                        // Download brochure
+                        let fileUrl = "https://shreegurus.edu.in/assets/frontend/brochure.zip";
+                        let thankYouUrl = "https://shreegurus.edu.in/thank-you";
+
+                        let a = document.createElement("a");
+                        a.href = fileUrl;
+                        a.download = "";
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+
+                        // Redirect to thank you page after download starts
+                        setTimeout(() => {
+                            window.location.href = thankYouUrl;
+                        }, 2000);
+                    }
+                })
+                .catch(err => console.log(err));
+        });
+    </script>
+<style>
+        h5#contactModalLabel {
+            text-align: center;
+            font-size: 30px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            text-align: center;
+            margin: auto;
+            padding-bottom: 20px;
+            color: var(--b);
+        }
+    </style>
+<script async="" defer="" src="https://www.google.com/recaptcha/api.js"></script>
+<script>var chatbot_id=26463;!function(){var t,e,a=document,s="smatbot-chatbot";a.getElementById(s)||(t=a.createElement("script"),t.id=s,t.type="text/javascript",t.src="https://plugin.smatbot.com/smatbot_plugin.js.gz",e=a.getElementsByTagName("script")[0],e.parentNode.insertBefore(t,e))}();</script><script src="https://cdnjs.cloudflare.com/ajax/libs/fingerprintjs2/1.5.1/fingerprint2.min.js"></script>
+</meta></head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-MLQQLZH3" style="display:none;visibility:hidden" width="0"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "To Be Added",
+    "postalCode": "To Be Added",
+    "streetAddress": "To Be Added"
+  },
+  "email": "info@shreegurus.edu.in",
+  "member": [
+    {
+      "@type": "Organization"
+    },
+    {
+      "@type": "Organization"
+    }
+  ],
+  "alumni": [
+    {
+      "@type": "Person",
+      "name": "To Be Added.
+               
+               Founder and Chairman
+M.Sc, M.Ed, D.J., Ph.D."
+    },
+    {
+      "@type": "Person",
+      "name": "Smt. L. Rani Rudrama Devi,
+      
+                 Vice Chairman"
+    }
+  ],
+  "name": "Shree GURUS Group of Institutions",
+  "telephone": "+91 To Be Added"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "To Be Added",
+    "addressRegion": "To Be Added",
+    "streetAddress": "To Be Added"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.5",
+    "reviewCount": "2450"
+  },
+  "description": "Shree GURUS is widely recognised as the first private residential junior college in the Telugu states, setting benchmarks in quality education for more than a decade. Over the years, Shree GURUS students have consistently secured hundreds of top ranks in Intermediate, IIT-JEE, and NEET, firmly establishing the institution as a path-setter in Andhra Pradesh and Telangana..",
+  "name": "Shree GURUS Group of Institutions",
+  "telephone": "+91 To Be Added"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Course",
+  "courseCode": "YEAR 2026-27",
+  "name": "IIT-JEE",
+  "provider": {
+    "@type": "CollegeOrUniversity",
+    "name": "Shree GURUS Group of Institutions",
+    "url": {"@id": "/shreegurus.edu.in/"}
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Course",
+  "courseCode": "YEAR 2026-27",
+  "name": "NEET",
+  "provider": {
+    "@type": "CollegeOrUniversity",
+    "name": "Shree GURUS Group of Institutions",
+    "url": {"@id": "/shreegurus.edu.in/"}
+  }
+}
+</script>
+<!-- Header area start -->
+<header>
+<div class="bd-header-transparent-two">
+<div class="bd-header-top style-three">
+<div class="bd-header-top-left">
+<ul>
+<li><a href="javascript:void(0)"><span><i class="fa-solid fa-phone-volume"></i></span> +91 To Be Added
+                            </a></li>
+<li><a href="mailto:info@shreegurus.edu.in"><span><i class="fa-sharp fa-light fa-envelope"></i></span><span class="__cf_email__" data-cfemail="80e5f8e1edf0ece5c0e9f3f4f5e4f9aee3efed">
+                                    info@shreegurus.edu.in</span></a></li>
+</ul>
+</div>
+<div class="bd-header-top-right text-md-end">
+<a href="javascript:void(0)" target="_blank"><span><i class="fa-sharp fa-regular fa-location-dot"></i></span>
+<b class="text-white me-2"> HEAD OFFICE:</b> To Be Added
+                    </a>
+</div>
+</div>
+<div class="bd-header-area header-style-one" id="header-sticky">
+<div class="bd-header-inner">
+<div class="bd-header-left">
+<div class="bd-header-logo">
+<a href="index.html"><img alt="logo" src="assets/frontend/img/logo1.png?v=2"/></a>
+</div>
+</div>
+<div class="bd-header-menu">
+<nav class="main-menu bd-mobile-menu-active d-none d-xl-block">
+<ul>
+<li class="has-mega-menu">
+<a href="index.html">Home</a>
+</li>
+<li class="menu-item-has-children">
+<a href="about-us.html">About Us</a>
+<ul class="submenu last-children">
+<li><a class="nav-link" href="about-us.html">Overview</a></li>
+<li><a class="nav-link" href="our-chairman.html">Our
+                                                Chairman</a></li>
+<li><a class="nav-link" href="history.html">Our History</a>
+</li>
+</ul>
+</li>
+<!-- courses menu -->
+<li class="menu-item-has-children">
+<a href="javascript:void(0)">Courses</a>
+<ul class="submenu last-children">
+<li><a class="nav-link" href="intermediate-mpc-with-iit-jee-integrated-2-year-program.html">MPC with
+                                                IIT-JEE</a></li>
+<li><a class="nav-link" href="bipc-with-neet-junior-college.html">BiPC with
+                                                NEET</a></li>
+<li><a class="nav-link" href="iit-jee-main-advanced-long-term-coaching.html">JEE Long Term</a></li>
+<li><a class="nav-link" href="neet-long-term-coaching.html">NEET Long Term</a></li>
+</ul>
+</li>
+<!-- page menu -->
+<li class="menu-item-has-children">
+<a href="javascript:void(0)">Campuses</a>
+<ul class="submenu last-children">
+<li><a href="shree-gurus-nizampet.html">Nizampet</a></li>
+<li><a href="shree-gurus-as-rao-nagar.html">AS Rao Nagar</a></li>
+<li><a href="shree-gurus-dilsukhnagar.html">Dilsukhnagar</a></li>
+<li><a href="shree-gurus-medchal.html">Medchal</a></li>
+<li><a href="shree-gurus-thimmapuram.html">Thimmapuram</a></li>
+<li><a href="shree-gurus-dwaraka-nagar.html">Dwaraka Nagar</a></li>
+<li><a href="shree-gurus-benz-circle.html">Benz Circle</a></li>
+<li><a href="shree-gurus-vadlamudi.html">Vadlamudi</a></li>
+<li><a href="shree-gurus-palakaluru.html">Palakaluru</a></li>
+</ul>
+</li>
+<!-- dashboard menu -->
+<li class="">
+<a class="apply sparkle-border" href="admissions.html">Admissions</a>
+</li>
+<!-- elements menu -->
+<li class="">
+<a href="gallery.html">Gallery</a>
+</li>
+<li class="">
+<a href="life-at-shree-gurus.html" style="text-transform:unset;">Life
+                                        at Shree GURUS</a>
+</li>
+<!-- blog menu -->
+<li class="">
+<a href="blog/index.html">Blog</a>
+</li>
+<li class="">
+<a href="contact.html">Contact us</a>
+</li>
+</ul>
+</nav>
+</div>
+<div class="bd-header-right">
+<div class="bd-header-sign-btn">
+<a class="bd-btn btn-outline-primary h-30px" href="login.html">Login</a>
+<button class="bd-btn btn-outline-border-primary h-30px" data-bs-target="#contactModal" data-bs-toggle="modal">Download Brochure</button>
+</div>
+<div class="bd-header-hamburger">
+<div class="sidebar-toggle">
+<a class="bar-icon" href="javascript:void(0)">
+<span></span>
+<span></span>
+<span></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Contact Modal -->
+<div aria-hidden="true" aria-labelledby="contactModalLabel" class="modal fade align-content-center" id="contactModal" tabindex="-1">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header" style="border: none;">
+<h5 class="modal-title" id="contactModalLabel">Download Our Brochure</h5>
+<button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<form id="brochureForm">
+<input autocomplete="off" name="_token" type="hidden" value="BphA99qTLJ1hzQLCBG1CypHyoDz5FCswu7wYSiAy"/>
+<div class="modal-body">
+<div class="row">
+<div class="col-md-6">
+<div class="mb-15">
+<label class="form-label" for="contactName">
+<i class="fa-solid fa-user"></i> Name
+                                    </label>
+<input class="form-control" id="contactName" name="name" placeholder="Your Name" type="text"/>
+<small class="text-danger error-name"></small>
+</div>
+</div>
+<div class="col-md-6">
+<div class="mb-15">
+<label class="form-label" for="contactNumber">
+<i class="fa-solid fa-phone"></i> Phone Number
+                                    </label>
+<input class="form-control" id="contactNumber" name="phone" oninput="this.value=this.value.replace(/[^0-9]/g,'').slice(0,10);" placeholder="Your Phone Number" type="number"/>
+<small class="text-danger error-phone"></small>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6">
+<div class="mb-15">
+<label class="form-label" for="contactEmail">
+<i class="fa-solid fa-envelope"></i> Email
+                                    </label>
+<input class="form-control" id="contactEmail" name="email" placeholder="Your Email" type="email"/>
+<small class="text-danger error-email"></small>
+</div>
+</div>
+<div class="col-md-6">
+<div class="mb-15">
+<label class="form-label" for="contactSubject">
+<i class="fa-solid fa-heading"></i> Subject
+                                    </label>
+<input class="form-control" id="contactSubject" name="subject" placeholder="Subject" type="text"/>
+<small class="text-danger error-subject"></small>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-12">
+<div class="mb-15">
+<label class="form-label" for="contactMessage">
+<i class="fa-solid fa-message"></i> Message
+                                    </label>
+<textarea class="form-control" id="contactMessage" name="message" placeholder="Enter your message here..." rows="5" style="min-height: 100px;"></textarea>
+<small class="text-danger error-message"></small>
+</div>
+</div>
+</div>
+<div class="row mt-3">
+<div class="col-12 text-center">
+<div class="g-recaptcha" data-sitekey="6LeGnW4sAAAAALnJk3GEAU4ZMH0sgMWOCZycArXp"></div>
+<small class="text-danger error-recaptcha"></small>
+</div>
+</div>
+</div>
+<div class="modal-footer d-flex justify-content-center" style="border:none;">
+<button class="bd-btn btn-primary w-100" id="brochureBtn" type="submit">
+                            Download Brochure
+                        </button>
+</div>
+</form>
+<script async="" defer="" src="https://www.google.com/recaptcha/api.js"></script>
+<script>
+                    document.getElementById("brochureForm").addEventListener("submit", async function(e) {
+                        e.preventDefault();
+
+                        let form = this;
+                        let formData = new FormData(form);
+
+                        // Clear old errors
+                        document.querySelectorAll("#brochureForm small.text-danger").forEach(el => {
+                            el.innerHTML = "";
+                        });
+
+                        let btn = document.getElementById("brochureBtn");
+                        btn.innerHTML = "Please wait...";
+                        btn.disabled = true;
+
+                        try {
+                            let response = await fetch("https://shreegurus.edu.in/brochure-submit", {
+                                method: "POST",
+                                headers: {
+                                    "X-CSRF-TOKEN": document.querySelector('input[name="_token"]').value,
+                                    "Accept": "application/json"
+                                },
+                                body: formData
+                            });
+
+                            // If validation fails (Laravel returns 422)
+                            if (!response.ok) {
+                                let errorData = await response.json();
+
+                                if (errorData.errors) {
+                                    if (errorData.errors.name) document.querySelector(".error-name").innerHTML = errorData
+                                        .errors.name[0];
+                                    if (errorData.errors.phone) document.querySelector(".error-phone").innerHTML = errorData
+                                        .errors.phone[0];
+                                    if (errorData.errors.email) document.querySelector(".error-email").innerHTML = errorData
+                                        .errors.email[0];
+                                    if (errorData.errors.subject) document.querySelector(".error-subject").innerHTML =
+                                        errorData.errors.subject[0];
+                                    if (errorData.errors.message) document.querySelector(".error-message").innerHTML =
+                                        errorData.errors.message[0];
+
+                                    // captcha error
+                                    if (errorData.errors.recaptcha) {
+                                        document.querySelector(".error-recaptcha").innerHTML = errorData.errors.recaptcha[
+                                            0];
+                                    }
+
+                                    // default captcha validation error
+                                    if (errorData.errors["g-recaptcha-response"]) {
+                                        document.querySelector(".error-recaptcha").innerHTML = errorData.errors[
+                                            "g-recaptcha-response"][0];
+                                    }
+                                }
+
+                                btn.innerHTML = "Download Brochure";
+                                btn.disabled = false;
+
+                                return;
+                            }
+
+                            let data = await response.json();
+
+                            if (data.status === true) {
+
+                                // Close modal only on success
+                                let modalEl = document.getElementById("contactModal");
+                                let modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+                                modal.hide();
+
+                                // Reset form
+                                form.reset();
+
+                                // reset captcha
+                                grecaptcha.reset();
+
+                                // Download brochure
+                                let fileUrl = "https://shreegurus.edu.in/assets/frontend/brochure/brochure.zip";
+                                let thankYouUrl = "https://shreegurus.edu.in/thank-you";
+
+                                let a = document.createElement("a");
+                                a.href = fileUrl;
+                                a.setAttribute("download", "");
+                                document.body.appendChild(a);
+                                a.click();
+                                document.body.removeChild(a);
+
+                                // Redirect after download starts
+                                setTimeout(() => {
+                                    window.location.href = thankYouUrl;
+                                }, 1500);
+                            }
+
+                            btn.innerHTML = "Download Brochure";
+                            btn.disabled = false;
+
+                        } catch (error) {
+                            console.log("Error:", error);
+                            btn.innerHTML = "Download Brochure";
+                            btn.disabled = false;
+                        }
+                    });
+                </script>
+</div>
+</div>
+</div>
+<div class="fix">
+<div class="bd-offcanvas-area">
+<div class="bd-offcanvas-wrapper">
+<div class="bd-offcanvas-content">
+<div class="bd-offcanvas-top d-flex justify-content-between align-items-center mb-30">
+<div class="bd-offcanvas-logo">
+<a href="history.html#">
+<img alt="logo not found" src="assets/frontend/img/logo1.png?v=2"/>
+</a>
+</div>
+<div class="bd-offcanvas-close">
+<button class="bd-offcanvas-close-icon animation--flip">
+<span class="bd-offcanvas-m-lines">
+<span class="bd-offcanvas-m-line line--1"></span><span class="bd-offcanvas-m-line line--2"></span><span class="bd-offcanvas-m-line line--3"></span>
+</span>
+</button>
+</div>
+</div>
+<div class="bd-mobile-menu-smaller">
+<div class="bd-offcanvas-menu mb-30">
+<nav></nav>
+</div>
+</div>
+<div class="bd-offcanvas-about d-none d-lg-block mb-30">
+<h4 class="bd-offcanvas-title-meta">About iStudy</h4>
+<p>Empowering learners and educators with a comprehensive platform that bridges the gap between
+                            traditional and modern education. iStudy inspires excellence in education and fosters growth
+                            for a brighter future.</p>
+</div>
+<div class="bd-offcanvas-contact mb-30">
+<h4 class="bd-offcanvas-title-meta">Contact Info</h4>
+<ul>
+<li class="d-flex align-items-center gap-10">
+<div class="bd-offcanvas-contact-icon">
+<a href="history.html#" target="_blank">
+<i class="fal fa-map-marker-alt"></i></a>
+</div>
+<div class="bd-offcanvas-contact-text">
+<a href="history.html#" target="_blank"> Nizampet, Kukatpally, Hyderabad, Telangana 500
+                                        090.
+                                    </a>
+</div>
+</li>
+<li class="d-flex align-items-center gap-10">
+<div class="bd-offcanvas-contact-icon">
+<a href="javascript:void(0)"><i class="far fa-phone"></i></a>
+</div>
+<div class="bd-offcanvas-contact-text">
+<!-- <a href="javascript:void(0)">+1-234-567-890</a> -->
+<a href="javascript:void(0)"> +91 To Be Added
+                                    </a>
+</div>
+</li>
+<li class="d-flex align-items-center gap-10">
+<div class="bd-offcanvas-contact-icon">
+<a href="javascript:void(0)"><i class="fal fa-envelope"></i></a>
+</div>
+<div class="bd-offcanvas-contact-text">
+<a href="mailto:info@shreegurus.edu.in"><span class="__cf_email__" data-cfemail="1d74737b725d746e69687964337e7270">info@shreegurus.edu.in</span></a>
+</div>
+</li>
+</ul>
+</div>
+<div class="bd-offcanvas-social">
+<h4 class="bd-offcanvas-title-meta">Follow Us</h4>
+<div class="theme-social">
+<ul class="social-icon-list">
+<li><a href="history.html#"><i class="fa-brands fa-facebook-f"></i></a></li>
+<li><a href="history.html#"><i class="fa-brands fa-x-twitter"></i></a></li>
+<li><a href="history.html#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+<li><a href="history.html#"><i class="fa-brands fa-instagram"></i></a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bd-offcanvas-overlay"></div>
+<div class="bd-offcanvas-overlay-white"></div>
+<!-- Offcanvas area start -->
+<!-- search popup area start here  -->
+<div class="bd-search-popup-area">
+<div class="container">
+<div class="row">
+<div class="col-12">
+<div class="bd-search-popup">
+<div class="bd-search-form">
+<form action="history.html#">
+<div class="bd-search-input">
+<input name="search" placeholder="Type here to search ..." type="search"/>
+<div class="bd-search-submit">
+<button type="submit"><i class="fa-regular fa-magnifying-glass"></i></button>
+</div>
+</div>
+</form>
+<div class="bd-search-close">
+<div class="bd-search-close-btn">
+<button><i class="fa-thin fa-close"></i></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- search popup overlay  -->
+<div class="bd-search-overlay"></div>
+<!-- search popup area end here  -->
+<div class="body-overlay"></div>
+<!-- search popup area end here  -->
+<main>
+<!-- breadcrumb area start -->
+<section class="bd-breadcrumb-area p-relative fix z-index-11">
+<div class="bd-breadcrumb-bg-two" data-background="https://shreegurus.edu.in/assets/frontend/img/breadcrumb-bg-2.webp"></div>
+<div class="bd-breadcrumb-wrapper p-relative">
+<div class="container">
+<div class="row">
+<div class="col-xl-12">
+<div class="bd-breadcrumb style-two d-flex-center">
+<div class="bd-breadcrumb-content">
+<h1 class="bd-breadcrumb-title">Our History</h1>
+<div class="bd-breadcrumb-list">
+<span><a href="index.html">Home</a></span>
+<span class="divider"><i class="fa-regular fa-angle-right"></i></span>
+<span class="active">History</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bd-breadcrumb-shape">
+<div class="shape-1"><img alt="shape" loading="lazy" src="assets/frontend/images/shape/breadcrumb-shape-1.webp?v=2"/></div>
+<div class="shape-3"><img alt="shape" loading="lazy" src="assets/frontend/images/shape/bulb-shape.webp?v=2"/></div>
+</div>
+</div>
+</div>
+</section>
+<!-- breadcrumb area end -->
+<!-- History Timeline Section -->
+<section class="bd-history-section section-space">
+<div class="container">
+<div class="row justify-content-center mb-60">
+<div class="col-xl-8 col-lg-10">
+<div class="bd-section-title-wrapper text-center">
+<h2 class="bd-section-title mb-20">The Saga of Shree GURUS</h2>
+<p class="bd-section-paragraph">A Journey of Excellence in Education Spanning Over Four Decades</p>
+</div>
+</div>
+</div>
+<!-- Timeline -->
+<div class="row justify-content-center">
+<div class="col-lg-12">
+<div class="bd-history-timeline">
+<!-- 1983 -->
+<div class="bd-timeline-item">
+<div class="bd-timeline-marker"></div>
+<div class="bd-timeline-content">
+<div class="bd-timeline-year-badge">1983</div>
+<h4 class="bd-timeline-title">Foundation Years</h4>
+<p>
+<strong>Shree GURUS High School</strong> - LIC Colony, Guntur<br/>
+<strong>Shree GURUS Little Public School</strong> - Brindavan Gardens, Guntur<br/>
+<strong>Shree GURUS Co-Operative Jr. College</strong> - Vadlamudi, Guntur
+                                </p>
+</div>
+</div>
+<!-- 1985 -->
+<div class="bd-timeline-item">
+<div class="bd-timeline-marker"></div>
+<div class="bd-timeline-content">
+<div class="bd-timeline-year-badge">1985</div>
+<h4 class="bd-timeline-title">Shree GURUS Girls Residential College</h4>
+<p>LIC Colony, Guntur</p>
+</div>
+</div>
+<!-- 1990 -->
+<div class="bd-timeline-item">
+<div class="bd-timeline-marker"></div>
+<div class="bd-timeline-content">
+<div class="bd-timeline-year-badge">1990</div>
+<h4 class="bd-timeline-title">Shree GURUS Degree &amp; PG Colleges</h4>
+<p>Guntur</p>
+</div>
+</div>
+<!-- 1995 -->
+<div class="bd-timeline-item">
+<div class="bd-timeline-marker"></div>
+<div class="bd-timeline-content">
+<div class="bd-timeline-year-badge">1995</div>
+<h4 class="bd-timeline-title">Expansion Across Cities</h4>
+<p>
+<strong>Shree GURUS Group of Institutions</strong> - Palakaluru, Guntur<br/>
+<strong>Shree GURUS Vidyalayam Jr. College</strong> - Kondapur, Hyderabad<br/>
+<strong>Shree GURUS Vidyalayam Junior College</strong> - Vizag
+                                </p>
+</div>
+</div>
+<!-- 1997 -->
+<div class="bd-timeline-item">
+<div class="bd-timeline-marker"></div>
+<div class="bd-timeline-content">
+<div class="bd-timeline-year-badge">1997</div>
+<h4 class="bd-timeline-title">Engineering Excellence Begins</h4>
+<p>
+<strong>Shree GURUS Engineering College</strong> - Vadlamudi, Guntur<br/>
+<strong>Shree GURUS Vidyalayam High School</strong> - Siripuram, Vizag
+                                </p>
+</div>
+</div>
+<!-- 1998 -->
+<div class="bd-timeline-item">
+<div class="bd-timeline-marker"></div>
+<div class="bd-timeline-content">
+<div class="bd-timeline-year-badge">1998</div>
+<h4 class="bd-timeline-title">Hyderabad &amp; Schools Growth</h4>
+<p>
+<strong>Shree GURUS's Bo Tree School</strong> - Nizampet, Hyderabad<br/>
+<strong>Shree GURUS Vidyalayam Jr. College</strong> - Nizampet, Hyderabad<br/>
+<strong>Shree GURUS Residential High School</strong> - Palakalur, Guntur
+                                </p>
+</div>
+</div>
+<!-- 1999 -->
+<div class="bd-timeline-item">
+<div class="bd-timeline-marker"></div>
+<div class="bd-timeline-content">
+<div class="bd-timeline-year-badge">1999</div>
+<h4 class="bd-timeline-title">Institute of Technology &amp; Science</h4>
+<p>Deshmukhi, Hyderabad</p>
+</div>
+</div>
+<!-- 2001 -->
+<div class="bd-timeline-item">
+<div class="bd-timeline-marker"></div>
+<div class="bd-timeline-content">
+<div class="bd-timeline-year-badge">2001</div>
+<h4 class="bd-timeline-title">New Institutions Established</h4>
+<p>
+<strong>Shree GURUS Varsity School</strong> - Deshmukhi, Hyderabad<br/>
+<strong>Shree GURUS's CBSE School</strong> - Ghatkesar, Hyderabad
+                                </p>
+</div>
+</div>
+<!-- 2002 -->
+<div class="bd-timeline-item">
+<div class="bd-timeline-marker"></div>
+<div class="bd-timeline-content">
+<div class="bd-timeline-year-badge">2002</div>
+<h4 class="bd-timeline-title">Information Technology Institute</h4>
+<p>Duvvada, Vizag</p>
+</div>
+</div>
+<!-- 2003 -->
+<div class="bd-timeline-item">
+<div class="bd-timeline-marker"></div>
+<div class="bd-timeline-content">
+<div class="bd-timeline-year-badge">2003</div>
+<h4 class="bd-timeline-title">Pharmacy &amp; Schools Expansion</h4>
+<p>
+<strong>Shree GURUS Global Gen School</strong> - Saroornagar, Hyderabad<br/>
+<strong>Rahul Shree GURUS Vidyalayam</strong> - Charla, Khammam<br/>
+<strong>Shree GURUS Pharmacy College</strong> - Vadlamudi, Guntur<br/>
+<strong>Shree GURUS's Institute of Pharmaceutical Sciences</strong> - Deshmukhi, Hyderabad<br/>
+<strong>Shree GURUS's Institute of Pharmaceutical Technology</strong> - Duvvada, Vizag
+                                </p>
+</div>
+</div>
+<!-- 2005 -->
+<div class="bd-timeline-item">
+<div class="bd-timeline-marker"></div>
+<div class="bd-timeline-content">
+<div class="bd-timeline-year-badge">2005</div>
+<h4 class="bd-timeline-title">Regional Schools Expansion</h4>
+<p>
+<strong>Shree GURUS Global Gen School</strong> - Eluru, W.G.Dt.<br/>
+<strong>Shree GURUS Cotton School</strong> - Pitlavanicheruvu, Rajahmundry
+                                </p>
+</div>
+</div>
+<!-- 2006 -->
+<div class="bd-timeline-item">
+<div class="bd-timeline-marker"></div>
+<div class="bd-timeline-content">
+<div class="bd-timeline-year-badge">2006</div>
+<h4 class="bd-timeline-title">Lara Institute of Technology &amp; Science</h4>
+<p>Vadlamudi, Guntur</p>
+</div>
+</div>
+<!-- 2007 -->
+<div class="bd-timeline-item">
+<div class="bd-timeline-marker"></div>
+<div class="bd-timeline-content">
+<div class="bd-timeline-year-badge">2007</div>
+<h4 class="bd-timeline-title">Education &amp; Training Diversification</h4>
+<p>
+<strong>Shree GURUS Steel City Public School</strong> - Duvvada, Vizag<br/>
+<strong>Shree GURUS Group of Institutions of Education</strong> - Nizampet, Hyderabad
+                                </p>
+</div>
+</div>
+<!-- 2008 -->
+<div class="bd-timeline-item">
+<div class="bd-timeline-marker"></div>
+<div class="bd-timeline-content">
+<div class="bd-timeline-year-badge">2008</div>
+<h4 class="bd-timeline-title">Women's Education Excellence</h4>
+<p>
+<strong>Shree GURUS Institute of Technology &amp; Aeronautical Engineering</strong> - Deshmukhi, Hyderabad<br/>
+<strong>Shree GURUS's Institute of Management &amp; Technology for Women</strong> - Ghatkesar, Hyderabad<br/>
+<strong>Shree GURUS's Institute of Engineering for Women</strong> - Duvvada, Vizag<br/>
+<strong>Shree GURUS's Nirula Institute of Technology &amp; Science for Women</strong> - Guntur
+                                </p>
+</div>
+</div>
+<!-- 2009 -->
+<div class="bd-timeline-item">
+<div class="bd-timeline-marker"></div>
+<div class="bd-timeline-content">
+<div class="bd-timeline-year-badge">2009</div>
+<h4 class="bd-timeline-title">Shree GURUS University</h4>
+<p>Vadlamudi, Guntur - A major milestone in educational expansion</p>
+</div>
+</div>
+<!-- 2011 -->
+<div class="bd-timeline-item">
+<div class="bd-timeline-marker"></div>
+<div class="bd-timeline-content">
+<div class="bd-timeline-year-badge">2011</div>
+<h4 class="bd-timeline-title">Nandi Next Gen School</h4>
+<p>Pedanandipadu, Guntur</p>
+</div>
+</div>
+<!-- 2013 -->
+<div class="bd-timeline-item">
+<div class="bd-timeline-marker"></div>
+<div class="bd-timeline-content">
+<div class="bd-timeline-year-badge">2013</div>
+<h4 class="bd-timeline-title">International Schools Growth</h4>
+<p>
+<strong>World One International School</strong> - Kondapur, Hyderabad<br/>
+<strong>Shree GURUS Global Gen School</strong> - Nagaram, ECIL, Hyderabad<br/>
+<strong>Shree GURUS Global Gen School</strong> - Medchal, Hyderabad
+                                </p>
+</div>
+</div>
+<!-- 2019 -->
+<div class="bd-timeline-item">
+<div class="bd-timeline-marker"></div>
+<div class="bd-timeline-content">
+<div class="bd-timeline-year-badge">2019</div>
+<h4 class="bd-timeline-title">Shree GURUS Vidyalayam</h4>
+<p>Patancheru, Hyderabad</p>
+</div>
+</div>
+<!-- 2020 -->
+<div class="bd-timeline-item">
+<div class="bd-timeline-marker"></div>
+<div class="bd-timeline-content">
+<div class="bd-timeline-year-badge">2020</div>
+<h4 class="bd-timeline-title">Shree GURUS Institute of Law</h4>
+<p>Vadlamudi, Guntur</p>
+</div>
+</div>
+<!-- 2021 -->
+<div class="bd-timeline-item">
+<div class="bd-timeline-marker"></div>
+<div class="bd-timeline-content">
+<div class="bd-timeline-year-badge">2021</div>
+<h4 class="bd-timeline-title">Agriculture Program Launch</h4>
+<p>B.Sc. (Hons.) in Agriculture - Shree GURUS University, Vadlamudi, Guntur</p>
+</div>
+</div>
+<!-- 2024 -->
+<div class="bd-timeline-item">
+<div class="bd-timeline-marker"></div>
+<div class="bd-timeline-content">
+<div class="bd-timeline-year-badge">2024</div>
+<h4 class="bd-timeline-title">University Off-Campus</h4>
+<p>Shree GURUS University Off-Campus established in Deshmukhi, Hyderabad</p>
+</div>
+</div>
+<!-- 2025 -->
+<div class="bd-timeline-item">
+<div class="bd-timeline-marker"></div>
+<div class="bd-timeline-content">
+<div class="bd-timeline-year-badge">2025</div>
+<h4 class="bd-timeline-title">World One School, Ghatkesar</h4>
+<p>Shree GURUS's World One School, Ghatkesar, Hyderabad - Continuing the legacy of excellence</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Achievements & Recognitions Section -->
+<section class="bd-achievements-section section-space bg-light">
+<div class="container">
+<div class="row justify-content-center mb-50">
+<div class="col-xl-8 col-lg-10">
+<div class="bd-section-title-wrapper text-center">
+<h2 class="bd-section-title mb-20">Achievements &amp; Recognitions</h2>
+<p class="bd-section-paragraph">Over Four Decades of Excellence and Dedication to Education</p>
+</div>
+</div>
+</div>
+<div class="row gy-40">
+<!-- Achievement 1 -->
+<div class="col-lg-6">
+<div class="bd-achievement-card">
+<div class="bd-achievement-icon">
+<i class="fas fa-award"></i>
+</div>
+<div class="bd-achievement-content">
+<h4 class="bd-achievement-title">Lok Nayak Foundation's Lifetime Achievement Award</h4>
+<p class="bd-achievement-description">Honored for outstanding and long-standing contributions to the field of education, recognizing over four decades of dedicated service in shaping young minds.</p>
+</div>
+</div>
+</div>
+<!-- Achievement 2 -->
+<div class="col-lg-6">
+<div class="bd-achievement-card">
+<div class="bd-achievement-icon">
+<i class="fas fa-star"></i>
+</div>
+<div class="bd-achievement-content">
+<h4 class="bd-achievement-title">Hybiz Education Excellence Award 2024</h4>
+<p class="bd-achievement-description">Awarded at the Hybiz Education Excellence Awards 2024 for visionary leadership and commitment to academic excellence and institutional growth.</p>
+</div>
+</div>
+</div>
+<!-- Achievement 3 -->
+<div class="col-lg-6">
+<div class="bd-achievement-card">
+<div class="bd-achievement-icon">
+<i class="fas fa-handshake"></i>
+</div>
+<div class="bd-achievement-content">
+<h4 class="bd-achievement-title">Government &amp; Non-Government Recognition</h4>
+<p class="bd-achievement-description">Received numerous awards and appreciations from various governmental and non-governmental bodies for exemplary work and innovative initiatives in education.</p>
+</div>
+</div>
+</div>
+<!-- Achievement 4 -->
+<div class="col-lg-6">
+<div class="bd-achievement-card">
+<div class="bd-achievement-icon">
+<i class="fas fa-book"></i>
+</div>
+<div class="bd-achievement-content">
+<h4 class="bd-achievement-title">Biography Release – "Rathaiah's Biography" (2014)</h4>
+<p class="bd-achievement-description">A comprehensive legacy of To Be Added's journey, contributions, and philosophy in education was published in 2014, launched in the presence of distinguished dignitaries.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="bd-cta-section section-space primary-bg" data-background="https://shreegurus.edu.in/assets/frontend/images/bg/cta-bg.webp">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-xl-8 col-lg-10">
+<div class="bd-cta-content text-center">
+<h2 class="bd-cta-title text-white mb-30">Be Part of Shree GURUS's Legacy</h2>
+<p class="bd-cta-description text-white mb-40">Join thousands of students who have transformed their futures through Shree GURUS's commitment to excellence in education.</p>
+<div class="bd-cta-btn">
+<a class="bd-btn btn-primary" href="admissions.html">Start Your Journey</a>
+<a class="bd-btn btn-outline-white" href="contact.html">Get in Touch</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- footer area start -->
+<footer>
+<style>
+.cookie-consent {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #1c1c1c;
+  color: #fff;
+  padding: 15px 20px;
+  z-index: 9999;
+  display: none;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+}
+
+.cookie-content {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.cookie-content p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.cookie-content a {
+  color: #ffc107;
+  text-decoration: underline;
+}
+
+.cookie-buttons {
+  margin-top: 10px;
+}
+
+.cookie-buttons button {
+  margin-left: 10px;
+  padding: 8px 18px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.btn-accept {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.btn-reject {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .cookie-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .cookie-buttons {
+    margin-top: 10px;
+  }
+}
+</style>
+<div class="cookie-consent" id="cookieConsent">
+<div class="cookie-content">
+<p>
+      We use cookies to improve your browsing experience, analyze site traffic, 
+      and personalize content. By clicking "Accept", you consent to our use of cookies.
+      <a href="privacy-policy.html" target="_blank">Learn More</a>
+</p>
+<div class="cookie-buttons">
+<button class="btn-accept" id="acceptCookies">Accept</button>
+<button class="btn-reject" id="rejectCookies">Reject</button>
+</div>
+</div>
+</div>
+<a class="whatsapp-float" href="javascript:void(0)" target="_blank" title="Chat with Shree GURUS Group of Institutions Admissions on WhatsApp">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+<style>
+.whatsapp-float {
+    position: fixed;
+    bottom: 90px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+    z-index: 999;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    background-color: #20ba5b;
+    transform: scale(1.1);
+    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.6);
+}
+
+.whatsapp-float:active {
+    transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 70px;
+        right: 20px;
+        width: 55px;
+        height: 55px;
+        font-size: 28px;
+    }
+}
+</style>
+<style>
+
+ .bd-footer-contact-title {
+    color: #fff;
+    font-size: 16px;
+}
+
+.contact-icon i{
+  color: #fff !important;
+}
+
+
+.shreegurus_group
+
+button{
+    position: absolute;
+    right: 200px;
+    /* bottom: -80px; */
+    /* top: 60px; */
+    bottom: 0px;
+    z-index: 9999;
+    background-color: #fff;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    font-size: 14px;
+    line-height: 1.5;
+}
+</style>
+<!-- 
+    <button class="btn btn-primary fixed-btn" type="button" data-bs-toggle="collapse" data-bs-target="#shreegurustabs"
+        aria-expanded="false" aria-controls="shreegurustabs">
+        SHREE GURUS GROUP OF INSTITUTIONS
+    </button> -->
+<div class="bd-footer-area style-two has-footer-space theme-black space fix">
+<div class="container">
+<div class="row gy-30 justify-content-between">
+<div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-12">
+<div class="bd-footer-widget footer-2-col-1">
+<div class="bd-footer-widget-logo">
+<a href="index.html"><img alt="logo" loading="lazy" src="assets/frontend/img/logo1.png?v=2"/></a>
+</div>
+<div class="bd-footer-widget-content">
+<p class="bd-footer-widget-description">
+                                Shree GURUS is a premier educational institution offering coaching for IIT-JEE, NEET, and SAT
+                                exams.
+                            </p>
+<div class="bd-footer-social">
+<div class="theme-social has-white">
+<ul class="social-icon-list">
+<li><a href="javascript:void(0)" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
+<li><a href="javascript:void(0)" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+<li><a href="javascript:void(0)" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a></li>
+<li><a href="javascript:void(0)" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-xxl-3 col-xl-2 col-lg-2 col-md-3 col-sm-4">
+<div class="bd-footer-widget footer-2-col-2">
+<h6 class="bd-footer-widget-title">Courses</h6>
+<div class="bd-footer-widget-links">
+<ul>
+<li class="underline-two"><a href="intermediate-mpc-with-iit-jee-integrated-2-year-program.html"><i class="fa-solid fa-chevron-right"></i> MPC with IIT-JEE</a></li>
+<li class="underline-two"><a href="bipc-with-neet-junior-college.html"><i class="fa-solid fa-chevron-right"></i> BiPC with NEET</a></li>
+<li class="underline-two"><a href="iit-jee-main-advanced-long-term-coaching.html"><i class="fa-solid fa-chevron-right"></i> JEE Long Term</a></li>
+<li class="underline-two"><a href="neet-long-term-coaching.html"><i class="fa-solid fa-chevron-right"></i> NEET Long Term</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-xxl-3 col-xl-2 col-lg-2 col-md-3 col-sm-4">
+<div class="bd-footer-widget footer-2-col-3">
+<h6 class="bd-footer-widget-title">Quick Links</h6>
+<div class="bd-footer-widget-links">
+<ul>
+<li class="underline-two"><a href="blog/index.html"><i class="fa-solid fa-chevron-right"></i> Blog</a></li>
+<li class="underline-two"><a href="gallery.html"><i class="fa-solid fa-chevron-right"></i> Gallery</a></li>
+<li class="underline-two"><a href="admissions.html"><i class="fa-solid fa-chevron-right"></i> Admissions</a></li>
+<!-- <li class="underline-two"><a href="#"><i class="fa-solid fa-chevron-right"></i> Login</a></li> -->
+<li class="underline-two"><a href="privacy-policy.html"><i class="fa-solid fa-chevron-right"></i> Privacy Policy</a></li>
+<li class="underline-two"><a href="terms-and-conditions.html"> <i class="fa-solid fa-chevron-right"></i> Terms Conditions</a></li>
+</ul>
+</div>
+</div>
+</div>
+<!-- <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-4 col-sm-4">
+                        <div class="bd-footer-widget footer-2-col-4">
+                            <h6 class="bd-footer-widget-title ">Support</h6>
+                            <div class="bd-footer-widget-links">
+                                <ul>
+                                    <li class="underline-two"><a href="">Contact Now</a></li>
+                                    <li class="underline-two"><a href="">FAQ</a></li>
+                             
+                                    <li class="underline-two"><a href="">Terms Conditions</a></li>
+                                    <li class="underline-two"><a href="">Privacy Policy</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div> -->
+<div class="col-xxl-3 col-xl-3 col-lg-3 col-md-8 col-sm-12">
+<div class="bd-footer-widget footer-2-col-5">
+<h6 class="bd-footer-widget-title">Contact Info</h6>
+<div class="bd-footer-from-content">
+<div class="bd-footer-widget-contact">
+<div class="bd-footer-contact-item d-flex gap-3 mb-3">
+<div class="contact-icon">
+<i class="fa-solid fa-map-location-dot text-primary"></i>
+</div>
+<div class="contact-content">
+<h6 class="bd-footer-contact-title mb-1">Shree GURUS Nizampet Office</h6>
+<p class="bd-footer-contact-text small">To Be Added</p>
+</div>
+</div>
+<div class="bd-footer-contact-item d-flex gap-3 mb-3">
+<div class="contact-icon">
+<i class="fa-solid fa-phone text-primary"></i>
+</div>
+<div class="contact-content">
+<h6 class="bd-footer-contact-title mb-1">Call Us</h6>
+<p class="bd-footer-contact-text small"><a class="text-decoration-none" href="javascript:void(0)">+91 To Be Added</a></p>
+</div>
+</div>
+<div class="bd-footer-contact-item d-flex gap-3">
+<div class="contact-icon">
+<i class="fa-solid fa-envelope text-primary"></i>
+</div>
+<div class="contact-content">
+<h6 class="bd-footer-contact-title mb-1">Email Us</h6>
+<p class="bd-footer-contact-text small"><a class="text-decoration-none" href="mailto:info@shreegurus.edu.in">info@shreegurus.edu.in</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bd-footer-copyright-area style-two theme-bg fix bd-noise-bg">
+<div class="container">
+<div class="row justify-content-between">
+<div class="col-xl-6">
+<div class="bd-footer-copyright-text text-center">
+<p class="underline-two">© Copyright <span id="year"></span> | Developed By <a href="https://bigbrains.live" target="_blank">Jashwanth Groups</a></p>
+</div>
+</div>
+<div class="col-xl-6">
+<div class="shreegurus_group text-center">
+<!-- <button class="btn btn-primary fixed-btn" type="button" data-bs-toggle="collapse" data-bs-target="#shreegurustabs" aria-expanded="false" aria-controls="shreegurustabs">
+                            SHREE GURUS GROUP OF INSTITUTIONS
+                        </button> -->
+<div class="collapse" id="shreegurustabs">
+<div class="tab-content row fixed-tab-content">
+<button aria-controls="shreegurustabs" aria-expanded="true" class="btn btn-secondary" data-bs-target="#shreegurustabs" data-bs-toggle="collapse" type="button">
+<span><i class="fa-solid fa-xmark"></i></span>
+</button>
+
+<div class="tab-item col-12 col-md-3">
+<h5>PG &amp; Degree College</h5>
+<p>1</p>
+</div>
+<div class="tab-item col-12 col-md-3">
+<h5>Pharmacy Colleges</h5>
+<p>3</p>
+</div>
+<div class="tab-item col-12 col-md-3">
+<h5>B.Ed College</h5>
+<p>1</p>
+</div>
+<div class="tab-item col-12 col-md-3">
+<h5>Junior Colleges</h5>
+<ul class="college-list">
+<li><a class="college-link" href="history.html#">Nizampet</a></li>
+<li><a class="college-link" href="history.html#">AS Rao Nagar</a></li>
+<li><a class="college-link" href="history.html#">Dilsukhnagar</a></li>
+<li><a class="college-link" href="history.html#">Medchal</a></li>
+<li><a class="college-link" href="history.html#">Thimmapuram</a></li>
+<li><a class="college-link" href="history.html#">Dwaraka Nagar</a></li>
+<li><a class="college-link" href="history.html#">Benz Circle</a></li>
+<li><a class="college-link" href="history.html#">Vadlamudi</a></li>
+<li><a class="college-link" href="history.html#">Palakaruru</a></li>
+</ul>
+</div>
+<div class="tab-item col-12 col-md-3">
+<h5>University</h5>
+<p>6</p>
+</div>
+<div class="tab-item col-12 col-md-3">
+<h5>Engineering Colleges</h5>
+<p>17</p>
+</div>
+<div class="tab-item col-12 col-md-3">
+<h5>Schools of Central Boards</h5>
+<p>1</p>
+</div>
+<div class="tab-item col-12 col-md-3">
+<h5>Shree GURUS Institute of Law</h5>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<!-- footer area end -->
+<!-- back to top -->
+<div class="backtotop-wrap cursor-pointer">
+<svg class="backtotop-circle svg-content" height="100%" viewbox="-1 -1 102 102" width="100%">
+<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+</svg>
+</div>
+<!-- Backtotop end -->
+<!-- JS here -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const cookieConsent = document.getElementById("cookieConsent");
+  const acceptBtn = document.getElementById("acceptCookies");
+  const rejectBtn = document.getElementById("rejectCookies");
+
+  if (!localStorage.getItem("cookieConsent")) {
+    cookieConsent.style.display = "block";
+  }
+
+  acceptBtn.addEventListener("click", function () {
+    localStorage.setItem("cookieConsent", "accepted");
+    cookieConsent.style.display = "none";
+  });
+
+  rejectBtn.addEventListener("click", function () {
+    localStorage.setItem("cookieConsent", "rejected");
+    cookieConsent.style.display = "none";
+  });
+});
+</script>
+<script src="assets/frontend/js/vendor/jquery-3.7.1.min.js"></script>
+<script src="assets/frontend/js/plugins/waypoints.min.js"></script>
+<script src="assets/frontend/js/vendor/bootstrap.bundle.min.js"></script>
+<script src="assets/frontend/js/plugins/swiper.min.js"></script>
+<script src="assets/frontend/js/plugins/wow.js"></script>
+<script src="assets/frontend/js/vendor/magnific-popup.min.js"></script>
+<script src="assets/frontend/js/vendor/isotope.pkgd.min.js"></script>
+<script src="assets/frontend/js/vendor/imagesloaded.pkgd.min.js"></script>
+<script src="assets/frontend/js/plugins/nice-select.min.js"></script>
+<script src="assets/frontend/js/vendor/ajax-form.js"></script>
+<script src="assets/frontend/js/plugins/easypie.js"></script>
+<script src="assets/frontend/js/vendor/purecounter.js"></script>
+<script src="assets/frontend/js/plugins/nouislider.min.js"></script>
+<script src="assets/frontend/js/plugins/apexcharts.min.js"></script>
+<script src="assets/frontend/js/plugins/typed.js"></script>
+<script src="assets/frontend/js/main.js"></script>
+<!-- 
+<script>
+    (function() {
+        const vg = document.querySelector('.shreegurus_group');
+        if (!vg) return;
+        const btn = vg.querySelector('.btn');
+        const tabs = vg.querySelector('.tabs');
+
+        // helper to hide with animation
+        function hideTabs() {
+            tabs.classList.remove('show');
+            // after transition end set display none
+            const onEnd = function() {
+                tabs.style.display = 'none';
+                tabs.removeEventListener('transitionend', onEnd);
+            };
+            tabs.addEventListener('transitionend', onEnd);
+        }
+
+        // toggle on button click
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (getComputedStyle(tabs).display === 'block' && tabs.classList.contains('show')) {
+                hideTabs();
+            } else {
+                // make visible then trigger transition
+                tabs.style.display = 'block';
+                // force reflow
+                void tabs.offsetHeight;
+                tabs.classList.add('show');
+            }
+        });
+
+        // optional: click outside to close
+        document.addEventListener('click', function(e) {
+            if (getComputedStyle(tabs).display === 'block' && !vg.contains(e.target)) {
+                hideTabs();
+            }
+        });
+    })();
+</script> -->
+<!-- <script defer="" src="../beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"9785eab8d0f0406fb028adb707058fb1","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+
+ -->
+</body>
+</html>
+<style>
+    /* ============================================
+       ENHANCED TIMELINE STYLES - CREATIVE & MODERN
+       ============================================ */
+    
+    .bd-history-timeline {
+        position: relative;
+        padding: 60px 0;
+    }
+
+    /* Animated gradient vertical line */
+    .bd-history-timeline::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 3px;
+        height: 100%;
+        background: linear-gradient(180deg, 
+            #667eea 0%, 
+            #764ba2 15%,
+            #f093fb 30%, 
+            #4facfe 45%,
+            #00f2fe 60%,
+            #43e97b 75%,
+            #fa709a 90%,
+            #fee140 100%);
+        border-radius: 10px;
+        box-shadow: 
+            0 0 30px rgba(102, 126, 234, 0.4),
+            inset 0 0 20px rgba(255, 255, 255, 0.1);
+        animation: gradientShift 8s ease infinite;
+    }
+
+    @keyframes gradientShift {
+        0%, 100% {
+            box-shadow: 
+                0 0 30px rgba(102, 126, 234, 0.4),
+                inset 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+        50% {
+            box-shadow: 
+                0 0 50px rgba(102, 126, 234, 0.6),
+                inset 0 0 30px rgba(255, 255, 255, 0.2);
+        }
+    }
+
+    .bd-timeline-item {
+        margin-bottom: 10px;
+        position: relative;
+        opacity: 0;
+        animation: fadeInUp 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        transition: all 0.3s ease;
+    }
+
+    /* Staggered animation delays for cascading effect */
+    .bd-timeline-item:nth-child(1) { animation-delay: 0.1s; }
+    .bd-timeline-item:nth-child(2) { animation-delay: 0.2s; }
+    .bd-timeline-item:nth-child(3) { animation-delay: 0.3s; }
+    .bd-timeline-item:nth-child(4) { animation-delay: 0.4s; }
+    .bd-timeline-item:nth-child(5) { animation-delay: 0.5s; }
+    .bd-timeline-item:nth-child(6) { animation-delay: 0.6s; }
+    .bd-timeline-item:nth-child(n+7) { animation-delay: 0.7s; }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Left side timeline items */
+    .bd-timeline-item:nth-child(odd) {
+        margin-left: 0;
+        margin-right: auto;
+        width: 48%;
+        text-align: right;
+        padding-right: 60px;
+    }
+
+    /* Right side timeline items */
+    .bd-timeline-item:nth-child(even) {
+        margin-left: auto;
+        margin-right: 0;
+        width: 48%;
+        text-align: left;
+        padding-left: 60px;
+    }
+
+    /* Timeline markers with gradient and glow effect */
+    /* .bd-timeline-marker {
+        position: absolute;
+        left: 50%;
+        top: 15px;
+        transform: translateX(-50%);
+        width: 20px;
+        height: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: 3px solid #fff;
+        border-radius: 50%;
+        z-index: 10;
+        box-shadow: 
+            0 0 0 4px rgba(102, 126, 234, 0.2),
+            0 0 20px rgba(102, 126, 234, 0.6),
+            0 0 40px rgba(102, 126, 234, 0.3);
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    } */
+
+    /* Alternating marker colors */
+    .bd-timeline-item:nth-child(3n+2) .bd-timeline-marker {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        box-shadow: 
+            0 0 0 4px rgba(245, 87, 108, 0.2),
+            0 0 20px rgba(245, 87, 108, 0.6),
+            0 0 40px rgba(245, 87, 108, 0.3);
+    }
+
+    /* .bd-timeline-item:nth-child(3n) .bd-timeline-marker {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        box-shadow: 
+            0 0 0 4px rgba(79, 172, 254, 0.2),
+            0 0 20px rgba(79, 172, 254, 0.6),
+            0 0 40px rgba(79, 172, 254, 0.3);
+    } */
+
+    .bd-timeline-item:nth-child(3n+1) .bd-timeline-marker {
+        background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        box-shadow: 
+            0 0 0 4px rgba(67, 233, 123, 0.2),
+            0 0 20px rgba(67, 233, 123, 0.6),
+            0 0 40px rgba(67, 233, 123, 0.3);
+    }
+
+    /* Hover marker animation */
+    .bd-timeline-item:hover .bd-timeline-marker {
+        transform: translateX(-50%) scale(1.4);
+        filter: brightness(1.3);
+    }
+
+    /* Year Badge - Modern pill design */
+    .bd-timeline-year-badge {
+        display: inline-block;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: #fff;
+        font-size: 13px;
+        font-weight: 900;
+        padding: 8px 18px;
+        border-radius: 25px;
+        margin-bottom: 15px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        box-shadow: 
+            0 8px 15px rgba(102, 126, 234, 0.3),
+            0 0 1px rgba(255, 255, 255, 0.5) inset;
+        transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        backdrop-filter: blur(10px);
+    }
+
+    .bd-timeline-year-badge::before {
+        content: '';
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.8);
+    }
+
+    /* Alternating badge colors */
+    .bd-timeline-item:nth-child(3n+2) .bd-timeline-year-badge {
+           background: linear-gradient(135deg, #0073bb 0%, #90268f 100%);
+    box-shadow: 0 8px 15px rgba(245, 87, 108, 0.3),
+            0 0 1px rgba(255, 255, 255, 0.5) inset;
+    }
+
+    .bd-timeline-item:nth-child(3n) .bd-timeline-year-badge {
+        /* background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        box-shadow: 
+            0 8px 15px rgba(79, 172, 254, 0.3),
+            0 0 1px rgba(255, 255, 255, 0.5) inset; */
+
+                background: linear-gradient(135deg, #90268f 0%, #0073bb 100%);
+    box-shadow: 0 8px 15px rgba(79, 172, 254, 0.3),
+            0 0 1px rgba(255, 255, 255, 0.5) inset;
+    }
+
+    .bd-timeline-item:nth-child(3n+1) .bd-timeline-year-badge {
+          background: linear-gradient(135deg, #ee1d23 0%, #0073bb 100%);
+    box-shadow: 0 8px 15px rgb(0 115 187 / 42%), 0 0 1px rgba(255, 255, 255, 0.5) inset;
+    }
+
+    /* Badge hover effect */
+    .bd-timeline-item:hover .bd-timeline-year-badge {
+        transform: translateY(-5px) scale(1.05);
+        filter: brightness(1.1);
+        box-shadow: 
+            0 12px 25px rgba(102, 126, 234, 0.4),
+            0 0 1px rgba(255, 255, 255, 0.6) inset;
+    }
+
+    /* Content card styling - Modern glass morphism */
+    .bd-timeline-content {
+        background: linear-gradient(135deg, 
+            rgba(255, 255, 255, 0.95) 0%, 
+            rgba(248, 250, 251, 0.95) 100%);
+        padding: 32px 35px;
+        border-radius: 16px;
+        box-shadow: 
+            0 8px 32px rgba(31, 38, 135, 0.15),
+            0 0 1px rgba(255, 255, 255, 0.8) inset;
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        position: relative;
+        overflow: hidden;
+        backdrop-filter: blur(10px);
+    }
+
+    /* Gradient border accent for left side */
+    .bd-timeline-item:nth-child(odd) .bd-timeline-content {
+        border-left: 4px solid transparent;
+        background-image: 
+            linear-gradient(rgba(255, 255, 255, 0.95), rgba(248, 250, 251, 0.95)),
+            linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background-origin: border-box;
+        background-clip: padding-box, border-box;
+    }
+
+    /* Alternating border colors for right side */
+    .bd-timeline-item:nth-child(3n+2) .bd-timeline-content {
+         border-left: 4px solid transparent;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(248, 250, 251, 0.95)), linear-gradient(135deg, #90268f 0%, #ee1d23 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    }
+
+    .bd-timeline-item:nth-child(3n) .bd-timeline-content {
+          border-left: 4px solid transparent;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(248, 250, 251, 0.95)), linear-gradient(135deg, #0073bb 0%, #0073bb 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    }
+
+    .bd-timeline-item:nth-child(3n+1) .bd-timeline-content {
+           border-left: 4px solid transparent;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(248, 250, 251, 0.95)), linear-gradient(135deg, #0073bb 0%, #0073bb 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    }
+
+    /* Content top accent line animation */
+    .bd-timeline-content::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #667eea 0%, transparent 100%);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .bd-timeline-item:nth-child(3n+2) .bd-timeline-content::before {
+        background: linear-gradient(90deg, #f5576c 0%, transparent 100%);
+    }
+
+    .bd-timeline-item:nth-child(3n) .bd-timeline-content::before {
+        background: linear-gradient(90deg, #00f2fe 0%, transparent 100%);
+    }
+
+    .bd-timeline-item:nth-child(3n+1) .bd-timeline-content::before {
+        background: linear-gradient(90deg, #38f9d7 0%, transparent 100%);
+    }
+
+    /* Hover content animation */
+    .bd-timeline-item:hover .bd-timeline-content::before {
+        transform: scaleX(1);
+    }
+
+    .bd-timeline-content:hover {
+        box-shadow: 
+            0 20px 50px rgba(31, 38, 135, 0.25),
+            0 0 1px rgba(255, 255, 255, 0.8) inset;
+        transform: translateY(-12px);
+        border-color: rgba(102, 126, 234, 0.2);
+    }
+
+    /* Timeline title styling */
+    .bd-timeline-title {
+        margin: 0 0 14px 0;
+        color: #1a1a2e;
+        font-size: 20px;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+        transition: color 0.3s ease;
+    }
+
+    .bd-timeline-item:hover .bd-timeline-title {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    /* Timeline content paragraph */
+    .bd-timeline-content p {
+        margin: 0;
+        color: #4a5568;
+        line-height: 1.8;
+        font-size: 14px;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+    .bd-timeline-item:hover .bd-timeline-content p {
+        color: #2d3748;
+    }
+
+    /* Achievement Card Styles */
+    .bd-achievement-card {
+        background: #fff;
+        padding: 35px 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        text-align: center;
+        border-top: 5px solid #ff6b6b;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .bd-achievement-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(255, 107, 107, 0.05) 0%, rgba(78, 205, 196, 0.05) 100%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .bd-achievement-card:hover::before {
+        opacity: 1;
+    }
+
+    .bd-achievement-card:hover {
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        transform: translateY(-10px);
+    }
+
+    .bd-achievement-icon {
+        font-size: 50px;
+        color: #ff6b6b;
+        margin-bottom: 20px;
+        display: inline-block;
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(78, 205, 196, 0.1) 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+
+    .bd-achievement-card:hover .bd-achievement-icon {
+        background: linear-gradient(135deg, #ff6b6b 0%, #ff8e7f 100%);
+        color: #fff;
+        transform: scale(1.1) rotate(5deg);
+    }
+
+    .bd-achievement-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 15px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .bd-achievement-description {
+        color: #666;
+        line-height: 1.8;
+        font-size: 14px;
+        margin: 0;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* CTA Section */
+    .bd-cta-section {
+        background-position: center;
+        background-size: cover;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .bd-cta-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 100%);
+        z-index: 1;
+    }
+
+    .bd-cta-content {
+        position: relative;
+        z-index: 2;
+        animation: slideUp 0.8s ease;
+    }
+
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .bd-cta-title {
+        font-size: 42px;
+        font-weight: 800;
+        margin-bottom: 20px;
+        letter-spacing: 0.5px;
+    }
+
+    .bd-cta-description {
+        font-size: 16px;
+        line-height: 1.8;
+        font-weight: 300;
+    }
+
+    .bd-cta-btn {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    /* Achievement Card Styles - Enhanced */
+    .bd-achievement-card {
+        background: linear-gradient(135deg, #fff 0%, #f8fafb 100%);
+        padding: 35px 30px;
+        border-radius: 16px;
+        box-shadow: 
+            0 8px 32px rgba(31, 38, 135, 0.12),
+            0 0 1px rgba(255, 255, 255, 0.8) inset;
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        text-align: center;
+        border-top: 5px solid transparent;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+
+    /* Alternating achievement card colors */
+    .bd-achievement-card:nth-child(1),
+    .bd-achievement-card:nth-child(4) {
+        border-top: 5px solid #667eea;
+        border-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%) 1;
+    }
+
+    .bd-achievement-card:nth-child(2) {
+        border-top: 5px solid #f093fb;
+        border-image: linear-gradient(135deg, #f093fb 0%, #f5576c 100%) 1;
+    }
+
+    .bd-achievement-card:nth-child(3) {
+        border-top: 5px solid #4facfe;
+        border-image: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%) 1;
+    }
+
+    .bd-achievement-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, 
+            rgba(102, 126, 234, 0.03) 0%, 
+            rgba(78, 205, 196, 0.03) 100%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .bd-achievement-card:hover::before {
+        opacity: 1;
+    }
+
+    .bd-achievement-card:hover {
+        box-shadow: 
+            0 20px 50px rgba(31, 38, 135, 0.2),
+            0 0 1px rgba(255, 255, 255, 0.8) inset;
+        transform: translateY(-12px);
+    }
+
+    .bd-achievement-icon {
+        font-size: 50px;
+        color: #667eea;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.12) 0%, rgba(78, 205, 196, 0.12) 100%);
+        border-radius: 50%;
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .bd-achievement-card:nth-child(2) .bd-achievement-icon {
+        color: #f5576c;
+        background: linear-gradient(135deg, rgba(245, 87, 108, 0.12) 0%, rgba(240, 147, 251, 0.12) 100%);
+    }
+
+    .bd-achievement-card:nth-child(3) .bd-achievement-icon {
+        color: #00f2fe;
+        background: linear-gradient(135deg, rgba(79, 172, 254, 0.12) 0%, rgba(0, 242, 254, 0.12) 100%);
+    }
+
+    .bd-achievement-card:hover .bd-achievement-icon {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: #fff;
+        transform: scale(1.15) rotate(8deg);
+        box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+    }
+
+    .bd-achievement-card:nth-child(2):hover .bd-achievement-icon {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        box-shadow: 0 12px 30px rgba(245, 87, 108, 0.4);
+    }
+
+    .bd-achievement-card:nth-child(3):hover .bd-achievement-icon {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        box-shadow: 0 12px 30px rgba(79, 172, 254, 0.4);
+    }
+
+    .bd-achievement-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: #1a1a2e;
+        margin-bottom: 15px;
+        position: relative;
+        z-index: 1;
+        letter-spacing: 0.3px;
+        transition: color 0.3s ease;
+    }
+
+    .bd-achievement-card:hover .bd-achievement-title {
+        color: #667eea;
+    }
+
+    .bd-achievement-description {
+        color: #4a5568;
+        line-height: 1.8;
+        font-size: 14px;
+        font-weight: 500;
+        margin: 0;
+        position: relative;
+        z-index: 1;
+        transition: color 0.3s ease;
+    }
+
+    .bd-achievement-card:hover .bd-achievement-description {
+        color: #2d3748;
+    }
+
+    /* CTA Section - Enhanced */
+    .bd-cta-section {
+        background-position: center;
+        background-size: cover;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .bd-cta-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.55) 100%);
+        z-index: 1;
+        backdrop-filter: blur(2px);
+    }
+
+    .bd-cta-content {
+        position: relative;
+        z-index: 2;
+        animation: slideUp 0.9s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .bd-cta-title {
+        font-size: 42px;
+        font-weight: 800;
+        margin-bottom: 20px;
+        letter-spacing: 0.8px;
+    }
+
+    .bd-cta-description {
+        font-size: 16px;
+        line-height: 1.8;
+        font-weight: 300;
+    }
+
+    .bd-cta-btn {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    /* Responsive Timeline - Enhanced */
+    @media (max-width: 1024px) {
+        .bd-timeline-item:nth-child(odd) {
+            width: 50%;
+            padding-right: 50px;
+        }
+
+        .bd-timeline-item:nth-child(even) {
+            width: 50%;
+            padding-left: 50px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .bd-history-timeline {
+            padding: 40px 0;
+        }
+
+        /* Center timeline on mobile */
+        .bd-history-timeline::before {
+            left: 24px;
+            width: 3px;
+        }
+
+        .bd-timeline-item:nth-child(odd),
+        .bd-timeline-item:nth-child(even) {
+            width: 100%;
+            text-align: left;
+            padding-left: 80px;
+            margin-right: 0;
+            margin-left: 0;
+            margin-bottom: 70px;
+        }
+
+        .bd-timeline-marker {
+            left: 24px;
+            width: 18px;
+            height: 18px;
+            border-width: 3px;
+        }
+
+        .bd-timeline-year-badge {
+            font-size: 12px;
+            padding: 7px 16px;
+            margin-bottom: 12px;
+            border-radius: 20px;
+        }
+
+        .bd-timeline-content {
+            padding: 24px 20px;
+            border-radius: 12px;
+        }
+
+        .bd-timeline-title {
+            font-size: 17px;
+            margin-bottom: 10px;
+        }
+
+        .bd-timeline-content p {
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        /* Achievement cards on mobile */
+        .bd-achievement-card {
+            padding: 28px 22px;
+        }
+
+        .bd-achievement-icon {
+            width: 65px;
+            height: 65px;
+            font-size: 35px;
+        }
+
+        .bd-achievement-title {
+            font-size: 16px;
+        }
+
+        .bd-achievement-description {
+            font-size: 13px;
+        }
+
+        /* CTA section mobile */
+        .bd-cta-title {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .bd-cta-description {
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .bd-cta-btn {
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .bd-cta-btn a {
+            width: 100%;
+            padding: 14px 24px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .bd-timeline-item:nth-child(odd),
+        .bd-timeline-item:nth-child(even) {
+            padding-left: 70px;
+            margin-bottom: 60px;
+        }
+
+        .bd-timeline-marker {
+            left: 18px;
+            width: 16px;
+            height: 16px;
+        }
+
+        .bd-history-timeline::before {
+            left: 18px;
+        }
+
+        .bd-timeline-content {
+            padding: 20px 16px;
+        }
+
+        .bd-timeline-title {
+            font-size: 15px;
+        }
+
+        .bd-cta-title {
+            font-size: 24px;
+        }
+
+        .bd-cta-description {
+            font-size: 13px;
+        }
+    }
+
+    /* Smooth scrolling animation */
+    @media (prefers-reduced-motion: no-preference) {
+        html {
+            scroll-behavior: smooth;
+        }
+    }
+</style>

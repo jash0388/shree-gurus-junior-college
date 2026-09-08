@@ -1,0 +1,1882 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="ie=edge" http-equiv="x-ua-compatible"/>
+<title>SHREE GURUS Junior College</title>
+<meta content="Best Junior College for MPC and BiPC with IIT-JEE and NEET Coaching" name="description"/>
+<meta content="Shree GURUS Group of Institutions, MPC, BiPC, IIT, NEET" name="keywords"/>
+<link href="how-to-choose-the-right-iit-junior-colleges-in-hyderabad-for-your-career.html" rel="canonical"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="website" property="og:type"/>
+<meta content="shreegurus colleges" property="og:title"/>
+<meta content="https://shreegurus.edu.in/" property="og:url"/>
+<meta content="https://shreegurus.edu.in/assets/frontend/img/future-2.jpg" property="og:image"/>
+<meta content="Top junior college in Hyderabad offering MPC with IIT-JEE &amp; BiPC with NEET coaching. Residential &amp; day scholar options. Enroll now!" property="og:description"/>
+<!-- Favicon -->
+<link href="assets/frontend/img/favicon.png?v=3" rel="shortcut icon" type="image/x-icon"/>
+<!-- CSS -->
+<link href="../assets/frontend/css/vendor/bootstrap.min.css" rel="stylesheet"/>
+<link href="../assets/frontend/css/vendor/animate.min.css" rel="stylesheet"/>
+<link href="../assets/frontend/css/plugins/swiper.min.css" rel="stylesheet"/>
+<link href="../assets/frontend/css/vendor/magnific-popup.css" rel="stylesheet"/>
+<link href="../assets/frontend/css/vendor/fontawesome-pro.css" rel="stylesheet"/>
+<link href="../assets/frontend/css/plugins/nouislider.min.css" rel="stylesheet"/>
+<link href="../assets/frontend/css/vendor/icomoon.css" rel="stylesheet"/>
+<link href="../assets/frontend/css/vendor/spacing.css" rel="stylesheet"/>
+<link href="../assets/frontend/css/plugins/apexcharts.css" rel="stylesheet"/>
+<link href="../assets/frontend/css/main.css" rel="stylesheet"/>
+<link href="../assets/frontend/css/branch-pages-styles.css" rel="stylesheet"/>
+<meta content="1dTigTBkwwi7vh6UYQHypLPMTORoePGI-vrTVyHQV5M" name="google-site-verification">
+<script type="application/ld+json">
+        {
+            "@context": "https://schema.org/",
+            "@type": "WebSite",
+            "name": "Shree GURUS Group of Institutions",
+            "url": "https://shreegurus.edu.in/",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://shreegurus.edu.in/admissions{search_term_string}",
+                "query-input": "required name=search_term_string"
+            }
+        }
+    </script>
+<!-- Google Tag Manager -->
+<script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-MLQQLZH3');
+    </script>
+<!-- End Google Tag Manager -->
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-Z0LX7MGEG5"></script>
+<script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-Z0LX7MGEG5');
+    </script>
+<script>
+        document.getElementById("brochureForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            let form = this;
+            let formData = new FormData(form);
+
+            // Clear old errors
+            document.querySelectorAll("#brochureForm small.text-danger").forEach(el => {
+                el.innerHTML = "";
+            });
+
+            fetch("https://shreegurus.edu.in/brochure-submit", {
+                    method: "POST",
+                    headers: {
+                        "X-CSRF-TOKEN": document.querySelector('input[name="_token"]').value,
+                        "Accept": "application/json"
+                    },
+                    body: formData
+                })
+                .then(res => res.json())
+                .then(data => {
+
+                    if (data.status == false) {
+
+                        if (data.errors) {
+                            if (data.errors.name) document.querySelector(".error-name").innerHTML = data.errors
+                                .name[0];
+                            if (data.errors.phone) document.querySelector(".error-phone").innerHTML = data
+                                .errors.phone[0];
+                            if (data.errors.email) document.querySelector(".error-email").innerHTML = data
+                                .errors.email[0];
+                            if (data.errors.subject) document.querySelector(".error-subject").innerHTML = data
+                                .errors.subject[0];
+                            if (data.errors.message) document.querySelector(".error-message").innerHTML = data
+                                .errors.message[0];
+                        }
+
+                    } else {
+
+                        // Close modal
+                        let modalEl = document.getElementById("contactModal");
+                        let modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+                        modal.hide();
+
+                        // Reset form
+                        form.reset();
+
+                        // Download brochure
+                        let fileUrl = "https://shreegurus.edu.in/assets/frontend/brochure.zip";
+                        let thankYouUrl = "https://shreegurus.edu.in/thank-you";
+
+                        let a = document.createElement("a");
+                        a.href = fileUrl;
+                        a.download = "";
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+
+                        // Redirect to thank you page after download starts
+                        setTimeout(() => {
+                            window.location.href = thankYouUrl;
+                        }, 2000);
+                    }
+                })
+                .catch(err => console.log(err));
+        });
+    </script>
+<style>
+        h5#contactModalLabel {
+            text-align: center;
+            font-size: 30px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            text-align: center;
+            margin: auto;
+            padding-bottom: 20px;
+            color: var(--b);
+        }
+    </style>
+<script async="" defer="" src="https://www.google.com/recaptcha/api.js"></script>
+<script>var chatbot_id=26463;!function(){var t,e,a=document,s="smatbot-chatbot";a.getElementById(s)||(t=a.createElement("script"),t.id=s,t.type="text/javascript",t.src="https://plugin.smatbot.com/smatbot_plugin.js.gz",e=a.getElementsByTagName("script")[0],e.parentNode.insertBefore(t,e))}();</script><script src="https://cdnjs.cloudflare.com/ajax/libs/fingerprintjs2/1.5.1/fingerprint2.min.js"></script>
+</meta></head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-MLQQLZH3" style="display:none;visibility:hidden" width="0"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "To Be Added",
+    "postalCode": "To Be Added",
+    "streetAddress": "To Be Added"
+  },
+  "email": "info@shreegurus.edu.in",
+  "member": [
+    {
+      "@type": "Organization"
+    },
+    {
+      "@type": "Organization"
+    }
+  ],
+  "alumni": [
+    {
+      "@type": "Person",
+      "name": "To Be Added.
+               
+               Founder and Chairman
+M.Sc, M.Ed, D.J., Ph.D."
+    },
+    {
+      "@type": "Person",
+      "name": "Smt. L. Rani Rudrama Devi,
+      
+                 Vice Chairman"
+    }
+  ],
+  "name": "Shree GURUS Group of Institutions",
+  "telephone": "+91 To Be Added"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "To Be Added",
+    "addressRegion": "To Be Added",
+    "streetAddress": "To Be Added"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.5",
+    "reviewCount": "2450"
+  },
+  "description": "Shree GURUS is widely recognised as the first private residential junior college in the Telugu states, setting benchmarks in quality education for more than a decade. Over the years, Shree GURUS students have consistently secured hundreds of top ranks in Intermediate, IIT-JEE, and NEET, firmly establishing the institution as a path-setter in Andhra Pradesh and Telangana..",
+  "name": "Shree GURUS Group of Institutions",
+  "telephone": "+91 To Be Added"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Course",
+  "courseCode": "YEAR 2026-27",
+  "name": "IIT-JEE",
+  "provider": {
+    "@type": "CollegeOrUniversity",
+    "name": "Shree GURUS Group of Institutions",
+    "url": {"@id": "/shreegurus.edu.in/"}
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Course",
+  "courseCode": "YEAR 2026-27",
+  "name": "NEET",
+  "provider": {
+    "@type": "CollegeOrUniversity",
+    "name": "Shree GURUS Group of Institutions",
+    "url": {"@id": "/shreegurus.edu.in/"}
+  }
+}
+</script>
+<!-- Header area start -->
+<header>
+<div class="bd-header-transparent-two">
+<div class="bd-header-top style-three">
+<div class="bd-header-top-left">
+<ul>
+<li><a href="javascript:void(0)"><span><i class="fa-solid fa-phone-volume"></i></span> +91 To Be Added
+                            </a></li>
+<li><a href="mailto:info@shreegurus.edu.in"><span><i class="fa-sharp fa-light fa-envelope"></i></span><span class="__cf_email__" data-cfemail="80e5f8e1edf0ece5c0e9f3f4f5e4f9aee3efed">
+                                    info@shreegurus.edu.in</span></a></li>
+</ul>
+</div>
+<div class="bd-header-top-right text-md-end">
+<a href="javascript:void(0)" target="_blank"><span><i class="fa-sharp fa-regular fa-location-dot"></i></span>
+<b class="text-white me-2"> HEAD OFFICE:</b> To Be Added
+                    </a>
+</div>
+</div>
+<div class="bd-header-area header-style-one" id="header-sticky">
+<div class="bd-header-inner">
+<div class="bd-header-left">
+<div class="bd-header-logo">
+<a href="../index.html"><img alt="logo" src="../assets/frontend/img/logo1.png?v=2"/></a>
+</div>
+</div>
+<div class="bd-header-menu">
+<nav class="main-menu bd-mobile-menu-active d-none d-xl-block">
+<ul>
+<li class="has-mega-menu">
+<a href="../index.html">Home</a>
+</li>
+<li class="menu-item-has-children">
+<a href="../about-us.html">About Us</a>
+<ul class="submenu last-children">
+<li><a class="nav-link" href="../about-us.html">Overview</a></li>
+<li><a class="nav-link" href="../our-chairman.html">Our
+                                                Chairman</a></li>
+<li><a class="nav-link" href="../history.html">Our History</a>
+</li>
+</ul>
+</li>
+<!-- courses menu -->
+<li class="menu-item-has-children">
+<a href="javascript:void(0)">Courses</a>
+<ul class="submenu last-children">
+<li><a class="nav-link" href="../intermediate-mpc-with-iit-jee-integrated-2-year-program.html">MPC with
+                                                IIT-JEE</a></li>
+<li><a class="nav-link" href="../bipc-with-neet-junior-college.html">BiPC with
+                                                NEET</a></li>
+<li><a class="nav-link" href="../iit-jee-main-advanced-long-term-coaching.html">JEE Long Term</a></li>
+<li><a class="nav-link" href="../neet-long-term-coaching.html">NEET Long Term</a></li>
+</ul>
+</li>
+<!-- page menu -->
+<li class="menu-item-has-children">
+<a href="javascript:void(0)">Campuses</a>
+<ul class="submenu last-children">
+<li><a href="../shree-gurus-nizampet.html">Nizampet</a></li>
+<li><a href="../shree-gurus-as-rao-nagar.html">AS Rao Nagar</a></li>
+<li><a href="../shree-gurus-dilsukhnagar.html">Dilsukhnagar</a></li>
+<li><a href="../shree-gurus-medchal.html">Medchal</a></li>
+<li><a href="../shree-gurus-thimmapuram.html">Thimmapuram</a></li>
+<li><a href="../shree-gurus-dwaraka-nagar.html">Dwaraka Nagar</a></li>
+<li><a href="../shree-gurus-benz-circle.html">Benz Circle</a></li>
+<li><a href="../shree-gurus-vadlamudi.html">Vadlamudi</a></li>
+<li><a href="../shree-gurus-palakaluru.html">Palakaluru</a></li>
+</ul>
+</li>
+<!-- dashboard menu -->
+<li class="">
+<a class="apply sparkle-border" href="../admissions.html">Admissions</a>
+</li>
+<!-- elements menu -->
+<li class="">
+<a href="../gallery.html">Gallery</a>
+</li>
+<li class="">
+<a href="../life-at-shree-gurus.html" style="text-transform:unset;">Life
+                                        at Shree GURUS</a>
+</li>
+<!-- blog menu -->
+<li class="">
+<a href="index.html">Blog</a>
+</li>
+<li class="">
+<a href="../contact.html">Contact us</a>
+</li>
+</ul>
+</nav>
+</div>
+<div class="bd-header-right">
+<div class="bd-header-sign-btn">
+<a class="bd-btn btn-outline-primary h-30px" href="../login.html">Login</a>
+<button class="bd-btn btn-outline-border-primary h-30px" data-bs-target="#contactModal" data-bs-toggle="modal">Download Brochure</button>
+</div>
+<div class="bd-header-hamburger">
+<div class="sidebar-toggle">
+<a class="bar-icon" href="javascript:void(0)">
+<span></span>
+<span></span>
+<span></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Contact Modal -->
+<div aria-hidden="true" aria-labelledby="contactModalLabel" class="modal fade align-content-center" id="contactModal" tabindex="-1">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header" style="border: none;">
+<h5 class="modal-title" id="contactModalLabel">Download Our Brochure</h5>
+<button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<form id="brochureForm">
+<input autocomplete="off" name="_token" type="hidden" value="BphA99qTLJ1hzQLCBG1CypHyoDz5FCswu7wYSiAy"/>
+<div class="modal-body">
+<div class="row">
+<div class="col-md-6">
+<div class="mb-15">
+<label class="form-label" for="contactName">
+<i class="fa-solid fa-user"></i> Name
+                                    </label>
+<input class="form-control" id="contactName" name="name" placeholder="Your Name" type="text"/>
+<small class="text-danger error-name"></small>
+</div>
+</div>
+<div class="col-md-6">
+<div class="mb-15">
+<label class="form-label" for="contactNumber">
+<i class="fa-solid fa-phone"></i> Phone Number
+                                    </label>
+<input class="form-control" id="contactNumber" name="phone" oninput="this.value=this.value.replace(/[^0-9]/g,'').slice(0,10);" placeholder="Your Phone Number" type="number"/>
+<small class="text-danger error-phone"></small>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6">
+<div class="mb-15">
+<label class="form-label" for="contactEmail">
+<i class="fa-solid fa-envelope"></i> Email
+                                    </label>
+<input class="form-control" id="contactEmail" name="email" placeholder="Your Email" type="email"/>
+<small class="text-danger error-email"></small>
+</div>
+</div>
+<div class="col-md-6">
+<div class="mb-15">
+<label class="form-label" for="contactSubject">
+<i class="fa-solid fa-heading"></i> Subject
+                                    </label>
+<input class="form-control" id="contactSubject" name="subject" placeholder="Subject" type="text"/>
+<small class="text-danger error-subject"></small>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-12">
+<div class="mb-15">
+<label class="form-label" for="contactMessage">
+<i class="fa-solid fa-message"></i> Message
+                                    </label>
+<textarea class="form-control" id="contactMessage" name="message" placeholder="Enter your message here..." rows="5" style="min-height: 100px;"></textarea>
+<small class="text-danger error-message"></small>
+</div>
+</div>
+</div>
+<div class="row mt-3">
+<div class="col-12 text-center">
+<div class="g-recaptcha" data-sitekey="6LeGnW4sAAAAALnJk3GEAU4ZMH0sgMWOCZycArXp"></div>
+<small class="text-danger error-recaptcha"></small>
+</div>
+</div>
+</div>
+<div class="modal-footer d-flex justify-content-center" style="border:none;">
+<button class="bd-btn btn-primary w-100" id="brochureBtn" type="submit">
+                            Download Brochure
+                        </button>
+</div>
+</form>
+<script async="" defer="" src="https://www.google.com/recaptcha/api.js"></script>
+<script>
+                    document.getElementById("brochureForm").addEventListener("submit", async function(e) {
+                        e.preventDefault();
+
+                        let form = this;
+                        let formData = new FormData(form);
+
+                        // Clear old errors
+                        document.querySelectorAll("#brochureForm small.text-danger").forEach(el => {
+                            el.innerHTML = "";
+                        });
+
+                        let btn = document.getElementById("brochureBtn");
+                        btn.innerHTML = "Please wait...";
+                        btn.disabled = true;
+
+                        try {
+                            let response = await fetch("https://shreegurus.edu.in/brochure-submit", {
+                                method: "POST",
+                                headers: {
+                                    "X-CSRF-TOKEN": document.querySelector('input[name="_token"]').value,
+                                    "Accept": "application/json"
+                                },
+                                body: formData
+                            });
+
+                            // If validation fails (Laravel returns 422)
+                            if (!response.ok) {
+                                let errorData = await response.json();
+
+                                if (errorData.errors) {
+                                    if (errorData.errors.name) document.querySelector(".error-name").innerHTML = errorData
+                                        .errors.name[0];
+                                    if (errorData.errors.phone) document.querySelector(".error-phone").innerHTML = errorData
+                                        .errors.phone[0];
+                                    if (errorData.errors.email) document.querySelector(".error-email").innerHTML = errorData
+                                        .errors.email[0];
+                                    if (errorData.errors.subject) document.querySelector(".error-subject").innerHTML =
+                                        errorData.errors.subject[0];
+                                    if (errorData.errors.message) document.querySelector(".error-message").innerHTML =
+                                        errorData.errors.message[0];
+
+                                    // captcha error
+                                    if (errorData.errors.recaptcha) {
+                                        document.querySelector(".error-recaptcha").innerHTML = errorData.errors.recaptcha[
+                                            0];
+                                    }
+
+                                    // default captcha validation error
+                                    if (errorData.errors["g-recaptcha-response"]) {
+                                        document.querySelector(".error-recaptcha").innerHTML = errorData.errors[
+                                            "g-recaptcha-response"][0];
+                                    }
+                                }
+
+                                btn.innerHTML = "Download Brochure";
+                                btn.disabled = false;
+
+                                return;
+                            }
+
+                            let data = await response.json();
+
+                            if (data.status === true) {
+
+                                // Close modal only on success
+                                let modalEl = document.getElementById("contactModal");
+                                let modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+                                modal.hide();
+
+                                // Reset form
+                                form.reset();
+
+                                // reset captcha
+                                grecaptcha.reset();
+
+                                // Download brochure
+                                let fileUrl = "https://shreegurus.edu.in/assets/frontend/brochure/brochure.zip";
+                                let thankYouUrl = "https://shreegurus.edu.in/thank-you";
+
+                                let a = document.createElement("a");
+                                a.href = fileUrl;
+                                a.setAttribute("download", "");
+                                document.body.appendChild(a);
+                                a.click();
+                                document.body.removeChild(a);
+
+                                // Redirect after download starts
+                                setTimeout(() => {
+                                    window.location.href = thankYouUrl;
+                                }, 1500);
+                            }
+
+                            btn.innerHTML = "Download Brochure";
+                            btn.disabled = false;
+
+                        } catch (error) {
+                            console.log("Error:", error);
+                            btn.innerHTML = "Download Brochure";
+                            btn.disabled = false;
+                        }
+                    });
+                </script>
+</div>
+</div>
+</div>
+<div class="fix">
+<div class="bd-offcanvas-area">
+<div class="bd-offcanvas-wrapper">
+<div class="bd-offcanvas-content">
+<div class="bd-offcanvas-top d-flex justify-content-between align-items-center mb-30">
+<div class="bd-offcanvas-logo">
+<a href="how-to-choose-the-right-iit-junior-colleges-in-hyderabad-for-your-career.html#">
+<img alt="logo not found" src="../assets/frontend/img/logo1.png?v=2"/>
+</a>
+</div>
+<div class="bd-offcanvas-close">
+<button class="bd-offcanvas-close-icon animation--flip">
+<span class="bd-offcanvas-m-lines">
+<span class="bd-offcanvas-m-line line--1"></span><span class="bd-offcanvas-m-line line--2"></span><span class="bd-offcanvas-m-line line--3"></span>
+</span>
+</button>
+</div>
+</div>
+<div class="bd-mobile-menu-smaller">
+<div class="bd-offcanvas-menu mb-30">
+<nav></nav>
+</div>
+</div>
+<div class="bd-offcanvas-about d-none d-lg-block mb-30">
+<h4 class="bd-offcanvas-title-meta">About iStudy</h4>
+<p>Empowering learners and educators with a comprehensive platform that bridges the gap between
+                            traditional and modern education. iStudy inspires excellence in education and fosters growth
+                            for a brighter future.</p>
+</div>
+<div class="bd-offcanvas-contact mb-30">
+<h4 class="bd-offcanvas-title-meta">Contact Info</h4>
+<ul>
+<li class="d-flex align-items-center gap-10">
+<div class="bd-offcanvas-contact-icon">
+<a href="how-to-choose-the-right-iit-junior-colleges-in-hyderabad-for-your-career.html#" target="_blank">
+<i class="fal fa-map-marker-alt"></i></a>
+</div>
+<div class="bd-offcanvas-contact-text">
+<a href="how-to-choose-the-right-iit-junior-colleges-in-hyderabad-for-your-career.html#" target="_blank"> Nizampet, Kukatpally, Hyderabad, Telangana 500
+                                        090.
+                                    </a>
+</div>
+</li>
+<li class="d-flex align-items-center gap-10">
+<div class="bd-offcanvas-contact-icon">
+<a href="javascript:void(0)"><i class="far fa-phone"></i></a>
+</div>
+<div class="bd-offcanvas-contact-text">
+<!-- <a href="javascript:void(0)">+1-234-567-890</a> -->
+<a href="javascript:void(0)"> +91 To Be Added
+                                    </a>
+</div>
+</li>
+<li class="d-flex align-items-center gap-10">
+<div class="bd-offcanvas-contact-icon">
+<a href="javascript:void(0)"><i class="fal fa-envelope"></i></a>
+</div>
+<div class="bd-offcanvas-contact-text">
+<a href="mailto:info@shreegurus.edu.in"><span class="__cf_email__" data-cfemail="1d74737b725d746e69687964337e7270">info@shreegurus.edu.in</span></a>
+</div>
+</li>
+</ul>
+</div>
+<div class="bd-offcanvas-social">
+<h4 class="bd-offcanvas-title-meta">Follow Us</h4>
+<div class="theme-social">
+<ul class="social-icon-list">
+<li><a href="how-to-choose-the-right-iit-junior-colleges-in-hyderabad-for-your-career.html#"><i class="fa-brands fa-facebook-f"></i></a></li>
+<li><a href="how-to-choose-the-right-iit-junior-colleges-in-hyderabad-for-your-career.html#"><i class="fa-brands fa-x-twitter"></i></a></li>
+<li><a href="how-to-choose-the-right-iit-junior-colleges-in-hyderabad-for-your-career.html#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+<li><a href="how-to-choose-the-right-iit-junior-colleges-in-hyderabad-for-your-career.html#"><i class="fa-brands fa-instagram"></i></a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bd-offcanvas-overlay"></div>
+<div class="bd-offcanvas-overlay-white"></div>
+<!-- Offcanvas area start -->
+<!-- search popup area start here  -->
+<div class="bd-search-popup-area">
+<div class="container">
+<div class="row">
+<div class="col-12">
+<div class="bd-search-popup">
+<div class="bd-search-form">
+<form action="how-to-choose-the-right-iit-junior-colleges-in-hyderabad-for-your-career.html#">
+<div class="bd-search-input">
+<input name="search" placeholder="Type here to search ..." type="search"/>
+<div class="bd-search-submit">
+<button type="submit"><i class="fa-regular fa-magnifying-glass"></i></button>
+</div>
+</div>
+</form>
+<div class="bd-search-close">
+<div class="bd-search-close-btn">
+<button><i class="fa-thin fa-close"></i></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- search popup overlay  -->
+<div class="bd-search-overlay"></div>
+<!-- search popup area end here  -->
+<div class="body-overlay"></div>
+<!-- search popup area end here  -->
+<link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet">
+<style>
+    .icon-avatar {
+        width: 60px;
+        height: 60px;
+        background: #f2f2f2;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .icon-avatar i {
+        font-size: 22px;
+        color: #555;
+    }
+
+    .bd-postbox-comment-box {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    /* LEFT COMMENT */
+    .comment-left .bd-postbox-comment-box {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .comment-left .bd-postbox-comment-avatar {
+        margin-right: 15px;
+    }
+
+    /* RIGHT COMMENT */
+    .comment-right .bd-postbox-comment-box {
+        flex-direction: row-reverse;
+        text-align: right;
+    }
+
+    .comment-right .bd-postbox-comment-avatar {
+        margin-left: 15px;
+    }
+
+    h1 {
+        font-size: 28px;
+        color: var(--b);
+
+    }
+
+    h2 {
+        font-size: 20px;
+        color: var(--b);
+        font-weight: 500;
+    }
+
+    h3 {
+        font-size: 18px;
+        color: var(--b);
+    }
+
+    .bd-postbox-content ul li::before {
+        position: absolute;
+        content: "";
+        width: 8px;
+        height: 8px;
+        background-color: var(--bd-primary);
+        border-radius: 50%;
+        left: -20px;
+        top: 12px;
+
+    }
+
+    .bd-postbox-content li {
+        position: relative;
+        list-style-type: none;
+        padding: 5px 0px;
+    }
+
+    .bd-postbox-content a {
+         color: var(--bd-primary);
+    text-decoration: underline;
+    background-color: yellow;
+    padding: 2px;
+    }
+
+    textarea {
+
+        min-height: 70px;
+    }
+
+    .bd-blog-thumb {
+        height: 250px;
+        /* Set a fixed height for thumbnails */
+        overflow: hidden;
+    }
+
+    .bd-blog-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* This ensures images cover the area without distortion */
+    }
+
+    .bd-similar-articles-area .title a {
+
+        font-size: 18px;
+    }
+
+    .bd-postbox-wrapper .bd-section-title {
+
+        font-size: 22px;
+    }
+    
+    .tagcloud span {
+    font-size: 10px !important;
+    color: var(--bd-taxonomy-color);
+    font-weight: 500;
+    border: 1px solid var(--bd-border-primary);
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 5px;
+    /* height: 25px; */
+    margin: 5px;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+</style>
+<!-- Body main wrapper start -->
+<main>
+<!-- breadcrumb area start -->
+<section class="bd-breadcrumb-area p-relative fix z-index-11">
+<div class="bd-breadcrumb-bg-two" style="background-image: url(../assets/frontend/img/breadcrumb-bg-2.webp);">
+</div>
+<div class="bd-breadcrumb-wrapper p-relative">
+<div class="container">
+<div class="row">
+<div class="col-xl-12">
+<div class="bd-breadcrumb style-two d-flex-center">
+<div class="bd-breadcrumb-content">
+<h1 class="bd-breadcrumb-title">Blog Details</h1>
+<div class="bd-breadcrumb-list">
+<span><a href="index.html">Home</a></span>
+<span class="divider"><i class="fa-regular fa-angle-right"></i></span>
+<span class="active">Blog Details</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bd-breadcrumb-shape">
+<div class="shape-1"><img alt="shape" src="../assets/frontend/images/shape/breadcrumb-shape-1.webp?v=2"/></div>
+<div class="shape-3"><img alt="shape" src="../assets/frontend/images/shape/bulb-shape.webp?v=2"/></div>
+</div>
+</div>
+</div>
+</section>
+<!-- breadcrumb area end -->
+<!-- postbox area start -->
+<section class="bd-postbox-area section-space">
+<div class="container">
+<div class="row">
+<div class="col-xxl-8 col-xl-8 col-xxl-8 col-lg-8">
+<div class="bd-postbox-wrapper">
+<div class="bd-blog-feature-thumb"><img alt="How to Choose the Right IIT Junior Colleges in Hyderabad for Your Career" class="w-100" src="../core/public/uploads/blog/image/1771506362_how-to-choose-the-right-iit-junior-colleges-in-hyderabad-for-your-career.webp?v=2"/></div>
+<div class="bd-blog-meta-list mb-20">
+<div class="bd-blog-meta-item">
+<span class="meta-icon">
+<i class="fa-solid fa-user"></i>
+</span>
+<span class="meta-text">
+<a class="meta-author" href="how-to-choose-the-right-iit-junior-colleges-in-hyderabad-for-your-career.html">
+                                        Admin
+                                    </a>
+</span>
+</div>
+<div class="bd-blog-meta-item">
+<span class="meta-icon">
+<i class="fa-sharp fa-light fa-calendar-days"></i>
+</span>
+<span class="meta-text">
+<a href="how-to-choose-the-right-iit-junior-colleges-in-hyderabad-for-your-career.html">
+                                        February 19 2026
+                                    </a>
+</span>
+</div>
+<div class="bd-blog-meta-item">
+<span class="meta-icon">
+<i class="fa-solid fa-eye"></i>
+</span>
+<span class="meta-text">
+                                    474 Views
+                                </span>
+</div>
+<!-- 
+                                                            <div class="bd-blog-meta-item">
+                                    <span class="meta-icon">
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    </span>
+                                    <span class="meta-text">
+                                        <a href="https://shreegurus.edu.in/blog/how-to-choose-the-right-iit-junior-colleges-in-hyderabad-for-your-career">
+                                            Updated: September 08 2026
+                                        </a>
+                                    </span>
+                                </div>
+                             -->
+</div>
+<div class="bd-postbox-content">
+<h3 class="bd-details-content-title"> How to Choose the Right IIT Junior Colleges in Hyderabad for Your Career</h3>
+<p class="bd-postbox-desc">
+<p>It is critical that students applying to the elite IITs choose their intermediate college wisely. Selection of an intermediate institution, after completion of 10th grade, can dictate the direction of your complete educational and professional journey with increasing competition and growing expectations.</p>
+<p>When searching for<strong><a href="../index.html"> IIT junior colleges in Hyderabad</a></strong>, make sure that you look at the academic structure, faculty strength, and overall performance, rather than focusing solely on advertisements. A positive learning environment will help to prepare the foundation needed for students who wish to successfully pass the JEE and gain admission to IIT.</p>
+<h2><strong>Look for an Integrated Academic Structure</strong></h2>
+<p>The defining characteristic of the leading<strong><a href="../index.html"> IIT junior colleges in Hyderabad</a></strong> is their curriculum integration. An integrated curriculum combines intermediate board syllabus and <strong><a href="jee-main-2026-jan-attempt-scorepercentile-correlation.html">JEE</a></strong> preparation in a corresponding manner.</p>
+<p>At our Shree GURUS Group of Institutions, we have created an integrated academic framework that allows students to achieve success in their board examinations while preparing for all major entrance examinations simultaneously. This integrated approach minimizes stress and promotes understanding of concepts.</p>
+<h2><strong>Evaluate Faculty Expertise and Mentorship</strong></h2>
+<p>The success of students is greatly determined by the capabilities of their instructors. One of the <strong><a href="../index.html">best IIT junior colleges in Hyderabad </a></strong>with experienced teachers who know their subjects inside and out and have a good grasp on the test strategies will create a high level of success for its members.</p>
+<p>Shree GURUS Group of Institutions employs professionals who are committed to providing students with quality education. The focus is on learning concepts, developing analytical skill sets, and practicing consistently. Through regular doubt clearance and mentorship all students will be well-supported.</p>
+<h2><strong>Check Consistency in Results</strong></h2>
+<p>While selecting from various<strong><a href="../index.html"> IIT junior colleges in Hyderabad</a></strong>, reviewing past results is essential. Consistency over the years indicates a systematic preparation model.</p>
+<p>Shree GURUS Group of Institutions has built its reputation on structured planning, disciplined execution, and result-oriented training. Sustained performance reflects the strength of its academic ecosystem.</p>
+<h2><strong>Assess the Testing and Evaluation System</strong></h2>
+<p>There is no doubt that a rigorous testing schedule is essential to being prepared for IIT examinations. Leading IIT junior college in Hyderabad regularly assess the student's ability to succeed academically by offering tests at regular intervals.</p>
+<p>At Shree GURUS Group of Institutions, students have the opportunity to not only take weekly assessments but also participate in intensive cumulative assessments and receive an extensive feedback process related to overall performance. This structured approach to evaluating students will help with identifying areas of weakness and providing guidance on how to correct those weaknesses.</p>
+<h2><strong>Focus on Discipline and Academic Environment</strong></h2>
+<p>Competitive exams demand consistency and focus. Among the recognized<a href="../index.html"> <strong>IIT junior colleges in Hyderabad</strong></a>, institutions that promote disciplined study culture often produce better outcomes.</p>
+<p>The study environment that is free from distractions, has a structured schedule and instills academic accountability in students helps keep the student on track towards their goals. At Shree GURUS Group of Institutions, the student is provided with a performance driven environment to foster strong, supportive study habits.</p>
+<h2><strong>Personalized Attention and Progress Monitoring</strong></h2>
+<p>Each student has his/her unique strengths and ways of learning. The best IIT junior colleges in Hyderabad use individual mentoring and tracking of students' academic progress.</p>
+<p>In addition to regular contact with parents, Shree GURUS Group of Institutions conduct counselling sessions, performance reviews and provide continuous guidance for students' success throughout the two years they spend at VJCs.</p>
+<h2><strong>Infrastructure and Advanced Learning Support</strong></h2>
+<p><strong><a href="crack-iit-jee-neet-with-expert-guidance-at-shreegurus-junior-colleges.html">IIT junior colleges</a></strong> in Hyderabad should also be assessed on the basis of infrastructure and instructional resources. The modern academic setting that includes digital classrooms, adequate lab equipment, and current reading material increases the opportunity for students to learn effectively.</p>
+<p>Shree GURUS Group of Institutions provides the following opportunities to support academic success: technology-enhanced teaching styles; organized study halls; and resource-rich libraries to enhance understanding and to assist with focused learning preparation. A thoughtfully planned physical environment will assist in developing consistency and achieving academic excellence.</p>
+<h2><strong>Competitive Peer Environment and Motivation</strong></h2>
+<p>The peer group and academic culture around IIT preparation have an impact on one's success in this area. A good number of the well-respected IIT junior colleges in Hyderabad have healthy competition types of environments that provide for better results, than those that do not have such an environment.</p>
+<p>Students placed in an environment with other focused, and goal driven individuals are more likely to push themselves harder than what they would otherwise. Additionally, Shree GURUS Group of Institutions uses a structured schedule, career performance review, and ongoing encouragement to ensure that students remain committed to their goals during their entire intermediate program.</p>
+<h2><strong>Making the Right Decision for Your Future</strong></h2>
+<p>When you’re deciding among the various IIT junior colleges in Hyderabad, you want to make sure that you are making a deliberate choice based on factors such as academic excellence, faculty experience, structured preparation, and institutional discipline. Visiting the college campus and meeting with the faculty members, will help you decide what type of academic environment would be best suited for you. </p>
+<p>Your intermediate years should not just be viewed as an opportunity to complete your academic course work; rather, they should be viewed as an opportunity for you to build a strong foundation for future success in the competitive world of engineering by creating good mentoring partnerships with fellow students and developing habits of positive influencing factors related to focused study environments so as to assist you in achieving your goals of being accepted into IIT’s and eventually enjoying a successful career as an Engineer.</p>
+<p>At Shree GURUS Group of Institutions, we are not just about academics; we are about creating future leaders by placing emphasis on purposefulness, precision, and productivity.</p>
+<h2><strong>FAQs – IIT Junior Colleges in Hyderabad</strong></h2>
+<h3><strong>1. What should I look for in IIT junior colleges in Hyderabad?</strong></h3>
+<p>Look for integrated curriculum, experienced faculty, consistent results, and a strong testing system.</p>
+<h3><strong>2. Why is an integrated curriculum important for IIT preparation?</strong></h3>
+<p>It aligns board syllabus with JEE coaching, reducing stress and improving conceptual clarity.</p>
+<h3><strong>3. How important are regular mock tests in IIT coaching?</strong></h3>
+<p>Mock tests improve time management, accuracy, and help identify weak areas early.</p>
+<h3><strong>4. Does faculty experience matter in <a href="crack-iit-jee-neet-with-expert-guidance-at-shreegurus-junior-colleges.html">IIT preparation</a>?</strong></h3>
+<p>Yes, experienced faculty provide better conceptual teaching and effective exam strategies.</p>
+<h3><strong>5. How does Shree GURUS Group of Institutions support IIT aspirants?</strong></h3>
+<p>Shree GURUS Group of Institutions offers integrated preparation, expert mentoring, structured tests, and a disciplined learning environment.</p>
+<p> </p>
+</p>
+<div class="bd-postbox-meta">
+<div class="bd-postbox-tag">
+<div class="tagcloud">
+<h4 class="bd-section-title mb-10">Tags</h4>
+<div class="tagcloud">
+<span href="">
+                                                        IIT coaching
+                                                    </span>
+<span href="">
+                                                        JEE coaching
+                                                    </span>
+<span href="">
+                                                        Intermediate MPC
+                                                    </span>
+<span href="">
+                                                        Top junior colleges
+                                                    </span>
+<span href="">
+                                                        JEE aspirants
+                                                    </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bd-blog-postbox-comment mb-30">
+<h4 class="bd-section-title mb-30"> Comments</h4>
+<div class="bd-postbox-comment">
+<ul>
+</ul>
+</div>
+</div>
+<div class="bd-blog-postbox-comment-form">
+<h4 class="bd-section-title mb-10">Leave a Comment</h4>
+<div class="bd-review-form">
+<div class="bd-review-form-rating mb-15">
+<p>Your email address will not be published</p>
+</div>
+<form action="https://shreegurus.edu.in/comments/store" method="Post">
+<input autocomplete="off" name="_token" type="hidden" value="BphA99qTLJ1hzQLCBG1CypHyoDz5FCswu7wYSiAy"/> <div class="row gy-30">
+<div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
+<input name="blog_id" type="hidden" value="21"/>
+<div class="bd-postbox-comment-input">
+<input name="name" placeholder="Name" required="" type="text"/>
+</div>
+</div>
+<div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
+<div class="bd-postbox-comment-input">
+<input name="email" placeholder="Email" required="" type="email"/>
+</div>
+</div>
+<div class="col-xxl-12">
+<div class="bd-postbox-comment-input mb-15">
+<textarea name="message" placeholder="Your Comment Here..." spellcheck="false"></textarea>
+</div>
+<div class="checkbox-option">
+<input id="course-check-1" type="checkbox"/>
+<label for="course-check-1">Save my name, email, and website in this
+                                                    browser for
+                                                    the next time I comment.</label>
+</div>
+</div>
+<div class="col-xxl-12">
+<div class="bd-postbox-comment-btn">
+<button class="bd-btn btn-primary" name="" type="submit">Submit
+                                                    Review</button>
+</div>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="col-xxl-4 col-xl-4 col-xxl-4 col-lg-4">
+<div class="bd-blog-sidebar sidebar-right sidebar-sticky">
+<!-- <div class="bd-blog-widget widget-search">
+                                <h5 class="bd-widget-title mb-20">Search</h5>
+                                <div class="bd-sidebar-search">
+                                    <form class="bd-sidebar-search-form" action="#" method="get">
+                                        <input type="text" value="" required="" name="s" placeholder="Search">
+                                        <button type="submit"> <i class="far fa-search"></i> </button>
+                                    </form>
+                                </div>
+                            </div> -->
+<div class="bd-blog-widget widget-latest-posts">
+<h5 class="bd-widget-title mb-20">Latest Post</h5>
+<div class="bd-widget-posts">
+<div class="bd-recent-post-item">
+<div class="bd-recent-post-thumb">
+<a href="how-to-find-the-right-iit-coaching-center-in-hyderabad.html"><img alt="image" src="../core/public/uploads/blog/image/1776421903_how-to-find-the-right-iit-coaching-center-in-hyderabad.webp?v=2"/></a>
+</div>
+<div class="bd-recent-post-content">
+<div class="bd-recent-post-meta">
+<span class="icon"><i class="fa-light fa-calendar-days"></i></span>
+<span class="date">April 17 2026</span>
+</div>
+<h6 class="bd-recent-post-title underline"><a href="how-to-find-the-right-iit-coaching-center-in-hyderabad.html">
+                                                    How to Find the Right IIT Coaching Center in Hyderabad?</a>
+</h6>
+</div>
+</div>
+<div class="bd-recent-post-item">
+<div class="bd-recent-post-thumb">
+<a href="hyderabads-top-iit-coaching-centers-intermediate-colleges-you-should-know.html"><img alt="image" src="../core/public/uploads/blog/image/1777541951_hyderabads-top-iit-coaching-centers-intermediate-colleges-you-should-know.jpeg?v=2"/></a>
+</div>
+<div class="bd-recent-post-content">
+<div class="bd-recent-post-meta">
+<span class="icon"><i class="fa-light fa-calendar-days"></i></span>
+<span class="date">April 16 2026</span>
+</div>
+<h6 class="bd-recent-post-title underline"><a href="hyderabads-top-iit-coaching-centers-intermediate-colleges-you-should-know.html">
+                                                    Hyderabad’s Top IIT Coaching Centers &amp; Intermediate Colleges You Should Know</a>
+</h6>
+</div>
+</div>
+<div class="bd-recent-post-item">
+<div class="bd-recent-post-thumb">
+<a href="scholarship-test-for-class-11-your-gateway-to-academic-excellence.html"><img alt="image" src="../core/public/uploads/blog/image/1776233549_scholarship-test-for-class-11-your-gateway-to-academic-excellence.webp?v=2"/></a>
+</div>
+<div class="bd-recent-post-content">
+<div class="bd-recent-post-meta">
+<span class="icon"><i class="fa-light fa-calendar-days"></i></span>
+<span class="date">April 14 2026</span>
+</div>
+<h6 class="bd-recent-post-title underline"><a href="scholarship-test-for-class-11-your-gateway-to-academic-excellence.html">
+                                                    Scholarship Test for Class 11 – Your Gateway to Academic Excellence</a>
+</h6>
+</div>
+</div>
+<div class="bd-recent-post-item">
+<div class="bd-recent-post-thumb">
+<a href="why-iit-coaching-in-hyderabad-is-the-best-choice-for-jee-preparation.html"><img alt="image" src="../core/public/uploads/blog/image/1775815790_why-iit-coaching-in-hyderabad-is-the-best-choice-for-jee-preparation.webp?v=2"/></a>
+</div>
+<div class="bd-recent-post-content">
+<div class="bd-recent-post-meta">
+<span class="icon"><i class="fa-light fa-calendar-days"></i></span>
+<span class="date">April 10 2026</span>
+</div>
+<h6 class="bd-recent-post-title underline"><a href="why-iit-coaching-in-hyderabad-is-the-best-choice-for-jee-preparation.html">
+                                                    Why IIT Coaching in Hyderabad is the Best Choice for JEE Preparation</a>
+</h6>
+</div>
+</div>
+<div class="bd-recent-post-item">
+<div class="bd-recent-post-thumb">
+<a href="how-to-choose-the-best-iit-coaching-in-hyderabad-for-jee-success.html"><img alt="image" src="../core/public/uploads/blog/image/1775739980_how-to-choose-the-best-iit-coaching-in-hyderabad-for-jee-success.webp?v=2"/></a>
+</div>
+<div class="bd-recent-post-content">
+<div class="bd-recent-post-meta">
+<span class="icon"><i class="fa-light fa-calendar-days"></i></span>
+<span class="date">April 09 2026</span>
+</div>
+<h6 class="bd-recent-post-title underline"><a href="how-to-choose-the-best-iit-coaching-in-hyderabad-for-jee-success.html">
+                                                    How to Choose the Best IIT Coaching in Hyderabad for JEE Success</a>
+</h6>
+</div>
+</div>
+</div>
+</div>
+<div class="bd-blog-widget widget_categories">
+<h5 class="bd-widget-title mb-20">Categories</h5>
+<div class="bd-widget-list">
+<ul>
+<li class="underline">
+<a href="../blogs/category/iit.html">
+                                                IIT
+                                            </a>
+                                            (9)
+                                        </li>
+<li class="underline">
+<a href="../blogs/category/eapcet.html">
+                                                EAPCET
+                                            </a>
+                                            (0)
+                                        </li>
+<li class="underline">
+<a href="../blogs/category/academics.html">
+                                                Academics
+                                            </a>
+                                            (34)
+                                        </li>
+<li class="underline">
+<a href="../blogs/category/neet.html">
+                                                NEET
+                                            </a>
+                                            (6)
+                                        </li>
+<li class="underline">
+<a href="../blogs/category/jee-mainsadvanced.html">
+                                                Jee Mains/Advanced
+                                            </a>
+                                            (13)
+                                        </li>
+</ul>
+</div>
+</div>
+<div class="bd-blog-widget widget_tag_cloud">
+<h5 class="bd-widget-title mb-20">Tags</h5>
+<div class="tagcloud">
+<span href="">
+                                            IIT coaching
+                                        </span>
+<span href="">
+                                            JEE coaching
+                                        </span>
+<span href="">
+                                            Intermediate MPC
+                                        </span>
+<span href="">
+                                            Top junior colleges
+                                        </span>
+<span href="">
+                                            JEE aspirants
+                                        </span>
+</div>
+</div>
+<!-- <div class="bd-sidebar-promotion">
+                            <a href="" class="thumb">
+                                <img src="https://shreegurus.edu.in/assets/frontend/img/sidebar-banner.webp" alt="image">
+                            </a>
+                        </div> -->
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- postbox area end -->
+<!-- similar articles area start -->
+<section class="bd-similar-articles-area section-space primary-bg">
+<div class="container">
+<div class="row gy-30 justify-content-between align-items-center section-title-space">
+<div class="col-xl-7 col-lg-8 col-md-7">
+<div class="bd-section-title-wrapper">
+<h2 class="bd-section-title">Similar Articles</h2>
+</div>
+</div>
+<div class="col-xl-2 col-lg-4 col-md-5">
+<div class="bd-blog-slider-navigation d-flex justify-content-md-end gap-15">
+<button class="blog-navigation-prev"><i class="fa-regular fa-angle-left"></i></button>
+<button class="blog-navigation-next"><i class="fa-regular fa-angle-right"></i></button>
+</div>
+</div>
+</div>
+<div class="swiper similarArticlesActivation swiper-shadow-add">
+<div class="swiper-wrapper">
+<div class="swiper-slide h-auto">
+<article class="bd-blog-wrapper style-four d-flex flex-column h-100">
+<div class="bd-blog-thumb">
+<a href="how-to-find-the-right-iit-coaching-center-in-hyderabad.html">
+<img alt="image" class="w-100" src="../core/public/uploads/blog/image/1776421903_how-to-find-the-right-iit-coaching-center-in-hyderabad.webp?v=2"/>
+</a>
+</div>
+<div class="bd-blog-content d-flex flex-column flex-grow-1">
+<div class="bd-blog-meta-list">
+<div class="bd-blog-meta-item has-separator">
+<span class="meta-icon">
+<i class="fa-solid fa-user"></i>
+</span>
+<span class="meta-text">
+<a class="meta-author" href="how-to-find-the-right-iit-coaching-center-in-hyderabad.html">
+                                                    Admin
+                                                </a>
+</span>
+</div>
+<div class="bd-blog-meta-item">
+<span class="meta-icon">
+<i class="fa-sharp fa-light fa-calendar-days"></i>
+</span>
+<span class="meta-text">
+                                                April 17, 2026
+                                            </span>
+</div>
+</div>
+<h5 class="title underline">
+<a href="how-to-find-the-right-iit-coaching-center-in-hyderabad.html">
+                                            How to Find the Right IIT Coaching Center in Hyderabad?
+                                        </a>
+</h5>
+<p>
+                                        For students who want to succeed in the IIT-JEE exam, choosing the right coaching institute may be the biggest decision they will have to make during their education. There are...
+                                    </p>
+<div class="bd-blog-btn mt-auto">
+<div class="icon-text-btn p-relative">
+<a href="how-to-find-the-right-iit-coaching-center-in-hyderabad.html">
+<span>Read More</span>
+<i>
+<svg fill="none" height="14" viewbox="0 0 18 14" width="18" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.2871 1L17 6.71285L11.2871 12.4257" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M1 6.71313H16.8397" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+</svg>
+</i>
+</a>
+</div>
+</div>
+</div>
+</article>
+</div>
+<div class="swiper-slide h-auto">
+<article class="bd-blog-wrapper style-four d-flex flex-column h-100">
+<div class="bd-blog-thumb">
+<a href="hyderabads-top-iit-coaching-centers-intermediate-colleges-you-should-know.html">
+<img alt="image" class="w-100" src="../core/public/uploads/blog/image/1777541951_hyderabads-top-iit-coaching-centers-intermediate-colleges-you-should-know.jpeg?v=2"/>
+</a>
+</div>
+<div class="bd-blog-content d-flex flex-column flex-grow-1">
+<div class="bd-blog-meta-list">
+<div class="bd-blog-meta-item has-separator">
+<span class="meta-icon">
+<i class="fa-solid fa-user"></i>
+</span>
+<span class="meta-text">
+<a class="meta-author" href="hyderabads-top-iit-coaching-centers-intermediate-colleges-you-should-know.html">
+                                                    Admin
+                                                </a>
+</span>
+</div>
+<div class="bd-blog-meta-item">
+<span class="meta-icon">
+<i class="fa-sharp fa-light fa-calendar-days"></i>
+</span>
+<span class="meta-text">
+                                                April 16, 2026
+                                            </span>
+</div>
+</div>
+<h5 class="title underline">
+<a href="hyderabads-top-iit-coaching-centers-intermediate-colleges-you-should-know.html">
+                                            Hyderabad’s Top IIT Coaching Centers &amp; Intermediate Colleges You Should Know
+                                        </a>
+</h5>
+<p>
+                                        Selecting an appropriate college to attend after the completion of their secondary education is vital for an individual who wishes to prepare for a highly competitive examination such as JEE...
+                                    </p>
+<div class="bd-blog-btn mt-auto">
+<div class="icon-text-btn p-relative">
+<a href="hyderabads-top-iit-coaching-centers-intermediate-colleges-you-should-know.html">
+<span>Read More</span>
+<i>
+<svg fill="none" height="14" viewbox="0 0 18 14" width="18" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.2871 1L17 6.71285L11.2871 12.4257" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M1 6.71313H16.8397" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+</svg>
+</i>
+</a>
+</div>
+</div>
+</div>
+</article>
+</div>
+<div class="swiper-slide h-auto">
+<article class="bd-blog-wrapper style-four d-flex flex-column h-100">
+<div class="bd-blog-thumb">
+<a href="scholarship-test-for-class-11-your-gateway-to-academic-excellence.html">
+<img alt="image" class="w-100" src="../core/public/uploads/blog/image/1776233549_scholarship-test-for-class-11-your-gateway-to-academic-excellence.webp?v=2"/>
+</a>
+</div>
+<div class="bd-blog-content d-flex flex-column flex-grow-1">
+<div class="bd-blog-meta-list">
+<div class="bd-blog-meta-item has-separator">
+<span class="meta-icon">
+<i class="fa-solid fa-user"></i>
+</span>
+<span class="meta-text">
+<a class="meta-author" href="scholarship-test-for-class-11-your-gateway-to-academic-excellence.html">
+                                                    Admin
+                                                </a>
+</span>
+</div>
+<div class="bd-blog-meta-item">
+<span class="meta-icon">
+<i class="fa-sharp fa-light fa-calendar-days"></i>
+</span>
+<span class="meta-text">
+                                                April 14, 2026
+                                            </span>
+</div>
+</div>
+<h5 class="title underline">
+<a href="scholarship-test-for-class-11-your-gateway-to-academic-excellence.html">
+                                            Scholarship Test for Class 11 – Your Gateway to Academic Excellence
+                                        </a>
+</h5>
+<p>
+                                        Stepping into intermediate education is a crucial phase in every student’s academic journey. It is a time when the foundation for future careers is built, and making the right choices...
+                                    </p>
+<div class="bd-blog-btn mt-auto">
+<div class="icon-text-btn p-relative">
+<a href="scholarship-test-for-class-11-your-gateway-to-academic-excellence.html">
+<span>Read More</span>
+<i>
+<svg fill="none" height="14" viewbox="0 0 18 14" width="18" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.2871 1L17 6.71285L11.2871 12.4257" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M1 6.71313H16.8397" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+</svg>
+</i>
+</a>
+</div>
+</div>
+</div>
+</article>
+</div>
+<div class="swiper-slide h-auto">
+<article class="bd-blog-wrapper style-four d-flex flex-column h-100">
+<div class="bd-blog-thumb">
+<a href="why-iit-coaching-in-hyderabad-is-the-best-choice-for-jee-preparation.html">
+<img alt="image" class="w-100" src="../core/public/uploads/blog/image/1775815790_why-iit-coaching-in-hyderabad-is-the-best-choice-for-jee-preparation.webp?v=2"/>
+</a>
+</div>
+<div class="bd-blog-content d-flex flex-column flex-grow-1">
+<div class="bd-blog-meta-list">
+<div class="bd-blog-meta-item has-separator">
+<span class="meta-icon">
+<i class="fa-solid fa-user"></i>
+</span>
+<span class="meta-text">
+<a class="meta-author" href="why-iit-coaching-in-hyderabad-is-the-best-choice-for-jee-preparation.html">
+                                                    Admin
+                                                </a>
+</span>
+</div>
+<div class="bd-blog-meta-item">
+<span class="meta-icon">
+<i class="fa-sharp fa-light fa-calendar-days"></i>
+</span>
+<span class="meta-text">
+                                                April 10, 2026
+                                            </span>
+</div>
+</div>
+<h5 class="title underline">
+<a href="why-iit-coaching-in-hyderabad-is-the-best-choice-for-jee-preparation.html">
+                                            Why IIT Coaching in Hyderabad is the Best Choice for JEE Preparation
+                                        </a>
+</h5>
+<p>
+                                        To crack JEE requires the right support, regular practice and a solid academic background. This is why almost all aspirants are searching for best IIT coaching centers in Hyderabad which...
+                                    </p>
+<div class="bd-blog-btn mt-auto">
+<div class="icon-text-btn p-relative">
+<a href="why-iit-coaching-in-hyderabad-is-the-best-choice-for-jee-preparation.html">
+<span>Read More</span>
+<i>
+<svg fill="none" height="14" viewbox="0 0 18 14" width="18" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.2871 1L17 6.71285L11.2871 12.4257" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M1 6.71313H16.8397" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+</svg>
+</i>
+</a>
+</div>
+</div>
+</div>
+</article>
+</div>
+<div class="swiper-slide h-auto">
+<article class="bd-blog-wrapper style-four d-flex flex-column h-100">
+<div class="bd-blog-thumb">
+<a href="how-to-choose-the-best-iit-coaching-in-hyderabad-for-jee-success.html">
+<img alt="image" class="w-100" src="../core/public/uploads/blog/image/1775739980_how-to-choose-the-best-iit-coaching-in-hyderabad-for-jee-success.webp?v=2"/>
+</a>
+</div>
+<div class="bd-blog-content d-flex flex-column flex-grow-1">
+<div class="bd-blog-meta-list">
+<div class="bd-blog-meta-item has-separator">
+<span class="meta-icon">
+<i class="fa-solid fa-user"></i>
+</span>
+<span class="meta-text">
+<a class="meta-author" href="how-to-choose-the-best-iit-coaching-in-hyderabad-for-jee-success.html">
+                                                    Admin
+                                                </a>
+</span>
+</div>
+<div class="bd-blog-meta-item">
+<span class="meta-icon">
+<i class="fa-sharp fa-light fa-calendar-days"></i>
+</span>
+<span class="meta-text">
+                                                April 09, 2026
+                                            </span>
+</div>
+</div>
+<h5 class="title underline">
+<a href="how-to-choose-the-best-iit-coaching-in-hyderabad-for-jee-success.html">
+                                            How to Choose the Best IIT Coaching in Hyderabad for JEE Success
+                                        </a>
+</h5>
+<p>
+                                        When it comes to choosing an institution to receive coaching as a JEE aspirant, the selection of the appropriate coaching institution is very important. Since there are so many students...
+                                    </p>
+<div class="bd-blog-btn mt-auto">
+<div class="icon-text-btn p-relative">
+<a href="how-to-choose-the-best-iit-coaching-in-hyderabad-for-jee-success.html">
+<span>Read More</span>
+<i>
+<svg fill="none" height="14" viewbox="0 0 18 14" width="18" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.2871 1L17 6.71285L11.2871 12.4257" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M1 6.71313H16.8397" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+</svg>
+</i>
+</a>
+</div>
+</div>
+</div>
+</article>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- similar articles area end -->
+</main>
+<!-- Body main wrapper end -->
+<!-- footer area start -->
+<footer>
+<style>
+.cookie-consent {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #1c1c1c;
+  color: #fff;
+  padding: 15px 20px;
+  z-index: 9999;
+  display: none;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+}
+
+.cookie-content {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.cookie-content p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.cookie-content a {
+  color: #ffc107;
+  text-decoration: underline;
+}
+
+.cookie-buttons {
+  margin-top: 10px;
+}
+
+.cookie-buttons button {
+  margin-left: 10px;
+  padding: 8px 18px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.btn-accept {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.btn-reject {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .cookie-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .cookie-buttons {
+    margin-top: 10px;
+  }
+}
+</style>
+<div class="cookie-consent" id="cookieConsent">
+<div class="cookie-content">
+<p>
+      We use cookies to improve your browsing experience, analyze site traffic, 
+      and personalize content. By clicking "Accept", you consent to our use of cookies.
+      <a href="../privacy-policy.html" target="_blank">Learn More</a>
+</p>
+<div class="cookie-buttons">
+<button class="btn-accept" id="acceptCookies">Accept</button>
+<button class="btn-reject" id="rejectCookies">Reject</button>
+</div>
+</div>
+</div>
+<a class="whatsapp-float" href="javascript:void(0)" target="_blank" title="Chat with Shree GURUS Group of Institutions Admissions on WhatsApp">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+<style>
+.whatsapp-float {
+    position: fixed;
+    bottom: 90px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+    z-index: 999;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    background-color: #20ba5b;
+    transform: scale(1.1);
+    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.6);
+}
+
+.whatsapp-float:active {
+    transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 70px;
+        right: 20px;
+        width: 55px;
+        height: 55px;
+        font-size: 28px;
+    }
+}
+</style>
+<style>
+
+ .bd-footer-contact-title {
+    color: #fff;
+    font-size: 16px;
+}
+
+.contact-icon i{
+  color: #fff !important;
+}
+
+
+.shreegurus_group
+
+button{
+    position: absolute;
+    right: 200px;
+    /* bottom: -80px; */
+    /* top: 60px; */
+    bottom: 0px;
+    z-index: 9999;
+    background-color: #fff;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    font-size: 14px;
+    line-height: 1.5;
+}
+</style>
+<!-- 
+    <button class="btn btn-primary fixed-btn" type="button" data-bs-toggle="collapse" data-bs-target="#shreegurustabs"
+        aria-expanded="false" aria-controls="shreegurustabs">
+        SHREE GURUS GROUP OF INSTITUTIONS
+    </button> -->
+<div class="bd-footer-area style-two has-footer-space theme-black space fix">
+<div class="container">
+<div class="row gy-30 justify-content-between">
+<div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-12">
+<div class="bd-footer-widget footer-2-col-1">
+<div class="bd-footer-widget-logo">
+<a href="../index.html"><img alt="logo" loading="lazy" src="../assets/frontend/img/logo1.png?v=2"/></a>
+</div>
+<div class="bd-footer-widget-content">
+<p class="bd-footer-widget-description">
+                                Shree GURUS is a premier educational institution offering coaching for IIT-JEE, NEET, and SAT
+                                exams.
+                            </p>
+<div class="bd-footer-social">
+<div class="theme-social has-white">
+<ul class="social-icon-list">
+<li><a href="javascript:void(0)" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
+<li><a href="javascript:void(0)" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+<li><a href="javascript:void(0)" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a></li>
+<li><a href="javascript:void(0)" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-xxl-3 col-xl-2 col-lg-2 col-md-3 col-sm-4">
+<div class="bd-footer-widget footer-2-col-2">
+<h6 class="bd-footer-widget-title">Courses</h6>
+<div class="bd-footer-widget-links">
+<ul>
+<li class="underline-two"><a href="../intermediate-mpc-with-iit-jee-integrated-2-year-program.html"><i class="fa-solid fa-chevron-right"></i> MPC with IIT-JEE</a></li>
+<li class="underline-two"><a href="../bipc-with-neet-junior-college.html"><i class="fa-solid fa-chevron-right"></i> BiPC with NEET</a></li>
+<li class="underline-two"><a href="../iit-jee-main-advanced-long-term-coaching.html"><i class="fa-solid fa-chevron-right"></i> JEE Long Term</a></li>
+<li class="underline-two"><a href="../neet-long-term-coaching.html"><i class="fa-solid fa-chevron-right"></i> NEET Long Term</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-xxl-3 col-xl-2 col-lg-2 col-md-3 col-sm-4">
+<div class="bd-footer-widget footer-2-col-3">
+<h6 class="bd-footer-widget-title">Quick Links</h6>
+<div class="bd-footer-widget-links">
+<ul>
+<li class="underline-two"><a href="index.html"><i class="fa-solid fa-chevron-right"></i> Blog</a></li>
+<li class="underline-two"><a href="../gallery.html"><i class="fa-solid fa-chevron-right"></i> Gallery</a></li>
+<li class="underline-two"><a href="../admissions.html"><i class="fa-solid fa-chevron-right"></i> Admissions</a></li>
+<!-- <li class="underline-two"><a href="#"><i class="fa-solid fa-chevron-right"></i> Login</a></li> -->
+<li class="underline-two"><a href="../privacy-policy.html"><i class="fa-solid fa-chevron-right"></i> Privacy Policy</a></li>
+<li class="underline-two"><a href="../terms-and-conditions.html"> <i class="fa-solid fa-chevron-right"></i> Terms Conditions</a></li>
+</ul>
+</div>
+</div>
+</div>
+<!-- <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-4 col-sm-4">
+                        <div class="bd-footer-widget footer-2-col-4">
+                            <h6 class="bd-footer-widget-title ">Support</h6>
+                            <div class="bd-footer-widget-links">
+                                <ul>
+                                    <li class="underline-two"><a href="">Contact Now</a></li>
+                                    <li class="underline-two"><a href="">FAQ</a></li>
+                             
+                                    <li class="underline-two"><a href="">Terms Conditions</a></li>
+                                    <li class="underline-two"><a href="">Privacy Policy</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div> -->
+<div class="col-xxl-3 col-xl-3 col-lg-3 col-md-8 col-sm-12">
+<div class="bd-footer-widget footer-2-col-5">
+<h6 class="bd-footer-widget-title">Contact Info</h6>
+<div class="bd-footer-from-content">
+<div class="bd-footer-widget-contact">
+<div class="bd-footer-contact-item d-flex gap-3 mb-3">
+<div class="contact-icon">
+<i class="fa-solid fa-map-location-dot text-primary"></i>
+</div>
+<div class="contact-content">
+<h6 class="bd-footer-contact-title mb-1">Shree GURUS Nizampet Office</h6>
+<p class="bd-footer-contact-text small">To Be Added</p>
+</div>
+</div>
+<div class="bd-footer-contact-item d-flex gap-3 mb-3">
+<div class="contact-icon">
+<i class="fa-solid fa-phone text-primary"></i>
+</div>
+<div class="contact-content">
+<h6 class="bd-footer-contact-title mb-1">Call Us</h6>
+<p class="bd-footer-contact-text small"><a class="text-decoration-none" href="javascript:void(0)">+91 To Be Added</a></p>
+</div>
+</div>
+<div class="bd-footer-contact-item d-flex gap-3">
+<div class="contact-icon">
+<i class="fa-solid fa-envelope text-primary"></i>
+</div>
+<div class="contact-content">
+<h6 class="bd-footer-contact-title mb-1">Email Us</h6>
+<p class="bd-footer-contact-text small"><a class="text-decoration-none" href="mailto:info@shreegurus.edu.in">info@shreegurus.edu.in</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bd-footer-copyright-area style-two theme-bg fix bd-noise-bg">
+<div class="container">
+<div class="row justify-content-between">
+<div class="col-xl-6">
+<div class="bd-footer-copyright-text text-center">
+<p class="underline-two">© Copyright <span id="year"></span> | Developed By <a href="https://bigbrains.live" target="_blank">Jashwanth Groups</a></p>
+</div>
+</div>
+<div class="col-xl-6">
+<div class="shreegurus_group text-center">
+<!-- <button class="btn btn-primary fixed-btn" type="button" data-bs-toggle="collapse" data-bs-target="#shreegurustabs" aria-expanded="false" aria-controls="shreegurustabs">
+                            SHREE GURUS GROUP OF INSTITUTIONS
+                        </button> -->
+<div class="collapse" id="shreegurustabs">
+<div class="tab-content row fixed-tab-content">
+<button aria-controls="shreegurustabs" aria-expanded="true" class="btn btn-secondary" data-bs-target="#shreegurustabs" data-bs-toggle="collapse" type="button">
+<span><i class="fa-solid fa-xmark"></i></span>
+</button>
+
+<div class="tab-item col-12 col-md-3">
+<h5>PG &amp; Degree College</h5>
+<p>1</p>
+</div>
+<div class="tab-item col-12 col-md-3">
+<h5>Pharmacy Colleges</h5>
+<p>3</p>
+</div>
+<div class="tab-item col-12 col-md-3">
+<h5>B.Ed College</h5>
+<p>1</p>
+</div>
+<div class="tab-item col-12 col-md-3">
+<h5>Junior Colleges</h5>
+<ul class="college-list">
+<li><a class="college-link" href="how-to-choose-the-right-iit-junior-colleges-in-hyderabad-for-your-career.html#">Nizampet</a></li>
+<li><a class="college-link" href="how-to-choose-the-right-iit-junior-colleges-in-hyderabad-for-your-career.html#">AS Rao Nagar</a></li>
+<li><a class="college-link" href="how-to-choose-the-right-iit-junior-colleges-in-hyderabad-for-your-career.html#">Dilsukhnagar</a></li>
+<li><a class="college-link" href="how-to-choose-the-right-iit-junior-colleges-in-hyderabad-for-your-career.html#">Medchal</a></li>
+<li><a class="college-link" href="how-to-choose-the-right-iit-junior-colleges-in-hyderabad-for-your-career.html#">Thimmapuram</a></li>
+<li><a class="college-link" href="how-to-choose-the-right-iit-junior-colleges-in-hyderabad-for-your-career.html#">Dwaraka Nagar</a></li>
+<li><a class="college-link" href="how-to-choose-the-right-iit-junior-colleges-in-hyderabad-for-your-career.html#">Benz Circle</a></li>
+<li><a class="college-link" href="how-to-choose-the-right-iit-junior-colleges-in-hyderabad-for-your-career.html#">Vadlamudi</a></li>
+<li><a class="college-link" href="how-to-choose-the-right-iit-junior-colleges-in-hyderabad-for-your-career.html#">Palakaruru</a></li>
+</ul>
+</div>
+<div class="tab-item col-12 col-md-3">
+<h5>University</h5>
+<p>6</p>
+</div>
+<div class="tab-item col-12 col-md-3">
+<h5>Engineering Colleges</h5>
+<p>17</p>
+</div>
+<div class="tab-item col-12 col-md-3">
+<h5>Schools of Central Boards</h5>
+<p>1</p>
+</div>
+<div class="tab-item col-12 col-md-3">
+<h5>Shree GURUS Institute of Law</h5>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<!-- footer area end -->
+<!-- back to top -->
+<div class="backtotop-wrap cursor-pointer">
+<svg class="backtotop-circle svg-content" height="100%" viewbox="-1 -1 102 102" width="100%">
+<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+</svg>
+</div>
+<!-- Backtotop end -->
+<!-- JS here -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const cookieConsent = document.getElementById("cookieConsent");
+  const acceptBtn = document.getElementById("acceptCookies");
+  const rejectBtn = document.getElementById("rejectCookies");
+
+  if (!localStorage.getItem("cookieConsent")) {
+    cookieConsent.style.display = "block";
+  }
+
+  acceptBtn.addEventListener("click", function () {
+    localStorage.setItem("cookieConsent", "accepted");
+    cookieConsent.style.display = "none";
+  });
+
+  rejectBtn.addEventListener("click", function () {
+    localStorage.setItem("cookieConsent", "rejected");
+    cookieConsent.style.display = "none";
+  });
+});
+</script>
+<script src="https://shreegurus.edu.in/blog/assets/frontend/js/vendor/jquery-3.7.1.min.js"></script>
+<script src="https://shreegurus.edu.in/blog/assets/frontend/js/plugins/waypoints.min.js"></script>
+<script src="https://shreegurus.edu.in/blog/assets/frontend/js/vendor/bootstrap.bundle.min.js"></script>
+<script src="https://shreegurus.edu.in/blog/assets/frontend/js/plugins/swiper.min.js"></script>
+<script src="https://shreegurus.edu.in/blog/assets/frontend/js/plugins/wow.js"></script>
+<script src="https://shreegurus.edu.in/blog/assets/frontend/js/vendor/magnific-popup.min.js"></script>
+<script src="https://shreegurus.edu.in/blog/assets/frontend/js/vendor/isotope.pkgd.min.js"></script>
+<script src="https://shreegurus.edu.in/blog/assets/frontend/js/vendor/imagesloaded.pkgd.min.js"></script>
+<script src="https://shreegurus.edu.in/blog/assets/frontend/js/plugins/nice-select.min.js"></script>
+<script src="https://shreegurus.edu.in/blog/assets/frontend/js/vendor/ajax-form.js"></script>
+<script src="https://shreegurus.edu.in/blog/assets/frontend/js/plugins/easypie.js"></script>
+<script src="https://shreegurus.edu.in/blog/assets/frontend/js/vendor/purecounter.js"></script>
+<script src="https://shreegurus.edu.in/blog/assets/frontend/js/plugins/nouislider.min.js"></script>
+<script src="https://shreegurus.edu.in/blog/assets/frontend/js/plugins/apexcharts.min.js"></script>
+<script src="https://shreegurus.edu.in/blog/assets/frontend/js/plugins/typed.js"></script>
+<script src="https://shreegurus.edu.in/blog/assets/frontend/js/main.js"></script>
+<!-- 
+<script>
+    (function() {
+        const vg = document.querySelector('.shreegurus_group');
+        if (!vg) return;
+        const btn = vg.querySelector('.btn');
+        const tabs = vg.querySelector('.tabs');
+
+        // helper to hide with animation
+        function hideTabs() {
+            tabs.classList.remove('show');
+            // after transition end set display none
+            const onEnd = function() {
+                tabs.style.display = 'none';
+                tabs.removeEventListener('transitionend', onEnd);
+            };
+            tabs.addEventListener('transitionend', onEnd);
+        }
+
+        // toggle on button click
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (getComputedStyle(tabs).display === 'block' && tabs.classList.contains('show')) {
+                hideTabs();
+            } else {
+                // make visible then trigger transition
+                tabs.style.display = 'block';
+                // force reflow
+                void tabs.offsetHeight;
+                tabs.classList.add('show');
+            }
+        });
+
+        // optional: click outside to close
+        document.addEventListener('click', function(e) {
+            if (getComputedStyle(tabs).display === 'block' && !vg.contains(e.target)) {
+                hideTabs();
+            }
+        });
+    })();
+</script> -->
+<!-- <script defer="" src="../beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"9785eab8d0f0406fb028adb707058fb1","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+
+ -->
+</link></body>
+</html>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        new Swiper(".similarArticlesActivation", {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            loop: true,
+            allowTouchMove: true,
+            observer: true,
+            observeParents: true,
+
+            navigation: {
+                nextEl: ".blog-navigation-next",
+                prevEl: ".blog-navigation-prev",
+            },
+
+            breakpoints: {
+                1400: {
+                    slidesPerView: 3
+                },
+                1200: {
+                    slidesPerView: 3
+                },
+                992: {
+                    slidesPerView: 2
+                },
+                768: {
+                    slidesPerView: 2
+                },
+                576: {
+                    slidesPerView: 1
+                },
+                0: {
+                    slidesPerView: 1
+                },
+            },
+        });
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

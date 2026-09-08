@@ -1,0 +1,282 @@
+/* Page Scope */
+.asrao-page {
+    --asrao-accent: #0ea5b8;
+    --asrao-accent-dark: #0b6475;
+    --asrao-bg: #f2fbfd;
+}
+
+/* Hero Banner */
+.asrao-page .bd-banner-three {
+    height: 80vh !important;
+}
+@media only screen and (min-width: 576px) and (max-width: 767px), (max-width: 575px) {
+    .asrao-page .bd-banner-three {
+        height: auto !important;
+        padding-top: 60px;
+    }
+}
+.asrao-page .asrao-hero {
+    background: linear-gradient(180deg, rgba(14,165,184,0.06), transparent);
+    border-bottom: 1px solid rgba(14,165,184,0.15);
+}
+@media (min-width: 992px) {
+    .asrao-page .asrao-hero .hero-image-col { order: 1; }
+    .asrao-page .asrao-hero .col-xxl-6.col-xl-6.col-lg-12:first-child { order: 2; }
+}
+
+/* Quick Stats + CTA */
+.asrao-page .asrao-quick-stats {
+    background: var(--asrao-bg);
+    border-top: 1px solid rgba(14,165,184,0.15);
+    border-bottom: 1px solid rgba(14,165,184,0.15);
+    padding: 24px 0;
+}
+.asrao-page .asrao-quick-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    align-items: center;
+}
+@media (max-width: 768px) {
+    .asrao-page .asrao-quick-grid { grid-template-columns: 1fr; }
+}
+.asrao-page .stat-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+@media (max-width: 576px) {
+    .asrao-page .stat-cards { grid-template-columns: 1fr; }
+}
+.asrao-page .stat-card {
+    background: #fff;
+    border: 1px solid rgba(14,165,184,0.15);
+    border-radius: 14px;
+    padding: 14px 16px;
+    box-shadow: 0 8px 24px rgba(11,100,117,0.06);
+}
+.asrao-page .stat-label { color: #6c757d; font-size: 12px; }
+.asrao-page .stat-value { color: #212529; font-weight: 700; font-size: 20px; }
+.asrao-page .cta-box {
+    background: linear-gradient(135deg, var(--asrao-accent), #00d2ff);
+    color: #fff;
+    border-radius: 14px;
+    padding: 18px;
+    display: grid;
+    gap: 10px;
+    box-shadow: 0 12px 30px rgba(14,165,184,0.3);
+}
+.asrao-page .cta-box .cta-title { font-weight: 700; font-size: 16px; }
+.asrao-page .cta-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.asrao-page .cta-actions a {
+    text-decoration: none;
+    border-radius: 20px;
+    padding: 8px 14px;
+    font-weight: 600;
+}
+.asrao-page .cta-primary { background: #fff; color: var(--asrao-accent-dark); }
+.asrao-page .cta-secondary { border: 2px solid #fff; color: #fff; }
+
+/* Creative Layout (Hero Image, Badges, Shapes) */
+.asrao-page .hero-image-col {
+    position: relative;
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.asrao-page .campus-image-wrapper {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    transform: perspective(1000px) rotateX(2deg) rotateY(-4deg);
+    transition: transform 0.4s ease;
+}
+.asrao-page .campus-image-wrapper:hover {
+    transform: perspective(1000px) rotateX(0) rotateY(0) scale(1.03);
+}
+.asrao-page .campus-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.4s ease;
+}
+.asrao-page .campus-image-wrapper:hover .campus-img {
+    transform: scale(1.05);
+}
+.asrao-page .image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* Floating badges */
+.asrao-page .floating-badge {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 12px 18px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: asrao-float 4s ease-in-out infinite;
+}
+.asrao-page .badge-1 {
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+}
+.asrao-page .badge-2 {
+    bottom: 15%;
+    right: 8%;
+    animation-delay: 2s;
+}
+.asrao-page .badge-icon img { width: 32px; height: 32px; }
+.asrao-page .badge-icon i { font-size: 24px; color: #007bff; }
+.asrao-page .badge-content { display: flex; flex-direction: column; }
+.asrao-page .badge-title { font-weight: 700; color: #212529; font-size: 0.95rem; }
+.asrao-page .badge-sub { font-size: 0.8rem; color: #6c757d; }
+
+/* Decorative shapes */
+.asrao-page .deco-shape { position: absolute; opacity: 0.4; pointer-events: none; }
+.asrao-page .shape-dots { top: 5%; right: 10%; width: 80px; animation: asrao-pulse 3s infinite; }
+.asrao-page .shape-stars { bottom: 5%; left: 10%; width: 60px; animation: asrao-pulse 3s infinite reverse; }
+
+/* Animated background circles */
+.asrao-page .animated-bg {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    overflow: hidden; z-index: -1;
+}
+.asrao-page .circle {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #007bff, #00c6ff);
+    opacity: 0.08;
+}
+.asrao-page .c1 { width: 120px; height: 120px; top: 20%; left: 10%; animation: asrao-move 8s infinite alternate; }
+.asrao-page .c2 { width: 80px; height: 80px; bottom: 20%; right: 15%; animation: asrao-move 6s infinite alternate-reverse; }
+.asrao-page .c3 { width: 60px; height: 60px; top: 60%; left: 70%; animation: asrao-move 10s infinite alternate; }
+
+/* Keyframes (scoped names to avoid conflicts) */
+@keyframes asrao-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+@keyframes asrao-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.4; }
+    50% { transform: scale(1.1); opacity: 0.6; }
+}
+@keyframes asrao-move {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(30px, -30px); }
+}
+
+/* Responsive tweaks for hero visuals */
+@media (max-width: 768px) {
+    .asrao-page .campus-image-wrapper { max-width: 100%; transform: none; }
+    .asrao-page .floating-badge { padding: 8px 12px; }
+    .asrao-page .badge-title { font-size: 0.85rem; }
+    .asrao-page .badge-sub { font-size: 0.7rem; }
+}
+
+/* Branch Info Strip */
+.asrao-page .branch-info-strip {
+    background: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+    border-bottom: 1px solid #e9ecef;
+    padding: 12px 0;
+}
+.asrao-page .branch-info-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    align-items: center;
+}
+.asrao-page .branch-info-grid .info-item {
+    display: flex; flex-direction: column; text-align: center;
+}
+.asrao-page .info-label { color: #6c757d; font-size: 12px; }
+.asrao-page .info-value { color: #212529; font-weight: 600; }
+@media (max-width: 992px) {
+    .asrao-page .branch-info-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 576px) {
+    .asrao-page .branch-info-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Facility and Reasons Cards */
+.asrao-page .asrao-card {
+    border: 1px solid rgba(14,165,184,0.18) !important;
+    border-radius: 14px !important;
+    background: #ffffff !important;
+    box-shadow: 0 10px 30px rgba(11,100,117,0.08) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.asrao-page .asrao-card .facility-icon-wrapper,
+.asrao-page .asrao-card .why-card-icon { color: var(--asrao-accent); }
+.asrao-page .asrao-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(11,100,117,0.12) !important;
+}
+
+/* Transport Section */
+.asrao-page .transport-section .route-grid.asrao-route-grid .route-item {
+    background: #fff;
+    border: 1px solid rgba(14,165,184,0.15);
+    border-radius: 100px;
+    padding: 8px 12px;
+    margin: 6px;
+    display: inline-block;
+    box-shadow: 0 6px 18px rgba(11,100,117,0.06);
+}
+
+/* Sticky CTA */
+.asrao-page .asrao-sticky-cta {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 999;
+    display: flex;
+    gap: 8px;
+}
+.asrao-page .asrao-sticky-cta a {
+    text-decoration: none;
+    border-radius: 24px;
+    padding: 10px 16px;
+    font-weight: 700;
+    box-shadow: 0 10px 24px rgba(11,100,117,0.15);
+}
+.asrao-page .asrao-sticky-cta .apply { background: var(--asrao-accent); color: #fff; }
+.asrao-page .asrao-sticky-cta .contact {
+    background: #fff;
+    color: var(--asrao-accent-dark);
+    border: 1px solid rgba(14,165,184,0.2);
+}
+
+/* Legend colors (replaces inline styles in PHP page) */
+.asrao-page .legend-color {
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+    display: inline-block;
+    margin-right: 6px;
+}
+.asrao-page .legend-green { background: #28a745; }
+.asrao-page .legend-yellow { background: #ffc107; }
+.asrao-page .legend-red { background: #dc3545; }
+
+/* Optional: iframe styling if needed globally in the page */
+/* .asrao-page iframe { border: 0; } */

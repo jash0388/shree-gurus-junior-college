@@ -1,0 +1,16 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /login/
+
+Disallow: /assets/Brochure/Result-flyer-2018-Medchal-Nizmapet-English.pdf
+Disallow: /Our-Achievements-Medchal.html
+Disallow: /Gallery.html
+Disallow: /bridge-course.html
+Disallow: /Brochure.html
+Disallow: /index.html
+Disallow: /contact-us.html
+Disallow: /https://shreegurus.edu.in/as-rao-nagar
+Disallow: /as-rao-nagar
+
+allow:
+Sitemap: https://shreegurus.edu.in/sitemap.xml

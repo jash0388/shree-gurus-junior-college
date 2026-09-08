@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="ie=edge" http-equiv="x-ua-compatible"/>
+<title>About Shree GURUS Group of Institutions | Excellence in Education</title>
+<meta content="Discover the legacy of Shree GURUS Group of Institutions. Providing top-tier Intermediate education with a focus on academic excellence and holistic growth. Learn more." name="description"/>
+<meta content="About Shree GURUS Group of Institutions, Top intermediate colleges in Hyderabad, Shree GURUS Group of Institutions mission and vision, Shree GURUS Group of Institutions overview" name="keywords"/>
+<link href="about-us.html" rel="canonical"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="website" property="og:type"/>
+<meta content="shreegurus colleges" property="og:title"/>
+<meta content="https://shreegurus.edu.in/" property="og:url"/>
+<meta content="https://shreegurus.edu.in/assets/frontend/img/future-2.jpg" property="og:image"/>
+<meta content="Top junior college in Hyderabad offering MPC with IIT-JEE &amp; BiPC with NEET coaching. Residential &amp; day scholar options. Enroll now!" property="og:description"/>
+<!-- Favicon -->
+<link href="assets/frontend/img/favicon.png?v=3" rel="shortcut icon" type="image/x-icon"/>
+<!-- CSS -->
+<link href="assets/frontend/css/vendor/bootstrap.min.css" rel="stylesheet"/>
+<link href="assets/frontend/css/vendor/animate.min.css" rel="stylesheet"/>
+<link href="assets/frontend/css/plugins/swiper.min.css" rel="stylesheet"/>
+<link href="assets/frontend/css/vendor/magnific-popup.css" rel="stylesheet"/>
+<link href="assets/frontend/css/vendor/fontawesome-pro.css" rel="stylesheet"/>
+<link href="assets/frontend/css/plugins/nouislider.min.css" rel="stylesheet"/>
+<link href="assets/frontend/css/vendor/icomoon.css" rel="stylesheet"/>
+<link href="assets/frontend/css/vendor/spacing.css" rel="stylesheet"/>
+<link href="assets/frontend/css/plugins/apexcharts.css" rel="stylesheet"/>
+<link href="assets/frontend/css/main.css" rel="stylesheet"/>
+<link href="assets/frontend/css/branch-pages-styles.css" rel="stylesheet"/>
+<meta content="1dTigTBkwwi7vh6UYQHypLPMTORoePGI-vrTVyHQV5M" name="google-site-verification">
+<script type="application/ld+json">
+        {
+            "@context": "https://schema.org/",
+            "@type": "WebSite",
+            "name": "Shree GURUS Group of Institutions",
+            "url": "https://shreegurus.edu.in/",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://shreegurus.edu.in/admissions{search_term_string}",
+                "query-input": "required name=search_term_string"
+            }
+        }
+    </script>
+<!-- Google Tag Manager -->
+<script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-MLQQLZH3');
+    </script>
+<!-- End Google Tag Manager -->
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-Z0LX7MGEG5"></script>
+<script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-Z0LX7MGEG5');
+    </script>
+<script>
+        document.getElementById("brochureForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            let form = this;
+            let formData = new FormData(form);
+
+            // Clear old errors
+            document.querySelectorAll("#brochureForm small.text-danger").forEach(el => {
+                el.innerHTML = "";
+            });
+
+            fetch("https://shreegurus.edu.in/brochure-submit", {
+                    method: "POST",
+                    headers: {
+                        "X-CSRF-TOKEN": document.querySelector('input[name="_token"]').value,
+                        "Accept": "application/json"
+                    },
+                    body: formData
+                })
+                .then(res => res.json())
+                .then(data => {
+
+                    if (data.status == false) {
+
+                        if (data.errors) {
+                            if (data.errors.name) document.querySelector(".error-name").innerHTML = data.errors
+                                .name[0];
+                            if (data.errors.phone) document.querySelector(".error-phone").innerHTML = data
+                                .errors.phone[0];
+                            if (data.errors.email) document.querySelector(".error-email").innerHTML = data
+                                .errors.email[0];
+                            if (data.errors.subject) document.querySelector(".error-subject").innerHTML = data
+                                .errors.subject[0];
+                            if (data.errors.message) document.querySelector(".error-message").innerHTML = data
+                                .errors.message[0];
+                        }
+
+                    } else {
+
+                        // Close modal
+                        let modalEl = document.getElementById("contactModal");
+                        let modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+                        modal.hide();
+
+                        // Reset form
+                        form.reset();
+
+                        // Download brochure
+                        let fileUrl = "https://shreegurus.edu.in/assets/frontend/brochure.zip";
+                        let thankYouUrl = "https://shreegurus.edu.in/thank-you";
+
+                        let a = document.createElement("a");
+                        a.href = fileUrl;
+                        a.download = "";
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+
+                        // Redirect to thank you page after download starts
+                        setTimeout(() => {
+                            window.location.href = thankYouUrl;
+                        }, 2000);
+                    }
+                })
+                .catch(err => console.log(err));
+        });
+    </script>
+<style>
+        h5#contactModalLabel {
+            text-align: center;
+            font-size: 30px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            text-align: center;
+            margin: auto;
+            padding-bottom: 20px;
+            color: var(--b);
+        }
+    </style>
+<script async="" defer="" src="https://www.google.com/recaptcha/api.js"></script>
+<script>var chatbot_id=26463;!function(){var t,e,a=document,s="smatbot-chatbot";a.getElementById(s)||(t=a.createElement("script"),t.id=s,t.type="text/javascript",t.src="https://plugin.smatbot.com/smatbot_plugin.js.gz",e=a.getElementsByTagName("script")[0],e.parentNode.insertBefore(t,e))}();</script><script src="https://cdnjs.cloudflare.com/ajax/libs/fingerprintjs2/1.5.1/fingerprint2.min.js"></script>
+</meta></head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-MLQQLZH3" style="display:none;visibility:hidden" width="0"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "To Be Added",
+    "postalCode": "To Be Added",
+    "streetAddress": "To Be Added"
+  },
+  "email": "info@shreegurus.edu.in",
+  "member": [
+    {
+      "@type": "Organization"
+    },
+    {
+      "@type": "Organization"
+    }
+  ],
+  "alumni": [
+    {
+      "@type": "Person",
+      "name": "To Be Added.
+               
+               Founder and Chairman
+M.Sc, M.Ed, D.J., Ph.D."
+    },
+    {
+      "@type": "Person",
+      "name": "Smt. L. Rani Rudrama Devi,
+      
+                 Vice Chairman"
+    }
+  ],
+  "name": "Shree GURUS Group of Institutions",
+  "telephone": "+91 To Be Added"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "To Be Added",
+    "addressRegion": "To Be Added",
+    "streetAddress": "To Be Added"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.5",
+    "reviewCount": "2450"
+  },
+  "description": "Shree GURUS is widely recognised as the first private residential junior college in the Telugu states, setting benchmarks in quality education for more than a decade. Over the years, Shree GURUS students have consistently secured hundreds of top ranks in Intermediate, IIT-JEE, and NEET, firmly establishing the institution as a path-setter in Andhra Pradesh and Telangana..",
+  "name": "Shree GURUS Group of Institutions",
+  "telephone": "+91 To Be Added"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Course",
+  "courseCode": "YEAR 2026-27",
+  "name": "IIT-JEE",
+  "provider": {
+    "@type": "CollegeOrUniversity",
+    "name": "Shree GURUS Group of Institutions",
+    "url": {"@id": "/shreegurus.edu.in/"}
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Course",
+  "courseCode": "YEAR 2026-27",
+  "name": "NEET",
+  "provider": {
+    "@type": "CollegeOrUniversity",
+    "name": "Shree GURUS Group of Institutions",
+    "url": {"@id": "/shreegurus.edu.in/"}
+  }
+}
+</script>
+<!-- Header area start -->
+<header>
+<div class="bd-header-transparent-two">
+<div class="bd-header-top style-three">
+<div class="bd-header-top-left">
+<ul>
+<li><a href="javascript:void(0)"><span><i class="fa-solid fa-phone-volume"></i></span> +91 To Be Added
+                            </a></li>
+<li><a href="mailto:info@shreegurus.edu.in"><span><i class="fa-sharp fa-light fa-envelope"></i></span><span class="__cf_email__" data-cfemail="80e5f8e1edf0ece5c0e9f3f4f5e4f9aee3efed">
+                                    info@shreegurus.edu.in</span></a></li>
+</ul>
+</div>
+<div class="bd-header-top-right text-md-end">
+<a href="javascript:void(0)" target="_blank"><span><i class="fa-sharp fa-regular fa-location-dot"></i></span>
+<b class="text-white me-2"> HEAD OFFICE:</b> To Be Added
+                    </a>
+</div>
+</div>
+<div class="bd-header-area header-style-one" id="header-sticky">
+<div class="bd-header-inner">
+<div class="bd-header-left">
+<div class="bd-header-logo">
+<a href="index.html"><img alt="logo" src="assets/frontend/img/logo1.png?v=2"/></a>
+</div>
+</div>
+<div class="bd-header-menu">
+<nav class="main-menu bd-mobile-menu-active d-none d-xl-block">
+<ul>
+<li class="has-mega-menu">
+<a href="index.html">Home</a>
+</li>
+<li class="menu-item-has-children">
+<a href="about-us.html">About Us</a>
+<ul class="submenu last-children">
+<li><a class="nav-link" href="about-us.html">Overview</a></li>
+<li><a class="nav-link" href="our-chairman.html">Our
+                                                Chairman</a></li>
+<li><a class="nav-link" href="history.html">Our History</a>
+</li>
+</ul>
+</li>
+<!-- courses menu -->
+<li class="menu-item-has-children">
+<a href="javascript:void(0)">Courses</a>
+<ul class="submenu last-children">
+<li><a class="nav-link" href="intermediate-mpc-with-iit-jee-integrated-2-year-program.html">MPC with
+                                                IIT-JEE</a></li>
+<li><a class="nav-link" href="bipc-with-neet-junior-college.html">BiPC with
+                                                NEET</a></li>
+<li><a class="nav-link" href="iit-jee-main-advanced-long-term-coaching.html">JEE Long Term</a></li>
+<li><a class="nav-link" href="neet-long-term-coaching.html">NEET Long Term</a></li>
+</ul>
+</li>
+<!-- page menu -->
+<li class="menu-item-has-children">
+<a href="javascript:void(0)">Campuses</a>
+<ul class="submenu last-children">
+<li><a href="shree-gurus-nizampet.html">Nizampet</a></li>
+<li><a href="shree-gurus-as-rao-nagar.html">AS Rao Nagar</a></li>
+<li><a href="shree-gurus-dilsukhnagar.html">Dilsukhnagar</a></li>
+<li><a href="shree-gurus-medchal.html">Medchal</a></li>
+<li><a href="shree-gurus-thimmapuram.html">Thimmapuram</a></li>
+<li><a href="shree-gurus-dwaraka-nagar.html">Dwaraka Nagar</a></li>
+<li><a href="shree-gurus-benz-circle.html">Benz Circle</a></li>
+<li><a href="shree-gurus-vadlamudi.html">Vadlamudi</a></li>
+<li><a href="shree-gurus-palakaluru.html">Palakaluru</a></li>
+</ul>
+</li>
+<!-- dashboard menu -->
+<li class="">
+<a class="apply sparkle-border" href="admissions.html">Admissions</a>
+</li>
+<!-- elements menu -->
+<li class="">
+<a href="gallery.html">Gallery</a>
+</li>
+<li class="">
+<a href="life-at-shree-gurus.html" style="text-transform:unset;">Life
+                                        at Shree GURUS</a>
+</li>
+<!-- blog menu -->
+<li class="">
+<a href="blog/index.html">Blog</a>
+</li>
+<li class="">
+<a href="contact.html">Contact us</a>
+</li>
+</ul>
+</nav>
+</div>
+<div class="bd-header-right">
+<div class="bd-header-sign-btn">
+<a class="bd-btn btn-outline-primary h-30px" href="login.html">Login</a>
+<button class="bd-btn btn-outline-border-primary h-30px" data-bs-target="#contactModal" data-bs-toggle="modal">Download Brochure</button>
+</div>
+<div class="bd-header-hamburger">
+<div class="sidebar-toggle">
+<a class="bar-icon" href="javascript:void(0)">
+<span></span>
+<span></span>
+<span></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Contact Modal -->
+<div aria-hidden="true" aria-labelledby="contactModalLabel" class="modal fade align-content-center" id="contactModal" tabindex="-1">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header" style="border: none;">
+<h5 class="modal-title" id="contactModalLabel">Download Our Brochure</h5>
+<button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<form id="brochureForm">
+<input autocomplete="off" name="_token" type="hidden" value="BphA99qTLJ1hzQLCBG1CypHyoDz5FCswu7wYSiAy"/>
+<div class="modal-body">
+<div class="row">
+<div class="col-md-6">
+<div class="mb-15">
+<label class="form-label" for="contactName">
+<i class="fa-solid fa-user"></i> Name
+                                    </label>
+<input class="form-control" id="contactName" name="name" placeholder="Your Name" type="text"/>
+<small class="text-danger error-name"></small>
+</div>
+</div>
+<div class="col-md-6">
+<div class="mb-15">
+<label class="form-label" for="contactNumber">
+<i class="fa-solid fa-phone"></i> Phone Number
+                                    </label>
+<input class="form-control" id="contactNumber" name="phone" oninput="this.value=this.value.replace(/[^0-9]/g,'').slice(0,10);" placeholder="Your Phone Number" type="number"/>
+<small class="text-danger error-phone"></small>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6">
+<div class="mb-15">
+<label class="form-label" for="contactEmail">
+<i class="fa-solid fa-envelope"></i> Email
+                                    </label>
+<input class="form-control" id="contactEmail" name="email" placeholder="Your Email" type="email"/>
+<small class="text-danger error-email"></small>
+</div>
+</div>
+<div class="col-md-6">
+<div class="mb-15">
+<label class="form-label" for="contactSubject">
+<i class="fa-solid fa-heading"></i> Subject
+                                    </label>
+<input class="form-control" id="contactSubject" name="subject" placeholder="Subject" type="text"/>
+<small class="text-danger error-subject"></small>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-12">
+<div class="mb-15">
+<label class="form-label" for="contactMessage">
+<i class="fa-solid fa-message"></i> Message
+                                    </label>
+<textarea class="form-control" id="contactMessage" name="message" placeholder="Enter your message here..." rows="5" style="min-height: 100px;"></textarea>
+<small class="text-danger error-message"></small>
+</div>
+</div>
+</div>
+<div class="row mt-3">
+<div class="col-12 text-center">
+<div class="g-recaptcha" data-sitekey="6LeGnW4sAAAAALnJk3GEAU4ZMH0sgMWOCZycArXp"></div>
+<small class="text-danger error-recaptcha"></small>
+</div>
+</div>
+</div>
+<div class="modal-footer d-flex justify-content-center" style="border:none;">
+<button class="bd-btn btn-primary w-100" id="brochureBtn" type="submit">
+                            Download Brochure
+                        </button>
+</div>
+</form>
+<script async="" defer="" src="https://www.google.com/recaptcha/api.js"></script>
+<script>
+                    document.getElementById("brochureForm").addEventListener("submit", async function(e) {
+                        e.preventDefault();
+
+                        let form = this;
+                        let formData = new FormData(form);
+
+                        // Clear old errors
+                        document.querySelectorAll("#brochureForm small.text-danger").forEach(el => {
+                            el.innerHTML = "";
+                        });
+
+                        let btn = document.getElementById("brochureBtn");
+                        btn.innerHTML = "Please wait...";
+                        btn.disabled = true;
+
+                        try {
+                            let response = await fetch("https://shreegurus.edu.in/brochure-submit", {
+                                method: "POST",
+                                headers: {
+                                    "X-CSRF-TOKEN": document.querySelector('input[name="_token"]').value,
+                                    "Accept": "application/json"
+                                },
+                                body: formData
+                            });
+
+                            // If validation fails (Laravel returns 422)
+                            if (!response.ok) {
+                                let errorData = await response.json();
+
+                                if (errorData.errors) {
+                                    if (errorData.errors.name) document.querySelector(".error-name").innerHTML = errorData
+                                        .errors.name[0];
+                                    if (errorData.errors.phone) document.querySelector(".error-phone").innerHTML = errorData
+                                        .errors.phone[0];
+                                    if (errorData.errors.email) document.querySelector(".error-email").innerHTML = errorData
+                                        .errors.email[0];
+                                    if (errorData.errors.subject) document.querySelector(".error-subject").innerHTML =
+                                        errorData.errors.subject[0];
+                                    if (errorData.errors.message) document.querySelector(".error-message").innerHTML =
+                                        errorData.errors.message[0];
+
+                                    // captcha error
+                                    if (errorData.errors.recaptcha) {
+                                        document.querySelector(".error-recaptcha").innerHTML = errorData.errors.recaptcha[
+                                            0];
+                                    }
+
+                                    // default captcha validation error
+                                    if (errorData.errors["g-recaptcha-response"]) {
+                                        document.querySelector(".error-recaptcha").innerHTML = errorData.errors[
+                                            "g-recaptcha-response"][0];
+                                    }
+                                }
+
+                                btn.innerHTML = "Download Brochure";
+                                btn.disabled = false;
+
+                                return;
+                            }
+
+                            let data = await response.json();
+
+                            if (data.status === true) {
+
+                                // Close modal only on success
+                                let modalEl = document.getElementById("contactModal");
+                                let modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+                                modal.hide();
+
+                                // Reset form
+                                form.reset();
+
+                                // reset captcha
+                                grecaptcha.reset();
+
+                                // Download brochure
+                                let fileUrl = "https://shreegurus.edu.in/assets/frontend/brochure/brochure.zip";
+                                let thankYouUrl = "https://shreegurus.edu.in/thank-you";
+
+                                let a = document.createElement("a");
+                                a.href = fileUrl;
+                                a.setAttribute("download", "");
+                                document.body.appendChild(a);
+                                a.click();
+                                document.body.removeChild(a);
+
+                                // Redirect after download starts
+                                setTimeout(() => {
+                                    window.location.href = thankYouUrl;
+                                }, 1500);
+                            }
+
+                            btn.innerHTML = "Download Brochure";
+                            btn.disabled = false;
+
+                        } catch (error) {
+                            console.log("Error:", error);
+                            btn.innerHTML = "Download Brochure";
+                            btn.disabled = false;
+                        }
+                    });
+                </script>
+</div>
+</div>
+</div>
+<div class="fix">
+<div class="bd-offcanvas-area">
+<div class="bd-offcanvas-wrapper">
+<div class="bd-offcanvas-content">
+<div class="bd-offcanvas-top d-flex justify-content-between align-items-center mb-30">
+<div class="bd-offcanvas-logo">
+<a href="about-us.html#">
+<img alt="logo not found" src="assets/frontend/img/logo1.png?v=2"/>
+</a>
+</div>
+<div class="bd-offcanvas-close">
+<button class="bd-offcanvas-close-icon animation--flip">
+<span class="bd-offcanvas-m-lines">
+<span class="bd-offcanvas-m-line line--1"></span><span class="bd-offcanvas-m-line line--2"></span><span class="bd-offcanvas-m-line line--3"></span>
+</span>
+</button>
+</div>
+</div>
+<div class="bd-mobile-menu-smaller">
+<div class="bd-offcanvas-menu mb-30">
+<nav></nav>
+</div>
+</div>
+<div class="bd-offcanvas-about d-none d-lg-block mb-30">
+<h4 class="bd-offcanvas-title-meta">About iStudy</h4>
+<p>Empowering learners and educators with a comprehensive platform that bridges the gap between
+                            traditional and modern education. iStudy inspires excellence in education and fosters growth
+                            for a brighter future.</p>
+</div>
+<div class="bd-offcanvas-contact mb-30">
+<h4 class="bd-offcanvas-title-meta">Contact Info</h4>
+<ul>
+<li class="d-flex align-items-center gap-10">
+<div class="bd-offcanvas-contact-icon">
+<a href="about-us.html#" target="_blank">
+<i class="fal fa-map-marker-alt"></i></a>
+</div>
+<div class="bd-offcanvas-contact-text">
+<a href="about-us.html#" target="_blank"> Nizampet, Kukatpally, Hyderabad, Telangana 500
+                                        090.
+                                    </a>
+</div>
+</li>
+<li class="d-flex align-items-center gap-10">
+<div class="bd-offcanvas-contact-icon">
+<a href="javascript:void(0)"><i class="far fa-phone"></i></a>
+</div>
+<div class="bd-offcanvas-contact-text">
+<!-- <a href="javascript:void(0)">+1-234-567-890</a> -->
+<a href="javascript:void(0)"> +91 To Be Added
+                                    </a>
+</div>
+</li>
+<li class="d-flex align-items-center gap-10">
+<div class="bd-offcanvas-contact-icon">
+<a href="javascript:void(0)"><i class="fal fa-envelope"></i></a>
+</div>
+<div class="bd-offcanvas-contact-text">
+<a href="mailto:info@shreegurus.edu.in"><span class="__cf_email__" data-cfemail="1d74737b725d746e69687964337e7270">info@shreegurus.edu.in</span></a>
+</div>
+</li>
+</ul>
+</div>
+<div class="bd-offcanvas-social">
+<h4 class="bd-offcanvas-title-meta">Follow Us</h4>
+<div class="theme-social">
+<ul class="social-icon-list">
+<li><a href="about-us.html#"><i class="fa-brands fa-facebook-f"></i></a></li>
+<li><a href="about-us.html#"><i class="fa-brands fa-x-twitter"></i></a></li>
+<li><a href="about-us.html#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+<li><a href="about-us.html#"><i class="fa-brands fa-instagram"></i></a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bd-offcanvas-overlay"></div>
+<div class="bd-offcanvas-overlay-white"></div>
+<!-- Offcanvas area start -->
+<!-- search popup area start here  -->
+<div class="bd-search-popup-area">
+<div class="container">
+<div class="row">
+<div class="col-12">
+<div class="bd-search-popup">
+<div class="bd-search-form">
+<form action="about-us.html#">
+<div class="bd-search-input">
+<input name="search" placeholder="Type here to search ..." type="search"/>
+<div class="bd-search-submit">
+<button type="submit"><i class="fa-regular fa-magnifying-glass"></i></button>
+</div>
+</div>
+</form>
+<div class="bd-search-close">
+<div class="bd-search-close-btn">
+<button><i class="fa-thin fa-close"></i></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- search popup overlay  -->
+<div class="bd-search-overlay"></div>
+<!-- search popup area end here  -->
+<div class="body-overlay"></div>
+<!-- search popup area end here  -->
+<main>
+<!-- breadcrumb area start -->
+<section class="bd-breadcrumb-area p-relative fix z-index-11">
+<div class="bd-breadcrumb-bg-two" data-background="https://shreegurus.edu.in/assets/frontend/img/breadcrumb-bg-2.webp"></div>
+<div class="bd-breadcrumb-wrapper p-relative">
+<div class="container">
+<div class="row">
+<div class="col-xl-12">
+<div class="bd-breadcrumb style-two d-flex-center">
+<div class="bd-breadcrumb-content">
+<h1 class="bd-breadcrumb-title">About Us</h1>
+<div class="bd-breadcrumb-list">
+<span><a href="index.html">Home</a></span>
+<span class="divider"><i class="fa-regular fa-angle-right"></i></span>
+<span class="active">About Us</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bd-breadcrumb-shape">
+<div class="shape-1"><img alt="shape" loading="lazy" src="assets/frontend/images/shape/breadcrumb-shape-1.webp?v=2"/></div>
+<div class="shape-3"><img alt="shape" loading="lazy" src="assets/frontend/images/shape/bulb-shape.webp?v=2"/></div>
+</div>
+</div>
+</div>
+</section>
+<!-- breadcrumb area end -->
+<!-- why choose us start -->
+<section class="bd-why-choose-area section-space p-relative fix">
+<div class="container">
+<div class="row gy-30 align-items-center justify-content-between">
+<div class="col-xxl-5 col-xl-6 col-lg-6">
+<div class="bd-section-title-wrapper">
+<h2 class="bd-section-title mb-10">Shree GURUS – A Pioneer in Residential Junior College Education</h2>
+<p class="bd-section-paragraph">Shree GURUS is widely recognised as the first private residential junior college in the Telugu states, setting benchmarks in quality education for more than a decade. Over the years, Shree GURUS students have consistently secured hundreds of top ranks in Intermediate, IIT-JEE, and NEET, firmly establishing the institution as a path-setter in Andhra Pradesh and Telangana.</p>
+<p class="bd-section-paragraph" style="margin-top: 15px;">As the education sector gradually witnessed unhealthy practices, excessive publicity, and commercialization in the name of ranks, academic standards began to decline and core values weakened. At Shree GURUS, we made a conscious and principled decision not to compromise on educational integrity. With this conviction, the institution adopted a measured and disciplined approach toward expansion at the +2 level, prioritising quality over scale and long-term student success over short-term visibility.</p>
+</div>
+</div>
+<div class="col-xxl-6 col-xl-6 col-lg-6">
+<div class="p-relative">
+<div class="bd-why-choose-thumb-wrap">
+<div class="main-thumb"><img alt="image" loading="lazy" src="assets/frontend/img/students-studying-together.png?v=2"/>
+</div>
+</div>
+<div class="bd-why-shape-group d-none d-xl-block">
+<div class="shape-1"><img alt="shape" loading="lazy" src="assets/frontend/img/half-circle.webp?v=2"/></div>
+<div class="shape-3"><img alt="shape" loading="lazy" src="assets/frontend/img/line-circle.webp?v=2"/></div>
+<!-- <div class="shape-4"><img loading="lazy"  src="assets/frontend/img/primary-polygon.webp?v=2" alt="shape">
+                                                </div> -->
+<div class="shape-5"><img alt="shape" loading="lazy" src="assets/frontend/images/shape/dot-shape.webp?v=2"/></div>
+<div class="shape-6"><img alt="shape" loading="lazy" src="https://shreegurus.edu.in/assets/frontend/images/shape/primary-star.webp"/></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- why choose us end -->
+<!-- about area start -->
+<section class="bd-about-area section-space theme-bg p-relative bd-noise-bg">
+<div class="container">
+<div class="bd-about-shape-wrap">
+<div class="shape-1"><img alt="shape" loading="lazy" src="assets/frontend/images/shape/about-solid-circle.webp?v=2"/></div>
+<div class="shape-2"><img alt="shape" loading="lazy" src="assets/frontend/images/shape/about-book-shape.webp?v=2"/></div>
+<div class="shape-3"><img alt="shape" loading="lazy" src="assets/frontend/images/shape/about-wave-shape.webp?v=2"/></div>
+<div class="shape-4"><img alt="shape" loading="lazy" src="assets/frontend/images/shape/about-circle.webp?v=2"/></div>
+</div>
+<div class="row g-5">
+<div class="col-xl-6 col-lg-6 col-md-12">
+<div class="bd-about-wrapper style-one">
+<div class="bd-about-thumb-inner">
+<div class="bd-about-thumb-wrapper">
+<div class="bd-about-thumb">
+<img alt="image" loading="lazy" src="assets/frontend/images/about/about-thumb-01.webp?v=2"/>
+</div>
+<div class="bd-about-thumb-small">
+<img alt="image" loading="lazy" src="assets/frontend/images/about/about-thumb-small-01.webp?v=2"/>
+</div>
+</div>
+<div class="bd-about-thumb-shape">
+<img alt="image" loading="lazy" src="assets/frontend/images/shape/dot-shape-01.webp?v=2"/>
+</div>
+</div>
+</div>
+</div>
+<div class="col-xl-6 col-lg-6 col-md-12">
+<div class="bd-about-wrapper style-one">
+<div class="bd-about-content-wrapper">
+<div class="bd-section-title-wrapper">
+<h2 class="bd-section-title white-text mb-20">A Strong Academic <span class="down-mark-line">Legacy</span></h2>
+<p class="bd-section-paragraph has-border-sec">As part of its unwavering commitment to higher education and nation building, the Shree GURUS Group of Institutions has successfully established a robust academic ecosystem.</p>
+</div>
+<div class="bd-about-feature-list">
+<div class="bd-about-feature-item">
+<div class="bd-about-feature-icon">
+<span><i class="icon-online-class"></i></span>
+</div>
+<div class="bd-about-feature-content">
+<h6 class="bd-about-feature-title">One Deemed University</h6>
+<p class="bd-about-feature-desc">A center of excellence dedicated to research-oriented learning and academic advancement.</p>
+</div>
+</div>
+<div class="bd-about-feature-item">
+<div class="bd-about-feature-icon">
+<span><i class="icon-expert-trainers"></i></span>
+</div>
+<div class="bd-about-feature-content">
+<h6 class="bd-about-feature-title">Six Engineering Colleges</h6>
+<p class="bd-about-feature-desc">Offering cutting-edge technical education with strong industry-academia collaboration.</p>
+</div>
+</div>
+<div class="bd-about-feature-item">
+<div class="bd-about-feature-icon">
+<span><i class="icon-career-growth"></i></span>
+</div>
+<div class="bd-about-feature-content">
+<h6 class="bd-about-feature-title">Three Pharmacy Colleges</h6>
+<p class="bd-about-feature-desc">Producing skilled healthcare professionals committed to service and excellence.</p>
+</div>
+</div>
+</div>
+<div class="bd-about-btn">
+<a class="bd-btn btn-secondary-white" href="our-chairman.html">Know Our Leader</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- about area end -->
+<!-- mission-vision area start -->
+<section class="bd-mission-vision section-space">
+<div class="container">
+<div class="row gy-30">
+<div class="col-xl-4 col-lg-4 col-md-12">
+<div class="bd-mission-vision-box">
+<div class="bd-mission-vision-shape"><img alt="shape" loading="lazy" src="assets/frontend/images/shape/gradient-circle.webp?v=2"/></div>
+<span class="bd-mission-vision-icon"><img alt="icon" loading="lazy" src="assets/frontend/img/vision.svg?v=2"/></span>
+<h3 class="bd-mission-vision-title">Our Vision</h3>
+<p class="bd-mission-vision-description">To evolve into a centre of excellence in Science &amp; Technology through creative and innovative practices in teaching - learning, towards promoting academic achievement and research excellence to produce internationally accepted, competitive and world class professionals who are psychologically strong &amp; emotionally balanced imbued with social consciousness &amp; ethical values.
+</p>
+</div>
+</div>
+<div class="col-xl-4 col-lg-4 col-md-12">
+<div class="bd-mission-vision-box">
+<div class="bd-mission-vision-shape"><img alt="shape" loading="lazy" src="assets/frontend/images/shape/gradient-circle.webp?v=2"/></div>
+<span class="bd-mission-vision-icon"><img alt="icon" loading="lazy" src="assets/frontend/img/mission.svg?v=2"/></span>
+<h3 class="bd-mission-vision-title">Our Mission</h3>
+<p class="bd-mission-vision-description">To provide high quality academic programmes, training activities, research facilities and opportunities supported by continuous industry - institute interaction aimed at promoting employability, entrepreneurship, leadership and research aptitude among students and contribute to the economic and technological development of the region, state and nation.
+</p>
+</div>
+</div>
+<div class="col-xl-4 col-lg-4 col-md-12">
+<div class="bd-mission-vision-box">
+<div class="bd-mission-vision-shape"><img alt="shape" loading="lazy" src="assets/frontend/images/shape/gradient-circle.webp?v=2"/></div>
+<span class="bd-mission-vision-icon"><img alt="icon" loading="lazy" src="assets/frontend/img/values.svg?v=2"/></span>
+<h3 class="bd-mission-vision-title">Our Commitment</h3>
+<p class="bd-mission-vision-description">Academic excellence and ethical practices; holistic student development; discipline, integrity, and accountability; innovation and research orientation; and social responsibility and community impact.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- mission-vision area end -->
+<!-- counter area start -->
+<div class="bd-counter-area p-relative space">
+<div class="container">
+<div class="bd-counter-wrapper bd-counter-border">
+<div class="p-relative fix">
+<div class="bd-counter-style-one">
+<div class="bd-counter-bg-2 theme-bg bd-noise-bg"></div>
+<div class="bd-counter-item">
+<div class="bd-counter-content">
+<h2 class="bd-counter-title"><span class="purecounter" data-purecounter-duration="1" data-purecounter-end="80">0</span>–<span class="purecounter" data-purecounter-duration="1" data-purecounter-end="85">0</span>%
+                                </h2>
+<p>Employment Rate</p>
+</div>
+</div>
+<div class="bd-counter-item">
+<div class="bd-counter-content">
+<h2 class="bd-counter-title"><span class="purecounter" data-purecounter-duration="1" data-purecounter-end="90">0</span>+
+                                </h2>
+<p>Years of Excellence</p>
+</div>
+</div>
+<div class="bd-counter-item">
+<div class="bd-counter-content">
+<h2 class="bd-counter-title"><span class="purecounter" data-purecounter-duration="1" data-purecounter-end="10">0</span>K+
+                                </h2>
+<p>Graduates Annually</p>
+</div>
+</div>
+<div class="bd-counter-item">
+<div class="bd-counter-content">
+<h2 class="bd-counter-title"><span class="purecounter" data-purecounter-duration="1" data-purecounter-end="22">0</span>+
+                                </h2>
+<p>Institutions Worldwide</p>
+</div>
+</div>
+</div>
+<div class="bd-counter-shape-wrap">
+<div class="shape-1"><img alt="shape" loading="lazy" src="assets/frontend/images/shape/counter-shape-1.webp?v=2"/></div>
+<div class="shape-2"><img alt="shape" loading="lazy" src="assets/frontend/images/shape/counter-shape-2.webp?v=2"/></div>
+<div class="shape-3"><img alt="shape" loading="lazy" src="assets/frontend/images/shape/counter-shape-6.webp?v=2"/></div>
+<div class="shape-4"><img alt="shape" loading="lazy" src="assets/frontend/images/shape/counter-shape-4.webp?v=2"/></div>
+<div class="shape-5"><img alt="shape" loading="lazy" src="assets/frontend/images/shape/counter-shape-5.webp?v=2"/></div>
+<div class="shape-6"><img alt="shape" loading="lazy" src="assets/frontend/images/shape/counter-shape-3.webp?v=2"/></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- counter area end -->
+<!-- impact area start -->
+<section class="bd-impact-area section-space p-relative fix" style="background: linear-gradient(135deg, #f0f4ff 0%, #f9f0ff 100%);">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-xl-8 col-lg-8">
+<div class="bd-section-title-wrapper section-title-space text-center">
+<h2 class="bd-section-title">Impact Beyond <span class="down-mark-line">Classrooms</span></h2>
+<p class="bd-section-paragraph">With strong academic frameworks and value-driven education, Shree GURUS has grown into a highly respected institution across the education sector.</p>
+</div>
+</div>
+</div>
+<div class="row gy-30">
+<div class="col-xl-6 col-lg-6 col-md-12">
+<div style="background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border-left: 4px solid var(--b);">
+<h4 style="color: #1a1a1a; font-weight: 700; margin-bottom: 20px; font-size: 18px;">Employment &amp; Higher Education</h4>
+<ul style="list-style: none; padding: 0; margin: 0;">
+<li style="color: #666; font-size: 15px; margin-bottom: 15px; padding-left: 25px; position: relative; line-height: 1.7;"><span style="position: absolute; left: 0; color: var(--b); font-weight: bold;">✓</span> <strong>80–85%</strong> of students secure employment in leading organizations</li>
+<li style="color: #666; font-size: 15px; margin-bottom: 15px; padding-left: 25px; position: relative; line-height: 1.7;"><span style="position: absolute; left: 0; color: var(--b); font-weight: bold;">✓</span> <strong>10–15%</strong> of students pursue higher education at prestigious institutions</li>
+<li style="color: #666; font-size: 15px; padding-left: 25px; position: relative; line-height: 1.7;"><span style="position: absolute; left: 0; color: var(--b); font-weight: bold;">✓</span> Nearly <strong>8,000–10,000 graduates annually</strong> equipped with strong values and practical skills</li>
+</ul>
+</div>
+</div>
+<div class="col-xl-6 col-lg-6 col-md-12">
+<div style="background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border-left: 4px solid #10b981;">
+<h4 style="color: #1a1a1a; font-weight: 700; margin-bottom: 20px; font-size: 18px;">Socio-Economic Transformation</h4>
+<p style="color: #666; font-size: 15px; line-height: 1.8; margin-bottom: 15px;">
+                            This remarkable transformation enables <strong>thousands of families</strong> to progress from lower-middle-class backgrounds toward improved economic stability and sustainable growth.
+                        </p>
+<p style="color: #666; font-size: 15px; line-height: 1.8; margin: 0;">
+                            Shree GURUS's meaningful contribution to education and society has been widely acknowledged and appreciated by eminent personalities, reinforcing its role as a <strong>trusted institution shaping future generations.</strong>
+</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- impact area end -->
+<!-- leadership area start -->
+<section class="bd-leadership-area section-space">
+<div class="container">
+<div class="row justify-content-center mb-50">
+<div class="col-xl-8 col-lg-8">
+<div class="bd-section-title-wrapper section-title-space text-center">
+<h2 class="bd-section-title">Leadership &amp; <span class="down-mark-line">Governance</span></h2>
+</div>
+</div>
+</div>
+<div class="row gy-30">
+<div class="col-xl-12">
+<div style="background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); padding: 40px; border-radius: 12px; border-left: 4px solid var(--b); box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
+<p style="color: #555; font-size: 15px; line-height: 1.9; margin-bottom: 20px;">
+                            Shree GURUS is guided by experienced academicians, administrators, and education visionaries who ensure strategic growth, academic integrity, and institutional excellence. Strong governance frameworks enable transparent decision-making and continuous academic enhancement.
+                        </p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 30px;">
+<div style="padding: 20px; background: white; border-radius: 10px; border-top: 3px solid var(--b);">
+<h5 style="color: var(--b); font-weight: 700; margin-bottom: 10px; font-size: 14px; text-transform: uppercase;">Standardized Systems</h5>
+<p style="color: #666; font-size: 13px; line-height: 1.6; margin: 0;">Every institution follows standardized systems ensuring consistency and quality across all campuses.</p>
+</div>
+<div style="padding: 20px; background: white; border-radius: 10px; border-top: 3px solid var(--b);">
+<h5 style="color: var(--b); font-weight: 700; margin-bottom: 10px; font-size: 14px; text-transform: uppercase;">Transparent Processes</h5>
+<p style="color: #666; font-size: 13px; line-height: 1.6; margin: 0;">Transparent decision-making processes ensure accountability and stakeholder confidence.</p>
+</div>
+<div style="padding: 20px; background: white; border-radius: 10px; border-top: 3px solid var(--b);">
+<h5 style="color: var(--b); font-weight: 700; margin-bottom: 10px; font-size: 14px; text-transform: uppercase;">Quality Improvement</h5>
+<p style="color: #666; font-size: 13px; line-height: 1.6; margin: 0;">Continuous quality improvement practices drive academic and operational excellence.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- leadership area end -->
+<section class="bd-testimonial-area section-space theme-bg-05 fix">
+<div class="container">
+<div class="row gy-30 justify-content-between">
+<div class="col-xl-4 col-lg-4">
+<div class="bd-section-title-wrapper">
+<span class="bd-section-subtitle">Testimonials</span>
+<h2 class="bd-section-title mb-10">Voices of the <span class="down-mark-line"> SHREE GURUS </span>
+                            Family</h2>
+<p class="bd-section-paragraph">
+                            Hear what students and parents share about their journey, growth, and success at Shree GURUS Group of Institutions.
+                        </p>
+<div class="bd-instructor-btn d-flex-center justify-content-start mt-50">
+<a class="bd-btn btn-outline-border-primary" href="about-us.html#">View More</a>
+</div>
+</div>
+</div>
+<div class="col-xl-8 col-lg-8">
+<div class="bd-testimonial-slider">
+<div class="swiper testimonialActiveFive">
+<div class="swiper-wrapper">
+<div class="swiper-slide">
+<div class="bd-testimonial-wrapper style-six has-bg">
+<div class="bd-testimonial-item">
+<div class="bd-testimonial-rating mb-30">
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+</div>
+<div class="bd-testimonial-content mb-55">
+<p>"Shree GURUS Group of Institutions has been instrumental in my IIT-JEE preparation. The expert faculty, comprehensive study materials, and personalized mentorship helped me achieve my dreams."</p>
+</div>
+<div class="bd-testimonial-meta d-flex-between">
+<div class="author">
+<div class="thumb">
+<img alt="images" loading="lazy" src="assets/frontend/images/avatar/avatar.webp?v=2"/>
+</div>
+<div class="details">
+<h6 class="name">Rajesh Kumar</h6>
+<span class="designation">IIT-JEE Student</span>
+</div>
+</div>
+<div class="bd-testimonial-quote">
+<i class="fa-regular fa-quote-right"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="bd-testimonial-wrapper style-six has-bg">
+<div class="bd-testimonial-item">
+<div class="bd-testimonial-rating mb-30">
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+</div>
+<div class="bd-testimonial-content mb-55">
+<p>"The NEET coaching at Shree GURUS is outstanding. The teachers are highly qualified and genuinely care about every student's progress. My daughter's rank improved significantly."</p>
+</div>
+<div class="bd-testimonial-meta d-flex-between">
+<div class="author">
+<div class="thumb">
+<img alt="images" loading="lazy" src="assets/frontend/images/avatar/avatar2.webp?v=2"/>
+</div>
+<div class="details">
+<h6 class="name">Dr. Priya Sharma</h6>
+<span class="designation">Parent - NEET Student</span>
+</div>
+</div>
+<div class="bd-testimonial-quote">
+<i class="fa-regular fa-quote-right"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="bd-testimonial-wrapper style-six has-bg">
+<div class="bd-testimonial-item">
+<div class="bd-testimonial-rating mb-30">
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+</div>
+<div class="bd-testimonial-content mb-55">
+<p>"Shree GURUS's holistic approach to education goes beyond just competitive exams. The college provides excellent support for overall personality development and career guidance."</p>
+</div>
+<div class="bd-testimonial-meta d-flex-between">
+<div class="author">
+<div class="thumb">
+<img alt="images" loading="lazy" src="assets/frontend/images/avatar/avatar3.webp?v=2"/>
+</div>
+<div class="details">
+<h6 class="name">Ananya Patel</h6>
+<span class="designation">Student - MPC Stream</span>
+</div>
+</div>
+<div class="bd-testimonial-quote">
+<i class="fa-regular fa-quote-right"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- slider dots pagination -->
+<div class="bd-testimonial-pagination has-primary bd-dots-pagination justify-content-start">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- testimonial area end -->
+<!-- management area start -->
+<section class="bd-management-area section-space primary-bg">
+<div class="container">
+<!-- Management Section -->
+<div class="row justify-content-center">
+<div class="col-xl-12">
+<div class="bd-section-title-wrapper section-title-space text-center">
+<h2 class="bd-section-title">Management</h2>
+<p class="bd-section-paragraph">Leadership guiding Shree GURUS's vision and mission</p>
+</div>
+</div>
+</div>
+<div class="row gy-40 mb-70">
+<!-- Chairman -->
+<div class="col-xl-4 col-lg-6 col-md-6">
+<div class="bd-management-card" onmouseout="this.style.transform='none'; this.style.boxShadow='0 8px 25px rgba(0,0,0,0.12)'" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 12px 35px rgba(0,0,0,0.18)'" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.12); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+<div style="overflow: hidden; height: 320px; background: linear-gradient(135deg, #f0f4ff 0%, #f9f0ff 100%);">
+<img alt="To Be Added" loading="lazy" src="assets/frontend/img/chairman.jpg?v=2" style="width: 100%; height: 100%; object-fit: cover;"/>
+</div>
+<div style="padding: 25px; text-align: center;">
+<h5 class="bd-management-name" style="color: #1a1a1a; font-size: 18px; font-weight: 700; margin-bottom: 8px;">To Be Added</h5>
+<p style="color: var(--b); font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin: 0;">Chairman</p>
+</div>
+</div>
+</div>
+<!-- Vice Chairman -->
+<div class="col-xl-4 col-lg-6 col-md-6">
+<div class="bd-management-card" onmouseout="this.style.transform='none'; this.style.boxShadow='0 8px 25px rgba(0,0,0,0.12)'" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 12px 35px rgba(0,0,0,0.18)'" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.12); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+<div style="overflow: hidden; height: 320px; background: linear-gradient(135deg, #f0f4ff 0%, #f9f0ff 100%);">
+<img alt="To Be Added" loading="lazy" src="assets/frontend/img/vice-chairman.webp?v=2" style="width: 100%; height: 100%; object-fit: cover; object-position: bottom;"/>
+</div>
+<div style="padding: 25px; text-align: center;">
+<h5 class="bd-management-name" style="color: #1a1a1a; font-size: 18px; font-weight: 700; margin-bottom: 8px;">Smt. L. Rani Rudrama Devi 
+</h5>
+<p style="color: var(--b); font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin: 0;">Vice Chairman</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- management area end -->
+<!-- cta area start -->
+<section class="bd-cta-area p-relative">
+<div class="bd-cta-wrapper style-two theme-bg p-relative section-space">
+<div class="container">
+<div class="bd-cta-content-wrapper p-relative">
+<div class="row justify-content-center">
+<div class="col-xxl-6 col-xl-8 col-lg-8 col-md-12">
+<div class="bd-cta-content text-center">
+<div class="bd-section-title-wrapper section-title-space text-center">
+<h2 class="bd-section-title text-white">Enhance Your Skills and Get Certified with Shree GURUS</h2>
+</div>
+<div class="bd-cta-form">
+<form action="about-us.html#">
+<div class="bd-newsletter-input">
+<input placeholder="Your email" type="text"/>
+<button class="bd-btn btn-primary radius-6" type="submit">Subscribe
+                                                Now</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bd-cta-shape-wrapper">
+<div class="bd-cta-shape-1">
+<img alt="shape" loading="lazy" src="assets/frontend/images/shape/half-circle-wave-1.webp?v=2"/>
+</div>
+<div class="bd-cta-shape-2 d-none d-xl-block">
+<img alt="shape" loading="lazy" src="assets/frontend/images/shape/book-3.webp?v=2"/>
+</div>
+<div class="bd-cta-shape-3 d-none d-xl-block">
+<img alt="shape" loading="lazy" src="assets/frontend/images/shape/1-3-shape.webp?v=2"/>
+</div>
+<div class="bd-cta-shape-4 d-none d-xl-block">
+<img alt="shape" loading="lazy" src="assets/frontend/images/shape/pencle.webp?v=2"/>
+</div>
+<div class="bd-cta-shape-5 d-none d-xl-block">
+<img alt="shape" loading="lazy" src="assets/frontend/images/shape/shape-bulb.webp?v=2"/>
+</div>
+<div class="bd-cta-shape-6 d-none d-xl-block">
+<img alt="shape" loading="lazy" src="assets/frontend/images/shape/e-shape.webp?v=2"/>
+</div>
+<div class="bd-cta-shape-7 d-none d-xl-block">
+<img alt="shape" loading="lazy" src="assets/frontend/images/shape/shape-lab.webp?v=2"/>
+</div>
+<div class="bd-cta-shape-8">
+<img alt="shape" loading="lazy" src="assets/frontend/images/shape/half-circle-wave-2.webp?v=2"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- cta area end -->
+</main>
+<!-- Body main wrapper end -->
+<!-- footer area start -->
+<footer>
+<style>
+.cookie-consent {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #1c1c1c;
+  color: #fff;
+  padding: 15px 20px;
+  z-index: 9999;
+  display: none;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+}
+
+.cookie-content {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.cookie-content p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.cookie-content a {
+  color: #ffc107;
+  text-decoration: underline;
+}
+
+.cookie-buttons {
+  margin-top: 10px;
+}
+
+.cookie-buttons button {
+  margin-left: 10px;
+  padding: 8px 18px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.btn-accept {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.btn-reject {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .cookie-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .cookie-buttons {
+    margin-top: 10px;
+  }
+}
+</style>
+<div class="cookie-consent" id="cookieConsent">
+<div class="cookie-content">
+<p>
+      We use cookies to improve your browsing experience, analyze site traffic, 
+      and personalize content. By clicking "Accept", you consent to our use of cookies.
+      <a href="privacy-policy.html" target="_blank">Learn More</a>
+</p>
+<div class="cookie-buttons">
+<button class="btn-accept" id="acceptCookies">Accept</button>
+<button class="btn-reject" id="rejectCookies">Reject</button>
+</div>
+</div>
+</div>
+<a class="whatsapp-float" href="javascript:void(0)" target="_blank" title="Chat with Shree GURUS Group of Institutions Admissions on WhatsApp">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+<style>
+.whatsapp-float {
+    position: fixed;
+    bottom: 90px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+    z-index: 999;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    background-color: #20ba5b;
+    transform: scale(1.1);
+    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.6);
+}
+
+.whatsapp-float:active {
+    transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 70px;
+        right: 20px;
+        width: 55px;
+        height: 55px;
+        font-size: 28px;
+    }
+}
+</style>
+<style>
+
+ .bd-footer-contact-title {
+    color: #fff;
+    font-size: 16px;
+}
+
+.contact-icon i{
+  color: #fff !important;
+}
+
+
+.shreegurus_group
+
+button{
+    position: absolute;
+    right: 200px;
+    /* bottom: -80px; */
+    /* top: 60px; */
+    bottom: 0px;
+    z-index: 9999;
+    background-color: #fff;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    font-size: 14px;
+    line-height: 1.5;
+}
+</style>
+<!-- 
+    <button class="btn btn-primary fixed-btn" type="button" data-bs-toggle="collapse" data-bs-target="#shreegurustabs"
+        aria-expanded="false" aria-controls="shreegurustabs">
+        SHREE GURUS GROUP OF INSTITUTIONS
+    </button> -->
+<div class="bd-footer-area style-two has-footer-space theme-black space fix">
+<div class="container">
+<div class="row gy-30 justify-content-between">
+<div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-12">
+<div class="bd-footer-widget footer-2-col-1">
+<div class="bd-footer-widget-logo">
+<a href="index.html"><img alt="logo" loading="lazy" src="assets/frontend/img/logo1.png?v=2"/></a>
+</div>
+<div class="bd-footer-widget-content">
+<p class="bd-footer-widget-description">
+                                Shree GURUS is a premier educational institution offering coaching for IIT-JEE, NEET, and SAT
+                                exams.
+                            </p>
+<div class="bd-footer-social">
+<div class="theme-social has-white">
+<ul class="social-icon-list">
+<li><a href="javascript:void(0)" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
+<li><a href="javascript:void(0)" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+<li><a href="javascript:void(0)" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a></li>
+<li><a href="javascript:void(0)" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-xxl-3 col-xl-2 col-lg-2 col-md-3 col-sm-4">
+<div class="bd-footer-widget footer-2-col-2">
+<h6 class="bd-footer-widget-title">Courses</h6>
+<div class="bd-footer-widget-links">
+<ul>
+<li class="underline-two"><a href="intermediate-mpc-with-iit-jee-integrated-2-year-program.html"><i class="fa-solid fa-chevron-right"></i> MPC with IIT-JEE</a></li>
+<li class="underline-two"><a href="bipc-with-neet-junior-college.html"><i class="fa-solid fa-chevron-right"></i> BiPC with NEET</a></li>
+<li class="underline-two"><a href="iit-jee-main-advanced-long-term-coaching.html"><i class="fa-solid fa-chevron-right"></i> JEE Long Term</a></li>
+<li class="underline-two"><a href="neet-long-term-coaching.html"><i class="fa-solid fa-chevron-right"></i> NEET Long Term</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-xxl-3 col-xl-2 col-lg-2 col-md-3 col-sm-4">
+<div class="bd-footer-widget footer-2-col-3">
+<h6 class="bd-footer-widget-title">Quick Links</h6>
+<div class="bd-footer-widget-links">
+<ul>
+<li class="underline-two"><a href="blog/index.html"><i class="fa-solid fa-chevron-right"></i> Blog</a></li>
+<li class="underline-two"><a href="gallery.html"><i class="fa-solid fa-chevron-right"></i> Gallery</a></li>
+<li class="underline-two"><a href="admissions.html"><i class="fa-solid fa-chevron-right"></i> Admissions</a></li>
+<!-- <li class="underline-two"><a href="#"><i class="fa-solid fa-chevron-right"></i> Login</a></li> -->
+<li class="underline-two"><a href="privacy-policy.html"><i class="fa-solid fa-chevron-right"></i> Privacy Policy</a></li>
+<li class="underline-two"><a href="terms-and-conditions.html"> <i class="fa-solid fa-chevron-right"></i> Terms Conditions</a></li>
+</ul>
+</div>
+</div>
+</div>
+<!-- <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-4 col-sm-4">
+                        <div class="bd-footer-widget footer-2-col-4">
+                            <h6 class="bd-footer-widget-title ">Support</h6>
+                            <div class="bd-footer-widget-links">
+                                <ul>
+                                    <li class="underline-two"><a href="">Contact Now</a></li>
+                                    <li class="underline-two"><a href="">FAQ</a></li>
+                             
+                                    <li class="underline-two"><a href="">Terms Conditions</a></li>
+                                    <li class="underline-two"><a href="">Privacy Policy</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div> -->
+<div class="col-xxl-3 col-xl-3 col-lg-3 col-md-8 col-sm-12">
+<div class="bd-footer-widget footer-2-col-5">
+<h6 class="bd-footer-widget-title">Contact Info</h6>
+<div class="bd-footer-from-content">
+<div class="bd-footer-widget-contact">
+<div class="bd-footer-contact-item d-flex gap-3 mb-3">
+<div class="contact-icon">
+<i class="fa-solid fa-map-location-dot text-primary"></i>
+</div>
+<div class="contact-content">
+<h6 class="bd-footer-contact-title mb-1">Shree GURUS Nizampet Office</h6>
+<p class="bd-footer-contact-text small">To Be Added</p>
+</div>
+</div>
+<div class="bd-footer-contact-item d-flex gap-3 mb-3">
+<div class="contact-icon">
+<i class="fa-solid fa-phone text-primary"></i>
+</div>
+<div class="contact-content">
+<h6 class="bd-footer-contact-title mb-1">Call Us</h6>
+<p class="bd-footer-contact-text small"><a class="text-decoration-none" href="javascript:void(0)">+91 To Be Added</a></p>
+</div>
+</div>
+<div class="bd-footer-contact-item d-flex gap-3">
+<div class="contact-icon">
+<i class="fa-solid fa-envelope text-primary"></i>
+</div>
+<div class="contact-content">
+<h6 class="bd-footer-contact-title mb-1">Email Us</h6>
+<p class="bd-footer-contact-text small"><a class="text-decoration-none" href="mailto:info@shreegurus.edu.in">info@shreegurus.edu.in</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bd-footer-copyright-area style-two theme-bg fix bd-noise-bg">
+<div class="container">
+<div class="row justify-content-between">
+<div class="col-xl-6">
+<div class="bd-footer-copyright-text text-center">
+<p class="underline-two">© Copyright <span id="year"></span> | Developed By <a href="https://bigbrains.live" target="_blank">Jashwanth Groups</a></p>
+</div>
+</div>
+<div class="col-xl-6">
+<div class="shreegurus_group text-center">
+<!-- <button class="btn btn-primary fixed-btn" type="button" data-bs-toggle="collapse" data-bs-target="#shreegurustabs" aria-expanded="false" aria-controls="shreegurustabs">
+                            SHREE GURUS GROUP OF INSTITUTIONS
+                        </button> -->
+<div class="collapse" id="shreegurustabs">
+<div class="tab-content row fixed-tab-content">
+<button aria-controls="shreegurustabs" aria-expanded="true" class="btn btn-secondary" data-bs-target="#shreegurustabs" data-bs-toggle="collapse" type="button">
+<span><i class="fa-solid fa-xmark"></i></span>
+</button>
+
+<div class="tab-item col-12 col-md-3">
+<h5>PG &amp; Degree College</h5>
+<p>1</p>
+</div>
+<div class="tab-item col-12 col-md-3">
+<h5>Pharmacy Colleges</h5>
+<p>3</p>
+</div>
+<div class="tab-item col-12 col-md-3">
+<h5>B.Ed College</h5>
+<p>1</p>
+</div>
+<div class="tab-item col-12 col-md-3">
+<h5>Junior Colleges</h5>
+<ul class="college-list">
+<li><a class="college-link" href="about-us.html#">Nizampet</a></li>
+<li><a class="college-link" href="about-us.html#">AS Rao Nagar</a></li>
+<li><a class="college-link" href="about-us.html#">Dilsukhnagar</a></li>
+<li><a class="college-link" href="about-us.html#">Medchal</a></li>
+<li><a class="college-link" href="about-us.html#">Thimmapuram</a></li>
+<li><a class="college-link" href="about-us.html#">Dwaraka Nagar</a></li>
+<li><a class="college-link" href="about-us.html#">Benz Circle</a></li>
+<li><a class="college-link" href="about-us.html#">Vadlamudi</a></li>
+<li><a class="college-link" href="about-us.html#">Palakaruru</a></li>
+</ul>
+</div>
+<div class="tab-item col-12 col-md-3">
+<h5>University</h5>
+<p>6</p>
+</div>
+<div class="tab-item col-12 col-md-3">
+<h5>Engineering Colleges</h5>
+<p>17</p>
+</div>
+<div class="tab-item col-12 col-md-3">
+<h5>Schools of Central Boards</h5>
+<p>1</p>
+</div>
+<div class="tab-item col-12 col-md-3">
+<h5>Shree GURUS Institute of Law</h5>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<!-- footer area end -->
+<!-- back to top -->
+<div class="backtotop-wrap cursor-pointer">
+<svg class="backtotop-circle svg-content" height="100%" viewbox="-1 -1 102 102" width="100%">
+<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+</svg>
+</div>
+<!-- Backtotop end -->
+<!-- JS here -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const cookieConsent = document.getElementById("cookieConsent");
+  const acceptBtn = document.getElementById("acceptCookies");
+  const rejectBtn = document.getElementById("rejectCookies");
+
+  if (!localStorage.getItem("cookieConsent")) {
+    cookieConsent.style.display = "block";
+  }
+
+  acceptBtn.addEventListener("click", function () {
+    localStorage.setItem("cookieConsent", "accepted");
+    cookieConsent.style.display = "none";
+  });
+
+  rejectBtn.addEventListener("click", function () {
+    localStorage.setItem("cookieConsent", "rejected");
+    cookieConsent.style.display = "none";
+  });
+});
+</script>
+<script src="assets/frontend/js/vendor/jquery-3.7.1.min.js"></script>
+<script src="assets/frontend/js/plugins/waypoints.min.js"></script>
+<script src="assets/frontend/js/vendor/bootstrap.bundle.min.js"></script>
+<script src="assets/frontend/js/plugins/swiper.min.js"></script>
+<script src="assets/frontend/js/plugins/wow.js"></script>
+<script src="assets/frontend/js/vendor/magnific-popup.min.js"></script>
+<script src="assets/frontend/js/vendor/isotope.pkgd.min.js"></script>
+<script src="assets/frontend/js/vendor/imagesloaded.pkgd.min.js"></script>
+<script src="assets/frontend/js/plugins/nice-select.min.js"></script>
+<script src="assets/frontend/js/vendor/ajax-form.js"></script>
+<script src="assets/frontend/js/plugins/easypie.js"></script>
+<script src="assets/frontend/js/vendor/purecounter.js"></script>
+<script src="assets/frontend/js/plugins/nouislider.min.js"></script>
+<script src="assets/frontend/js/plugins/apexcharts.min.js"></script>
+<script src="assets/frontend/js/plugins/typed.js"></script>
+<script src="assets/frontend/js/main.js"></script>
+<!-- 
+<script>
+    (function() {
+        const vg = document.querySelector('.shreegurus_group');
+        if (!vg) return;
+        const btn = vg.querySelector('.btn');
+        const tabs = vg.querySelector('.tabs');
+
+        // helper to hide with animation
+        function hideTabs() {
+            tabs.classList.remove('show');
+            // after transition end set display none
+            const onEnd = function() {
+                tabs.style.display = 'none';
+                tabs.removeEventListener('transitionend', onEnd);
+            };
+            tabs.addEventListener('transitionend', onEnd);
+        }
+
+        // toggle on button click
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (getComputedStyle(tabs).display === 'block' && tabs.classList.contains('show')) {
+                hideTabs();
+            } else {
+                // make visible then trigger transition
+                tabs.style.display = 'block';
+                // force reflow
+                void tabs.offsetHeight;
+                tabs.classList.add('show');
+            }
+        });
+
+        // optional: click outside to close
+        document.addEventListener('click', function(e) {
+            if (getComputedStyle(tabs).display === 'block' && !vg.contains(e.target)) {
+                hideTabs();
+            }
+        });
+    })();
+</script> -->
+<!-- <script defer="" src="../beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"9785eab8d0f0406fb028adb707058fb1","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+
+ -->
+</body>
+</html>
