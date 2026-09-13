@@ -1,0 +1,629 @@
+/* ==========================================================================
+   SHREE GURUS NEET & JEE ACADEMY - PRESTIGE BRAND THEME
+   Palette: Deep Royal Purple, Burnished Gold, Pure White, Slate Accents
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --sg-purple-dark: #1b0422;
+    --sg-purple-main: #360d3b;
+    --sg-purple-light: #521858;
+    --sg-purple-soft: #f8f2f9;
+    --sg-gold-main: #d4af37;
+    --sg-gold-light: #f7e7a9;
+    --sg-gold-dark: #aa851d;
+    --sg-gold-gradient: linear-gradient(135deg, #d4af37 0%, #f7e7a9 50%, #b89124 100%);
+    --sg-purple-gradient: linear-gradient(135deg, #1b0422 0%, #360d3b 60%, #4e1753 100%);
+    --sg-dark-card: #230827;
+    --sg-text-dark: #0f172a;
+    --sg-text-muted: #475569;
+    --sg-border-light: #e2e8f0;
+    --sg-border-gold: rgba(212, 175, 55, 0.35);
+    --sg-shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    --sg-shadow-md: 0 10px 15px -3px rgba(36, 13, 39, 0.08), 0 4px 6px -2px rgba(36, 13, 39, 0.04);
+    --sg-shadow-lg: 0 20px 25px -5px rgba(36, 13, 39, 0.12), 0 10px 10px -5px rgba(36, 13, 39, 0.04);
+    --sg-font-heading: 'Outfit', sans-serif;
+    --sg-font-display: 'Cinzel', serif;
+    --sg-font-body: 'Inter', sans-serif;
+}
+
+body {
+    font-family: var(--sg-font-body);
+    color: var(--sg-text-dark);
+    background-color: #ffffff;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--sg-font-heading);
+    color: var(--sg-purple-main);
+    font-weight: 700;
+}
+
+.sg-font-display {
+    font-family: var(--sg-font-display);
+}
+
+/* ---------------- Top Bar ---------------- */
+.sg-topbar {
+    background: var(--sg-purple-dark);
+    color: #e2e8f0;
+    font-size: 13px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+.sg-topbar a {
+    color: #e2e8f0;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+.sg-topbar a:hover {
+    color: var(--sg-gold-main);
+}
+.sg-topbar-badge {
+    background: rgba(212, 175, 55, 0.15);
+    color: var(--sg-gold-light);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* ---------------- Main Header Navbar ---------------- */
+.sg-navbar {
+    background: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    padding: 12px 0;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    border-bottom: 2px solid rgba(212, 175, 55, 0.25);
+}
+.sg-logo-img {
+    height: 58px;
+    width: auto;
+    object-fit: contain;
+}
+.sg-nav-link {
+    color: var(--sg-purple-main) !important;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 8px 14px !important;
+    transition: all 0.2s ease;
+}
+.sg-nav-link:hover, .sg-nav-link.active {
+    color: var(--sg-gold-dark) !important;
+}
+
+/* ---------------- Prestige Buttons ---------------- */
+.sg-btn-primary {
+    background: var(--sg-gold-gradient);
+    color: var(--sg-purple-dark) !important;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 11px 26px;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+}
+.sg-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+    color: #000000 !important;
+}
+
+.sg-btn-secondary {
+    background: transparent;
+    color: #ffffff !important;
+    border: 1.5px solid var(--sg-gold-main);
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 24px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+.sg-btn-secondary:hover {
+    background: rgba(212, 175, 55, 0.15);
+    border-color: var(--sg-gold-light);
+    color: var(--sg-gold-light) !important;
+    transform: translateY(-2px);
+}
+
+.sg-btn-purple {
+    background: var(--sg-purple-main);
+    color: #ffffff !important;
+    font-weight: 600;
+    padding: 10px 22px;
+    border-radius: 8px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+.sg-btn-purple:hover {
+    background: var(--sg-purple-light);
+    color: var(--sg-gold-light) !important;
+}
+
+/* ---------------- Hero Section ---------------- */
+.sg-hero-section {
+    background: var(--sg-purple-gradient);
+    position: relative;
+    padding: 85px 0 95px 0;
+    color: #ffffff;
+    overflow: hidden;
+}
+.sg-hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 20% 80%, rgba(82, 24, 88, 0.25) 0%, transparent 60%);
+    pointer-events: none;
+}
+.sg-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(212, 175, 55, 0.12);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    padding: 6px 18px;
+    border-radius: 30px;
+    color: var(--sg-gold-light);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+.sg-hero-title {
+    font-size: 3.2rem;
+    line-height: 1.15;
+    color: #ffffff;
+    font-weight: 800;
+    margin-bottom: 18px;
+}
+.sg-hero-title .sg-gold-text {
+    background: var(--sg-gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.sg-hero-motto {
+    font-family: var(--sg-font-display);
+    font-size: 1.35rem;
+    color: var(--sg-gold-main);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+    display: block;
+}
+.sg-hero-desc {
+    font-size: 1.1rem;
+    color: #cbd5e1;
+    line-height: 1.65;
+    max-width: 580px;
+    margin-bottom: 32px;
+}
+
+/* Hero Program Pills */
+.sg-program-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 35px;
+}
+.sg-pill {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 13.5px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.sg-pill i {
+    color: var(--sg-gold-main);
+}
+
+/* Hero Card Visual */
+.sg-hero-card {
+    background: rgba(35, 8, 39, 0.75);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 16px;
+    padding: 36px 30px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(212, 175, 55, 0.2);
+    position: relative;
+    text-align: center;
+}
+.sg-hero-emblem {
+    width: 130px;
+    height: 130px;
+    margin: 0 auto 20px auto;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.4));
+}
+.sg-hero-card h4 {
+    color: #ffffff;
+    font-size: 1.4rem;
+    margin-bottom: 6px;
+}
+.sg-hero-card p {
+    color: var(--sg-gold-light);
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    margin-bottom: 22px;
+}
+.sg-hero-stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+.sg-hero-stat-item h5 {
+    color: var(--sg-gold-main);
+    font-size: 1.15rem;
+    margin-bottom: 2px;
+}
+.sg-hero-stat-item span {
+    font-size: 11px;
+    color: #cbd5e1;
+    text-transform: uppercase;
+}
+
+/* ---------------- Section Headers ---------------- */
+.sg-section-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 55px auto;
+}
+.sg-section-subtitle {
+    color: var(--sg-gold-dark);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 10px;
+}
+.sg-section-title {
+    font-size: 2.35rem;
+    color: var(--sg-purple-main);
+    line-height: 1.25;
+    margin-bottom: 16px;
+}
+.sg-section-desc {
+    color: var(--sg-text-muted);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* ---------------- 3 Core Program Cards ---------------- */
+.sg-program-card {
+    background: #ffffff;
+    border: 1.5px solid var(--sg-border-light);
+    border-radius: 14px;
+    padding: 35px 28px;
+    box-shadow: var(--sg-shadow-md);
+    transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+.sg-program-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--sg-purple-main);
+    transition: all 0.3s ease;
+}
+.sg-program-card.featured::before {
+    background: var(--sg-gold-gradient);
+    height: 6px;
+}
+.sg-program-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--sg-shadow-lg);
+    border-color: rgba(212, 175, 55, 0.4);
+}
+.sg-card-badge {
+    display: inline-block;
+    background: var(--sg-purple-soft);
+    color: var(--sg-purple-main);
+    font-weight: 700;
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    align-self: flex-start;
+}
+.sg-program-card.featured .sg-card-badge {
+    background: rgba(212, 175, 55, 0.15);
+    color: var(--sg-gold-dark);
+}
+.sg-program-card h3 {
+    font-size: 1.65rem;
+    margin-bottom: 12px;
+}
+.sg-program-card p.desc {
+    color: var(--sg-text-muted);
+    font-size: 14px;
+    line-height: 1.55;
+    margin-bottom: 22px;
+}
+.sg-feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 28px 0;
+    flex-grow: 1;
+}
+.sg-feature-list li {
+    font-size: 14px;
+    color: #334155;
+    margin-bottom: 11px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+.sg-feature-list li i {
+    color: var(--sg-gold-dark);
+    margin-top: 3px;
+    font-size: 14px;
+}
+
+/* ---------------- 8-Step Academic Methodology ---------------- */
+.sg-methodology-section {
+    background: #fcfaf8;
+    padding: 85px 0;
+    border-top: 1px solid var(--sg-border-light);
+    border-bottom: 1px solid var(--sg-border-light);
+}
+.sg-step-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+.sg-step-card {
+    background: #ffffff;
+    border: 1px solid var(--sg-border-light);
+    border-radius: 12px;
+    padding: 26px 22px;
+    box-shadow: var(--sg-shadow-sm);
+    position: relative;
+    transition: all 0.3s ease;
+}
+.sg-step-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--sg-gold-main);
+    box-shadow: var(--sg-shadow-md);
+}
+.sg-step-num {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--sg-purple-main);
+    color: var(--sg-gold-light);
+    font-weight: 700;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+.sg-step-card h4 {
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+}
+.sg-step-card p {
+    font-size: 13.5px;
+    color: var(--sg-text-muted);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ---------------- Parent Trust Section ---------------- */
+.sg-trust-section {
+    padding: 85px 0;
+    background: #ffffff;
+}
+.sg-trust-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+.sg-trust-item {
+    background: var(--sg-purple-soft);
+    border: 1px solid rgba(54, 13, 59, 0.08);
+    border-radius: 12px;
+    padding: 26px 20px;
+    transition: all 0.3s ease;
+}
+.sg-trust-item:hover {
+    background: #ffffff;
+    border-color: rgba(212, 175, 55, 0.4);
+    box-shadow: var(--sg-shadow-md);
+    transform: translateY(-3px);
+}
+.sg-trust-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    background: var(--sg-purple-main);
+    color: var(--sg-gold-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 16px;
+}
+.sg-trust-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+.sg-trust-item p {
+    font-size: 13.5px;
+    color: var(--sg-text-muted);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ---------------- Results Section (Prestige Stat Cards) ---------------- */
+.sg-results-section {
+    background: var(--sg-purple-dark);
+    padding: 85px 0;
+    color: #ffffff;
+    position: relative;
+}
+.sg-results-section .sg-section-title {
+    color: #ffffff;
+}
+.sg-results-section .sg-section-desc {
+    color: #cbd5e1;
+}
+.sg-results-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+.sg-stat-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 12px;
+    padding: 32px 22px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+.sg-stat-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--sg-gold-main);
+    transform: translateY(-4px);
+}
+.sg-stat-placeholder {
+    display: inline-block;
+    background: rgba(212, 175, 55, 0.15);
+    color: var(--sg-gold-light);
+    border: 1px dashed rgba(212, 175, 55, 0.5);
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 14px;
+}
+.sg-stat-card h4 {
+    color: #ffffff;
+    font-size: 1.25rem;
+    margin-bottom: 6px;
+}
+.sg-stat-card p {
+    color: #94a3b8;
+    font-size: 13px;
+    margin: 0;
+}
+
+/* ---------------- Dual Audience UX (Students & Parents) ---------------- */
+.sg-audience-section {
+    padding: 85px 0;
+    background: #f8fafc;
+}
+.sg-audience-card {
+    background: #ffffff;
+    border: 1px solid var(--sg-border-light);
+    border-radius: 14px;
+    padding: 38px 32px;
+    box-shadow: var(--sg-shadow-md);
+    height: 100%;
+}
+.sg-audience-card h3 {
+    font-size: 1.55rem;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.sg-audience-card p.subtitle {
+    font-weight: 600;
+    color: var(--sg-purple-main);
+    font-size: 14.5px;
+    margin-bottom: 20px;
+}
+.sg-faq-item {
+    border-bottom: 1px solid #f1f5f9;
+    padding: 12px 0;
+}
+.sg-faq-q {
+    font-weight: 600;
+    font-size: 14.5px;
+    color: #1e293b;
+    margin-bottom: 4px;
+}
+.sg-faq-a {
+    font-size: 13.5px;
+    color: var(--sg-text-muted);
+    line-height: 1.5;
+}
+
+/* ---------------- CTA Banner ---------------- */
+.sg-cta-banner {
+    background: var(--sg-purple-gradient);
+    border: 1.5px solid rgba(212, 175, 55, 0.4);
+    border-radius: 16px;
+    padding: 55px 40px;
+    color: #ffffff;
+    text-align: center;
+    margin: 40px 0 85px 0;
+    box-shadow: var(--sg-shadow-lg);
+    position: relative;
+    overflow: hidden;
+}
+.sg-cta-banner h2 {
+    color: #ffffff;
+    font-size: 2.2rem;
+    margin-bottom: 14px;
+}
+.sg-cta-banner p {
+    color: #cbd5e1;
+    max-width: 620px;
+    margin: 0 auto 28px auto;
+    font-size: 1.1rem;
+}
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 991px) {
+    .sg-hero-title { font-size: 2.4rem; }
+    .sg-step-grid, .sg-trust-grid, .sg-results-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 576px) {
+    .sg-hero-title { font-size: 1.95rem; }
+    .sg-hero-section { padding: 50px 0; }
+    .sg-step-grid, .sg-trust-grid, .sg-results-grid {
+        grid-template-columns: 1fr;
+    }
+    .sg-cta-banner { padding: 35px 20px; }
+}
