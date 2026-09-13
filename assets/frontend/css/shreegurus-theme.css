@@ -100,14 +100,14 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ---------------- Prestige Buttons ---------------- */
 .sg-btn-primary {
-    background: var(--sg-gold-gradient);
-    color: var(--sg-purple-dark) !important;
+    background: linear-gradient(135deg, #c69214 0%, #dfb743 45%, #a4760a 100%);
+    color: #120217 !important;
     font-weight: 700;
     font-size: 14px;
     padding: 11px 26px;
     border-radius: 8px;
-    border: none;
-    box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
+    border: 1px solid #8e6504;
+    box-shadow: 0 4px 14px rgba(164, 118, 10, 0.35);
     transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
@@ -117,9 +117,59 @@ h1, h2, h3, h4, h5, h6 {
     text-decoration: none;
 }
 .sg-btn-primary:hover {
+    background: linear-gradient(135deg, #dfb743 0%, #ecd074 45%, #b9860f 100%);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+    box-shadow: 0 6px 20px rgba(164, 118, 10, 0.55);
     color: #000000 !important;
+}
+
+/* Darker Rich Gold Solid Button (for white & light cards) */
+.sg-btn-gold {
+    background: linear-gradient(135deg, #b8860b 0%, #c99718 45%, #946906 100%);
+    color: #ffffff !important;
+    font-weight: 700;
+    font-size: 13.5px;
+    padding: 10px 22px;
+    border-radius: 8px;
+    border: 1px solid #785303;
+    box-shadow: 0 4px 12px rgba(148, 105, 6, 0.35);
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+.sg-btn-gold:hover {
+    background: linear-gradient(135deg, #c99718 0%, #dfb743 45%, #aa7a09 100%);
+    color: #000000 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(148, 105, 6, 0.5);
+    text-shadow: none;
+}
+
+.sg-btn-gold-outline {
+    background: rgba(184, 134, 11, 0.08);
+    color: #8c6204 !important;
+    border: 1.5px solid #a4760a;
+    font-weight: 700;
+    font-size: 13.5px;
+    padding: 9px 20px;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+.sg-btn-gold-outline:hover {
+    background: linear-gradient(135deg, #b8860b 0%, #c99718 45%, #946906 100%);
+    color: #ffffff !important;
+    border-color: #785303;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(148, 105, 6, 0.3);
 }
 
 .sg-btn-secondary {
