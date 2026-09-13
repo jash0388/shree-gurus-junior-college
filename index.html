@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="assets/frontend/css/main.css">
     
     <!-- Shree Gurus Prestige Brand Theme -->
-    <link rel="stylesheet" href="assets/frontend/css/shreegurus-theme.css?v=3">
+    <link rel="stylesheet" href="assets/frontend/css/shreegurus-theme.css?v=4">
 </head>
 
 <body>
@@ -124,6 +124,9 @@
                         <a class="nav-link sg-nav-link" href="admissions.html">Admissions & SG-SAT</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link sg-nav-link" href="#videos"><i class="fa-solid fa-play-circle text-danger me-1"></i> Videos & Tours</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link sg-nav-link" href="#pedagogy">Pedagogy</a>
                     </li>
                     <li class="nav-item">
@@ -144,8 +147,14 @@
         </div>
     </nav>
 
-    <!-- ---------------- Hero Section (Uizard Blueprint) ---------------- -->
+    <!-- ---------------- Hero Section with YouTube Background Video ---------------- -->
     <section class="sg-hero-section">
+        <!-- Live YouTube Campus Background Video -->
+        <div class="sg-hero-video-wrapper">
+            <iframe src="https://www.youtube-nocookie.com/embed/uG8FY-3K98w?autoplay=1&mute=1&loop=1&playlist=uG8FY-3K98w&controls=0&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&modestbranding=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+        <div class="sg-hero-video-overlay"></div>
+
         <div class="container">
             <div class="row align-items-center gy-5">
                 <div class="col-lg-7">
@@ -172,9 +181,9 @@
                         <a href="programs.html" class="sg-btn-primary">
                             Explore Courses <i class="fa-solid fa-arrow-right"></i>
                         </a>
-                        <a href="admissions.html" class="sg-btn-secondary">
-                            Get Started (SG-SAT) <i class="fa-solid fa-sparkles"></i>
-                        </a>
+                        <button class="sg-btn-secondary" onclick="openVideoModal('uG8FY-3K98w', 'Guru\'s Medical & IIT Academy Campus Tour')">
+                            <i class="fa-solid fa-circle-play text-warning"></i> Watch Campus Tour
+                        </button>
                     </div>
 
                     <!-- Subject Focus Badges -->
@@ -408,19 +417,240 @@
         </div>
     </section>
 
+    <!-- ---------------- Dedicated Video Showcase & Campus Walkthrough Gallery Section ---------------- -->
+    <section class="py-5" style="background: #ffffff;" id="videos">
+        <div class="container py-4">
+            <div class="text-center max-w-700 mx-auto mb-5">
+                <span class="sg-badge-accent mb-2"><i class="fa-solid fa-circle-play text-danger"></i> Official Video Gallery</span>
+                <h2 class="h1 fw-bold" style="color: var(--sg-purple-main);">Shree Gurus in Action</h2>
+                <p class="text-muted">Experience our campuses, state-of-the-art labs, classrooms, and hear directly from Academic Director Sri A. Guru Brahmam.</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Video 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="sg-video-card" onclick="openVideoModal('uG8FY-3K98w', 'Guru\'s Medical & IIT Academy Guntur & Mangalagiri Campus Tour')">
+                        <div class="sg-video-thumb-box">
+                            <img src="https://img.youtube.com/vi/uG8FY-3K98w/hqdefault.jpg" alt="Guru's Medical & IIT Academy" class="sg-video-thumb">
+                            <div class="sg-play-badge"><i class="fa-solid fa-play"></i></div>
+                            <span class="sg-video-duration"><i class="fa-solid fa-video me-1"></i> Tour</span>
+                        </div>
+                        <div class="sg-video-body">
+                            <div>
+                                <span class="sg-video-tag text-primary">Campus &amp; Facilities</span>
+                                <h5 class="h6 fw-bold text-dark mb-2">Guru's Medical &amp; IIT Academy Guntur &amp; Mangalagiri</h5>
+                                <p class="small text-muted mb-0">High-tech classrooms, integrated science laboratories, library, and campus infrastructure.</p>
+                            </div>
+                            <div class="mt-3 pt-2 border-top d-flex justify-content-between align-items-center">
+                                <span class="small text-warning fw-bold"><i class="fa-solid fa-eye me-1"></i> Watch Video</span>
+                                <small class="text-muted">24frames Media</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="sg-video-card" onclick="openVideoModal('cNqWf88w8TY', 'Gurus Director Sri A. Guru Brahmam Message')">
+                        <div class="sg-video-thumb-box">
+                            <img src="https://img.youtube.com/vi/cNqWf88w8TY/hqdefault.jpg" alt="Gurus Director Message" class="sg-video-thumb">
+                            <div class="sg-play-badge"><i class="fa-solid fa-play"></i></div>
+                            <span class="sg-video-duration"><i class="fa-solid fa-user-tie me-1"></i> Director</span>
+                        </div>
+                        <div class="sg-video-body">
+                            <div>
+                                <span class="sg-video-tag text-warning" style="color: var(--sg-gold-dark) !important;">Leadership Vision</span>
+                                <h5 class="h6 fw-bold text-dark mb-2">Director Sri. A. Guru Brahmam Message</h5>
+                                <p class="small text-muted mb-0">Academic director explains the mission, discipline, faculty methodology, and student mentorship.</p>
+                            </div>
+                            <div class="mt-3 pt-2 border-top d-flex justify-content-between align-items-center">
+                                <span class="small text-warning fw-bold"><i class="fa-solid fa-eye me-1"></i> Watch Video</span>
+                                <small class="text-muted">Digital Exponents</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="sg-video-card" onclick="openVideoModal('yifVWi6rPDc', 'Guru Brahmam Sharing Views About Grand Tests & Error Analysis')">
+                        <div class="sg-video-thumb-box">
+                            <img src="https://img.youtube.com/vi/yifVWi6rPDc/hqdefault.jpg" alt="Guru Brahmam Grand Test Views" class="sg-video-thumb">
+                            <div class="sg-play-badge"><i class="fa-solid fa-play"></i></div>
+                            <span class="sg-video-duration"><i class="fa-solid fa-chart-column me-1"></i> Strategy</span>
+                        </div>
+                        <div class="sg-video-body">
+                            <div>
+                                <span class="sg-video-tag text-danger">Exam Methodology</span>
+                                <h5 class="h6 fw-bold text-dark mb-2">Guru Brahmam on Grand Tests &amp; Error Analysis</h5>
+                                <p class="small text-muted mb-0">Key insights on how grand mock tests, error logbooks, and sectional testing maximize AIR ranks.</p>
+                            </div>
+                            <div class="mt-3 pt-2 border-top d-flex justify-content-between align-items-center">
+                                <span class="small text-warning fw-bold"><i class="fa-solid fa-eye me-1"></i> Watch Video</span>
+                                <small class="text-muted">Digital Exponents</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 4 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="sg-video-card" onclick="openVideoModal('8T9AIINYRcY', 'Gurus Medical Academy & NEET Batch Preparation')">
+                        <div class="sg-video-thumb-box">
+                            <img src="https://img.youtube.com/vi/8T9AIINYRcY/hqdefault.jpg" alt="Gurus Medical Academy" class="sg-video-thumb">
+                            <div class="sg-play-badge"><i class="fa-solid fa-play"></i></div>
+                            <span class="sg-video-duration"><i class="fa-solid fa-stethoscope me-1"></i> NEET</span>
+                        </div>
+                        <div class="sg-video-body">
+                            <div>
+                                <span class="sg-video-tag text-primary">Medical Entrance</span>
+                                <h5 class="h6 fw-bold text-dark mb-2">Gurus Medical Academy &amp; Labs</h5>
+                                <p class="small text-muted mb-0">Dedicated NEET medical batches, botanical &amp; zoological practicals, and 720-mark OMR drills.</p>
+                            </div>
+                            <div class="mt-3 pt-2 border-top d-flex justify-content-between align-items-center">
+                                <span class="small text-warning fw-bold"><i class="fa-solid fa-eye me-1"></i> Watch Video</span>
+                                <small class="text-muted">City News Telugu</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 5 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="sg-video-card" onclick="openVideoModal('xIF62MFzEoc', 'Gurus Academy Campus & Infrastructure Walkthrough')">
+                        <div class="sg-video-thumb-box">
+                            <img src="https://img.youtube.com/vi/xIF62MFzEoc/hqdefault.jpg" alt="Guru's Academy Walkthrough" class="sg-video-thumb">
+                            <div class="sg-play-badge"><i class="fa-solid fa-play"></i></div>
+                            <span class="sg-video-duration"><i class="fa-solid fa-building me-1"></i> Campus</span>
+                        </div>
+                        <div class="sg-video-body">
+                            <div>
+                                <span class="sg-video-tag text-success">Infrastructure</span>
+                                <h5 class="h6 fw-bold text-dark mb-2">Guru's Campus &amp; Infrastructure</h5>
+                                <p class="small text-muted mb-0">Detailed walkthrough of academic halls, supervised reading rooms, and faculty staff rooms.</p>
+                            </div>
+                            <div class="mt-3 pt-2 border-top d-flex justify-content-between align-items-center">
+                                <span class="small text-warning fw-bold"><i class="fa-solid fa-eye me-1"></i> Watch Video</span>
+                                <small class="text-muted">Digital Exponents</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 6 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="sg-video-card" onclick="openVideoModal('xdmFCuM5hTg', 'Gurus Academy Academic Documentary')">
+                        <div class="sg-video-thumb-box">
+                            <img src="https://img.youtube.com/vi/xdmFCuM5hTg/hqdefault.jpg" alt="Gurus Academy Documentary" class="sg-video-thumb">
+                            <div class="sg-play-badge"><i class="fa-solid fa-play"></i></div>
+                            <span class="sg-video-duration"><i class="fa-solid fa-film me-1"></i> Documentary</span>
+                        </div>
+                        <div class="sg-video-body">
+                            <div>
+                                <span class="sg-video-tag text-purple">Academic Rigor</span>
+                                <h5 class="h6 fw-bold text-dark mb-2">Gurus Academy Documentary</h5>
+                                <p class="small text-muted mb-0">Comprehensive presentation of student day routines, mentorship, and parent trust.</p>
+                            </div>
+                            <div class="mt-3 pt-2 border-top d-flex justify-content-between align-items-center">
+                                <span class="small text-warning fw-bold"><i class="fa-solid fa-eye me-1"></i> Watch Video</span>
+                                <small class="text-muted">Best Ads Best Publicity</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 7 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="sg-video-card" onclick="openVideoModal('CUY81RUT0m4', 'Gurus Vidyanikethan Foundation Excellence')">
+                        <div class="sg-video-thumb-box">
+                            <img src="https://img.youtube.com/vi/CUY81RUT0m4/hqdefault.jpg" alt="Gurus Vidyanikethan" class="sg-video-thumb">
+                            <div class="sg-play-badge"><i class="fa-solid fa-play"></i></div>
+                            <span class="sg-video-duration"><i class="fa-solid fa-graduation-cap me-1"></i> Foundation</span>
+                        </div>
+                        <div class="sg-video-body">
+                            <div>
+                                <span class="sg-video-tag text-success">Classes 8–10</span>
+                                <h5 class="h6 fw-bold text-dark mb-2">Gurus Vidyanikethan Foundation</h5>
+                                <p class="small text-muted mb-0">Early conceptual training, Olympiad prep, and mathematical logic development for school students.</p>
+                            </div>
+                            <div class="mt-3 pt-2 border-top d-flex justify-content-between align-items-center">
+                                <span class="small text-warning fw-bold"><i class="fa-solid fa-eye me-1"></i> Watch Video</span>
+                                <small class="text-muted">Digital Exponents</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 8 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="sg-video-card" onclick="openVideoModal('EBZgtA421BU', 'Gurus Educational Society Overview')">
+                        <div class="sg-video-thumb-box">
+                            <img src="https://img.youtube.com/vi/EBZgtA421BU/hqdefault.jpg" alt="Gurus Educational Society" class="sg-video-thumb">
+                            <div class="sg-play-badge"><i class="fa-solid fa-play"></i></div>
+                            <span class="sg-video-duration"><i class="fa-solid fa-award me-1"></i> Legacy</span>
+                        </div>
+                        <div class="sg-video-body">
+                            <div>
+                                <span class="sg-video-tag text-warning" style="color: var(--sg-gold-dark) !important;">Institutional Trust</span>
+                                <h5 class="h6 fw-bold text-dark mb-2">Gurus Educational Society Overview</h5>
+                                <p class="small text-muted mb-0">The heritage of educational excellence, faculty pedigree, and results across Andhra Pradesh &amp; Telangana.</p>
+                            </div>
+                            <div class="mt-3 pt-2 border-top d-flex justify-content-between align-items-center">
+                                <span class="small text-warning fw-bold"><i class="fa-solid fa-eye me-1"></i> Watch Video</span>
+                                <small class="text-muted">Digital Exponents</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 9 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="sg-video-card" onclick="openVideoModal('AVOXpDlioUc', 'Gurus Vidyanikethan Student Life & Discipline')">
+                        <div class="sg-video-thumb-box">
+                            <img src="https://img.youtube.com/vi/AVOXpDlioUc/hqdefault.jpg" alt="Gurus Vidyanikethan Student Life" class="sg-video-thumb">
+                            <div class="sg-play-badge"><i class="fa-solid fa-play"></i></div>
+                            <span class="sg-video-duration"><i class="fa-solid fa-shield-halved me-1"></i> Discipline</span>
+                        </div>
+                        <div class="sg-video-body">
+                            <div>
+                                <span class="sg-video-tag text-danger">Hostel &amp; Routine</span>
+                                <h5 class="h6 fw-bold text-dark mb-2">Student Life, Discipline &amp; Hostels</h5>
+                                <p class="small text-muted mb-0">Hygienic residential hostels, nutritious dining, daily sports recreation, and disciplined study hours.</p>
+                            </div>
+                            <div class="mt-3 pt-2 border-top d-flex justify-content-between align-items-center">
+                                <span class="small text-warning fw-bold"><i class="fa-solid fa-eye me-1"></i> Watch Video</span>
+                                <small class="text-muted">Shaik Mahaboob Basha</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ---------------- Academic Leadership & Guru Brahmam Pedagogy ---------------- -->
-    <section class="py-5" style="background: #ffffff;" id="pedagogy">
+    <section class="py-5" style="background: #faf5fc;" id="pedagogy">
         <div class="container py-4">
             <div class="row align-items-center gy-5">
                 <div class="col-lg-5">
-                    <div class="p-4 rounded-4 shadow-sm border text-center" style="background: #fcf8fd; border-color: rgba(212, 175, 55, 0.3) !important;">
+                    <div class="p-4 rounded-4 shadow-sm border text-center bg-white" style="border-color: rgba(212, 175, 55, 0.4) !important;">
                         <div class="mb-3">
                             <img src="assets/frontend/img/logo_emblem.png" alt="Sri A. Guru Brahmam" style="width: 140px; height: 140px; object-fit: contain;">
                         </div>
                         <h3 class="h4 fw-bold mb-1" style="color: var(--sg-purple-main);">Sri. A. Guru Brahmam</h3>
                         <p class="text-warning fw-bold mb-1" style="color: var(--sg-gold-dark) !important;">M.Sc Mathematics</p>
                         <p class="text-muted small mb-3">Academic Director and Director of Operations<br>Shree Gurus Group of Institutions</p>
-                        <div class="p-3 bg-white rounded-3 border text-start small">
+                        
+                        <div class="d-flex gap-2 mb-3">
+                            <button class="btn btn-outline-danger btn-sm flex-grow-1" onclick="openVideoModal('cNqWf88w8TY', 'Director Sri A. Guru Brahmam Message')">
+                                <i class="fa-solid fa-play me-1"></i> Director Message
+                            </button>
+                            <button class="btn btn-outline-warning btn-sm flex-grow-1 text-dark" onclick="openVideoModal('yifVWi6rPDc', 'Guru Brahmam on Grand Tests')">
+                                <i class="fa-solid fa-chart-column me-1"></i> Grand Test Talk
+                            </button>
+                        </div>
+
+                        <div class="p-3 bg-light rounded-3 border text-start small">
                             <div class="mb-1"><i class="fa-solid fa-phone text-warning me-2"></i> <strong>9640711111 / 9171222333</strong></div>
                             <div class="mb-1"><i class="fa-solid fa-envelope text-warning me-2"></i> <strong>mail2gurus@gmail.com</strong></div>
                             <div><i class="fa-solid fa-location-dot text-warning me-2"></i> <strong>Head Office: Vijayawada</strong></div>
@@ -437,25 +667,25 @@
 
                     <div class="row g-3">
                         <div class="col-md-6">
-                            <div class="p-3 rounded-3 bg-light border h-100">
+                            <div class="p-3 rounded-3 bg-white border h-100 shadow-sm">
                                 <h5 class="h6 fw-bold text-dark"><i class="fa-solid fa-chalkboard-user text-warning me-2"></i> 1. Concept Deep-Dives</h5>
                                 <p class="text-muted small mb-0">Theory taught from fundamental principles, linking standard board syllabi directly with advanced NEET/JEE problem types.</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="p-3 rounded-3 bg-light border h-100">
+                            <div class="p-3 rounded-3 bg-white border h-100 shadow-sm">
                                 <h5 class="h6 fw-bold text-dark"><i class="fa-solid fa-book-open-reader text-warning me-2"></i> 2. Error Analysis Logbook</h5>
                                 <p class="text-muted small mb-0">Every student maintains an indexed log of errors from daily practice sets, reviewed by senior faculty every Saturday.</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="p-3 rounded-3 bg-light border h-100">
+                            <div class="p-3 rounded-3 bg-white border h-100 shadow-sm">
                                 <h5 class="h6 fw-bold text-dark"><i class="fa-solid fa-stopwatch text-warning me-2"></i> 3. Timed Sectional Drills</h5>
                                 <p class="text-muted small mb-0">Simulated NTA &amp; JEE CBT test conditions to build high-speed mental calculation, negative mark mitigation, and stamina.</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="p-3 rounded-3 bg-light border h-100">
+                            <div class="p-3 rounded-3 bg-white border h-100 shadow-sm">
                                 <h5 class="h6 fw-bold text-dark"><i class="fa-solid fa-user-check text-warning me-2"></i> 4. 1:1 Mentor Guidance</h5>
                                 <p class="text-muted small mb-0">Weekly individual counseling to diagnose subject weak spots and maintain peak motivation and well-being.</p>
                             </div>
@@ -467,7 +697,7 @@
     </section>
 
     <!-- ---------------- Trusted & Accreditations (Uizard Blueprint) ---------------- -->
-    <section class="py-4" style="background: #faf5fc; border-top: 1px solid var(--sg-border-light); border-bottom: 1px solid var(--sg-border-light);">
+    <section class="py-4" style="background: #ffffff; border-top: 1px solid var(--sg-border-light); border-bottom: 1px solid var(--sg-border-light);">
         <div class="container">
             <div class="row align-items-center gy-3 text-center text-md-start">
                 <div class="col-md-3">
@@ -486,7 +716,7 @@
     </section>
 
     <!-- ---------------- What Students Say (Testimonials - Uizard Blueprint) ---------------- -->
-    <section class="py-5" style="background: #ffffff;" id="results">
+    <section class="py-5" style="background: #f8fafc;" id="results">
         <div class="container py-4">
             <div class="text-center max-w-700 mx-auto mb-5">
                 <span class="sg-badge-accent mb-2"><i class="fa-solid fa-comments"></i> Student Feedback</span>
@@ -497,7 +727,7 @@
             <div class="row g-4">
                 <!-- Quote 1 -->
                 <div class="col-md-4">
-                    <div class="p-4 rounded-4 border h-100 d-flex flex-column justify-content-between shadow-sm bg-light">
+                    <div class="p-4 rounded-4 border h-100 d-flex flex-column justify-content-between shadow-sm bg-white">
                         <p class="text-dark fst-italic mb-4">
                             "Shree Gurus transformed my approach to problem solving — weekly sectional drills and Sri Guru Brahmam sir's error logbook made the complete difference in JEE Advanced."
                         </p>
@@ -510,7 +740,7 @@
 
                 <!-- Quote 2 -->
                 <div class="col-md-4">
-                    <div class="p-4 rounded-4 border h-100 d-flex flex-column justify-content-between shadow-sm bg-light">
+                    <div class="p-4 rounded-4 border h-100 d-flex flex-column justify-content-between shadow-sm bg-white">
                         <p class="text-dark fst-italic mb-4">
                             "The adaptive practice bank targeted my weak areas in Botany and Zoology; my NEET mock scores rose from 560 to 695 within four months."
                         </p>
@@ -523,7 +753,7 @@
 
                 <!-- Quote 3 -->
                 <div class="col-md-4">
-                    <div class="p-4 rounded-4 border h-100 d-flex flex-column justify-content-between shadow-sm bg-light">
+                    <div class="p-4 rounded-4 border h-100 d-flex flex-column justify-content-between shadow-sm bg-white">
                         <p class="text-dark fst-italic mb-4">
                             "The Foundation integrated batch helped me balance CBSE school syllabus with Olympiad and advanced concepts with short focused sprints and clear milestones."
                         </p>
@@ -553,7 +783,24 @@
         </div>
     </div>
 
-    <!-- ---------------- Prestige Footer (Verified Contact Details) ---------------- -->
+    <!-- ---------------- Universal Video Lightbox Modal ---------------- -->
+    <div class="modal fade" id="sgVideoModal" tabindex="-1" aria-labelledby="sgVideoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-dark border-0 rounded-4 overflow-hidden">
+                <div class="modal-header border-0 pb-0 pt-3 px-4 d-flex justify-content-between align-items-center">
+                    <h5 class="modal-title text-white fs-6 fw-bold" id="sgVideoModalLabel">Shree Gurus Video Player</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" onclick="closeVideoModal()"></button>
+                </div>
+                <div class="modal-body p-3">
+                    <div class="ratio ratio-16x9 rounded-3 overflow-hidden">
+                        <iframe id="sgVideoIframe" src="" title="Shree Gurus Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ---------------- Prestige Footer ---------------- -->
     <footer class="sg-footer pt-5 pb-4" style="background: var(--sg-purple-dark); color: #cbd5e1; border-top: 3px solid var(--sg-gold-main);">
         <div class="container">
             <div class="row g-4 mb-5">
@@ -592,9 +839,9 @@
                     <ul class="list-unstyled small d-flex flex-column gap-2">
                         <li><a href="admissions.html" class="text-light text-decoration-none">Admissions &amp; SG-SAT</a></li>
                         <li><a href="student-portal.html" class="text-light text-decoration-none">Student Portal</a></li>
+                        <li><a href="#videos" class="text-light text-decoration-none">Video Tours &amp; Talks</a></li>
                         <li><a href="admissions.html#calculator" class="text-light text-decoration-none">Scholarship Estimator</a></li>
                         <li><a href="#pedagogy" class="text-light text-decoration-none">Academic Pedagogy</a></li>
-                        <li><a href="terms-and-conditions.html" class="text-light text-decoration-none">Terms &amp; Policies</a></li>
                     </ul>
                 </div>
 
@@ -622,6 +869,28 @@
     <script src="assets/frontend/js/vendor/bootstrap.bundle.min.js"></script>
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Universal Video Lightbox Modal Controller
+        function openVideoModal(videoId, title) {
+            var modalEl = document.getElementById('sgVideoModal');
+            var iframe = document.getElementById('sgVideoIframe');
+            var label = document.getElementById('sgVideoModalLabel');
+            
+            label.textContent = title || 'Shree Gurus Video Showcase';
+            iframe.src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1&rel=0&modestbranding=1';
+            
+            var modal = new bootstrap.Modal(modalEl);
+            modal.show();
+        }
+
+        function closeVideoModal() {
+            var iframe = document.getElementById('sgVideoIframe');
+            iframe.src = '';
+        }
+
+        document.getElementById('sgVideoModal').addEventListener('hidden.bs.modal', function () {
+            closeVideoModal();
+        });
 
         // Shree Gurus Premium Splash Dismissal Handler
         (function() {

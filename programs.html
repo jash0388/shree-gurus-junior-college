@@ -66,6 +66,9 @@
                         <a class="nav-link sg-nav-link" href="admissions.html">Admissions & SG-SAT</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link sg-nav-link" href="index.html#videos"><i class="fa-solid fa-play-circle text-danger me-1"></i> Videos &amp; Tours</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link sg-nav-link" href="index.html#pedagogy">Pedagogy</a>
                     </li>
                     <li class="nav-item">
@@ -379,6 +382,65 @@
         </div>
     </section>
 
+    <!-- ---------------- Program Video Spotlights ---------------- -->
+    <section class="py-5" style="background: #ffffff; border-top: 1px solid #e2e8f0;">
+        <div class="container py-3">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
+                <div>
+                    <span class="badge bg-danger text-white px-3 py-1 fw-bold mb-2"><i class="fa-solid fa-play-circle me-1"></i> VIDEO SHOWCASE</span>
+                    <h3 class="h3 fw-bold mb-0 text-dark font-display">Experience Academic Life &amp; Foundation at Gurus</h3>
+                </div>
+                <a href="index.html#videos" class="sg-btn-primary btn-sm py-2 px-3">
+                    <i class="fa-solid fa-video me-1"></i> Watch All 9 Institutional Videos
+                </a>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="sg-video-card h-100 shadow-sm" style="cursor: pointer;" onclick="openVideoModal('CUY81RUT0m4', 'Gurus Vidyanikethan Foundation (Classes 8th–10th)')">
+                        <div class="sg-video-thumb position-relative overflow-hidden rounded-3">
+                            <img src="https://img.youtube.com/vi/CUY81RUT0m4/hqdefault.jpg" alt="Foundation Prep" class="img-fluid w-100">
+                            <span class="sg-video-duration">Foundation Track</span>
+                            <div class="sg-play-badge"><i class="fa-solid fa-play"></i></div>
+                        </div>
+                        <div class="p-3">
+                            <h6 class="fw-bold mb-1 text-dark">Gurus Vidyanikethan Foundation</h6>
+                            <p class="small text-muted mb-0">Early conceptual mastery for school toppers targeting NTSE, Olympiads, and early JEE/NEET grounding.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="sg-video-card h-100 shadow-sm" style="cursor: pointer;" onclick="openVideoModal('uG8FY-3K98w', 'Campus Showcase & Smart Labs Tour')">
+                        <div class="sg-video-thumb position-relative overflow-hidden rounded-3">
+                            <img src="https://img.youtube.com/vi/uG8FY-3K98w/hqdefault.jpg" alt="Campus Walkthrough" class="img-fluid w-100">
+                            <span class="sg-video-duration">Campus Tour</span>
+                            <div class="sg-play-badge"><i class="fa-solid fa-play"></i></div>
+                        </div>
+                        <div class="p-3">
+                            <h6 class="fw-bold mb-1 text-dark">Gurus Medical &amp; IIT Academy Campus</h6>
+                            <p class="small text-muted mb-0">State-of-the-art academic infrastructure across Vijayawada, Guntur &amp; Mangalagiri campuses.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="sg-video-card h-100 shadow-sm" style="cursor: pointer;" onclick="openVideoModal('AVOXpDlioUc', 'Student Discipline & Residential Hostels')">
+                        <div class="sg-video-thumb position-relative overflow-hidden rounded-3">
+                            <img src="https://img.youtube.com/vi/AVOXpDlioUc/hqdefault.jpg" alt="Hostel & Student Life" class="img-fluid w-100">
+                            <span class="sg-video-duration">Student Life</span>
+                            <div class="sg-play-badge"><i class="fa-solid fa-play"></i></div>
+                        </div>
+                        <div class="p-3">
+                            <h6 class="fw-bold mb-1 text-dark">Hostels, Diet &amp; Daily Routine</h6>
+                            <p class="small text-muted mb-0">Hygienic residential dining, distraction-free air-conditioned dorms, and 24/7 warden supervision.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ---------------- Prestige Footer ---------------- -->
     <footer class="sg-footer pt-5 pb-4" style="background: var(--sg-purple-dark); color: #cbd5e1; border-top: 3px solid var(--sg-gold-main);">
         <div class="container">
@@ -437,11 +499,53 @@
         </div>
     </footer>
 
+    <!-- ---------------- Lightbox Video Modal ---------------- -->
+    <div class="modal fade" id="sgVideoModal" tabindex="-1" aria-labelledby="sgVideoModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content" style="background: #0f0214; border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 18px; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.85);">
+                <div class="modal-header border-0 px-4 pt-4 pb-2 d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="badge bg-warning text-dark fw-bold px-2 py-1"><i class="fa-solid fa-play me-1"></i> SHREE GURUS</span>
+                        <h5 class="modal-title text-white fw-bold mb-0" id="sgVideoModalTitle">Video Title</h5>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-2 p-md-4">
+                    <div class="ratio ratio-16x9 rounded-3 overflow-hidden shadow">
+                        <iframe id="sgModalIframe" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Vendor Scripts -->
     <script src="assets/frontend/js/vendor/jquery-3.7.1.min.js"></script>
     <script src="assets/frontend/js/vendor/bootstrap.bundle.min.js"></script>
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Video Lightbox Modal Controller
+        function openVideoModal(videoId, title) {
+            const iframe = document.getElementById('sgModalIframe');
+            const titleEl = document.getElementById('sgVideoModalTitle');
+            if (titleEl) titleEl.textContent = title;
+            if (iframe) {
+                iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+            }
+            const modalEl = document.getElementById('sgVideoModal');
+            const modal = new bootstrap.Modal(modalEl);
+            modal.show();
+        }
+
+        // Stop video playback on modal close
+        const videoModalEl = document.getElementById('sgVideoModal');
+        if (videoModalEl) {
+            videoModalEl.addEventListener('hidden.bs.modal', function () {
+                const iframe = document.getElementById('sgModalIframe');
+                if (iframe) iframe.src = '';
+            });
+        }
     </script>
 </body>
 

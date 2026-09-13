@@ -166,16 +166,37 @@ h1, h2, h3, h4, h5, h6 {
     color: #ffffff;
     overflow: hidden;
 }
-.sg-hero-section::before {
-    content: '';
+.sg-hero-video-wrapper {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.12) 0%, transparent 50%),
-                radial-gradient(circle at 20% 80%, rgba(82, 24, 88, 0.25) 0%, transparent 60%);
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 56.25vw;
+    min-height: 100%;
+    min-width: 177.77vh;
+    transform: translate(-50%, -50%);
     pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+    opacity: 0.32;
+    filter: saturate(1.25) contrast(1.1);
+}
+.sg-hero-video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    pointer-events: none;
+}
+.sg-hero-video-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 60% 40%, rgba(27, 4, 34, 0.84) 0%, rgba(15, 2, 19, 0.94) 80%, #0c010e 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+.sg-hero-section .container {
+    position: relative;
+    z-index: 3;
 }
 .sg-hero-badge {
     display: inline-flex;
@@ -1387,5 +1408,93 @@ body.sg-loading-lock {
     color: #ca8a04;
     border: 1px solid #fef08a;
 }
+
+/* ==========================================================================
+   VIDEO SHOWCASE & CAMPUS TOUR GALLERY
+   ========================================================================== */
+.sg-video-card {
+    background: #ffffff;
+    border-radius: 14px;
+    border: 1px solid var(--sg-border-light);
+    overflow: hidden;
+    box-shadow: var(--sg-shadow-sm);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.sg-video-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--sg-gold-main);
+    box-shadow: var(--sg-shadow-lg);
+}
+.sg-video-thumb-box {
+    position: relative;
+    padding-top: 56.25%; /* 16:9 ratio */
+    overflow: hidden;
+    background: #0f172a;
+}
+.sg-video-thumb {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+.sg-video-card:hover .sg-video-thumb {
+    transform: scale(1.06);
+}
+.sg-play-badge {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 52px;
+    height: 52px;
+    background: rgba(212, 175, 55, 0.92);
+    color: #1b0422;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    transition: all 0.25s ease;
+    padding-left: 3px;
+    border: 2px solid #ffffff;
+}
+.sg-video-card:hover .sg-play-badge {
+    background: #ffffff;
+    color: #dc2626;
+    transform: translate(-50%, -50%) scale(1.15);
+}
+.sg-video-duration {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0,0,0,0.8);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+.sg-video-body {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.sg-video-tag {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+    display: inline-block;
+}
+
 
 
