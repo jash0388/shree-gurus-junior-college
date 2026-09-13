@@ -4,42 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shree Gurus Academy | Agaetis Tech Edition (Local Testing)</title>
-    <meta name="description" content="Agaetis-inspired modern digital experience for Shree Gurus NEET, JEE & Foundation Academy, Vijayawada.">
+    <title>Shree Gurus Academy — Excellence in NEET, JEE &amp; Foundation</title>
+    <meta name="description" content="Agaetis-inspired design for Shree Gurus NEET, JEE & Foundation Academy, Vijayawada.">
     <link rel="shortcut icon" type="image/png" href="assets/frontend/img/favicon.png?v=4">
 
-    <!-- Google Fonts: Inter Tight, Playfair Display (editorial italic), JetBrains Mono -->
+    <!-- Fonts: Inter Tight & System Sans-serif -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&family=JetBrains+Mono:wght@400;600;700&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&display=swap" rel="stylesheet">
 
-    <!-- FontAwesome Pro & Bootstrap Grid -->
+    <!-- FontAwesome & Bootstrap Grid -->
     <link rel="stylesheet" href="assets/frontend/css/vendor/bootstrap.min.css">
     <link rel="stylesheet" href="assets/frontend/css/vendor/fontawesome-pro.css">
 
     <style>
         /* ==========================================================================
-           AGAETIS TECH DESIGN SYSTEM — SHREE GURUS INSTITUTIONAL EDITION
+           AGAETIS TECH EXACT REPLICA DESIGN SYSTEM (Clean White & Electric Blue)
            ========================================================================== */
 
         :root {
-            --ag-bg-dark: #070913;
-            --ag-bg-card: #0d1224;
-            --ag-bg-card-hover: #131b36;
-            --ag-border: rgba(255, 255, 255, 0.08);
-            --ag-border-glow: rgba(3, 115, 255, 0.4);
+            --ag-bg-white: #FFFFFF;
+            --ag-bg-light: #F4F7FB;
+            --ag-bg-card: #EFF3F9;
+            --ag-bg-card-hover: #E2ECF8;
+            --ag-primary-dark: #090F2D;
+            --ag-text-muted: #65768D;
+            --ag-text-light: #8E9BAE;
             --ag-blue: #0373FF;
-            --ag-blue-glow: rgba(3, 115, 255, 0.15);
+            --ag-blue-dark: #025cd0;
             --ag-purple: #9747FF;
-            --ag-gold: #e5b32e;
-            --ag-gold-dark: #b8860b;
-            --ag-text-main: #FFFFFF;
-            --ag-text-muted: #7e8da2;
-            --ag-text-dim: #4d5b70;
-            --ag-font-primary: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
-            --ag-font-mono: 'JetBrains Mono', monospace;
-            --ag-font-hand: 'Playfair Display', Georgia, serif;
-            --ag-ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+            --ag-gold: #c59b27;
+            --ag-border-light: #E0EAF8;
+            --ag-border-subtle: rgba(9, 15, 45, 0.08);
+            --ag-font-main: 'Inter Tight', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --ag-ease: cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * {
@@ -51,12 +49,13 @@
 
         html {
             scroll-behavior: auto;
+            background-color: #FFFFFF;
         }
 
         body {
-            background-color: var(--ag-bg-dark);
-            color: var(--ag-text-main);
-            font-family: var(--ag-font-primary);
+            background-color: #FFFFFF;
+            color: var(--ag-primary-dark);
+            font-family: var(--ag-font-main);
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -67,518 +66,417 @@
             text-decoration: none;
         }
 
-        /* ---------------- Agaetis Custom Cursor ---------------- */
+        /* ---------------- Agaetis Custom Smooth Cursor (Electric Blue Dot) ---------------- */
         .ag-cursor-dot {
             position: fixed;
             top: 0;
             left: 0;
-            width: 8px;
-            height: 8px;
-            background-color: #0373FF;
+            width: 14px;
+            height: 14px;
+            background-color: var(--ag-blue);
             border-radius: 50%;
             pointer-events: none;
-            z-index: 99999;
+            z-index: 999999;
             transform: translate(-50%, -50%);
-            transition: transform 0.1s ease, background-color 0.2s ease;
-        }
-
-        .ag-cursor-follower {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 36px;
-            height: 36px;
-            border: 1.5px solid rgba(3, 115, 255, 0.6);
-            background: rgba(3, 115, 255, 0.04);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 99998;
-            transform: translate(-50%, -50%);
-            transition: width 0.3s var(--ag-ease-smooth), height 0.3s var(--ag-ease-smooth), border-color 0.3s ease, background 0.3s ease;
+            transition: transform 0.08s ease, width 0.25s ease, height 0.25s ease, background-color 0.25s ease, opacity 0.25s ease;
+            box-shadow: 0 0 12px rgba(3, 115, 255, 0.4);
         }
 
         .ag-cursor-hover .ag-cursor-dot {
-            transform: translate(-50%, -50%) scale(1.6);
-            background-color: #e5b32e;
-        }
-
-        .ag-cursor-hover .ag-cursor-follower {
-            width: 68px;
-            height: 68px;
-            border-color: rgba(229, 179, 46, 0.8);
-            background: rgba(229, 179, 46, 0.08);
+            width: 42px;
+            height: 42px;
+            background-color: rgba(3, 115, 255, 0.25);
+            border: 2px solid var(--ag-blue);
             backdrop-filter: blur(2px);
         }
 
-        /* ---------------- Agaetis Navigation Header ---------------- */
+        /* ---------------- Agaetis Top Header Navigation (3-Column Layout) ---------------- */
         .ag-header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-            padding: 24px 0;
-            transition: all 0.35s ease;
-            background: linear-gradient(180deg, rgba(7, 9, 19, 0.88) 0%, rgba(7, 9, 19, 0) 100%);
+            padding: 26px 0;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(16px);
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(9, 15, 45, 0.05);
         }
 
         .ag-header.scrolled {
-            padding: 14px 0;
-            background: rgba(7, 9, 19, 0.92);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--ag-border);
+            padding: 16px 0;
+            box-shadow: 0 4px 20px rgba(9, 15, 45, 0.04);
         }
 
-        .ag-nav-pill {
+        .ag-nav-links {
             display: flex;
             align-items: center;
-            gap: 32px;
+            gap: 36px;
             list-style: none;
             margin: 0;
             padding: 0;
         }
 
-        .ag-nav-link {
+        .ag-nav-item a {
             font-size: 14px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
             text-transform: uppercase;
-            color: var(--ag-text-muted);
-            transition: color 0.25s ease;
-            position: relative;
+            color: var(--ag-primary-dark);
+            transition: color 0.2s ease;
         }
 
-        .ag-nav-link:hover, .ag-nav-link.active {
-            color: var(--ag-text-main);
+        .ag-nav-item a:hover {
+            color: var(--ag-blue);
         }
 
-        .ag-nav-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: -6px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--ag-blue);
-            border-radius: 2px;
+        .ag-brand-center {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .ag-talk-btn {
-            background: var(--ag-blue);
-            color: #ffffff;
+        .ag-brand-logo-img {
+            height: 46px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .ag-brand-logo-img:hover {
+            transform: scale(1.06);
+        }
+
+        .ag-btn-talk {
+            background-color: var(--ag-blue);
+            color: #FFFFFF !important;
             font-size: 13px;
             font-weight: 700;
             letter-spacing: 1px;
             text-transform: uppercase;
-            padding: 10px 24px;
-            border-radius: 6px;
+            padding: 11px 28px;
+            border-radius: 100px;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            transition: all 0.3s var(--ag-ease-smooth);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: none;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 14px rgba(3, 115, 255, 0.3);
         }
 
-        .ag-talk-btn:hover {
-            background: #2587ff;
-            box-shadow: 0 0 25px rgba(3, 115, 255, 0.6);
+        .ag-btn-talk:hover {
+            background-color: var(--ag-blue-dark);
             transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(3, 115, 255, 0.45);
         }
 
-        /* ---------------- Hero Section (Agaetis Huge Typography) ---------------- */
-        .ag-hero {
-            position: relative;
-            padding: 160px 0 100px 0;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
+        /* ---------------- Hero Section (Centered EXCELLENCE Heading) ---------------- */
+        .ag-hero-sec {
+            padding-top: 155px;
+            padding-bottom: 90px;
+            text-align: center;
+            background: #FFFFFF;
         }
 
-        .ag-hero-bg-video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100vw;
-            height: 56.25vw;
-            min-height: 100%;
-            min-width: 177.77vh;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-            z-index: 1;
-            opacity: 0.45;
-            filter: contrast(1.15) brightness(0.85);
-        }
-
-        .ag-hero-bg-video iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        .ag-hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 50% 30%, rgba(7, 9, 19, 0.4) 0%, rgba(7, 9, 19, 0.85) 70%, #070913 100%);
-            z-index: 2;
-        }
-
-        .ag-hero-content {
-            position: relative;
-            z-index: 3;
-        }
-
-        .ag-hero-label {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            font-family: var(--ag-font-mono);
-            font-size: 13px;
-            letter-spacing: 2px;
-            color: var(--ag-blue);
-            text-transform: uppercase;
-            margin-bottom: 24px;
-            padding: 6px 14px;
-            background: rgba(3, 115, 255, 0.08);
-            border: 1px solid rgba(3, 115, 255, 0.25);
-            border-radius: 4px;
-        }
-
-        .ag-hero-title {
-            font-size: clamp(3.5rem, 8vw, 7.5rem);
+        .ag-hero-h1 {
+            font-size: clamp(3.8rem, 8.5vw, 6.8rem);
             font-weight: 800;
-            line-height: 0.95;
-            letter-spacing: -2px;
+            color: var(--ag-primary-dark);
+            letter-spacing: -1.5px;
+            line-height: 1;
+            margin-bottom: 22px;
             text-transform: uppercase;
-            margin-bottom: 32px;
-            color: #ffffff;
         }
 
-        .ag-hero-title span.editorial {
-            font-family: var(--ag-font-hand);
-            font-style: italic;
-            font-weight: 600;
-            color: var(--ag-gold);
-            text-transform: none;
-            letter-spacing: 0;
-        }
-
-        .ag-hero-desc {
-            font-size: 1.25rem;
-            line-height: 1.6;
+        .ag-hero-sub {
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            line-height: 1.55;
             color: var(--ag-text-muted);
-            max-width: 640px;
-            margin-bottom: 40px;
+            max-width: 820px;
+            margin: 0 auto 50px auto;
             font-weight: 400;
         }
 
-        /* ---------------- Interactive Scroll Text Change (Agaetis signature) ---------------- */
-        .ag-scroll-text-sec {
-            padding: 120px 0;
-            border-top: 1px solid var(--ag-border);
-            border-bottom: 1px solid var(--ag-border);
-            background: #090c18;
+        /* Hero Centered Video / Media Showcase Box */
+        .ag-hero-showcase-box {
+            max-width: 1140px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #090F2D;
             position: relative;
+            box-shadow: 0 20px 50px rgba(9, 15, 45, 0.14);
+            border: 1px solid var(--ag-border-light);
         }
 
-        .ag-headline-huge {
-            font-size: clamp(2.4rem, 5vw, 4.2rem);
+        .ag-hero-showcase-box .ratio {
+            background: #090F2D;
+        }
+
+        .ag-hero-showcase-box iframe {
+            border: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* ---------------- Animated Section 2 (Agaetis Text Change & SVG Draw) ---------------- */
+        .ag-challenge-sec {
+            padding: 120px 0;
+            background: #FFFFFF;
+            border-top: 1px solid var(--ag-border-subtle);
+            border-bottom: 1px solid var(--ag-border-subtle);
+        }
+
+        .ag-challenge-title {
+            font-size: clamp(2.4rem, 4.5vw, 3.8rem);
             font-weight: 700;
             line-height: 1.15;
-            letter-spacing: -1px;
-            color: #ffffff;
-            margin-bottom: 24px;
+            color: var(--ag-primary-dark);
+            margin-bottom: 18px;
         }
 
-        .ag-text-change {
-            font-size: clamp(2rem, 4vw, 3.2rem);
+        .ag-text-toggle-box {
+            font-size: clamp(2rem, 3.8vw, 3.2rem);
             font-weight: 600;
             line-height: 1.2;
             color: var(--ag-text-muted);
-            position: relative;
-            min-height: 90px;
             cursor: pointer;
+            transition: color 0.3s ease;
         }
 
-        .ag-text-change span.active-txt {
+        .ag-text-toggle-box span.active-answer {
             color: var(--ag-blue);
-            transition: all 0.4s ease;
         }
 
-        /* ---------------- Bento Grid Box Styles (Agaetis Cards) ---------------- */
-        .ag-bento-section {
-            padding: 130px 0;
+        /* SVG Graph Animation */
+        .ag-growth-svg {
+            width: 220px;
+            height: 220px;
+            display: block;
+            margin: 0 auto;
+            transform: scaleX(-1);
+            transform-origin: center center;
+        }
+
+        .draw-path {
+            stroke-dasharray: 2000;
+            stroke-dashoffset: 2000;
+            animation: agDraw 3.5s ease-in-out infinite;
+        }
+
+        @keyframes agDraw {
+            0% { stroke-dashoffset: 2000; }
+            50% { stroke-dashoffset: 0; }
+            75% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: 2000; }
+        }
+
+        /* ---------------- Bento Grid Tracks (Agaetis Clean Box Style) ---------------- */
+        .ag-bento-sec {
+            padding: 120px 0;
+            background: #FFFFFF;
+        }
+
+        .ag-sec-heading {
+            font-size: clamp(2.2rem, 4vw, 3.4rem);
+            font-weight: 700;
+            color: var(--ag-primary-dark);
+            margin-bottom: 12px;
         }
 
         .ag-bento-card {
             background: var(--ag-bg-card);
-            border: 1px solid var(--ag-border);
+            border: 1px solid transparent;
             border-radius: 16px;
-            padding: 36px;
+            padding: 40px 36px;
             height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             position: relative;
             overflow: hidden;
-            transition: all 0.4s var(--ag-ease-smooth);
-        }
-
-        .ag-bento-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--ag-blue), transparent);
-            opacity: 0;
-            transition: opacity 0.4s ease;
+            transition: all 0.35s var(--ag-ease);
         }
 
         .ag-bento-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(3, 115, 255, 0.4);
-            box-shadow: 0 20px 40px -15px rgba(3, 115, 255, 0.25);
             background: var(--ag-bg-card-hover);
+            transform: translateY(-5px);
+            border-color: rgba(3, 115, 255, 0.25);
+            box-shadow: 0 20px 40px -15px rgba(9, 15, 45, 0.1);
         }
 
-        .ag-bento-card:hover::before {
-            opacity: 1;
-        }
-
-        .ag-card-tag {
-            font-family: var(--ag-font-mono);
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--ag-blue);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 16px;
+        .ag-tag-pill {
             display: inline-block;
+            padding: 6px 14px;
+            border-radius: 6px;
+            background: #FFFFFF;
+            color: var(--ag-primary-dark);
+            font-size: 11.5px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+            box-shadow: 0 2px 6px rgba(9, 15, 45, 0.04);
         }
 
-        .ag-card-title {
+        .ag-card-h3 {
             font-size: 1.85rem;
             font-weight: 700;
+            color: var(--ag-primary-dark);
             line-height: 1.2;
-            color: #ffffff;
             margin-bottom: 16px;
         }
 
         .ag-card-desc {
-            font-size: 15px;
-            line-height: 1.65;
+            font-size: 15.5px;
+            line-height: 1.6;
             color: var(--ag-text-muted);
             margin-bottom: 28px;
         }
 
-        /* SVG Graph Animation */
-        .ag-graph-svg {
-            width: 100%;
-            height: 140px;
-            margin-bottom: 20px;
+        /* Marquee Pills in Cards */
+        .ag-pills-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 28px;
         }
 
-        .draw-path {
-            stroke-dasharray: 1000;
-            stroke-dashoffset: 1000;
-            animation: agDraw 3s ease-in-out infinite;
-        }
-
-        @keyframes agDraw {
-            0% { stroke-dashoffset: 1000; }
-            50% { stroke-dashoffset: 0; }
-            80% { stroke-dashoffset: 0; }
-            100% { stroke-dashoffset: 1000; }
-        }
-
-        /* ---------------- Marquee Pill Tracks (Agaetis Hover Effect) ---------------- */
-        .ag-marquee-container {
-            overflow: hidden;
-            white-space: nowrap;
-            position: relative;
-            padding: 10px 0;
-            margin-top: auto;
-        }
-
-        .ag-marquee-track {
-            display: inline-flex;
-            gap: 12px;
-            animation: agMarquee 18s linear infinite;
-        }
-
-        @keyframes agMarquee {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
-        }
-
-        .ag-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--ag-border);
-            padding: 6px 14px;
+        .ag-mini-pill {
+            background: #FFFFFF;
+            border: 1px solid var(--ag-border-light);
+            padding: 5px 12px;
             border-radius: 100px;
-            font-size: 13px;
+            font-size: 12.5px;
             font-weight: 600;
-            color: #e2e8f0;
-            letter-spacing: 0.3px;
+            color: var(--ag-primary-dark);
         }
 
-        .ag-pill.gold {
-            border-color: rgba(229, 179, 46, 0.4);
-            color: var(--ag-gold);
-            background: rgba(229, 179, 46, 0.06);
-        }
-
-        .ag-pill.blue {
-            border-color: rgba(3, 115, 255, 0.4);
-            color: #60a5fa;
-            background: rgba(3, 115, 255, 0.06);
-        }
-
-        /* ---------------- Agaetis Circular Arrow Button ---------------- */
-        .ag-circle-arrow-btn {
-            width: 48px;
-            height: 48px;
+        /* Agaetis Circular Arrow Button */
+        .ag-arrow-circle {
+            width: 52px;
+            height: 52px;
             border-radius: 50%;
-            background: #111d43;
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: #E0EAF8;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            color: #ffffff;
-            font-size: 16px;
+            color: var(--ag-primary-dark);
+            font-size: 18px;
             transition: all 0.3s ease;
         }
 
-        .ag-bento-card:hover .ag-circle-arrow-btn {
+        .ag-bento-card:hover .ag-arrow-circle {
             background: var(--ag-blue);
-            transform: scale(1.1) rotate(45deg);
-            box-shadow: 0 0 20px rgba(3, 115, 255, 0.6);
+            color: #FFFFFF;
+            transform: scale(1.08) rotate(45deg);
         }
 
-        /* ---------------- Video Showcase Section ---------------- */
-        .ag-video-card {
-            background: var(--ag-bg-card);
-            border: 1px solid var(--ag-border);
+        /* ---------------- Video Showcase Section (All 9 Videos in Clean Cards) ---------------- */
+        .ag-videos-sec {
+            padding: 100px 0;
+            background: #F8FAFD;
+            border-top: 1px solid var(--ag-border-subtle);
+        }
+
+        .ag-video-item-card {
+            background: #FFFFFF;
             border-radius: 14px;
+            border: 1px solid var(--ag-border-light);
             overflow: hidden;
-            transition: all 0.35s ease;
-            position: relative;
+            box-shadow: 0 6px 18px rgba(9, 15, 45, 0.03);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            height: 100%;
         }
 
-        .ag-video-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(3, 115, 255, 0.5);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+        .ag-video-item-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 32px rgba(9, 15, 45, 0.08);
+            border-color: rgba(3, 115, 255, 0.3);
         }
 
-        .ag-video-thumb {
+        .ag-video-thumb-box {
             position: relative;
-            overflow: hidden;
             aspect-ratio: 16/9;
+            overflow: hidden;
+            background: #090F2D;
         }
 
-        .ag-video-thumb img {
+        .ag-video-thumb-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.4s ease;
         }
 
-        .ag-video-card:hover .ag-video-thumb img {
-            transform: scale(1.08);
+        .ag-video-item-card:hover .ag-video-thumb-box img {
+            transform: scale(1.06);
         }
 
-        .ag-play-trigger {
+        .ag-play-circle-btn {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 54px;
-            height: 54px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            background: rgba(3, 115, 255, 0.9);
-            color: #ffffff;
+            background: var(--ag-blue);
+            color: #FFFFFF;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
-            box-shadow: 0 0 25px rgba(3, 115, 255, 0.8);
-            transition: all 0.3s ease;
+            font-size: 18px;
+            box-shadow: 0 4px 16px rgba(3, 115, 255, 0.5);
+            transition: all 0.25s ease;
         }
 
-        .ag-video-card:hover .ag-play-trigger {
+        .ag-video-item-card:hover .ag-play-circle-btn {
             transform: translate(-50%, -50%) scale(1.15);
-            background: var(--ag-gold);
-            color: #000;
-            box-shadow: 0 0 30px rgba(229, 179, 46, 0.8);
+            background: #090F2D;
         }
 
-        /* ---------------- Lightbox Modal ---------------- */
-        .modal-content.ag-modal {
-            background: #0a0e1c;
-            border: 1px solid rgba(3, 115, 255, 0.4);
-            border-radius: 16px;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
-        }
-
-        /* ---------------- Director & Pedagogy Spotlight ---------------- */
-        .ag-director-box {
-            background: linear-gradient(135deg, #0d1224 0%, #15102a 100%);
-            border: 1px solid rgba(151, 71, 255, 0.3);
+        /* ---------------- Pedagogy Quote Box ---------------- */
+        .ag-quote-box {
+            background: var(--ag-primary-dark);
+            color: #FFFFFF;
             border-radius: 20px;
-            padding: 50px;
+            padding: 60px 50px;
             position: relative;
             overflow: hidden;
         }
 
-        .ag-director-box::after {
-            content: '';
-            position: absolute;
-            bottom: -50px;
-            right: -50px;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(151, 71, 255, 0.15) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        /* ---------------- Footer ---------------- */
+        /* ---------------- Footer (Agaetis Clean White / Dark 2-tier) ---------------- */
         .ag-footer {
             padding: 100px 0 40px 0;
-            background: #04060c;
-            border-top: 1px solid var(--ag-border);
+            background: #FFFFFF;
+            border-top: 1px solid var(--ag-border-subtle);
         }
 
-        .ag-footer-title {
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
+        .ag-footer-h2 {
+            font-size: clamp(2.4rem, 4.5vw, 4.2rem);
             font-weight: 800;
-            line-height: 1.05;
-            letter-spacing: -1px;
-            color: #ffffff;
+            line-height: 1.1;
+            color: var(--ag-primary-dark);
             margin-bottom: 20px;
         }
 
-        .ag-footer-title span {
+        .ag-footer-h2 span {
             color: var(--ag-text-muted);
         }
 
-        /* Switch View Badge at bottom */
-        .ag-switch-banner {
+        /* Floating Switcher */
+        .ag-test-badge {
             position: fixed;
             bottom: 24px;
             right: 24px;
             z-index: 9999;
-            background: rgba(13, 18, 36, 0.9);
-            border: 1px solid var(--ag-border-glow);
-            padding: 12px 20px;
+            background: #FFFFFF;
+            border: 1px solid var(--ag-border-light);
+            padding: 10px 18px;
             border-radius: 100px;
-            backdrop-filter: blur(12px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 8px 30px rgba(9, 15, 45, 0.12);
             display: flex;
             align-items: center;
             gap: 12px;
@@ -588,254 +486,229 @@
 
 <body>
 
-    <!-- ---------------- Agaetis Custom Smooth Trailing Cursor ---------------- -->
+    <!-- ---------------- Agaetis Electric Blue Smooth Cursor ---------------- -->
     <div class="ag-cursor-dot" id="cursorDot"></div>
-    <div class="ag-cursor-follower" id="cursorFollower"></div>
 
-    <!-- ---------------- Agaetis Fixed Navbar ---------------- -->
+    <!-- ---------------- Agaetis Top Header Navigation ---------------- -->
     <header class="ag-header" id="mainHeader">
-        <div class="container d-flex align-items-center justify-content-between">
-            <a href="index.html" class="d-flex align-items-center gap-3">
-                <img src="assets/frontend/img/logo_emblem.png" alt="Shree Gurus Emblem" style="height: 44px; width: auto;">
-                <div>
-                    <span style="font-weight: 800; font-size: 1.25rem; letter-spacing: 1px; color: #fff; display: block; line-height: 1;">SHREE GURUS</span>
-                    <span style="font-family: var(--ag-font-mono); font-size: 11px; letter-spacing: 1.5px; color: var(--ag-gold);">NEET • JEE • FOUNDATION</span>
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between">
+                <!-- Left Nav Links -->
+                <nav class="d-none d-lg-block">
+                    <ul class="ag-nav-links">
+                        <li class="ag-nav-item"><a href="#tracks">PROGRAMS</a></li>
+                        <li class="ag-nav-item"><a href="#pedagogy">PEDAGOGY</a></li>
+                        <li class="ag-nav-item"><a href="#videos">VIDEOS</a></li>
+                        <li class="ag-nav-item"><a href="#admissions">ADMISSIONS</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Center Logo -->
+                <div class="ag-brand-center">
+                    <a href="index.html" class="d-flex align-items-center gap-2">
+                        <img src="assets/frontend/img/logo1.png?v=3" alt="Shree Gurus Academy" class="ag-brand-logo-img">
+                    </a>
                 </div>
-            </a>
 
-            <nav class="d-none d-lg-block">
-                <ul class="ag-nav-pill">
-                    <li><a href="#about" class="ag-nav-link">About</a></li>
-                    <li><a href="#tracks" class="ag-nav-link">Programs</a></li>
-                    <li><a href="#pedagogy" class="ag-nav-link">Pedagogy</a></li>
-                    <li><a href="#videos" class="ag-nav-link">Campus Videos</a></li>
-                    <li><a href="#admissions" class="ag-nav-link">SG-SAT</a></li>
-                    <li><a href="index.html" class="ag-nav-link" style="color: var(--ag-gold);"><i class="fa-solid fa-arrow-left me-1"></i> Classic Theme</a></li>
-                </ul>
-            </nav>
-
-            <div class="d-flex align-items-center gap-3">
-                <a href="tel:9640711111" class="ag-talk-btn">
-                    <span><i class="fa-solid fa-phone me-1"></i> 9640711111</span>
-                </a>
+                <!-- Right Action Button -->
+                <div class="d-flex align-items-center gap-3">
+                    <a href="admissions.html" class="ag-btn-talk">
+                        <span>LET’S TALK</span>
+                    </a>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- ---------------- Hero Section (Agaetis Huge Heading & Video) ---------------- -->
-    <section class="ag-hero" id="home">
-        <div class="ag-hero-bg-video">
-            <iframe src="https://www.youtube-nocookie.com/embed/uG8FY-3K98w?autoplay=1&mute=1&loop=1&playlist=uG8FY-3K98w&controls=0&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&modestbranding=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-        <div class="ag-hero-overlay"></div>
-
-        <div class="container ag-hero-content">
-            <div class="row align-items-center">
-                <div class="col-lg-10">
-                    <div class="ag-hero-label">
-                        <i class="fa-solid fa-shield-halved"></i> Premier Competitive Exam Academy • Vijayawada
-                    </div>
-                    <h1 class="ag-hero-title">
-                        EXCELLENCE <br>
-                        <span class="editorial">in NEET &amp; JEE</span> PREPARATION.
-                    </h1>
-                    <p class="ag-hero-desc">
-                        We’re Shree Gurus, your academic acceleration institution for cracking AIIMS, IITs, and National Olympiads with Sri Guru Brahmam’s structured 3-tier error analysis and small-batch mastery.
-                    </p>
-
-                    <div class="d-flex flex-wrap align-items-center gap-3">
-                        <a href="#tracks" class="ag-talk-btn" style="padding: 14px 32px; font-size: 14px;">
-                            <span>Explore 2026-28 Tracks</span> <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                        <button class="btn btn-outline-light d-flex align-items-center gap-2" style="border-radius: 6px; padding: 13px 26px; font-weight: 600; border-color: rgba(255,255,255,0.25);" onclick="openVideoModal('uG8FY-3K98w', 'Campus Showcase Walkthrough')">
-                            <i class="fa-solid fa-play text-warning"></i> Watch Campus Tour
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ---------------- Interactive Scroll Text Change Section ---------------- -->
-    <section class="ag-scroll-text-sec" id="about">
+    <!-- ---------------- Hero Section (EXCELLENCE Centered Title & Video Card) ---------------- -->
+    <section class="ag-hero-sec" id="home">
         <div class="container">
-            <div class="row gy-5 align-items-center">
-                <div class="col-lg-7">
-                    <h2 class="ag-headline-huge">
-                        Cracking top 1,000 AIR in NEET &amp; JEE is hard.
-                    </h2>
-                    <div class="ag-text-change" id="interactiveText" onclick="toggleHeroText()">
-                        <span class="active-txt" id="toggleTxtTarget">We Know. We've produced top ranks for 20+ years.</span>
-                        <div class="small text-muted mt-2" style="font-size: 13px; font-family: var(--ag-font-mono);">
-                            <i class="fa-solid fa-arrow-pointer me-1 text-primary"></i> Direct Mentorship by Sri. A. Guru Brahmam
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-5">
-                    <!-- Animated SVG Growth Path Box (Agaetis signature) -->
-                    <div class="p-4 rounded-4" style="background: var(--ag-bg-card); border: 1px solid var(--ag-border);">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <span class="ag-card-tag mb-0">SELECTION TRAJECTORY</span>
-                            <span class="badge bg-success text-white">93.4% Qualifying</span>
-                        </div>
-                        <svg class="ag-graph-svg" viewBox="0 0 500 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path class="draw-path" d="M10 180 C 120 180, 200 130, 300 80 C 380 40, 440 20, 490 10" stroke="#0373FF" stroke-width="4" stroke-linecap="round" />
-                            <circle cx="490" cy="10" r="7" fill="#e5b32e" />
-                            <line x1="10" y1="180" x2="490" y2="180" stroke="#334155" stroke-width="1.5" stroke-dasharray="4 4" />
-                        </svg>
-                        <div class="d-flex justify-content-between text-muted small" style="font-family: var(--ag-font-mono);">
-                            <span>Baseline Assessment</span>
-                            <span class="text-warning">AIR Rank Goal</span>
-                        </div>
-                    </div>
+            <h1 class="ag-hero-h1">EXCELLENCE</h1>
+            <p class="ag-hero-sub">
+                We’re Shree Gurus, your academic preparation partner for building careers in medicine and engineering. From NEET and JEE Main/Advanced to foundational school Olympiads, we bring structured excellence to students across Andhra Pradesh.
+            </p>
+
+            <!-- Centered Showcase Video Box (Agaetis Layout) -->
+            <div class="ag-hero-showcase-box">
+                <div class="ratio ratio-16x9">
+                    <iframe src="https://www.youtube-nocookie.com/embed/uG8FY-3K98w?autoplay=1&mute=1&loop=1&playlist=uG8FY-3K98w&controls=1&showinfo=0&rel=0&modestbranding=1" title="Campus Showcase" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ---------------- Bento Grid Programs Showcase ---------------- -->
-    <section class="ag-bento-section" id="tracks">
+    <!-- ---------------- Section 2: Building Exam Ranks is Hard (Agaetis Interaction) ---------------- -->
+    <section class="ag-challenge-sec" id="about">
+        <div class="container">
+            <div class="row align-items-center gy-5">
+                <div class="col-lg-8">
+                    <h2 class="ag-challenge-title">
+                        Building a top 1,000 AIR rank is hard.
+                    </h2>
+                    <div class="ag-text-toggle-box" onclick="cycleAnswer()">
+                        <span class="active-answer" id="answerTarget">We Know. We've produced top ranks for 20+ years.</span>
+                        <div class="small text-muted mt-2" style="font-size: 14px;">
+                            <i class="fa-solid fa-arrow-pointer me-1 text-primary"></i> Click to see how Sri Guru Brahmam structures preparation
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 text-center">
+                    <!-- Agaetis Animated SVG Trajectory Graph -->
+                    <svg class="ag-growth-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 754.96 756.08">
+                        <defs>
+                            <style>
+                                .cls-1 { stroke: #090F2D; stroke-width: 2px; fill: none; stroke-miterlimit: 10; }
+                                .cls-2 { stroke: #0373FF; stroke-width: 2px; fill: none; stroke-miterlimit: 10; }
+                                .cls-3 { stroke: #65768D; fill: none; stroke-miterlimit: 10; }
+                                .cls-4 { fill: #0373FF; }
+                            </style>
+                        </defs>
+                        <g id="Layer_1-2">
+                            <line class="cls-3 draw-path" x1="726.12" y1="741.16" x2="31.8" y2="741.16" />
+                            <path class="cls-1 draw-path" d="M726.12,741.16 S-22.68,741.16,14.28,29.32" />
+                            <rect class="cls-1 draw-path" x="1" y="1" width="27.84" height="27.84" />
+                            <rect class="cls-1 draw-path" x="726.12" y="727.24" width="27.84" height="27.84" />
+                            <rect class="cls-2 draw-path" x="18.35" y="735.45" width="11.42" height="11.42" transform="translate(531.12 200.07) rotate(45)" />
+                            <circle class="cls-4" cx="740.04" cy="741.16" r="5.92" />
+                        </g>
+                    </svg>
+                    <span class="small text-muted fw-bold d-block mt-2" style="letter-spacing: 1px;">SELECTION CURVE ACCELERATION</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ---------------- Bento Grid Programs (Agaetis Clean Box Style) ---------------- -->
+    <section class="ag-bento-sec" id="tracks">
         <div class="container">
             <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-5 gap-3">
                 <div>
-                    <span class="ag-card-tag"><i class="fa-solid fa-layer-group me-1"></i> ACADEMIC PATHWAYS</span>
-                    <h2 class="display-5 fw-bold text-white mb-0">Specialized Exam Tracks</h2>
+                    <h2 class="ag-sec-heading">Academic Tracks</h2>
+                    <p class="text-muted mb-0" style="font-size: 18px;">Structured for competitive mastery from foundation to AIIMS &amp; IIT ranks.</p>
                 </div>
-                <p class="text-muted mb-0" style="max-width: 440px;">
-                    Structured 24-month and foundation curricula engineered for conceptual depth, daily error rectifications, and simulated speed tests.
-                </p>
+                <a href="programs.html" class="fw-bold text-primary text-decoration-none">
+                    View full curriculum matrix <i class="fa-solid fa-arrow-right ms-1"></i>
+                </a>
             </div>
 
             <div class="row g-4">
-                <!-- Bento Card 1: NEET Medical -->
+                <!-- Bento Box 1: NEET Medical -->
                 <div class="col-lg-6">
                     <div class="ag-bento-card">
                         <div>
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <span class="ag-card-tag text-primary"><i class="fa-solid fa-stethoscope me-1"></i> MEDICAL ASPIRANTS</span>
-                                <span class="badge" style="background: rgba(3, 115, 255, 0.15); color: #60a5fa; border: 1px solid rgba(3, 115, 255, 0.4);">24 MONTHS</span>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="ag-tag-pill">MEDICAL • BIPC</span>
+                                <span class="fw-bold text-primary small">24 Months</span>
                             </div>
-                            <h3 class="ag-card-title">NEET Comprehensive Track</h3>
+                            <h3 class="ag-card-h3">NEET Comprehensive Track</h3>
                             <p class="ag-card-desc">
-                                Line-by-line NCERT Biology mastery, specialized Physics shortcut numerical drills, and weekly 720-mark OMR optical scanner tests with same-day AIR rank analysis.
+                                Line-by-line NCERT drills, Botany &amp; Zoology mnemonics, Physics mechanics problem drills, and weekly 720-mark OMR tests evaluated by optical scanners with same-day rank analytics.
                             </p>
-                        </div>
-
-                        <div>
-                            <div class="ag-marquee-container mb-4">
-                                <div class="ag-marquee-track">
-                                    <span class="ag-pill blue">Botany NCERT</span>
-                                    <span class="ag-pill">Human Physiology</span>
-                                    <span class="ag-pill gold">720-Mark OMR</span>
-                                    <span class="ag-pill">Physical Chemistry</span>
-                                    <span class="ag-pill blue">Botany NCERT</span>
-                                    <span class="ag-pill">Human Physiology</span>
-                                </div>
-                            </div>
-
-                            <div class="d-flex justify-content-between align-items-center pt-3 border-top" style="border-color: var(--ag-border) !important;">
-                                <div>
-                                    <span class="text-muted small d-block" style="font-family: var(--ag-font-mono);">TUITION INSTALLMENT</span>
-                                    <strong class="text-warning fs-5">₹10,000 / month</strong>
-                                </div>
-                                <a href="course-neet.html" class="ag-circle-arrow-btn">
-                                    <i class="fa-solid fa-arrow-up-right"></i>
-                                </a>
+                            <div class="ag-pills-row">
+                                <span class="ag-mini-pill">360/360 Biology</span>
+                                <span class="ag-mini-pill">NCERT Drills</span>
+                                <span class="ag-mini-pill">720 OMR Sunday Mocks</span>
+                                <span class="ag-mini-pill">AIIMS &amp; GMC Prep</span>
                             </div>
                         </div>
-                    </div>
-                </div>
 
-                <!-- Bento Card 2: JEE Advanced -->
-                <div class="col-lg-6">
-                    <div class="ag-bento-card">
-                        <div>
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <span class="ag-card-tag text-danger"><i class="fa-solid fa-atom me-1"></i> ENGINEERING EXCELLENCE</span>
-                                <span class="badge" style="background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4);">24 MONTHS</span>
+                        <div class="d-flex justify-content-between align-items-center pt-3 border-top" style="border-color: var(--ag-border-light) !important;">
+                            <div>
+                                <span class="text-muted small d-block">TUITION SCHEDULE</span>
+                                <strong class="text-dark fs-5">₹10,000 / month</strong>
                             </div>
-                            <h3 class="ag-card-title">JEE Advanced Accelerator</h3>
-                            <p class="ag-card-desc">
-                                High-yield multi-concept problem sets in Calculus, Rotational Mechanics, and Electrodynamics mentored personally by Sri Guru Brahmam with computer-based NTA tests.
-                            </p>
-                        </div>
-
-                        <div>
-                            <div class="ag-marquee-container mb-4">
-                                <div class="ag-marquee-track">
-                                    <span class="ag-pill">Rotational Dynamics</span>
-                                    <span class="ag-pill gold">NTA CBT Mocks</span>
-                                    <span class="ag-pill blue">Integral Calculus</span>
-                                    <span class="ag-pill">Organic Synthesis</span>
-                                    <span class="ag-pill">Rotational Dynamics</span>
-                                </div>
-                            </div>
-
-                            <div class="d-flex justify-content-between align-items-center pt-3 border-top" style="border-color: var(--ag-border) !important;">
-                                <div>
-                                    <span class="text-muted small d-block" style="font-family: var(--ag-font-mono);">TUITION INSTALLMENT</span>
-                                    <strong class="text-warning fs-5">₹12,000 / month</strong>
-                                </div>
-                                <a href="course-jee-advanced.html" class="ag-circle-arrow-btn">
-                                    <i class="fa-solid fa-arrow-up-right"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Bento Card 3: Foundation Track -->
-                <div class="col-lg-4">
-                    <div class="ag-bento-card">
-                        <div>
-                            <span class="ag-card-tag text-success"><i class="fa-solid fa-graduation-cap me-1"></i> GRADES 8–10</span>
-                            <h4 class="ag-card-title fs-4">Gurus Vidyanikethan Foundation</h4>
-                            <p class="ag-card-desc small">
-                                Early conceptual grounding in Number Theory, Algebra, and Fundamental Mechanics for Olympiad, NTSE, and early JEE/NEET competitive readiness.
-                            </p>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center pt-3 border-top" style="border-color: var(--ag-border) !important;">
-                            <span class="text-muted small" style="font-family: var(--ag-font-mono);">12-Month Hybrid</span>
-                            <a href="programs.html#foundation" class="ag-circle-arrow-btn">
-                                <i class="fa-solid fa-arrow-up-right"></i>
+                            <a href="course-neet.html" class="ag-arrow-circle">
+                                <i class="fa-solid fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Bento Card 4: Repeaters Batch -->
-                <div class="col-lg-4">
+                <!-- Bento Box 2: JEE Advanced -->
+                <div class="col-lg-6">
                     <div class="ag-bento-card">
                         <div>
-                            <span class="ag-card-tag text-warning"><i class="fa-solid fa-bolt me-1"></i> DROPPER BATCH</span>
-                            <h4 class="ag-card-title fs-4">Long-Term Repeaters</h4>
-                            <p class="ag-card-desc small">
-                                Rapid rank booster sprint with 1-on-1 error rectification, daily doubt clearing clinics, and 30 full-syllabus National CBT mock test cycles.
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="ag-tag-pill">ENGINEERING • MPC</span>
+                                <span class="fw-bold text-danger small">24 Months</span>
+                            </div>
+                            <h3 class="ag-card-h3">JEE Advanced Accelerator</h3>
+                            <p class="ag-card-desc">
+                                High-yield multi-concept problems in Mathematics by Sri Guru Brahmam, advanced mechanics in Physics, and timed CBT mock test simulations matching actual NTA exam patterns.
                             </p>
+                            <div class="ag-pills-row">
+                                <span class="ag-mini-pill">Advanced Calculus</span>
+                                <span class="ag-mini-pill">Rotational Dynamics</span>
+                                <span class="ag-mini-pill">NTA CBT Mocks</span>
+                                <span class="ag-mini-pill">IIT Bombay/Delhi Target</span>
+                            </div>
                         </div>
-                        <div class="d-flex justify-content-between align-items-center pt-3 border-top" style="border-color: var(--ag-border) !important;">
-                            <span class="text-muted small" style="font-family: var(--ag-font-mono);">10-Month Intensive</span>
-                            <a href="programs.html#repeaters" class="ag-circle-arrow-btn">
-                                <i class="fa-solid fa-arrow-up-right"></i>
+
+                        <div class="d-flex justify-content-between align-items-center pt-3 border-top" style="border-color: var(--ag-border-light) !important;">
+                            <div>
+                                <span class="text-muted small d-block">TUITION SCHEDULE</span>
+                                <strong class="text-dark fs-5">₹12,000 / month</strong>
+                            </div>
+                            <a href="course-jee-advanced.html" class="ag-arrow-circle">
+                                <i class="fa-solid fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Bento Card 5: SG-SAT Scholarship Box -->
+                <!-- Bento Box 3: Foundation -->
                 <div class="col-lg-4">
-                    <div class="ag-bento-card" style="background: linear-gradient(135deg, #161a33 0%, #1e1338 100%); border-color: rgba(229, 179, 46, 0.4);">
+                    <div class="ag-bento-card">
                         <div>
-                            <span class="ag-card-tag text-warning"><i class="fa-solid fa-award me-1"></i> SCHOLARSHIP APTITUDE TEST</span>
-                            <h4 class="ag-card-title fs-4 text-warning">Up to 100% Waiver</h4>
-                            <p class="ag-card-desc small text-light">
-                                Take the SG-SAT scholarship test to earn merit fee waivers and claim admission in limited 25-student flagship batches.
+                            <span class="ag-tag-pill">GRADES 8–10</span>
+                            <h4 class="ag-card-h3 fs-4">Gurus Vidyanikethan Foundation</h4>
+                            <p class="ag-card-desc small">
+                                Early conceptual grounding in Number Theory, Algebra, and Fundamental Mechanics for Olympiad and NTSE readiness.
                             </p>
                         </div>
-                        <div class="d-flex justify-content-between align-items-center pt-3 border-top" style="border-color: var(--ag-border) !important;">
-                            <span class="badge bg-warning text-dark fw-bold">Test: 20 Sep 2026</span>
-                            <a href="admissions.html" class="ag-circle-arrow-btn" style="background: #e5b32e; color: #000;">
-                                <i class="fa-solid fa-arrow-up-right"></i>
+                        <div class="d-flex justify-content-between align-items-center pt-3 border-top" style="border-color: var(--ag-border-light) !important;">
+                            <span class="text-muted small">12-Month Hybrid</span>
+                            <a href="programs.html#foundation" class="ag-arrow-circle">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bento Box 4: Repeaters Batch -->
+                <div class="col-lg-4">
+                    <div class="ag-bento-card">
+                        <div>
+                            <span class="ag-tag-pill">LONG-TERM</span>
+                            <h4 class="ag-card-h3 fs-4">Repeaters Rank Booster</h4>
+                            <p class="ag-card-desc small">
+                                Focused 1-on-1 error rectification, daily doubt clearing clinics, and 30 full-syllabus National CBT mock cycles.
+                            </p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center pt-3 border-top" style="border-color: var(--ag-border-light) !important;">
+                            <span class="text-muted small">10-Month Intensive</span>
+                            <a href="programs.html#repeaters" class="ag-arrow-circle">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bento Box 5: SG-SAT Scholarship -->
+                <div class="col-lg-4">
+                    <div class="ag-bento-card" style="background: #E8F1FC; border-color: rgba(3, 115, 255, 0.2);">
+                        <div>
+                            <span class="ag-tag-pill" style="background: var(--ag-blue); color: #fff;">SG-SAT SCHOLARSHIP</span>
+                            <h4 class="ag-card-h3 fs-4 text-primary">Up to 100% Fee Waiver</h4>
+                            <p class="ag-card-desc small">
+                                Register for the upcoming SG-SAT scholarship test to earn merit waivers on junior college tuition fees.
+                            </p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center pt-3 border-top" style="border-color: var(--ag-border-light) !important;">
+                            <span class="badge bg-primary text-white fw-bold">Sunday, 20 Sep 2026</span>
+                            <a href="admissions.html" class="ag-arrow-circle" style="background: var(--ag-blue); color: #fff;">
+                                <i class="fa-solid fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
@@ -844,33 +717,33 @@
         </div>
     </section>
 
-    <!-- ---------------- Director Pedagogy Spotlight (Agaetis Clean Box) ---------------- -->
+    <!-- ---------------- Pedagogy Quote Spotlight ---------------- -->
     <section class="py-5" id="pedagogy">
         <div class="container py-4">
-            <div class="ag-director-box">
+            <div class="ag-quote-box">
                 <div class="row align-items-center gy-4">
-                    <div class="col-lg-7">
-                        <span class="ag-card-tag text-warning"><i class="fa-solid fa-user-tie me-1"></i> ACADEMIC DIRECTOR &amp; PEDAGOGY</span>
+                    <div class="col-lg-8">
+                        <span class="ag-tag-pill" style="background: rgba(255,255,255,0.12); color: #fff;">DIRECTOR'S METHODOLOGY</span>
                         <h2 class="display-6 fw-bold text-white mb-3">Sri. A. Guru Brahmam</h2>
-                        <p class="text-light mb-4" style="line-height: 1.7; font-size: 1.1rem;">
-                            <em>"Competitive exam success is not about solving 10,000 random problems. It is about diagnosing precisely why you made an error in 1 problem, indexing the mistake in your Error Log, and permanently fortifying that concept."</em>
+                        <p class="fs-5 text-light mb-4" style="line-height: 1.65;">
+                            "Competitive exam success is not about solving 10,000 random problems. It is about diagnosing precisely why you made an error in 1 problem, indexing the mistake in your Error Log, and permanently fortifying that concept."
                         </p>
                         <div class="d-flex flex-wrap gap-3">
-                            <button class="ag-talk-btn" onclick="openVideoModal('cNqWf88w8TY', 'Director Sri A. Guru Brahmam Message')">
+                            <button class="ag-btn-talk" onclick="openVideoModal('cNqWf88w8TY', 'Director Sri A. Guru Brahmam Message')">
                                 <i class="fa-solid fa-play me-1"></i> Watch Director's Message
                             </button>
-                            <button class="btn btn-outline-light d-flex align-items-center gap-2" style="border-radius: 6px; padding: 10px 20px;" onclick="openVideoModal('yifVWi6rPDc', 'Guru Brahmam on Grand Tests & 3-Tier Error Analysis')">
-                                <i class="fa-solid fa-chart-line text-warning"></i> Grand Test Error Methodology
+                            <button class="btn btn-outline-light d-flex align-items-center gap-2" style="border-radius: 100px; padding: 10px 22px; font-weight: 600;" onclick="openVideoModal('yifVWi6rPDc', 'Guru Brahmam on Grand Tests & 3-Tier Error Analysis')">
+                                <i class="fa-solid fa-chart-line text-warning"></i> Error Log Methodology
                             </button>
                         </div>
                     </div>
-                    <div class="col-lg-5 text-center">
-                        <div class="p-4 rounded-4" style="background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.1);">
+                    <div class="col-lg-4 text-center">
+                        <div class="p-4 rounded-4" style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15);">
                             <div class="h2 fw-bold text-warning mb-1">25</div>
-                            <div class="small text-muted text-uppercase mb-3" style="font-family: var(--ag-font-mono);">Max Students / Batch</div>
-                            <hr style="border-color: rgba(255,255,255,0.1);">
-                            <div class="h2 fw-bold text-primary mb-1">1:15</div>
-                            <div class="small text-muted text-uppercase mb-0" style="font-family: var(--ag-font-mono);">Faculty Mentor Ratio</div>
+                            <div class="small text-light text-uppercase mb-3">Max Cohort Capacity</div>
+                            <hr style="border-color: rgba(255,255,255,0.15);">
+                            <div class="h2 fw-bold text-white mb-1">1:15</div>
+                            <div class="small text-light text-uppercase mb-0">Dedicated Mentor Ratio</div>
                         </div>
                     </div>
                 </div>
@@ -878,15 +751,15 @@
         </div>
     </section>
 
-    <!-- ---------------- All 9 YouTube Video Showcase ---------------- -->
-    <section class="py-5" id="videos">
-        <div class="container py-5">
+    <!-- ---------------- All 9 Institutional Videos (Agaetis Clean Cards) ---------------- -->
+    <section class="ag-videos-sec" id="videos">
+        <div class="container py-4">
             <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-5">
                 <div>
-                    <span class="ag-card-tag"><i class="fa-solid fa-video me-1"></i> INSTITUTIONAL MEDIA</span>
-                    <h2 class="display-6 fw-bold text-white mb-0">Campus Tours &amp; Masterclass Videos</h2>
+                    <h2 class="ag-sec-heading">Campus &amp; Masterclass Videos</h2>
+                    <p class="text-muted mb-0">Explore campus facilities, laboratory walkthroughs, and director masterclasses.</p>
                 </div>
-                <div class="badge px-3 py-2" style="background: rgba(3, 115, 255, 0.15); color: #60a5fa; border: 1px solid rgba(3, 115, 255, 0.4); font-family: var(--ag-font-mono);">
+                <div class="badge px-3 py-2 bg-white text-dark border" style="font-size: 13px;">
                     9 OFFICIAL VIDEOS
                 </div>
             </div>
@@ -894,104 +767,104 @@
             <div class="row g-4">
                 <!-- Video 1 -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="ag-video-card" onclick="openVideoModal('uG8FY-3K98w', 'Guru\'s Medical & IIT Academy Campus Showcase')">
-                        <div class="ag-video-thumb">
+                    <div class="ag-video-item-card" onclick="openVideoModal('uG8FY-3K98w', 'Gurus Medical & IIT Academy Campus Showcase')">
+                        <div class="ag-video-thumb-box">
                             <img src="https://img.youtube.com/vi/uG8FY-3K98w/hqdefault.jpg" alt="Campus Tour">
-                            <div class="ag-play-trigger"><i class="fa-solid fa-play"></i></div>
+                            <div class="ag-play-circle-btn"><i class="fa-solid fa-play"></i></div>
                         </div>
                         <div class="p-3">
-                            <span class="ag-card-tag mb-1">CAMPUS TOUR</span>
-                            <h6 class="fw-bold text-white mb-1">Gurus Medical &amp; IIT Academy Campus</h6>
-                            <p class="small text-muted mb-0">State-of-the-art academic infrastructure across Vijayawada &amp; Guntur.</p>
+                            <span class="ag-tag-pill mb-1">CAMPUS TOUR</span>
+                            <h6 class="fw-bold text-dark mb-1">Medical &amp; IIT Academy Campus</h6>
+                            <p class="small text-muted mb-0">Academic infrastructure across Vijayawada, Guntur &amp; Mangalagiri.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Video 2 -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="ag-video-card" onclick="openVideoModal('cNqWf88w8TY', 'Director Sri A. Guru Brahmam Message')">
-                        <div class="ag-video-thumb">
+                    <div class="ag-video-item-card" onclick="openVideoModal('cNqWf88w8TY', 'Director Sri A. Guru Brahmam Message')">
+                        <div class="ag-video-thumb-box">
                             <img src="https://img.youtube.com/vi/cNqWf88w8TY/hqdefault.jpg" alt="Director Message">
-                            <div class="ag-play-trigger"><i class="fa-solid fa-play"></i></div>
+                            <div class="ag-play-circle-btn"><i class="fa-solid fa-play"></i></div>
                         </div>
                         <div class="p-3">
-                            <span class="ag-card-tag mb-1">LEADERSHIP</span>
-                            <h6 class="fw-bold text-white mb-1">Director Sri Guru Brahmam's Vision</h6>
-                            <p class="small text-muted mb-0">Core academic philosophy and small-batch competitive exam mentoring.</p>
+                            <span class="ag-tag-pill mb-1">LEADERSHIP</span>
+                            <h6 class="fw-bold text-dark mb-1">Director Sri Guru Brahmam's Vision</h6>
+                            <p class="small text-muted mb-0">Small-cohort philosophy and structured competitive exam coaching.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Video 3 -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="ag-video-card" onclick="openVideoModal('yifVWi6rPDc', 'Guru Brahmam on Grand Tests & 3-Tier Error Analysis')">
-                        <div class="ag-video-thumb">
+                    <div class="ag-video-item-card" onclick="openVideoModal('yifVWi6rPDc', 'Guru Brahmam on Grand Tests & 3-Tier Error Analysis')">
+                        <div class="ag-video-thumb-box">
                             <img src="https://img.youtube.com/vi/yifVWi6rPDc/hqdefault.jpg" alt="Grand Test Strategy">
-                            <div class="ag-play-trigger"><i class="fa-solid fa-play"></i></div>
+                            <div class="ag-play-circle-btn"><i class="fa-solid fa-play"></i></div>
                         </div>
                         <div class="p-3">
-                            <span class="ag-card-tag mb-1">EXAM STRATEGY</span>
-                            <h6 class="fw-bold text-white mb-1">Grand Tests &amp; 3-Tier Error Log</h6>
-                            <p class="small text-muted mb-0">Systematic indexing of calculation vs concept errors to break the 650+ plateau.</p>
+                            <span class="ag-tag-pill mb-1">EXAM STRATEGY</span>
+                            <h6 class="fw-bold text-dark mb-1">Grand Tests &amp; Error Logbook</h6>
+                            <p class="small text-muted mb-0">How 3-tier error classification drives scores to 680+ in NEET &amp; JEE.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Video 4 -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="ag-video-card" onclick="openVideoModal('8T9AIINYRcY', 'Gurus Medical Academy & NEET Biology Labs')">
-                        <div class="ag-video-thumb">
+                    <div class="ag-video-item-card" onclick="openVideoModal('8T9AIINYRcY', 'Gurus Medical Academy & NEET Biology Labs')">
+                        <div class="ag-video-thumb-box">
                             <img src="https://img.youtube.com/vi/8T9AIINYRcY/hqdefault.jpg" alt="NEET Biology Labs">
-                            <div class="ag-play-trigger"><i class="fa-solid fa-play"></i></div>
+                            <div class="ag-play-circle-btn"><i class="fa-solid fa-play"></i></div>
                         </div>
                         <div class="p-3">
-                            <span class="ag-card-tag mb-1">NEET LABS</span>
-                            <h6 class="fw-bold text-white mb-1">Medical Academy &amp; Biology Labs</h6>
-                            <p class="small text-muted mb-0">Specimen dissections, high-magnification microscopy, and clinical diagrams.</p>
+                            <span class="ag-tag-pill mb-1">NEET LABS</span>
+                            <h6 class="fw-bold text-dark mb-1">Medical Academy &amp; Biology Labs</h6>
+                            <p class="small text-muted mb-0">Specimen dissections, high-magnification microscopy, and anatomy charts.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Video 5 -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="ag-video-card" onclick="openVideoModal('xIF62MFzEoc', 'Guru\'s Campus & Infrastructure Walkthrough')">
-                        <div class="ag-video-thumb">
+                    <div class="ag-video-item-card" onclick="openVideoModal('xIF62MFzEoc', 'Guru\'s Campus & Infrastructure Walkthrough')">
+                        <div class="ag-video-thumb-box">
                             <img src="https://img.youtube.com/vi/xIF62MFzEoc/hqdefault.jpg" alt="Infrastructure">
-                            <div class="ag-play-trigger"><i class="fa-solid fa-play"></i></div>
+                            <div class="ag-play-circle-btn"><i class="fa-solid fa-play"></i></div>
                         </div>
                         <div class="p-3">
-                            <span class="ag-card-tag mb-1">FACILITIES</span>
-                            <h6 class="fw-bold text-white mb-1">Campus Infrastructure Walkthrough</h6>
-                            <p class="small text-muted mb-0">Acoustic lecture halls, digital doubt kiosks, and testing simulation labs.</p>
+                            <span class="ag-tag-pill mb-1">FACILITIES</span>
+                            <h6 class="fw-bold text-dark mb-1">Campus Walkthrough &amp; Library</h6>
+                            <p class="small text-muted mb-0">Air-conditioned study lounges, doubt counters, and test simulation labs.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Video 6 -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="ag-video-card" onclick="openVideoModal('xdmFCuM5hTg', 'Gurus Academy Academic Documentary')">
-                        <div class="ag-video-thumb">
-                            <img src="https://img.youtube.com/vi/xdmFCuM5hTg/hqdefault.jpg" alt="Academic Documentary">
-                            <div class="ag-play-trigger"><i class="fa-solid fa-play"></i></div>
+                    <div class="ag-video-item-card" onclick="openVideoModal('xdmFCuM5hTg', 'Gurus Academy Academic Documentary')">
+                        <div class="ag-video-thumb-box">
+                            <img src="https://img.youtube.com/vi/xdmFCuM5hTg/hqdefault.jpg" alt="Classroom Documentary">
+                            <div class="ag-play-circle-btn"><i class="fa-solid fa-play"></i></div>
                         </div>
                         <div class="p-3">
-                            <span class="ag-card-tag mb-1">CLASSROOMS</span>
-                            <h6 class="fw-bold text-white mb-1">Academic Documentary &amp; Atmosphere</h6>
-                            <p class="small text-muted mb-0">Daily classroom interactions, rigorous problem solving, and peer review.</p>
+                            <span class="ag-tag-pill mb-1">CLASSROOMS</span>
+                            <h6 class="fw-bold text-dark mb-1">Classroom Atmosphere Documentary</h6>
+                            <p class="small text-muted mb-0">Daily classroom interactions, student problem-solving, and faculty mentorship.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Video 7 -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="ag-video-card" onclick="openVideoModal('CUY81RUT0m4', 'Gurus Vidyanikethan Foundation (Classes 8th–10th)')">
-                        <div class="ag-video-thumb">
+                    <div class="ag-video-item-card" onclick="openVideoModal('CUY81RUT0m4', 'Gurus Vidyanikethan Foundation (Classes 8th–10th)')">
+                        <div class="ag-video-thumb-box">
                             <img src="https://img.youtube.com/vi/CUY81RUT0m4/hqdefault.jpg" alt="Vidyanikethan Foundation">
-                            <div class="ag-play-trigger"><i class="fa-solid fa-play"></i></div>
+                            <div class="ag-play-circle-btn"><i class="fa-solid fa-play"></i></div>
                         </div>
                         <div class="p-3">
-                            <span class="ag-card-tag mb-1">FOUNDATION</span>
-                            <h6 class="fw-bold text-white mb-1">Gurus Vidyanikethan Foundation</h6>
+                            <span class="ag-tag-pill mb-1">FOUNDATION</span>
+                            <h6 class="fw-bold text-dark mb-1">Gurus Vidyanikethan Foundation</h6>
                             <p class="small text-muted mb-0">Early conceptual foundation for Grades 8–10 targeting NTSE &amp; Olympiads.</p>
                         </div>
                     </div>
@@ -999,14 +872,14 @@
 
                 <!-- Video 8 -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="ag-video-card" onclick="openVideoModal('EBZgtA421BU', 'Gurus Educational Society Legacy & Excellence')">
-                        <div class="ag-video-thumb">
+                    <div class="ag-video-item-card" onclick="openVideoModal('EBZgtA421BU', 'Gurus Educational Society Legacy & Excellence')">
+                        <div class="ag-video-thumb-box">
                             <img src="https://img.youtube.com/vi/EBZgtA421BU/hqdefault.jpg" alt="Educational Society">
-                            <div class="ag-play-trigger"><i class="fa-solid fa-play"></i></div>
+                            <div class="ag-play-circle-btn"><i class="fa-solid fa-play"></i></div>
                         </div>
                         <div class="p-3">
-                            <span class="ag-card-tag mb-1">INSTITUTION</span>
-                            <h6 class="fw-bold text-white mb-1">Gurus Educational Society Overview</h6>
+                            <span class="ag-tag-pill mb-1">LEGACY</span>
+                            <h6 class="fw-bold text-dark mb-1">Gurus Educational Society Overview</h6>
                             <p class="small text-muted mb-0">Decades of building medical and engineering rank-holders in Andhra Pradesh.</p>
                         </div>
                     </div>
@@ -1014,14 +887,14 @@
 
                 <!-- Video 9 -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="ag-video-card" onclick="openVideoModal('AVOXpDlioUc', 'Student Life, Discipline & Residential Hostels')">
-                        <div class="ag-video-thumb">
-                            <img src="https://img.youtube.com/vi/AVOXpDlioUc/hqdefault.jpg" alt="Student Life & Hostels">
-                            <div class="ag-play-trigger"><i class="fa-solid fa-play"></i></div>
+                    <div class="ag-video-item-card" onclick="openVideoModal('AVOXpDlioUc', 'Student Life, Discipline & Residential Hostels')">
+                        <div class="ag-video-thumb-box">
+                            <img src="https://img.youtube.com/vi/AVOXpDlioUc/hqdefault.jpg" alt="Hostels & Discipline">
+                            <div class="ag-play-circle-btn"><i class="fa-solid fa-play"></i></div>
                         </div>
                         <div class="p-3">
-                            <span class="ag-card-tag mb-1">STUDENT LIFE</span>
-                            <h6 class="fw-bold text-white mb-1">Hostels, Diet &amp; Daily Routine</h6>
+                            <span class="ag-tag-pill mb-1">STUDENT LIFE</span>
+                            <h6 class="fw-bold text-dark mb-1">Hostels, Diet &amp; Daily Routine</h6>
                             <p class="small text-muted mb-0">Distraction-free air-conditioned dorms, nutritious meals, and 24/7 care.</p>
                         </div>
                     </div>
@@ -1030,70 +903,70 @@
         </div>
     </section>
 
-    <!-- ---------------- Agaetis Dark Contact Footer ---------------- -->
+    <!-- ---------------- Agaetis Contact Footer ---------------- -->
     <footer class="ag-footer" id="admissions">
         <div class="container">
             <div class="row gy-5 mb-5 align-items-center">
                 <div class="col-lg-7">
-                    <h2 class="ag-footer-title">
-                        Ready to achieve your top AIR rank? <br>
-                        <span>Let’s talk admissions.</span>
+                    <h2 class="ag-footer-h2">
+                        Got a dream rank in mind? <br>
+                        <span>Let’s talk.</span>
                     </h2>
-                    <p class="text-muted fs-5 mb-4">
-                        Contact our academic counselors or visit our Vijayawada head office for batch enrollment and scholarship assessment.
+                    <p class="text-muted fs-5 mb-4" style="max-width: 580px;">
+                        Connect with our academic counselors or visit our Vijayawada head office for 2026-28 batch admissions and scholarship registration.
                     </p>
                     <div class="d-flex flex-wrap gap-3">
-                        <a href="admissions.html" class="ag-talk-btn" style="padding: 14px 32px; font-size: 14px;">
-                            <span>Register for SG-SAT Test</span> <i class="fa-solid fa-arrow-right"></i>
+                        <a href="admissions.html" class="ag-btn-talk" style="padding: 13px 32px;">
+                            <span>REGISTER FOR SG-SAT</span>
                         </a>
-                        <a href="tel:9640711111" class="btn btn-outline-light d-flex align-items-center gap-2" style="border-radius: 6px; padding: 13px 24px; font-weight: 600; border-color: rgba(255,255,255,0.25);">
-                            <i class="fa-solid fa-phone text-warning"></i> Call: +91 9640711111
+                        <a href="tel:9640711111" class="btn btn-outline-dark d-flex align-items-center gap-2" style="border-radius: 100px; padding: 12px 26px; font-weight: 700;">
+                            <i class="fa-solid fa-phone text-primary"></i> +91 9640711111
                         </a>
                     </div>
                 </div>
 
                 <div class="col-lg-5">
-                    <div class="p-4 rounded-4" style="background: var(--ag-bg-card); border: 1px solid var(--ag-border);">
-                        <h5 class="fw-bold text-white mb-3" style="font-family: var(--ag-font-mono);">HEAD OFFICE &amp; ADMISSIONS</h5>
-                        <p class="small text-muted mb-3">
+                    <div class="p-4 rounded-4" style="background: var(--ag-bg-card); border: 1px solid var(--ag-border-light);">
+                        <h5 class="fw-bold text-dark mb-3">HEAD OFFICE &amp; ADMISSIONS</h5>
+                        <p class="small text-muted mb-2">
                             <i class="fa-solid fa-location-dot text-primary me-2"></i>
                             <strong>SHREE GURUS GROUP OF INSTITUTIONS</strong><br>
                             D.No: 48-19-5/9, Ballem Vari Street, Vijayawada - 520007, Andhra Pradesh
                         </p>
-                        <p class="small text-muted mb-3">
+                        <p class="small text-muted mb-2">
                             <i class="fa-solid fa-envelope text-primary me-2"></i> mail2gurus@gmail.com
                         </p>
                         <p class="small text-muted mb-0">
-                            <i class="fa-solid fa-phone text-primary me-2"></i> +91 9640711111 / 9171222333
+                            <i class="fa-solid fa-phone text-primary me-2"></i> +91 9640711111, 9171222333
                         </p>
                     </div>
                 </div>
             </div>
 
-            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center pt-4 border-top text-muted small" style="border-color: var(--ag-border) !important; font-family: var(--ag-font-mono);">
-                <p class="mb-2 mb-md-0">&copy; 2026 Shree Gurus Academy. Inspired by Agaetis Design System. Local testing build.</p>
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center pt-4 border-top text-muted small" style="border-color: var(--ag-border-subtle) !important;">
+                <p class="mb-2 mb-md-0">&copy; 2026 Shree Gurus Group of Institutions. Agaetis Tech testing build.</p>
                 <div class="d-flex gap-4">
-                    <a href="index.html" class="text-muted text-decoration-none hover-white">Classic Website</a>
-                    <a href="programs.html" class="text-muted text-decoration-none hover-white">Programs Matrix</a>
-                    <a href="student-portal.html" class="text-muted text-decoration-none hover-white">Student Portal</a>
+                    <a href="index.html" class="text-muted text-decoration-none">Classic Website</a>
+                    <a href="programs.html" class="text-muted text-decoration-none">Programs Overview</a>
+                    <a href="student-portal.html" class="text-muted text-decoration-none">Student Portal</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- ---------------- Floating Switch Banner ---------------- -->
-    <div class="ag-switch-banner">
-        <span class="badge bg-primary px-2 py-1" style="font-family: var(--ag-font-mono); font-size: 11px;">TESTING MODE</span>
-        <span class="text-white small fw-bold">Agaetis Tech Style</span>
-        <a href="index.html" class="btn btn-sm btn-outline-warning py-1 px-2" style="font-size: 12px;">
-            <i class="fa-solid fa-rotate-left me-1"></i> Switch to Classic
+    <!-- ---------------- Floating Switcher ---------------- -->
+    <div class="ag-test-badge">
+        <span class="badge bg-primary px-2 py-1">AGAETIS STYLE</span>
+        <span class="text-dark small fw-bold">Clean White Mode</span>
+        <a href="index.html" class="btn btn-sm btn-outline-dark py-1 px-2" style="font-size: 12px; border-radius: 20px;">
+            <i class="fa-solid fa-arrow-left me-1"></i> Classic Site
         </a>
     </div>
 
     <!-- ---------------- Lightbox Video Modal ---------------- -->
     <div class="modal fade" id="sgVideoModal" tabindex="-1" aria-labelledby="sgVideoModalTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content ag-modal">
+            <div class="modal-content" style="background: #090F2D; border: 1px solid rgba(3, 115, 255, 0.4); border-radius: 16px; overflow: hidden; box-shadow: 0 25px 60px rgba(0,0,0,0.85);">
                 <div class="modal-header border-0 px-4 pt-4 pb-2 d-flex align-items-center justify-content-between">
                     <div class="d-flex align-items-center gap-2">
                         <span class="badge bg-primary text-white fw-bold px-2 py-1"><i class="fa-solid fa-play me-1"></i> SHREE GURUS</span>
@@ -1110,87 +983,64 @@
         </div>
     </div>
 
-    <!-- Lenis Smooth Scroll Script -->
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@0.2.28/bundled/lenis.js"></script>
+    <!-- Vendor JS -->
     <script src="assets/frontend/js/vendor/bootstrap.bundle.min.js"></script>
 
     <script>
-        // 1. Lenis Smooth Scroll initialization
-        const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            direction: 'vertical',
-            gestureDirection: 'vertical',
-            smooth: true,
-            mouseMultiplier: 1,
-            smoothTouch: false,
-            touchMultiplier: 2,
-            infinite: false,
-        });
-
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
-        requestAnimationFrame(raf);
-
-        // 2. Agaetis Custom Cursor Implementation
+        // 1. Agaetis Smooth Trailing Cursor Implementation
         const cursorDot = document.getElementById('cursorDot');
-        const cursorFollower = document.getElementById('cursorFollower');
-
         let mouseX = 0, mouseY = 0;
-        let followerX = 0, followerY = 0;
+        let curX = 0, curY = 0;
 
         window.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
-            cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
         });
 
-        function renderFollower() {
-            followerX += (mouseX - followerX) * 0.15;
-            followerY += (mouseY - followerY) * 0.15;
-            cursorFollower.style.transform = `translate(${followerX}px, ${followerY}px)`;
-            requestAnimationFrame(renderFollower);
+        function animateCursor() {
+            curX += (mouseX - curX) * 0.2;
+            curY += (mouseY - curY) * 0.2;
+            cursorDot.style.transform = `translate(${curX}px, ${curY}px)`;
+            requestAnimationFrame(animateCursor);
         }
-        renderFollower();
+        animateCursor();
 
-        // Cursor hover expansion on links, buttons, and cards
-        const hoverTargets = document.querySelectorAll('a, button, .ag-bento-card, .ag-video-card, .ag-text-change, input, select');
+        // Hover scale on interactive elements
+        const hoverTargets = document.querySelectorAll('a, button, .ag-bento-card, .ag-video-item-card, .ag-text-toggle-box');
         hoverTargets.forEach(target => {
             target.addEventListener('mouseenter', () => document.body.classList.add('ag-cursor-hover'));
             target.addEventListener('mouseleave', () => document.body.classList.remove('ag-cursor-hover'));
         });
 
-        // 3. Navbar background on scroll
+        // 2. Navbar shadow on scroll
         window.addEventListener('scroll', () => {
             const header = document.getElementById('mainHeader');
-            if (window.scrollY > 50) {
+            if (window.scrollY > 30) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
             }
         });
 
-        // 4. Interactive Headline toggle
-        const toggleTexts = [
+        // 3. Interactive Headline rotation
+        const answers = [
             "We Know. We've produced top ranks for 20+ years.",
             "That's why 25-student cohorts receive daily 1-on-1 mentorship.",
             "Our 3-tier error log eliminates repeat mistakes forever.",
             "93.4% qualifying rate across AIIMS, JIPMER, and premier IITs."
         ];
-        let textIdx = 0;
-        function toggleHeroText() {
-            textIdx = (textIdx + 1) % toggleTexts.length;
-            const target = document.getElementById('toggleTxtTarget');
-            target.style.opacity = '0';
+        let aIdx = 0;
+        function cycleAnswer() {
+            aIdx = (aIdx + 1) % answers.length;
+            const el = document.getElementById('answerTarget');
+            el.style.opacity = '0';
             setTimeout(() => {
-                target.textContent = toggleTexts[textIdx];
-                target.style.opacity = '1';
-            }, 200);
+                el.textContent = answers[aIdx];
+                el.style.opacity = '1';
+            }, 180);
         }
 
-        // 5. Lightbox Video Modal Controller
+        // 4. Lightbox Video Modal Controller
         function openVideoModal(videoId, title) {
             const iframe = document.getElementById('sgModalIframe');
             const titleEl = document.getElementById('sgVideoModalTitle');
@@ -1203,7 +1053,6 @@
             modal.show();
         }
 
-        // Stop video playback on modal close
         const videoModalEl = document.getElementById('sgVideoModal');
         if (videoModalEl) {
             videoModalEl.addEventListener('hidden.bs.modal', function () {
