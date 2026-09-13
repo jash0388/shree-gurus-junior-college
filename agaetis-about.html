@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Sri Guru Brahmam &amp; Legacy — Shree Gurus Academy</title>
+    <meta name="description" content="Learn about Sri A. Guru Brahmam's vision, 20+ years track record, and residential campus facilities at Shree Gurus.">
+    <link rel="shortcut icon" type="image/png" href="assets/frontend/img/favicon.png?v=4">
+
+    <!-- Fonts: Inter Tight & System Sans-serif -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome & Bootstrap Grid -->
+    <link rel="stylesheet" href="assets/frontend/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/frontend/css/vendor/fontawesome-pro.css">
+
+    <style>
+        :root {
+            --ag-bg-white: #FFFFFF;
+            --ag-bg-light: #F4F7FB;
+            --ag-bg-card: #EFF3F9;
+            --ag-bg-card-hover: #E2ECF8;
+            --ag-primary-dark: #090F2D;
+            --ag-text-muted: #65768D;
+            --ag-text-light: #8E9BAE;
+            --ag-blue: #0373FF;
+            --ag-blue-dark: #025cd0;
+            --ag-border-light: #E0EAF8;
+            --ag-border-subtle: rgba(9, 15, 45, 0.08);
+            --ag-font-main: 'Inter Tight', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --ag-ease: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none !important;
+        }
+
+        html {
+            scroll-behavior: auto;
+            background-color: #FFFFFF;
+        }
+
+        body {
+            background-color: #FFFFFF;
+            color: var(--ag-primary-dark);
+            font-family: var(--ag-font-main);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Trailing Cursor */
+        .ag-cursor-dot {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 14px;
+            height: 14px;
+            background-color: var(--ag-blue);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 999999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.08s ease, width 0.25s ease, height 0.25s ease, background-color 0.25s ease;
+            box-shadow: 0 0 12px rgba(3, 115, 255, 0.4);
+        }
+
+        .ag-cursor-hover .ag-cursor-dot {
+            width: 42px;
+            height: 42px;
+            background-color: rgba(3, 115, 255, 0.25);
+            border: 2px solid var(--ag-blue);
+            backdrop-filter: blur(2px);
+        }
+
+        /* Header */
+        .ag-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 26px 0;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(16px);
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(9, 15, 45, 0.05);
+        }
+
+        .ag-header.scrolled {
+            padding: 16px 0;
+            box-shadow: 0 4px 20px rgba(9, 15, 45, 0.04);
+        }
+
+        .ag-nav-links {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .ag-nav-item a {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            color: var(--ag-primary-dark);
+            transition: color 0.2s ease;
+        }
+
+        .ag-nav-item a:hover,
+        .ag-nav-item a.active {
+            color: var(--ag-blue);
+        }
+
+        .ag-brand-center {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ag-brand-logo-img {
+            height: 46px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .ag-brand-logo-img:hover {
+            transform: scale(1.06);
+        }
+
+        .ag-btn-talk {
+            background-color: var(--ag-blue);
+            color: #FFFFFF !important;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 11px 28px;
+            border-radius: 100px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 14px rgba(3, 115, 255, 0.3);
+        }
+
+        .ag-btn-talk:hover {
+            background-color: var(--ag-blue-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(3, 115, 255, 0.45);
+        }
+
+        /* Hero */
+        .ag-page-hero {
+            padding-top: 160px;
+            padding-bottom: 70px;
+            background: #FFFFFF;
+            text-align: center;
+        }
+
+        .ag-page-h1 {
+            font-size: clamp(3.2rem, 7vw, 5.8rem);
+            font-weight: 800;
+            color: var(--ag-primary-dark);
+            letter-spacing: -1.5px;
+            line-height: 1.05;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .ag-page-sub {
+            font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+            line-height: 1.6;
+            color: var(--ag-text-muted);
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        .ag-badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 100px;
+            background: #FFFFFF;
+            color: var(--ag-primary-dark);
+            font-size: 11.5px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+            box-shadow: 0 2px 6px rgba(9, 15, 45, 0.04);
+            border: 1px solid var(--ag-border-light);
+        }
+
+        .ag-card-h3 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: var(--ag-primary-dark);
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        /* Bento Cards */
+        .ag-bento-card {
+            background: var(--ag-bg-card);
+            border-radius: 20px;
+            padding: 44px 40px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.35s var(--ag-ease);
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ag-bento-card:hover {
+            background: var(--ag-bg-card-hover);
+            transform: translateY(-4px);
+            border-color: var(--ag-border-light);
+            box-shadow: 0 16px 36px rgba(9, 15, 45, 0.06);
+        }
+
+        /* Director Showcase Box */
+        .ag-director-box {
+            background: #090F2D;
+            color: #FFFFFF;
+            border-radius: 24px;
+            padding: 60px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--ag-border-light);
+        }
+
+        /* Stat Numbers */
+        .ag-stat-number {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            font-weight: 800;
+            color: var(--ag-blue);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        /* Footer (Agaetis Dark Navy) */
+        .ag-footer-dark {
+            padding: 110px 0 50px 0;
+            background: #060A1F;
+            color: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .ag-footer-h2 {
+            font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+            font-weight: 800;
+            line-height: 1.05;
+            color: #FFFFFF;
+            letter-spacing: -1px;
+            margin-bottom: 28px;
+        }
+
+        .ag-footer-h2 span.text-sub {
+            color: #65768D;
+            display: block;
+        }
+
+        .ag-footer-logo-box {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 36px;
+        }
+
+        .ag-footer-logo-img {
+            height: 48px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        .ag-footer-brand-text {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: #FFFFFF;
+        }
+
+        .ag-btn-contact-pill {
+            background: var(--ag-blue);
+            color: #FFFFFF !important;
+            font-size: 13.5px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 14px 34px;
+            border-radius: 100px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 18px rgba(3, 115, 255, 0.4);
+        }
+
+        .ag-btn-contact-pill:hover {
+            background: #025cd0;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(3, 115, 255, 0.6);
+        }
+
+        .ag-footer-link-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .ag-footer-link-list li a {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            transition: color 0.2s ease, transform 0.2s ease;
+            display: inline-block;
+        }
+
+        .ag-footer-link-list li a:hover {
+            color: var(--ag-blue);
+            transform: translateX(4px);
+        }
+
+        .ag-footer-bottom-bar {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 36px;
+            margin-top: 80px;
+            color: #8E9BAE;
+            font-size: 13.5px;
+        }
+
+        .ag-footer-bottom-bar a {
+            color: #8E9BAE;
+        }
+
+        .ag-footer-bottom-bar a:hover {
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="ag-cursor-dot" id="cursorDot"></div>
+
+    <header class="ag-header" id="mainHeader">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between">
+                <nav class="d-none d-lg-block">
+                    <ul class="ag-nav-links">
+                        <li class="ag-nav-item"><a href="agaetis-programs.html">PROGRAMS</a></li>
+                        <li class="ag-nav-item"><a href="agaetis-pedagogy.html">PEDAGOGY</a></li>
+                        <li class="ag-nav-item"><a href="agaetis-about.html" class="active">ABOUT</a></li>
+                        <li class="ag-nav-item"><a href="agaetis-videos.html">VIDEOS</a></li>
+                        <li class="ag-nav-item"><a href="agaetis-admissions.html">ADMISSIONS</a></li>
+                    </ul>
+                </nav>
+
+                <div class="ag-brand-center">
+                    <a href="agaetis-shreegurus.html" class="d-flex align-items-center gap-2">
+                        <img src="assets/frontend/img/logo1.png?v=3" alt="Shree Gurus Academy" class="ag-brand-logo-img">
+                    </a>
+                </div>
+
+                <div class="d-flex align-items-center gap-3">
+                    <a href="agaetis-admissions.html" class="ag-btn-talk">
+                        <span>LET’S TALK</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="ag-page-hero">
+        <div class="container">
+            <span class="ag-badge-pill"><i class="fa-solid fa-landmark text-primary me-1"></i> INSTITUTIONAL HERITAGE</span>
+            <h1 class="ag-page-h1">ABOUT US</h1>
+            <p class="ag-page-sub">
+                Founded by renowned educationist Sri A. Guru Brahmam, Shree Gurus Group of Institutions has spent over two decades crafting national rankers through disciplined cohort mentorship.
+            </p>
+        </div>
+    </section>
+
+    <!-- Director Showcase -->
+    <section class="py-5 bg-white">
+        <div class="container pb-5">
+            <div class="ag-director-box">
+                <div class="row align-items-center gy-5">
+                    <div class="col-lg-7">
+                        <span class="badge bg-primary px-3 py-2 text-white fw-bold mb-3" style="letter-spacing: 1px;">FOUNDER &amp; ACADEMIC DIRECTOR</span>
+                        <h2 class="display-5 fw-bold text-white mb-4">Sri A. Guru Brahmam</h2>
+                        <p class="text-white-50 fs-5 mb-4" style="line-height: 1.65;">
+                            With over 25 years of classroom mastery in Mathematics and competitive entrance coaching, Sri Guru Brahmam pioneered the small-cohort 3-tier error analysis framework in Andhra Pradesh. Under his personal academic stewardship, hundreds of students have achieved single and double-digit AIRs in NEET, AIIMS, and IIT-JEE.
+                        </p>
+                        <div class="d-flex flex-wrap gap-4 pt-2">
+                            <div>
+                                <strong class="text-white d-block fs-4">20+ Years</strong>
+                                <span class="text-white-50 small">Continuous Excellence</span>
+                            </div>
+                            <div class="border-start border-secondary ps-4">
+                                <strong class="text-white d-block fs-4">12,000+</strong>
+                                <span class="text-white-50 small">Doctors &amp; Engineers Built</span>
+                            </div>
+                            <div class="border-start border-secondary ps-4">
+                                <strong class="text-white d-block fs-4">25 Students</strong>
+                                <span class="text-white-50 small">Strict Batch Ceiling</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5 text-center">
+                        <div class="p-4 rounded-4" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);">
+                            <img src="assets/frontend/img/logo1.png?v=3" alt="Emblem" style="height: 90px; margin-bottom: 20px; filter: brightness(0) invert(1);">
+                            <h4 class="text-white fw-bold mb-2">Sri Guru Brahmam Educational Society</h4>
+                            <p class="text-white-50 small mb-0">Registered Society • Vijayawada &amp; Mangalagiri Campuses</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Campus & Infrastructure Bento Grid -->
+    <section class="py-5 bg-white border-top">
+        <div class="container py-4">
+            <h2 class="ag-card-h3 text-center mb-2">Campus Infrastructure</h2>
+            <p class="text-muted text-center mb-5" style="max-width: 600px; margin: 0 auto 50px auto;">
+                A distraction-free, air-conditioned residential environment designed to maximize daily cognitive focus.
+            </p>
+
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="ag-bento-card">
+                        <div>
+                            <span class="ag-badge-pill"><i class="fa-solid fa-microscope text-primary me-1"></i> NEET LABS</span>
+                            <h4 class="fw-bold mb-3">Specimen Wet Labs</h4>
+                            <p class="text-muted mb-0" style="line-height: 1.6;">
+                                High-magnification binocular microscopes, botanical slides, and anatomical charts ensure hands-on conceptual understanding for biology.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="ag-bento-card">
+                        <div>
+                            <span class="ag-badge-pill"><i class="fa-solid fa-laptop-code text-primary me-1"></i> CBT SIMULATION</span>
+                            <h4 class="fw-bold mb-3">NTA Test Simulation Lab</h4>
+                            <p class="text-muted mb-0" style="line-height: 1.6;">
+                                Dedicated terminals running identical NTA user interfaces so students develop screen intuition, timer management, and question tagging habits.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="ag-bento-card">
+                        <div>
+                            <span class="ag-badge-pill"><i class="fa-solid fa-bed text-primary me-1"></i> HOSTELS</span>
+                            <h4 class="fw-bold mb-3">Air-Cooled Residential Dorms</h4>
+                            <p class="text-muted mb-0" style="line-height: 1.6;">
+                                24/7 power backup, hygienic attached restrooms, dedicated study tables, organic mess food, and resident faculty available for night doubts.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Agaetis Dark Navy) -->
+    <footer class="ag-footer-dark">
+        <div class="container">
+            <div class="row gy-5">
+                <div class="col-lg-6">
+                    <div class="ag-footer-logo-box">
+                        <img src="assets/frontend/img/logo1.png?v=3" alt="Shree Gurus" class="ag-footer-logo-img">
+                        <span class="ag-footer-brand-text">SHREE GURUS</span>
+                    </div>
+                    <h2 class="ag-footer-h2">
+                        Got a dream rank in mind?<br>
+                        <span class="text-sub">Let’s talk</span>
+                    </h2>
+                    <div class="mt-4 pt-2">
+                        <a href="agaetis-admissions.html" class="ag-btn-contact-pill">
+                            <span>CONTACT US</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="row gy-4">
+                        <div class="col-6 ps-lg-5">
+                            <ul class="ag-footer-link-list">
+                                <li><a href="agaetis-programs.html">PROGRAMS</a></li>
+                                <li><a href="agaetis-shreegurus.html#achievements">RANKS &amp; RESULTS</a></li>
+                                <li><a href="agaetis-pedagogy.html">PEDAGOGY</a></li>
+                                <li><a href="agaetis-about.html" style="color: var(--ag-blue);">ABOUT</a></li>
+                                <li><a href="agaetis-admissions.html">CONTACT US</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="ag-footer-link-list">
+                                <li><a href="agaetis-programs.html#neet">NEET (MEDICAL)</a></li>
+                                <li><a href="agaetis-programs.html#jee">IIT-JEE (ENGG)</a></li>
+                                <li><a href="agaetis-programs.html#foundation">FOUNDATION (8-10)</a></li>
+                                <li><a href="agaetis-videos.html">VIDEO VAULT</a></li>
+                                <li><a href="privacy-policy.html">PRIVACY POLICY</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ag-footer-bottom-bar d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                <div>&copy; 2026 Shree Gurus Group of Institutions. All Rights Reserved.</div>
+                <div class="d-flex align-items-center gap-4">
+                    <a href="tel:9640711111"><i class="fa-solid fa-phone me-1"></i> +91 9640711111</a>
+                    <span>|</span>
+                    <a href="https://youtube.com" target="_blank">YouTube</a>
+                    <a href="https://instagram.com" target="_blank">Instagram</a>
+                    <a href="agaetis-shreegurus.html">Vijayawada</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Vendor JS -->
+    <script src="assets/frontend/js/vendor/bootstrap.bundle.min.js"></script>
+    <script>
+        const cursorDot = document.getElementById('cursorDot');
+        let mouseX = 0, mouseY = 0, curX = 0, curY = 0;
+        window.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
+        function animateCursor() {
+            curX += (mouseX - curX) * 0.2;
+            curY += (mouseY - curY) * 0.2;
+            cursorDot.style.transform = `translate(${curX}px, ${curY}px)`;
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        document.querySelectorAll('a, button, .ag-bento-card').forEach(target => {
+            target.addEventListener('mouseenter', () => document.body.classList.add('ag-cursor-hover'));
+            target.addEventListener('mouseleave', () => document.body.classList.remove('ag-cursor-hover'));
+        });
+
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('mainHeader');
+            if (window.scrollY > 30) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        });
+    </script>
+</body>
+</html>

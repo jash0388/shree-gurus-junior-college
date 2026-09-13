@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs &amp; Academic Wings — Shree Gurus Academy</title>
+    <meta name="description" content="Explore NEET Medical, IIT-JEE Advanced, and Vidyanikethan Foundation programs at Shree Gurus Group of Institutions.">
+    <link rel="shortcut icon" type="image/png" href="assets/frontend/img/favicon.png?v=4">
+
+    <!-- Fonts: Inter Tight & System Sans-serif -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome & Bootstrap Grid -->
+    <link rel="stylesheet" href="assets/frontend/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/frontend/css/vendor/fontawesome-pro.css">
+
+    <style>
+        /* ==========================================================================
+           AGAETIS TECH EXACT REPLICA DESIGN SYSTEM (Clean White & Electric Blue)
+           ========================================================================== */
+        :root {
+            --ag-bg-white: #FFFFFF;
+            --ag-bg-light: #F4F7FB;
+            --ag-bg-card: #EFF3F9;
+            --ag-bg-card-hover: #E2ECF8;
+            --ag-primary-dark: #090F2D;
+            --ag-text-muted: #65768D;
+            --ag-text-light: #8E9BAE;
+            --ag-blue: #0373FF;
+            --ag-blue-dark: #025cd0;
+            --ag-border-light: #E0EAF8;
+            --ag-border-subtle: rgba(9, 15, 45, 0.08);
+            --ag-font-main: 'Inter Tight', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --ag-ease: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none !important;
+        }
+
+        html {
+            scroll-behavior: auto;
+            background-color: #FFFFFF;
+        }
+
+        body {
+            background-color: #FFFFFF;
+            color: var(--ag-primary-dark);
+            font-family: var(--ag-font-main);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Trailing Cursor */
+        .ag-cursor-dot {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 14px;
+            height: 14px;
+            background-color: var(--ag-blue);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 999999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.08s ease, width 0.25s ease, height 0.25s ease, background-color 0.25s ease;
+            box-shadow: 0 0 12px rgba(3, 115, 255, 0.4);
+        }
+
+        .ag-cursor-hover .ag-cursor-dot {
+            width: 42px;
+            height: 42px;
+            background-color: rgba(3, 115, 255, 0.25);
+            border: 2px solid var(--ag-blue);
+            backdrop-filter: blur(2px);
+        }
+
+        /* Top Header */
+        .ag-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 26px 0;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(16px);
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(9, 15, 45, 0.05);
+        }
+
+        .ag-header.scrolled {
+            padding: 16px 0;
+            box-shadow: 0 4px 20px rgba(9, 15, 45, 0.04);
+        }
+
+        .ag-nav-links {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .ag-nav-item a {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            color: var(--ag-primary-dark);
+            transition: color 0.2s ease;
+        }
+
+        .ag-nav-item a:hover,
+        .ag-nav-item a.active {
+            color: var(--ag-blue);
+        }
+
+        .ag-brand-center {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ag-brand-logo-img {
+            height: 46px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .ag-brand-logo-img:hover {
+            transform: scale(1.06);
+        }
+
+        .ag-btn-talk {
+            background-color: var(--ag-blue);
+            color: #FFFFFF !important;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 11px 28px;
+            border-radius: 100px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 14px rgba(3, 115, 255, 0.3);
+        }
+
+        .ag-btn-talk:hover {
+            background-color: var(--ag-blue-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(3, 115, 255, 0.45);
+        }
+
+        /* Hero */
+        .ag-page-hero {
+            padding-top: 160px;
+            padding-bottom: 70px;
+            background: #FFFFFF;
+            text-align: center;
+        }
+
+        .ag-page-h1 {
+            font-size: clamp(3.2rem, 7vw, 5.8rem);
+            font-weight: 800;
+            color: var(--ag-primary-dark);
+            letter-spacing: -1.5px;
+            line-height: 1.05;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .ag-page-sub {
+            font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+            line-height: 1.6;
+            color: var(--ag-text-muted);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Bento Cards */
+        .ag-bento-card {
+            background: var(--ag-bg-card);
+            border-radius: 20px;
+            padding: 44px 40px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.35s var(--ag-ease);
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ag-bento-card:hover {
+            background: var(--ag-bg-card-hover);
+            transform: translateY(-4px);
+            border-color: var(--ag-border-light);
+            box-shadow: 0 16px 36px rgba(9, 15, 45, 0.06);
+        }
+
+        .ag-badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 100px;
+            background: #FFFFFF;
+            color: var(--ag-primary-dark);
+            font-size: 11.5px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+            box-shadow: 0 2px 6px rgba(9, 15, 45, 0.04);
+        }
+
+        .ag-card-h3 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: var(--ag-primary-dark);
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .ag-card-desc {
+            font-size: 15.5px;
+            line-height: 1.6;
+            color: var(--ag-text-muted);
+            margin-bottom: 24px;
+        }
+
+        .ag-pills-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 28px;
+        }
+
+        .ag-mini-pill {
+            background: #FFFFFF;
+            border: 1px solid var(--ag-border-light);
+            padding: 6px 14px;
+            border-radius: 100px;
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--ag-primary-dark);
+        }
+
+        .ag-card-arrow-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: var(--ag-primary-dark);
+            text-transform: uppercase;
+            transition: all 0.25s ease;
+        }
+
+        .ag-card-arrow-circle {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(9, 15, 45, 0.06);
+            transition: all 0.25s ease;
+            color: var(--ag-primary-dark);
+        }
+
+        .ag-bento-card:hover .ag-card-arrow-circle {
+            background: var(--ag-blue);
+            color: #FFFFFF;
+            transform: translateX(4px);
+        }
+
+        /* Matrix Table */
+        .ag-matrix-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border: 1px solid var(--ag-border-light);
+            border-radius: 18px;
+            overflow: hidden;
+            background: #FFFFFF;
+        }
+
+        .ag-matrix-table th {
+            background: var(--ag-bg-card);
+            padding: 18px 24px;
+            font-size: 13.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--ag-primary-dark);
+            border-bottom: 1px solid var(--ag-border-light);
+        }
+
+        .ag-matrix-table td {
+            padding: 20px 24px;
+            font-size: 15px;
+            color: var(--ag-primary-dark);
+            border-bottom: 1px solid var(--ag-border-light);
+            vertical-align: middle;
+        }
+
+        .ag-matrix-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Footer (Exact Agaetis Dark Navy) */
+        .ag-footer-dark {
+            padding: 110px 0 50px 0;
+            background: #060A1F;
+            color: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .ag-footer-h2 {
+            font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+            font-weight: 800;
+            line-height: 1.05;
+            color: #FFFFFF;
+            letter-spacing: -1px;
+            margin-bottom: 28px;
+        }
+
+        .ag-footer-h2 span.text-sub {
+            color: #65768D;
+            display: block;
+        }
+
+        .ag-footer-logo-box {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 36px;
+        }
+
+        .ag-footer-logo-img {
+            height: 48px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        .ag-footer-brand-text {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: #FFFFFF;
+        }
+
+        .ag-btn-contact-pill {
+            background: var(--ag-blue);
+            color: #FFFFFF !important;
+            font-size: 13.5px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 14px 34px;
+            border-radius: 100px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 18px rgba(3, 115, 255, 0.4);
+        }
+
+        .ag-btn-contact-pill:hover {
+            background: #025cd0;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(3, 115, 255, 0.6);
+        }
+
+        .ag-footer-link-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .ag-footer-link-list li a {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            transition: color 0.2s ease, transform 0.2s ease;
+            display: inline-block;
+        }
+
+        .ag-footer-link-list li a:hover {
+            color: var(--ag-blue);
+            transform: translateX(4px);
+        }
+
+        .ag-footer-bottom-bar {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 36px;
+            margin-top: 80px;
+            color: #8E9BAE;
+            font-size: 13.5px;
+        }
+
+        .ag-footer-bottom-bar a {
+            color: #8E9BAE;
+        }
+
+        .ag-footer-bottom-bar a:hover {
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Trailing Dot -->
+    <div class="ag-cursor-dot" id="cursorDot"></div>
+
+    <!-- Header -->
+    <header class="ag-header" id="mainHeader">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between">
+                <!-- Nav -->
+                <nav class="d-none d-lg-block">
+                    <ul class="ag-nav-links">
+                        <li class="ag-nav-item"><a href="agaetis-programs.html" class="active">PROGRAMS</a></li>
+                        <li class="ag-nav-item"><a href="agaetis-pedagogy.html">PEDAGOGY</a></li>
+                        <li class="ag-nav-item"><a href="agaetis-about.html">ABOUT</a></li>
+                        <li class="ag-nav-item"><a href="agaetis-videos.html">VIDEOS</a></li>
+                        <li class="ag-nav-item"><a href="agaetis-admissions.html">ADMISSIONS</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Center Logo -->
+                <div class="ag-brand-center">
+                    <a href="agaetis-shreegurus.html" class="d-flex align-items-center gap-2">
+                        <img src="assets/frontend/img/logo1.png?v=3" alt="Shree Gurus Academy" class="ag-brand-logo-img">
+                    </a>
+                </div>
+
+                <!-- Right Action -->
+                <div class="d-flex align-items-center gap-3">
+                    <a href="agaetis-admissions.html" class="ag-btn-talk">
+                        <span>LET’S TALK</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="ag-page-hero">
+        <div class="container">
+            <span class="ag-badge-pill"><i class="fa-solid fa-graduation-cap text-primary me-1"></i> ACADEMIC PATHWAYS</span>
+            <h1 class="ag-page-h1">PROGRAMS</h1>
+            <p class="ag-page-sub">
+                Small 25-student cohorts, daily diagnostic test series, and dedicated 1-on-1 faculty mentorship designed to systematically build Top 100 National Ranks.
+            </p>
+        </div>
+    </section>
+
+    <!-- Bento Programs Grid -->
+    <section class="py-5 bg-white">
+        <div class="container pb-5">
+            <div class="row g-4">
+                <!-- NEET Medical Wing -->
+                <div class="col-lg-6" id="neet">
+                    <div class="ag-bento-card">
+                        <div>
+                            <span class="ag-badge-pill"><i class="fa-solid fa-stethoscope text-primary me-1"></i> MEDICAL WING</span>
+                            <h3 class="ag-card-h3">NEET Super-60 &amp; 2-Year Integrated Bi.P.C</h3>
+                            <p class="ag-card-desc">
+                                Complete NCERT line-by-line mastery, high-magnification biology specimen dissections, and daily negative marking reduction drills targeting 680+ in NEET UG.
+                            </p>
+                            <div class="ag-pills-row">
+                                <span class="ag-mini-pill">Super-60 Batch</span>
+                                <span class="ag-mini-pill">NCERT Diagnostics</span>
+                                <span class="ag-mini-pill">Biology Wet Labs</span>
+                                <span class="ag-mini-pill">AIIMS Simulation</span>
+                            </div>
+                        </div>
+                        <a href="agaetis-admissions.html" class="ag-card-arrow-btn">
+                            <span>Apply for NEET Wing</span>
+                            <div class="ag-card-arrow-circle"><i class="fa-solid fa-arrow-right"></i></div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- IIT-JEE Wing -->
+                <div class="col-lg-6" id="jee">
+                    <div class="ag-bento-card">
+                        <div>
+                            <span class="ag-badge-pill"><i class="fa-solid fa-atom text-primary me-1"></i> ENGINEERING WING</span>
+                            <h3 class="ag-card-h3">IIT-JEE Main &amp; Advanced 2-Year M.P.C</h3>
+                            <p class="ag-card-desc">
+                                Multi-concept problem solving across Advanced Physics, Organic Mechanisms, and Higher Calculus with personalized error logbooks under senior IITian mentors.
+                            </p>
+                            <div class="ag-pills-row">
+                                <span class="ag-mini-pill">JEE Advanced Rigor</span>
+                                <span class="ag-mini-pill">Multi-Concept Sets</span>
+                                <span class="ag-mini-pill">Rankers Cohort</span>
+                                <span class="ag-mini-pill">IITian Faculty</span>
+                            </div>
+                        </div>
+                        <a href="agaetis-admissions.html" class="ag-card-arrow-btn">
+                            <span>Apply for JEE Wing</span>
+                            <div class="ag-card-arrow-circle"><i class="fa-solid fa-arrow-right"></i></div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Foundation Wing -->
+                <div class="col-lg-6" id="foundation">
+                    <div class="ag-bento-card">
+                        <div>
+                            <span class="ag-badge-pill"><i class="fa-solid fa-seedling text-primary me-1"></i> EARLY MASTERY</span>
+                            <h3 class="ag-card-h3">Gurus Vidyanikethan Foundation (Classes 8–10)</h3>
+                            <p class="ag-card-desc">
+                                Bridging school syllabi with competitive Olympiad rigor (PRMO, NTSE, NMTC, NSEJS) to build analytical depth before Class 11.
+                            </p>
+                            <div class="ag-pills-row">
+                                <span class="ag-mini-pill">Class 8th to 10th</span>
+                                <span class="ag-mini-pill">Olympiads &amp; NTSE</span>
+                                <span class="ag-mini-pill">Logic &amp; Reasoning</span>
+                                <span class="ag-mini-pill">Early Competitive Edge</span>
+                            </div>
+                        </div>
+                        <a href="agaetis-admissions.html" class="ag-card-arrow-btn">
+                            <span>Apply for Foundation</span>
+                            <div class="ag-card-arrow-circle"><i class="fa-solid fa-arrow-right"></i></div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Long Term / Repeaters -->
+                <div class="col-lg-6" id="longterm">
+                    <div class="ag-bento-card">
+                        <div>
+                            <span class="ag-badge-pill"><i class="fa-solid fa-rotate text-primary me-1"></i> INTENSIVE RANK BOOSTER</span>
+                            <h3 class="ag-card-h3">Long-Term Repeaters (NEET &amp; JEE 1-Year)</h3>
+                            <p class="ag-card-desc">
+                                Intensive 1-year residential curriculum diagnosing previous attempt mistakes, rebuilding conceptual speed, and executing 120+ full-syllabus Grand Tests.
+                            </p>
+                            <div class="ag-pills-row">
+                                <span class="ag-mini-pill">1-Year Full Focus</span>
+                                <span class="ag-mini-pill">3-Tier Error Log</span>
+                                <span class="ag-mini-pill">120+ Grand Tests</span>
+                                <span class="ag-mini-pill">Air-Cooled Hostels</span>
+                            </div>
+                        </div>
+                        <a href="agaetis-admissions.html" class="ag-card-arrow-btn">
+                            <span>Apply for Long-Term</span>
+                            <div class="ag-card-arrow-circle"><i class="fa-solid fa-arrow-right"></i></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Matrix Comparison -->
+    <section class="py-5 bg-white border-top">
+        <div class="container py-4">
+            <h2 class="ag-card-h3 mb-4 text-center">Curriculum Matrix &amp; Weekly Rhythm</h2>
+            <p class="text-muted text-center mb-5" style="max-width: 650px; margin: 0 auto 40px auto;">
+                Every academic stream follows Sri Guru Brahmam's structured daily test-and-review protocol.
+            </p>
+
+            <div class="table-responsive">
+                <table class="ag-matrix-table">
+                    <thead>
+                        <tr>
+                            <th>Program</th>
+                            <th>Cohort Size</th>
+                            <th>Daily Hours</th>
+                            <th>Testing Rhythm</th>
+                            <th>Hostel &amp; Mentorship</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>NEET Super-60</strong></td>
+                            <td><span class="badge bg-light text-dark border">25–30 Students</span></td>
+                            <td>6 hrs Lectures + 4 hrs Study</td>
+                            <td>Daily Micro Test + Sunday 200Q Mock</td>
+                            <td>24/7 Residential + Biology Faculty in Hostel</td>
+                        </tr>
+                        <tr>
+                            <td><strong>IIT-JEE Advanced</strong></td>
+                            <td><span class="badge bg-light text-dark border">25–30 Students</span></td>
+                            <td>6 hrs Lectures + 4.5 hrs Problem Solving</td>
+                            <td>Daily DPPs + Weekend Multi-Concept CBT</td>
+                            <td>24/7 Residential + Senior IIT Mentors</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vidyanikethan (8–10)</strong></td>
+                            <td><span class="badge bg-light text-dark border">30 Students</span></td>
+                            <td>4 hrs Lectures + 2.5 hrs Activity</td>
+                            <td>Weekly Olympiad Aptitude Tests</td>
+                            <td>Day Scholar / Semi-Residential</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Long-Term Repeaters</strong></td>
+                            <td><span class="badge bg-light text-dark border">35 Students</span></td>
+                            <td>8 hrs Intensive + 5 hrs Self Study</td>
+                            <td>3 Grand Tests per Week + Error Analysis</td>
+                            <td>Exclusive Repeaters Campus in Vijayawada</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Agaetis Dark Navy) -->
+    <footer class="ag-footer-dark">
+        <div class="container">
+            <div class="row gy-5">
+                <div class="col-lg-6">
+                    <div class="ag-footer-logo-box">
+                        <img src="assets/frontend/img/logo1.png?v=3" alt="Shree Gurus" class="ag-footer-logo-img">
+                        <span class="ag-footer-brand-text">SHREE GURUS</span>
+                    </div>
+                    <h2 class="ag-footer-h2">
+                        Got a dream rank in mind?<br>
+                        <span class="text-sub">Let’s talk</span>
+                    </h2>
+                    <div class="mt-4 pt-2">
+                        <a href="agaetis-admissions.html" class="ag-btn-contact-pill">
+                            <span>CONTACT US</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="row gy-4">
+                        <div class="col-6 ps-lg-5">
+                            <ul class="ag-footer-link-list">
+                                <li><a href="agaetis-programs.html" style="color: var(--ag-blue);">PROGRAMS</a></li>
+                                <li><a href="agaetis-shreegurus.html#achievements">RANKS &amp; RESULTS</a></li>
+                                <li><a href="agaetis-pedagogy.html">PEDAGOGY</a></li>
+                                <li><a href="agaetis-about.html">ABOUT</a></li>
+                                <li><a href="agaetis-admissions.html">CONTACT US</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="ag-footer-link-list">
+                                <li><a href="#neet">NEET (MEDICAL)</a></li>
+                                <li><a href="#jee">IIT-JEE (ENGG)</a></li>
+                                <li><a href="#foundation">FOUNDATION (8-10)</a></li>
+                                <li><a href="agaetis-videos.html">VIDEO VAULT</a></li>
+                                <li><a href="privacy-policy.html">PRIVACY POLICY</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ag-footer-bottom-bar d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                <div>&copy; 2026 Shree Gurus Group of Institutions. All Rights Reserved.</div>
+                <div class="d-flex align-items-center gap-4">
+                    <a href="tel:9640711111"><i class="fa-solid fa-phone me-1"></i> +91 9640711111</a>
+                    <span>|</span>
+                    <a href="https://youtube.com" target="_blank">YouTube</a>
+                    <a href="https://instagram.com" target="_blank">Instagram</a>
+                    <a href="agaetis-shreegurus.html">Vijayawada</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Vendor JS -->
+    <script src="assets/frontend/js/vendor/bootstrap.bundle.min.js"></script>
+    <script>
+        const cursorDot = document.getElementById('cursorDot');
+        let mouseX = 0, mouseY = 0, curX = 0, curY = 0;
+        window.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
+        function animateCursor() {
+            curX += (mouseX - curX) * 0.2;
+            curY += (mouseY - curY) * 0.2;
+            cursorDot.style.transform = `translate(${curX}px, ${curY}px)`;
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        document.querySelectorAll('a, button, .ag-bento-card').forEach(target => {
+            target.addEventListener('mouseenter', () => document.body.classList.add('ag-cursor-hover'));
+            target.addEventListener('mouseleave', () => document.body.classList.remove('ag-cursor-hover'));
+        });
+
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('mainHeader');
+            if (window.scrollY > 30) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        });
+    </script>
+</body>
+</html>

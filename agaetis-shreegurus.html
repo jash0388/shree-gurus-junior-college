@@ -197,26 +197,97 @@
             font-weight: 400;
         }
 
-        /* Hero Centered Video / Media Showcase Box */
+        /* Hero Centered Direct Native Video Showcase Box (Agaetis Layout) */
         .ag-hero-showcase-box {
             max-width: 1140px;
             margin: 0 auto;
-            border-radius: 20px;
+            border-radius: 24px;
             overflow: hidden;
             background: #090F2D;
             position: relative;
-            box-shadow: 0 20px 50px rgba(9, 15, 45, 0.14);
+            box-shadow: 0 25px 60px rgba(9, 15, 45, 0.16);
             border: 1px solid var(--ag-border-light);
         }
 
-        .ag-hero-showcase-box .ratio {
+        .ag-video-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
             background: #090F2D;
+            overflow: hidden;
+            border-radius: 24px;
         }
 
-        .ag-hero-showcase-box iframe {
-            border: 0;
+        .ag-direct-video {
             width: 100%;
             height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 24px;
+        }
+
+        /* Top-Right Sound Toggle Button (Agaetis Style) */
+        .ag-video-sound-toggle {
+            position: absolute;
+            top: 22px;
+            right: 22px;
+            z-index: 25;
+            background: rgba(9, 15, 45, 0.82);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1.5px solid rgba(255, 255, 255, 0.22);
+            color: #FFFFFF;
+            border-radius: 100px;
+            padding: 10px 22px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 12.5px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            transition: all 0.25s ease;
+            box-shadow: 0 6px 22px rgba(0, 0, 0, 0.35);
+        }
+
+        .ag-video-sound-toggle:hover {
+            background: var(--ag-blue);
+            border-color: var(--ag-blue);
+            transform: scale(1.06);
+            color: #FFFFFF;
+            box-shadow: 0 8px 28px rgba(3, 115, 255, 0.55);
+        }
+
+        .ag-video-sound-toggle.muted-state {
+            background: rgba(9, 15, 45, 0.88);
+            border-color: rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .ag-vid-center-pulse {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            width: 74px;
+            height: 74px;
+            border-radius: 50%;
+            background: rgba(3, 115, 255, 0.92);
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 0 35px rgba(3, 115, 255, 0.7);
+            z-index: 15;
+        }
+
+        .ag-vid-center-pulse.show {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
         }
 
         /* ---------------- Animated Section 2 (Agaetis Text Change & SVG Draw) ---------------- */
@@ -447,23 +518,135 @@
             overflow: hidden;
         }
 
-        /* ---------------- Footer (Agaetis Clean White / Dark 2-tier) ---------------- */
-        .ag-footer {
-            padding: 100px 0 40px 0;
-            background: #FFFFFF;
-            border-top: 1px solid var(--ag-border-subtle);
+        /* ---------------- Dark Agaetis Footer (Exact Replica of agaetis.tech) ---------------- */
+        .ag-footer-dark {
+            padding: 110px 0 50px 0;
+            background: #060A1F;
+            color: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ag-footer-dark::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 15%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(3, 115, 255, 0.12) 0%, rgba(6, 10, 31, 0) 70%);
+            pointer-events: none;
         }
 
         .ag-footer-h2 {
-            font-size: clamp(2.4rem, 4.5vw, 4.2rem);
+            font-size: clamp(2.8rem, 5.5vw, 4.8rem);
             font-weight: 800;
-            line-height: 1.1;
-            color: var(--ag-primary-dark);
-            margin-bottom: 20px;
+            line-height: 1.05;
+            color: #FFFFFF;
+            letter-spacing: -1px;
+            margin-bottom: 28px;
         }
 
-        .ag-footer-h2 span {
-            color: var(--ag-text-muted);
+        .ag-footer-h2 span.text-sub {
+            color: #65768D;
+            display: block;
+        }
+
+        .ag-footer-logo-box {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 36px;
+        }
+
+        .ag-footer-logo-img {
+            height: 48px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        .ag-footer-brand-text {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: #FFFFFF;
+        }
+
+        .ag-btn-contact-pill {
+            background: var(--ag-blue);
+            color: #FFFFFF !important;
+            font-size: 13.5px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 14px 34px;
+            border-radius: 100px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 18px rgba(3, 115, 255, 0.4);
+        }
+
+        .ag-btn-contact-pill:hover {
+            background: #025cd0;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(3, 115, 255, 0.6);
+        }
+
+        .ag-footer-col-title {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #8E9BAE;
+            margin-bottom: 24px;
+        }
+
+        .ag-footer-link-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .ag-footer-link-list li a {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            transition: color 0.2s ease, transform 0.2s ease;
+            display: inline-block;
+        }
+
+        .ag-footer-link-list li a:hover {
+            color: var(--ag-blue);
+            transform: translateX(4px);
+        }
+
+        .ag-footer-link-list li a.active-link {
+            color: var(--ag-blue);
+        }
+
+        .ag-footer-bottom-bar {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 36px;
+            margin-top: 80px;
+            color: #8E9BAE;
+            font-size: 13.5px;
+        }
+
+        .ag-footer-bottom-bar a {
+            color: #8E9BAE;
+            transition: color 0.2s ease;
+        }
+
+        .ag-footer-bottom-bar a:hover {
+            color: #FFFFFF;
         }
 
         /* Floating Switcher */
@@ -496,23 +679,24 @@
                 <!-- Left Nav Links -->
                 <nav class="d-none d-lg-block">
                     <ul class="ag-nav-links">
-                        <li class="ag-nav-item"><a href="#tracks">PROGRAMS</a></li>
-                        <li class="ag-nav-item"><a href="#pedagogy">PEDAGOGY</a></li>
-                        <li class="ag-nav-item"><a href="#videos">VIDEOS</a></li>
-                        <li class="ag-nav-item"><a href="#admissions">ADMISSIONS</a></li>
+                        <li class="ag-nav-item"><a href="agaetis-programs.html">PROGRAMS</a></li>
+                        <li class="ag-nav-item"><a href="agaetis-pedagogy.html">PEDAGOGY</a></li>
+                        <li class="ag-nav-item"><a href="agaetis-about.html">ABOUT</a></li>
+                        <li class="ag-nav-item"><a href="agaetis-videos.html">VIDEOS</a></li>
+                        <li class="ag-nav-item"><a href="agaetis-admissions.html">ADMISSIONS</a></li>
                     </ul>
                 </nav>
 
                 <!-- Center Logo -->
                 <div class="ag-brand-center">
-                    <a href="index.html" class="d-flex align-items-center gap-2">
+                    <a href="agaetis-shreegurus.html" class="d-flex align-items-center gap-2">
                         <img src="assets/frontend/img/logo1.png?v=3" alt="Shree Gurus Academy" class="ag-brand-logo-img">
                     </a>
                 </div>
 
                 <!-- Right Action Button -->
                 <div class="d-flex align-items-center gap-3">
-                    <a href="admissions.html" class="ag-btn-talk">
+                    <a href="agaetis-admissions.html" class="ag-btn-talk">
                         <span>LET’S TALK</span>
                     </a>
                 </div>
@@ -520,7 +704,7 @@
         </div>
     </header>
 
-    <!-- ---------------- Hero Section (EXCELLENCE Centered Title & Video Card) ---------------- -->
+    <!-- ---------------- Hero Section (EXCELLENCE Centered Title & Direct Native Video) ---------------- -->
     <section class="ag-hero-sec" id="home">
         <div class="container">
             <h1 class="ag-hero-h1">EXCELLENCE</h1>
@@ -528,10 +712,21 @@
                 We’re Shree Gurus, your academic preparation partner for building careers in medicine and engineering. From NEET and JEE Main/Advanced to foundational school Olympiads, we bring structured excellence to students across Andhra Pradesh.
             </p>
 
-            <!-- Centered Showcase Video Box (Agaetis Layout) -->
-            <div class="ag-hero-showcase-box">
-                <div class="ratio ratio-16x9">
-                    <iframe src="https://www.youtube-nocookie.com/embed/uG8FY-3K98w?autoplay=1&mute=1&loop=1&playlist=uG8FY-3K98w&controls=1&showinfo=0&rel=0&modestbranding=1" title="Campus Showcase" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <!-- Centered Direct Native Video Showcase Box (Agaetis Layout) -->
+            <div class="ag-hero-showcase-box" id="showcaseVideoBox">
+                <div class="ag-video-wrapper" id="videoWrapper">
+                    <video id="heroCampusVideo" class="ag-direct-video" src="assets/frontend/video/shreegurus-campus.mp4" poster="assets/frontend/images/campus-video-poster.jpg" autoplay loop playsinline preload="auto"></video>
+                    
+                    <!-- Top-Right Sound Toggle Button (50% Volume) -->
+                    <button class="ag-video-sound-toggle" id="heroSoundToggle" title="Toggle Sound (50% Volume)" aria-label="Toggle Sound">
+                        <i class="fa-solid fa-volume-high" id="heroSoundIcon"></i>
+                        <span id="heroSoundText">50% SOUND</span>
+                    </button>
+
+                    <!-- Center Play/Pause Flash Pulse -->
+                    <div class="ag-vid-center-pulse" id="vidCenterPulse">
+                        <i class="fa-solid fa-play" id="vidPulseIcon"></i>
+                    </div>
                 </div>
             </div>
         </div>
@@ -903,52 +1098,65 @@
         </div>
     </section>
 
-    <!-- ---------------- Agaetis Contact Footer ---------------- -->
-    <footer class="ag-footer" id="admissions">
+    <!-- ---------------- Agaetis Exact Dark Navy Footer (Matching Screenshot) ---------------- -->
+    <footer class="ag-footer-dark" id="admissions">
         <div class="container">
-            <div class="row gy-5 mb-5 align-items-center">
-                <div class="col-lg-7">
+            <div class="row gy-5">
+                <!-- Left Column: Brand & Big CTA -->
+                <div class="col-lg-6">
+                    <div class="ag-footer-logo-box">
+                        <img src="assets/frontend/img/logo1.png?v=3" alt="Shree Gurus" class="ag-footer-logo-img">
+                        <span class="ag-footer-brand-text">SHREE GURUS</span>
+                    </div>
+
                     <h2 class="ag-footer-h2">
-                        Got a dream rank in mind? <br>
-                        <span>Let’s talk.</span>
+                        Got a dream rank in mind?<br>
+                        <span class="text-sub">Let’s talk</span>
                     </h2>
-                    <p class="text-muted fs-5 mb-4" style="max-width: 580px;">
-                        Connect with our academic counselors or visit our Vijayawada head office for 2026-28 batch admissions and scholarship registration.
-                    </p>
-                    <div class="d-flex flex-wrap gap-3">
-                        <a href="admissions.html" class="ag-btn-talk" style="padding: 13px 32px;">
-                            <span>REGISTER FOR SG-SAT</span>
-                        </a>
-                        <a href="tel:9640711111" class="btn btn-outline-dark d-flex align-items-center gap-2" style="border-radius: 100px; padding: 12px 26px; font-weight: 700;">
-                            <i class="fa-solid fa-phone text-primary"></i> +91 9640711111
+
+                    <div class="mt-4 pt-2">
+                        <a href="agaetis-admissions.html" class="ag-btn-contact-pill">
+                            <span>CONTACT US</span>
                         </a>
                     </div>
                 </div>
 
-                <div class="col-lg-5">
-                    <div class="p-4 rounded-4" style="background: var(--ag-bg-card); border: 1px solid var(--ag-border-light);">
-                        <h5 class="fw-bold text-dark mb-3">HEAD OFFICE &amp; ADMISSIONS</h5>
-                        <p class="small text-muted mb-2">
-                            <i class="fa-solid fa-location-dot text-primary me-2"></i>
-                            <strong>SHREE GURUS GROUP OF INSTITUTIONS</strong><br>
-                            D.No: 48-19-5/9, Ballem Vari Street, Vijayawada - 520007, Andhra Pradesh
-                        </p>
-                        <p class="small text-muted mb-2">
-                            <i class="fa-solid fa-envelope text-primary me-2"></i> mail2gurus@gmail.com
-                        </p>
-                        <p class="small text-muted mb-0">
-                            <i class="fa-solid fa-phone text-primary me-2"></i> +91 9640711111, 9171222333
-                        </p>
+                <!-- Right Columns: 2-Column Agaetis Navigation Links -->
+                <div class="col-lg-6">
+                    <div class="row gy-4">
+                        <div class="col-6 col-md-6 ps-lg-5">
+                            <ul class="ag-footer-link-list">
+                                <li><a href="agaetis-programs.html">PROGRAMS</a></li>
+                                <li><a href="agaetis-shreegurus.html#achievements">RANKS &amp; RESULTS</a></li>
+                                <li><a href="agaetis-pedagogy.html">PEDAGOGY</a></li>
+                                <li><a href="agaetis-about.html">ABOUT</a></li>
+                                <li><a href="agaetis-admissions.html">CONTACT US</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-md-6">
+                            <ul class="ag-footer-link-list">
+                                <li><a href="agaetis-programs.html#neet">NEET (MEDICAL)</a></li>
+                                <li><a href="agaetis-programs.html#jee">IIT-JEE (ENGG)</a></li>
+                                <li><a href="agaetis-programs.html#foundation">FOUNDATION (8-10)</a></li>
+                                <li><a href="agaetis-videos.html">VIDEO VAULT</a></li>
+                                <li><a href="privacy-policy.html">PRIVACY POLICY</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center pt-4 border-top text-muted small" style="border-color: var(--ag-border-subtle) !important;">
-                <p class="mb-2 mb-md-0">&copy; 2026 Shree Gurus Group of Institutions. Agaetis Tech testing build.</p>
-                <div class="d-flex gap-4">
-                    <a href="index.html" class="text-muted text-decoration-none">Classic Website</a>
-                    <a href="programs.html" class="text-muted text-decoration-none">Programs Overview</a>
-                    <a href="student-portal.html" class="text-muted text-decoration-none">Student Portal</a>
+            <!-- Bottom Sub-Footer Bar -->
+            <div class="ag-footer-bottom-bar d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                <div>
+                    &copy; 2026 Shree Gurus Group of Institutions. All Rights Reserved.
+                </div>
+                <div class="d-flex align-items-center gap-4">
+                    <a href="tel:9640711111"><i class="fa-solid fa-phone me-1"></i> +91 9640711111</a>
+                    <span>|</span>
+                    <a href="https://youtube.com" target="_blank" rel="noopener">YouTube</a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+                    <a href="agaetis-shreegurus.html">Vijayawada</a>
                 </div>
             </div>
         </div>
@@ -1006,11 +1214,14 @@
         animateCursor();
 
         // Hover scale on interactive elements
-        const hoverTargets = document.querySelectorAll('a, button, .ag-bento-card, .ag-video-item-card, .ag-text-toggle-box');
-        hoverTargets.forEach(target => {
-            target.addEventListener('mouseenter', () => document.body.classList.add('ag-cursor-hover'));
-            target.addEventListener('mouseleave', () => document.body.classList.remove('ag-cursor-hover'));
-        });
+        function registerHoverEffects() {
+            const hoverTargets = document.querySelectorAll('a, button, .ag-bento-card, .ag-video-item-card, .ag-text-toggle-box, .ag-vid-btn, .ag-vid-progress-container');
+            hoverTargets.forEach(target => {
+                target.addEventListener('mouseenter', () => document.body.classList.add('ag-cursor-hover'));
+                target.addEventListener('mouseleave', () => document.body.classList.remove('ag-cursor-hover'));
+            });
+        }
+        registerHoverEffects();
 
         // 2. Navbar shadow on scroll
         window.addEventListener('scroll', () => {
@@ -1040,7 +1251,95 @@
             }, 180);
         }
 
-        // 4. Lightbox Video Modal Controller
+        // 4. Direct Native Video Player Controller (50% Volume & Top-Right Sound Button)
+        const campusVideo = document.getElementById('heroCampusVideo');
+        const heroSoundToggle = document.getElementById('heroSoundToggle');
+        const heroSoundIcon = document.getElementById('heroSoundIcon');
+        const heroSoundText = document.getElementById('heroSoundText');
+        const vidCenterPulse = document.getElementById('vidCenterPulse');
+        const vidPulseIcon = document.getElementById('vidPulseIcon');
+
+        function updateSoundUI(isMuted) {
+            if (!heroSoundIcon || !heroSoundText || !heroSoundToggle) return;
+            if (isMuted) {
+                heroSoundIcon.className = 'fa-solid fa-volume-xmark';
+                heroSoundText.textContent = 'MUTED';
+                heroSoundToggle.classList.add('muted-state');
+            } else {
+                heroSoundIcon.className = 'fa-solid fa-volume-high text-white';
+                heroSoundText.textContent = '50% SOUND';
+                heroSoundToggle.classList.remove('muted-state');
+            }
+        }
+
+        function setAudioVolume50() {
+            if (!campusVideo) return;
+            campusVideo.volume = 0.5;
+            campusVideo.muted = false;
+            updateSoundUI(false);
+        }
+
+        if (campusVideo) {
+            campusVideo.volume = 0.5;
+            // Attempt unmuted play at 50% volume
+            campusVideo.muted = false;
+            const playPromise = campusVideo.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(() => {
+                    // Browser blocked unmuted autoplay; play muted initially and enable on first interaction
+                    campusVideo.muted = true;
+                    campusVideo.play();
+                    updateSoundUI(true);
+                });
+            }
+
+            // Click anywhere on video to toggle play/pause
+            campusVideo.addEventListener('click', () => {
+                if (campusVideo.paused) {
+                    campusVideo.play();
+                    triggerPulse(true);
+                } else {
+                    campusVideo.pause();
+                    triggerPulse(false);
+                }
+            });
+        }
+
+        function triggerPulse(isPlay) {
+            if (!vidCenterPulse) return;
+            vidPulseIcon.className = isPlay ? 'fa-solid fa-play' : 'fa-solid fa-pause';
+            vidCenterPulse.classList.add('show');
+            setTimeout(() => vidCenterPulse.classList.remove('show'), 350);
+        }
+
+        // Toggle sound between 50% and muted when top-right button is clicked
+        if (heroSoundToggle) {
+            heroSoundToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (!campusVideo) return;
+                if (campusVideo.muted || campusVideo.volume === 0) {
+                    setAudioVolume50();
+                } else {
+                    campusVideo.muted = true;
+                    updateSoundUI(true);
+                }
+            });
+        }
+
+        // Unmute at 50% sound on first user interaction if currently muted
+        const enableAudioOnUserGesture = () => {
+            if (campusVideo && campusVideo.muted) {
+                setAudioVolume50();
+            }
+            window.removeEventListener('click', enableAudioOnUserGesture);
+            window.removeEventListener('keydown', enableAudioOnUserGesture);
+            window.removeEventListener('touchstart', enableAudioOnUserGesture);
+        };
+        window.addEventListener('click', enableAudioOnUserGesture, { once: true });
+        window.addEventListener('keydown', enableAudioOnUserGesture, { once: true });
+        window.addEventListener('touchstart', enableAudioOnUserGesture, { once: true });
+
+        // 5. Lightbox Video Modal Controller
         function openVideoModal(videoId, title) {
             const iframe = document.getElementById('sgModalIframe');
             const titleEl = document.getElementById('sgVideoModalTitle');
