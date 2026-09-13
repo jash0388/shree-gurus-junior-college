@@ -2,400 +2,592 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Admissions & SG-SAT Scholarships | Shree Gurus Vijayawada</title>
-    <meta name="description" content="Apply for Shree Gurus NEET, JEE & Foundation Admissions. Register for the SG-SAT Scholarship Test and avail up to 100% merit fee waiver.">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions &amp; Contact — Shree Gurus Academy</title>
+    <meta name="description" content="Register for SG-SAT 2026 Scholarship and book a campus counseling session at Shree Gurus.">
     <link rel="shortcut icon" type="image/png" href="assets/frontend/img/favicon.png?v=4">
 
-    <!-- Vendor CSS -->
+    <!-- Fonts: Inter Tight & System Sans-serif -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome & Bootstrap Grid -->
     <link rel="stylesheet" href="assets/frontend/css/vendor/bootstrap.min.css">
     <link rel="stylesheet" href="assets/frontend/css/vendor/fontawesome-pro.css">
-    <link rel="stylesheet" href="assets/frontend/css/main.css">
-    <link rel="stylesheet" href="assets/frontend/css/shreegurus-theme.css?v=3">
+
+    <style>
+        :root {
+            --sg-bg-white: #FFFFFF;
+            --sg-bg-light: #F4F7FB;
+            --sg-bg-card: #EFF3F9;
+            --sg-bg-card-hover: #E2ECF8;
+            --sg-primary-dark: #090F2D;
+            --sg-text-muted: #65768D;
+            --sg-text-light: #8E9BAE;
+            --sg-blue: #0373FF;
+            --sg-blue-dark: #025cd0;
+            --sg-border-light: #E0EAF8;
+            --sg-border-subtle: rgba(9, 15, 45, 0.08);
+            --sg-font-main: 'Inter Tight', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --sg-ease: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none !important;
+        }
+
+        html {
+            scroll-behavior: auto;
+            background-color: #FFFFFF;
+        }
+
+        body {
+            background-color: #FFFFFF;
+            color: var(--sg-primary-dark);
+            font-family: var(--sg-font-main);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Trailing Cursor */
+        .sg-cursor-dot {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 14px;
+            height: 14px;
+            background-color: var(--sg-blue);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 999999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.08s ease, width 0.25s ease, height 0.25s ease, background-color 0.25s ease;
+            box-shadow: 0 0 12px rgba(3, 115, 255, 0.4);
+        }
+
+        .sg-cursor-hover .sg-cursor-dot {
+            width: 42px;
+            height: 42px;
+            background-color: rgba(3, 115, 255, 0.25);
+            border: 2px solid var(--sg-blue);
+            backdrop-filter: blur(2px);
+        }
+
+        /* Header */
+        .sg-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 26px 0;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(16px);
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(9, 15, 45, 0.05);
+        }
+
+        .sg-header.scrolled {
+            padding: 16px 0;
+            box-shadow: 0 4px 20px rgba(9, 15, 45, 0.04);
+        }
+
+        .sg-nav-links {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sg-nav-item a {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            color: var(--sg-primary-dark);
+            transition: color 0.2s ease;
+        }
+
+        .sg-nav-item a:hover,
+        .sg-nav-item a.active {
+            color: var(--sg-blue);
+        }
+
+        .sg-brand-center {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sg-brand-logo-img {
+            height: 46px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .sg-brand-logo-img:hover {
+            transform: scale(1.06);
+        }
+
+        .sg-btn-talk {
+            background-color: var(--sg-blue);
+            color: #FFFFFF !important;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 11px 28px;
+            border-radius: 100px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 14px rgba(3, 115, 255, 0.3);
+        }
+
+        .sg-btn-talk:hover {
+            background-color: var(--sg-blue-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(3, 115, 255, 0.45);
+        }
+
+        /* Hero */
+        .sg-page-hero {
+            padding-top: 160px;
+            padding-bottom: 70px;
+            background: #FFFFFF;
+            text-align: center;
+        }
+
+        .sg-page-h1 {
+            font-size: clamp(3.2rem, 7vw, 5.8rem);
+            font-weight: 800;
+            color: var(--sg-primary-dark);
+            letter-spacing: -1.5px;
+            line-height: 1.05;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .sg-page-sub {
+            font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+            line-height: 1.6;
+            color: var(--sg-text-muted);
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        .sg-badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 100px;
+            background: #FFFFFF;
+            color: var(--sg-primary-dark);
+            font-size: 11.5px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+            box-shadow: 0 2px 6px rgba(9, 15, 45, 0.04);
+            border: 1px solid var(--sg-border-light);
+        }
+
+        /* Form Card */
+        .sg-form-card {
+            background: var(--sg-bg-card);
+            border-radius: 24px;
+            padding: 50px 44px;
+            border: 1px solid var(--sg-border-light);
+            box-shadow: 0 20px 50px rgba(9, 15, 45, 0.06);
+        }
+
+        .sg-input {
+            width: 100%;
+            border: 1px solid var(--sg-border-light);
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 15px 20px;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--sg-primary-dark);
+            margin-bottom: 20px;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .sg-input:focus {
+            border-color: var(--sg-blue);
+            box-shadow: 0 0 0 4px rgba(3, 115, 255, 0.15);
+        }
+
+        /* Info Card */
+        .sg-info-card {
+            background: #FFFFFF;
+            border: 1px solid var(--sg-border-light);
+            border-radius: 20px;
+            padding: 36px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Footer */
+        .sg-footer-dark {
+            padding: 110px 0 50px 0;
+            background: #060A1F;
+            color: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .sg-footer-h2 {
+            font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+            font-weight: 800;
+            line-height: 1.05;
+            color: #FFFFFF;
+            letter-spacing: -1px;
+            margin-bottom: 28px;
+        }
+
+        .sg-footer-h2 span.text-sub {
+            color: #65768D;
+            display: block;
+        }
+
+        .sg-footer-logo-box {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 36px;
+        }
+
+        .sg-footer-logo-img {
+            height: 48px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        .sg-footer-brand-text {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: #FFFFFF;
+        }
+
+        .sg-btn-contact-pill {
+            background: var(--sg-blue);
+            color: #FFFFFF !important;
+            font-size: 13.5px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 14px 34px;
+            border-radius: 100px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 18px rgba(3, 115, 255, 0.4);
+        }
+
+        .sg-btn-contact-pill:hover {
+            background: #025cd0;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(3, 115, 255, 0.6);
+        }
+
+        .sg-footer-link-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .sg-footer-link-list li a {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            transition: color 0.2s ease, transform 0.2s ease;
+            display: inline-block;
+        }
+
+        .sg-footer-link-list li a:hover {
+            color: var(--sg-blue);
+            transform: translateX(4px);
+        }
+
+        .sg-footer-bottom-bar {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 36px;
+            margin-top: 80px;
+            color: #8E9BAE;
+            font-size: 13.5px;
+        }
+
+        .sg-footer-bottom-bar a {
+            color: #8E9BAE;
+        }
+
+        .sg-footer-bottom-bar a:hover {
+            color: #FFFFFF;
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- ---------------- Top Bar ---------------- -->
-    <div class="sg-topbar">
-        <div class="container">
-            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
-                <div class="d-flex align-items-center gap-3">
-                    <span><a href="tel:9640711111"><i class="fa-solid fa-phone me-1 text-warning"></i> +91 9640711111</a> / <a href="tel:9171222333">+91 9171222333</a></span>
-                    <span class="d-none d-md-inline">|</span>
-                    <span class="d-none d-md-inline"><a href="mailto:mail2gurus@gmail.com"><i class="fa-solid fa-envelope me-1 text-warning"></i> mail2gurus@gmail.com</a></span>
-                </div>
-                <div class="d-flex align-items-center gap-3">
-                    <span class="d-none d-lg-inline"><i class="fa-solid fa-location-dot me-1 text-warning"></i> HEAD OFFICE: D.No: 48-19-5/9, Ballem Vari St, Vijayawada-520007</span>
-                    <span class="sg-topbar-badge"><i class="fa-solid fa-award me-1"></i> NEET • JEE • FOUNDATION</span>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="sg-cursor-dot" id="cursorDot"></div>
 
-    <!-- ---------------- Main Navigation Navbar ---------------- -->
-    <nav class="sg-navbar navbar navbar-expand-lg">
+    <header class="sg-header" id="mainHeader">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <img src="assets/frontend/img/logo1.png?v=3" alt="Shree Gurus Academy Logo" class="sg-logo-img">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="fa-solid fa-bars" style="color: var(--sg-purple-main); font-size: 24px;"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
-                <ul class="navbar-nav align-items-lg-center gap-1 mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link sg-nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link sg-nav-link dropdown-toggle" href="programs.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Programs
-                        </a>
-                        <ul class="dropdown-menu shadow-sm border-0">
-                            <li><a class="dropdown-item py-2 fw-semibold" href="programs.html"><i class="fa-solid fa-list-check text-warning me-2"></i> All Programs Overview</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item py-2" href="course-neet.html"><i class="fa-solid fa-stethoscope text-primary me-2"></i> NEET (Medical Entrance 2-Yr)</a></li>
-                            <li><a class="dropdown-item py-2" href="course-jee-advanced.html"><i class="fa-solid fa-atom text-danger me-2"></i> JEE Main & Advanced (2-Yr)</a></li>
-                            <li><a class="dropdown-item py-2" href="programs.html#foundation"><i class="fa-solid fa-graduation-cap text-success me-2"></i> Foundation (Classes 8th-10th)</a></li>
-                            <li><a class="dropdown-item py-2" href="programs.html#repeaters"><i class="fa-solid fa-bolt text-warning me-2"></i> Long-Term Repeaters Batch</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link sg-nav-link active" href="admissions.html">Admissions & SG-SAT</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link sg-nav-link" href="index.html#videos"><i class="fa-solid fa-play-circle text-danger me-1"></i> Videos &amp; Tours</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link sg-nav-link" href="index.html#pedagogy">Pedagogy</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link sg-nav-link" href="student-portal.html" style="color: #9333ea !important; font-weight: 700;">
-                            <i class="fa-solid fa-chart-line me-1 text-warning"></i> Student Portal
-                        </a>
-                    </li>
-                </ul>
-                <div class="d-flex align-items-center gap-2 ms-lg-3 mt-3 mt-lg-0">
-                    <a href="#apply" class="sg-btn-primary btn-sm py-2 px-3">
-                        <i class="fa-solid fa-file-signature"></i> Register SG-SAT
+            <div class="d-flex align-items-center justify-content-between">
+                <nav class="d-none d-lg-block">
+                    <ul class="sg-nav-links">
+                        <li class="sg-nav-item"><a href="programs.html">PROGRAMS</a></li>
+                        <li class="sg-nav-item"><a href="pedagogy.html">PEDAGOGY</a></li>
+                        <li class="sg-nav-item"><a href="about.html">ABOUT</a></li>
+                        <li class="sg-nav-item"><a href="videos.html">VIDEOS</a></li>
+                        <li class="sg-nav-item"><a href="admissions.html" class="active">ADMISSIONS</a></li>
+                    </ul>
+                </nav>
+
+                <div class="sg-brand-center">
+                    <a href="index.html" class="d-flex align-items-center gap-2">
+                        <img src="assets/frontend/img/logo1.png?v=3" alt="Shree Gurus Academy" class="sg-brand-logo-img">
                     </a>
                 </div>
-            </div>
-        </div>
-    </nav>
 
-    <!-- ---------------- Page Hero ---------------- -->
-    <header class="sg-page-hero">
-        <div class="container">
-            <div class="sg-breadcrumb">
-                <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
-                <span>/</span>
-                <span>Admissions &amp; Scholarships</span>
-            </div>
-            <div class="row align-items-center gy-4">
-                <div class="col-lg-8">
-                    <span class="badge bg-warning text-dark px-3 py-1 fw-bold mb-2">SG-SAT MERIT ASSESSMENT 2026</span>
-                    <h1 class="display-5 fw-bold text-white mb-3">Admissions &amp; SG-SAT Scholarships</h1>
-                    <p class="text-light fs-5 mb-4" style="max-width: 720px;">
-                        Transparent, merit-based admissions with up to 100% tuition scholarships for meritorious students. Test your readiness and secure your batch seat today.
-                    </p>
-                    <div class="d-flex flex-wrap gap-3">
-                        <a href="#calculator" class="sg-btn-primary">
-                            <i class="fa-solid fa-calculator"></i> Calculate My Scholarship
-                        </a>
-                        <a href="#apply" class="sg-btn-secondary">
-                            <i class="fa-solid fa-user-plus"></i> Online Application Form
-                        </a>
-                    </div>
+                <div class="d-flex align-items-center gap-3">
+                    <a href="admissions.html" class="sg-btn-talk">
+                        <span>LET’S TALK</span>
+                    </a>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- ---------------- Interactive Scholarship Calculator Tool ---------------- -->
-    <section class="py-5" style="background: #f8fafc;" id="calculator">
-        <div class="container py-3">
-            <div class="text-center max-w-700 mx-auto mb-5">
-                <span class="sg-badge-accent mb-2"><i class="fa-solid fa-calculator"></i> Instant Estimator</span>
-                <h2 class="h1 fw-bold" style="color: var(--sg-purple-main);">SG-SAT Scholarship Calculator</h2>
-                <p class="text-muted">Estimate your tuition fee waiver based on your target competitive track and expected aptitude score.</p>
-            </div>
-
-            <div class="row g-4 justify-content-center">
-                <div class="col-lg-10">
-                    <div class="sg-calc-container">
-                        <div class="row g-4 align-items-center">
-                            <!-- Inputs (Left 7 cols) -->
-                            <div class="col-md-7">
-                                <div class="mb-4">
-                                    <label class="form-label fw-bold text-dark">1. Select Target Program</label>
-                                    <select id="calcTrack" class="form-select form-select-lg" onchange="updateScholarship()">
-                                        <option value="jee">JEE Advanced 2-Year Integrated (Base: ₹96,000/yr)</option>
-                                        <option value="neet">NEET Medical 2-Year Integrated (Base: ₹84,000/yr)</option>
-                                        <option value="foundation">Foundation Track Class 8–10 (Base: ₹60,000/yr)</option>
-                                    </select>
-                                </div>
-
-                                <div class="mb-4">
-                                    <div class="d-flex justify-content-between align-items-center mb-2">
-                                        <label class="form-label fw-bold text-dark mb-0">2. Expected SG-SAT Score / Percentile</label>
-                                        <span id="scoreDisplay" class="badge bg-purple px-3 py-2 fw-bold fs-6" style="background: var(--sg-purple-main); color: #fff;">85%</span>
-                                    </div>
-                                    <input type="range" class="form-range" id="scoreRange" min="40" max="100" value="85" oninput="updateScholarship()">
-                                    <div class="d-flex justify-content-between text-muted small mt-1">
-                                        <span>40% (Passing)</span>
-                                        <span>70% (Silver)</span>
-                                        <span>90% (Gold)</span>
-                                        <span>95%+ (100% Waiver)</span>
-                                    </div>
-                                </div>
-
-                                <div class="p-3 bg-light rounded-3 border">
-                                    <small class="text-muted d-block mb-1"><i class="fa-solid fa-circle-info text-primary me-1"></i> Exam Structure:</small>
-                                    <small class="text-dark">60 Questions (Physics: 15, Chem: 15, Math/Bio: 20, Aptitude: 10). +4 for correct, -1 for wrong.</small>
-                                </div>
-                            </div>
-
-                            <!-- Live Result Output (Right 5 cols) -->
-                            <div class="col-md-5">
-                                <div class="sg-calc-result-box shadow">
-                                    <span class="badge bg-warning text-dark px-3 py-1 fw-bold text-uppercase" id="scholarTier">GOLD SCHOLAR</span>
-                                    <div class="sg-calc-reward-percent" id="scholarPercent">75%</div>
-                                    <h5 class="text-white fw-bold mb-3">Tuition Fee Waiver</h5>
-                                    
-                                    <div class="bg-white bg-opacity-10 p-3 rounded-3 mb-3 text-start small">
-                                        <div class="d-flex justify-content-between text-white mb-2">
-                                            <span>Estimated Savings:</span>
-                                            <strong class="text-warning" id="savingsAmount">₹72,000</strong>
-                                        </div>
-                                        <div class="d-flex justify-content-between text-white">
-                                            <span>Effective Annual Fee:</span>
-                                            <strong class="text-light" id="netPayable">₹24,000</strong>
-                                        </div>
-                                    </div>
-
-                                    <a href="#apply" class="sg-btn-primary w-100 justify-content-center py-2">
-                                        Lock This Scholarship <i class="fa-solid fa-lock ms-1"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <section class="sg-page-hero">
+        <div class="container">
+            <span class="sg-badge-pill"><i class="fa-solid fa-clipboard-list text-primary me-1"></i> BATCH 2026–28</span>
+            <h1 class="sg-page-h1">ADMISSIONS</h1>
+            <p class="sg-page-sub">
+                Registrations are now open for the Shree Gurus Scholastic Aptitude Test (SG-SAT 2026) with up to 100% merit fee scholarships.
+            </p>
         </div>
     </section>
 
-    <!-- ---------------- 4-Step Admission Journey (Uizard Blueprint) ---------------- -->
-    <section class="py-5" style="background: #ffffff;">
-        <div class="container py-4">
-            <div class="text-center max-w-700 mx-auto mb-5">
-                <span class="sg-badge-accent mb-2"><i class="fa-solid fa-route"></i> Roadmap</span>
-                <h2 class="h1 fw-bold" style="color: var(--sg-purple-main);">4-Step Admission Journey</h2>
-                <p class="text-muted">A clear, transparent admission process designed to ensure proper batch placement.</p>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-md-3">
-                    <div class="p-4 rounded-4 bg-light border h-100 text-center text-md-start shadow-sm">
-                        <div class="sg-step-number">01</div>
-                        <h5 class="fw-bold text-dark mb-2">Online Application</h5>
-                        <p class="text-muted small mb-0">Fill out the online application form below and select your preferred branch (Vijayawada / Hyderabad).</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="p-4 rounded-4 bg-light border h-100 text-center text-md-start shadow-sm">
-                        <div class="sg-step-number">02</div>
-                        <h5 class="fw-bold text-dark mb-2">SG-SAT Aptitude Test</h5>
-                        <p class="text-muted small mb-0">Appear for the 2-hour aptitude test online or offline to determine your baseline rank and scholarship slab.</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="p-4 rounded-4 bg-light border h-100 text-center text-md-start shadow-sm">
-                        <div class="sg-step-number">03</div>
-                        <h5 class="fw-bold text-dark mb-2">Academic Counseling</h5>
-                        <p class="text-muted small mb-0">1-on-1 personalized counseling session with Sri A. Guru Brahmam to discuss study goals and batch allocation.</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="p-4 rounded-4 bg-light border h-100 text-center text-md-start shadow-sm">
-                        <div class="sg-step-number">04</div>
-                        <h5 class="fw-bold text-dark mb-2">Batch Confirmation</h5>
-                        <p class="text-muted small mb-0">Seat confirmation, hostel enrollment (if residential), and dispatch of complete study material kits.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ---------------- Application Form ---------------- -->
-    <section class="py-5" style="background: #faf5fc;" id="apply">
-        <div class="container py-4">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="bg-white rounded-4 p-4 p-md-5 border shadow-sm">
-                        <div class="text-center mb-4">
-                            <span class="badge bg-warning text-dark px-3 py-1 fw-bold mb-2">OFFICIAL REGISTRATION</span>
-                            <h3 class="h2 fw-bold text-purple" style="color: var(--sg-purple-main);">Shree Gurus Admission &amp; SG-SAT Form</h3>
-                            <p class="text-muted small">Our academic admissions director will contact you within 2 hours of registration.</p>
+    <!-- Admissions Form & Contact -->
+    <section class="py-5 bg-white">
+        <div class="container pb-5">
+            <div class="row g-5">
+                <!-- Registration Form -->
+                <div class="col-lg-7">
+                    <div class="sg-form-card">
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <span class="badge bg-primary px-3 py-2 text-white fw-bold">SG-SAT 2026</span>
+                            <h4 class="fw-bold mb-0 text-dark">Scholarship &amp; Admission Form</h4>
                         </div>
+                        <p class="text-muted small mb-4">Fill out your details to receive syllabus, mock test link, and counselor callback.</p>
 
-                        <form onsubmit="event.preventDefault(); alert('Application received successfully! Our admission office in Vijayawada will call you on ' + document.getElementById('phoneInput').value); this.reset();">
+                        <form id="sgAdmissionsForm" onsubmit="handleFormSubmit(event)">
                             <div class="row g-3">
                                 <div class="col-md-6">
-                                    <label class="form-label fw-bold">Student Full Name</label>
-                                    <input type="text" class="form-control" placeholder="e.g. Rohan Sharma" required>
+                                    <label class="small fw-bold text-dark mb-1">Student Full Name *</label>
+                                    <input type="text" class="sg-input" placeholder="e.g. Sai Vardhan" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label fw-bold">Parent / Guardian Name</label>
-                                    <input type="text" class="form-control" placeholder="e.g. Suresh Sharma" required>
+                                    <label class="small fw-bold text-dark mb-1">Mobile / WhatsApp Number *</label>
+                                    <input type="tel" class="sg-input" placeholder="e.g. 9876543210" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label fw-bold">Contact Mobile Number</label>
-                                    <input type="tel" id="phoneInput" class="form-control" placeholder="10-digit number" pattern="[0-9]{10}" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label fw-bold">Email Address</label>
-                                    <input type="email" class="form-control" placeholder="parent@gmail.com" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label fw-bold">Target Track</label>
-                                    <select class="form-select" required>
-                                        <option value="NEET">NEET Medical (2-Year Integrated BiPC)</option>
-                                        <option value="JEE">JEE Main &amp; Advanced (2-Year Integrated MPC)</option>
-                                        <option value="Foundation">Foundation Track (Classes 8th, 9th, 10th)</option>
-                                        <option value="Repeaters">Long-Term Repeaters Batch</option>
+                                    <label class="small fw-bold text-dark mb-1">Target Stream *</label>
+                                    <select class="sg-input" required>
+                                        <option value="">Select Stream</option>
+                                        <option value="neet">NEET (Medical) Super-60</option>
+                                        <option value="jee">IIT-JEE (Advanced) 2-Year</option>
+                                        <option value="foundation">Vidyanikethan Foundation (Classes 8–10)</option>
+                                        <option value="longterm">Long-Term Repeaters</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label fw-bold">Preferred Campus</label>
-                                    <select class="form-select" required>
-                                        <option value="Vijayawada">Vijayawada (Head Office Campus)</option>
-                                        <option value="Hyderabad-Medchal">Hyderabad (Medchal Campus)</option>
-                                        <option value="Hyderabad-Nizampet">Hyderabad (Nizampet Campus)</option>
-                                        <option value="Guntur">Palakaluru / Guntur Campus</option>
+                                    <label class="small fw-bold text-dark mb-1">Preferred Campus *</label>
+                                    <select class="sg-input" required>
+                                        <option value="vijayawada">Vijayawada (Main Campus &amp; Hostels)</option>
+                                        <option value="mangalagiri">Mangalagiri Campus</option>
+                                        <option value="guntur">Guntur Branch</option>
                                     </select>
                                 </div>
-                                <div class="col-12 mt-4">
-                                    <button type="submit" class="sg-btn-primary w-100 justify-content-center py-3 fs-6">
-                                        Submit Registration for SG-SAT Test <i class="fa-solid fa-arrow-right ms-2"></i>
-                                    </button>
+                                <div class="col-12">
+                                    <label class="small fw-bold text-dark mb-1">Current Class / School *</label>
+                                    <input type="text" class="sg-input" placeholder="e.g. Class 10, St. John's High School" required>
                                 </div>
+                            </div>
+
+                            <button type="submit" class="sg-btn-talk w-100 justify-content-center py-3 fs-6 mt-2" id="submitBtn">
+                                <span>SUBMIT SG-SAT APPLICATION</span>
+                            </button>
+
+                            <div id="formSuccessAlert" class="alert alert-success mt-3 d-none" role="alert">
+                                <i class="fa-solid fa-circle-check me-2"></i> Application received! Academic counselor will contact you within 2 hours.
                             </div>
                         </form>
                     </div>
                 </div>
+
+                <!-- Contact & Campus Details -->
+                <div class="col-lg-5">
+                    <div class="d-flex flex-column gap-4 h-100">
+                        <div class="sg-info-card">
+                            <div>
+                                <span class="sg-badge-pill mb-2"><i class="fa-solid fa-building text-primary me-1"></i> HEADQUARTERS</span>
+                                <h4 class="fw-bold mb-3 text-dark">Vijayawada Head Office</h4>
+                                <p class="text-muted small mb-3">
+                                    <strong>SHREE GURUS GROUP OF INSTITUTIONS</strong><br>
+                                    D.No: 48-19-5/9, Ballem Vari Street, Vijayawada - 520007, Andhra Pradesh
+                                </p>
+                                <p class="small mb-2">
+                                    <i class="fa-solid fa-phone text-primary me-2"></i>
+                                    <a href="tel:9640711111" class="fw-bold text-dark">+91 9640711111</a> / <a href="tel:9171222333" class="fw-bold text-dark">9171222333</a>
+                                </p>
+                                <p class="small mb-0">
+                                    <i class="fa-solid fa-envelope text-primary me-2"></i> mail2gurus@gmail.com
+                                </p>
+                            </div>
+
+                            <div class="pt-4 border-top mt-4">
+                                <span class="badge bg-success px-3 py-2 mb-2"><i class="fa-solid fa-clock me-1"></i> Counseling Hours</span>
+                                <p class="small text-muted mb-0">Monday to Sunday: 8:00 AM – 8:00 PM (Parent visits welcomed)</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-4" style="background: #090F2D; color: #FFFFFF;">
+                            <h5 class="fw-bold text-white mb-2"><i class="fa-solid fa-phone-volume text-primary me-2"></i> Direct Admissions Hotline</h5>
+                            <p class="text-white-50 small mb-3">Speak directly with Director Sri Guru Brahmam's admissions team.</p>
+                            <a href="tel:9640711111" class="btn btn-primary w-100 fw-bold py-2 rounded-pill">
+                                <i class="fa-solid fa-phone me-1"></i> CALL +91 9640711111
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ---------------- Prestige Footer ---------------- -->
-    <footer class="sg-footer pt-5 pb-4" style="background: var(--sg-purple-dark); color: #cbd5e1; border-top: 3px solid var(--sg-gold-main);">
+    <!-- Footer -->
+    <footer class="sg-footer-dark">
         <div class="container">
-            <div class="row g-4 mb-5">
-                <div class="col-lg-4">
-                    <div class="d-flex align-items-center gap-2 mb-3">
-                        <img src="assets/frontend/img/logo_emblem.png" alt="Shree Gurus" style="height: 52px; width: auto;">
-                        <div>
-                            <h4 class="h5 fw-bold text-white mb-0 font-display">SHREE GURUS</h4>
-                            <small style="color: var(--sg-gold-light);">GROUP OF INSTITUTIONS • VIJAYAWADA</small>
+            <div class="row gy-5">
+                <div class="col-lg-6">
+                    <div class="sg-footer-logo-box">
+                        <img src="assets/frontend/img/logo1.png?v=3" alt="Shree Gurus" class="sg-footer-logo-img">
+                        <span class="sg-footer-brand-text">SHREE GURUS</span>
+                    </div>
+                    <h2 class="sg-footer-h2">
+                        Got a dream rank in mind?<br>
+                        <span class="text-sub">Let’s talk</span>
+                    </h2>
+                    <div class="mt-4 pt-2">
+                        <a href="admissions.html" class="sg-btn-contact-pill">
+                            <span>CONTACT US</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="row gy-4">
+                        <div class="col-6 ps-lg-5">
+                            <ul class="sg-footer-link-list">
+                                <li><a href="programs.html">PROGRAMS</a></li>
+                                <li><a href="index.html#tracks">RANKS &amp; RESULTS</a></li>
+                                <li><a href="pedagogy.html">PEDAGOGY</a></li>
+                                <li><a href="about.html">ABOUT</a></li>
+                                <li><a href="admissions.html" style="color: var(--sg-blue);">CONTACT US</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="sg-footer-link-list">
+                                <li><a href="programs.html#neet">NEET (MEDICAL)</a></li>
+                                <li><a href="programs.html#jee">IIT-JEE (ENGG)</a></li>
+                                <li><a href="programs.html#foundation">FOUNDATION (8-10)</a></li>
+                                <li><a href="videos.html">VIDEO VAULT</a></li>
+                                <li><a href="privacy-policy.html">PRIVACY POLICY</a></li>
+                            </ul>
                         </div>
                     </div>
-                    <p class="small text-light mb-3">
-                        Personalized learning preparation for NEET, JEE and Foundation with mentor-led coaching, structured error analysis, and data-driven practice.
-                    </p>
-                    <div class="text-warning small mb-3">
-                        <em>"Guiding Minds ★ Building Futures"</em>
-                    </div>
-                </div>
-
-                <div class="col-lg-2 col-md-4">
-                    <h5 class="text-white h6 fw-bold mb-3 font-display">PROGRAMS</h5>
-                    <ul class="list-unstyled small d-flex flex-column gap-2">
-                        <li><a href="course-neet.html" class="text-light text-decoration-none">NEET Comprehensive</a></li>
-                        <li><a href="course-jee-advanced.html" class="text-light text-decoration-none">JEE Advanced Accelerator</a></li>
-                        <li><a href="programs.html#foundation" class="text-light text-decoration-none">Foundation Builder (8-10)</a></li>
-                        <li><a href="programs.html#repeaters" class="text-light text-decoration-none">Long-Term Repeaters</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-2 col-md-4">
-                    <h5 class="text-white h6 fw-bold mb-3 font-display">RESOURCES</h5>
-                    <ul class="list-unstyled small d-flex flex-column gap-2">
-                        <li><a href="admissions.html" class="text-light text-decoration-none">Admissions &amp; SG-SAT</a></li>
-                        <li><a href="student-portal.html" class="text-light text-decoration-none">Student Portal</a></li>
-                        <li><a href="admissions.html#calculator" class="text-light text-decoration-none">Scholarship Estimator</a></li>
-                        <li><a href="index.html#pedagogy" class="text-light text-decoration-none">Academic Pedagogy</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-4 col-md-4">
-                    <h5 class="text-white h6 fw-bold mb-3 font-display">HEAD OFFICE &amp; CONTACT</h5>
-                    <ul class="list-unstyled small d-flex flex-column gap-2">
-                        <li><i class="fa-solid fa-location-dot text-warning me-2"></i> D.No: 48-19-5/9, Ballem Vari Street, Vijayawada-520007</li>
-                        <li><i class="fa-solid fa-phone text-warning me-2"></i> <a href="tel:9640711111" class="text-light text-decoration-none">+91 9640711111</a>, <a href="tel:9171222333" class="text-light text-decoration-none">9171222333</a></li>
-                        <li><i class="fa-solid fa-envelope text-warning me-2"></i> <a href="mailto:mail2gurus@gmail.com" class="text-light text-decoration-none">mail2gurus@gmail.com</a></li>
-                        <li><i class="fa-solid fa-globe text-warning me-2"></i> www.shreegurus.com</li>
-                        <li><i class="fa-solid fa-user-tie text-warning me-2"></i> <strong>Sri. A. Guru Brahmam</strong> (Academic Director)</li>
-                    </ul>
                 </div>
             </div>
 
-            <div class="border-top pt-3 text-center small text-light" style="border-color: rgba(255, 255, 255, 0.1) !important;">
-                <p class="mb-0">&copy; <span id="year"></span> Shree Gurus Group of Institutions. All rights reserved. Vijayawada, Andhra Pradesh.</p>
+            <div class="sg-footer-bottom-bar d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                <div>&copy; 2026 Shree Gurus Group of Institutions. All Rights Reserved.</div>
+                <div class="d-flex align-items-center gap-4">
+                    <a href="tel:9640711111"><i class="fa-solid fa-phone me-1"></i> +91 9640711111</a>
+                    <span>|</span>
+                    <a href="https://youtube.com" target="_blank">YouTube</a>
+                    <a href="https://instagram.com" target="_blank">Instagram</a>
+                    <a href="index.html">Vijayawada</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="assets/frontend/js/vendor/jquery-3.7.1.min.js"></script>
+    <!-- Vendor JS -->
     <script src="assets/frontend/js/vendor/bootstrap.bundle.min.js"></script>
     <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        function updateScholarship() {
-            var score = parseInt(document.getElementById('scoreRange').value);
-            var track = document.getElementById('calcTrack').value;
-            document.getElementById('scoreDisplay').textContent = score + "%";
-
-            var baseFee = 96000;
-            if (track === 'neet') baseFee = 84000;
-            if (track === 'foundation') baseFee = 60000;
-
-            var waiverPercent = 0;
-            var tier = "APPLICANT TIER";
-
-            if (score >= 95) {
-                waiverPercent = 100;
-                tier = "PLATINUM SCHOLAR (100% WAIVER)";
-            } else if (score >= 85) {
-                waiverPercent = 75;
-                tier = "GOLD SCHOLAR (75% WAIVER)";
-            } else if (score >= 75) {
-                waiverPercent = 50;
-                tier = "SILVER SCHOLAR (50% WAIVER)";
-            } else if (score >= 60) {
-                waiverPercent = 30;
-                tier = "MERIT SCHOLAR (30% WAIVER)";
-            } else {
-                waiverPercent = 15;
-                tier = "APPTITUDE QUALIFIER (15% WAIVER)";
-            }
-
-            var savings = (baseFee * waiverPercent) / 100;
-            var net = baseFee - savings;
-
-            document.getElementById('scholarTier').textContent = tier;
-            document.getElementById('scholarPercent').textContent = waiverPercent + "%";
-            document.getElementById('savingsAmount').textContent = "₹" + savings.toLocaleString('en-IN');
-            document.getElementById('netPayable').textContent = "₹" + net.toLocaleString('en-IN');
+        const cursorDot = document.getElementById('cursorDot');
+        let mouseX = 0, mouseY = 0, curX = 0, curY = 0;
+        window.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
+        function animateCursor() {
+            curX += (mouseX - curX) * 0.2;
+            curY += (mouseY - curY) * 0.2;
+            cursorDot.style.transform = `translate(${curX}px, ${curY}px)`;
+            requestAnimationFrame(animateCursor);
         }
+        animateCursor();
 
-        // Initialize on load
-        updateScholarship();
+        document.querySelectorAll('a, button, input, select').forEach(target => {
+            target.addEventListener('mouseenter', () => document.body.classList.add('sg-cursor-hover'));
+            target.addEventListener('mouseleave', () => document.body.classList.remove('sg-cursor-hover'));
+        });
+
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('mainHeader');
+            if (window.scrollY > 30) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        });
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const alertBox = document.getElementById('formSuccessAlert');
+            btn.innerHTML = '<span>SUBMITTING...</span>';
+            setTimeout(() => {
+                btn.innerHTML = '<span>APPLICATION REGISTERED ✓</span>';
+                btn.style.backgroundColor = '#198754';
+                alertBox.classList.remove('d-none');
+            }, 700);
+        }
     </script>
 </body>
-
 </html>

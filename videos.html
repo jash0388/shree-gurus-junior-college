@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Vault &amp; Documentaries — Shree Gurus Academy</title>
+    <meta name="description" content="Watch official campus walkthroughs, biology labs, and Director Sri Guru Brahmam messages at Shree Gurus.">
+    <link rel="shortcut icon" type="image/png" href="assets/frontend/img/favicon.png?v=4">
+
+    <!-- Fonts: Inter Tight & System Sans-serif -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome & Bootstrap Grid -->
+    <link rel="stylesheet" href="assets/frontend/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/frontend/css/vendor/fontawesome-pro.css">
+
+    <style>
+        :root {
+            --sg-bg-white: #FFFFFF;
+            --sg-bg-light: #F4F7FB;
+            --sg-bg-card: #EFF3F9;
+            --sg-bg-card-hover: #E2ECF8;
+            --sg-primary-dark: #090F2D;
+            --sg-text-muted: #65768D;
+            --sg-text-light: #8E9BAE;
+            --sg-blue: #0373FF;
+            --sg-blue-dark: #025cd0;
+            --sg-border-light: #E0EAF8;
+            --sg-border-subtle: rgba(9, 15, 45, 0.08);
+            --sg-font-main: 'Inter Tight', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --sg-ease: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none !important;
+        }
+
+        html {
+            scroll-behavior: auto;
+            background-color: #FFFFFF;
+        }
+
+        body {
+            background-color: #FFFFFF;
+            color: var(--sg-primary-dark);
+            font-family: var(--sg-font-main);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Trailing Cursor */
+        .sg-cursor-dot {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 14px;
+            height: 14px;
+            background-color: var(--sg-blue);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 999999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.08s ease, width 0.25s ease, height 0.25s ease, background-color 0.25s ease;
+            box-shadow: 0 0 12px rgba(3, 115, 255, 0.4);
+        }
+
+        .sg-cursor-hover .sg-cursor-dot {
+            width: 42px;
+            height: 42px;
+            background-color: rgba(3, 115, 255, 0.25);
+            border: 2px solid var(--sg-blue);
+            backdrop-filter: blur(2px);
+        }
+
+        /* Header */
+        .sg-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 26px 0;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(16px);
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(9, 15, 45, 0.05);
+        }
+
+        .sg-header.scrolled {
+            padding: 16px 0;
+            box-shadow: 0 4px 20px rgba(9, 15, 45, 0.04);
+        }
+
+        .sg-nav-links {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sg-nav-item a {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            color: var(--sg-primary-dark);
+            transition: color 0.2s ease;
+        }
+
+        .sg-nav-item a:hover,
+        .sg-nav-item a.active {
+            color: var(--sg-blue);
+        }
+
+        .sg-brand-center {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sg-brand-logo-img {
+            height: 46px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .sg-brand-logo-img:hover {
+            transform: scale(1.06);
+        }
+
+        .sg-btn-talk {
+            background-color: var(--sg-blue);
+            color: #FFFFFF !important;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 11px 28px;
+            border-radius: 100px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 14px rgba(3, 115, 255, 0.3);
+        }
+
+        .sg-btn-talk:hover {
+            background-color: var(--sg-blue-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(3, 115, 255, 0.45);
+        }
+
+        /* Hero */
+        .sg-page-hero {
+            padding-top: 160px;
+            padding-bottom: 70px;
+            background: #FFFFFF;
+            text-align: center;
+        }
+
+        .sg-page-h1 {
+            font-size: clamp(3.2rem, 7vw, 5.8rem);
+            font-weight: 800;
+            color: var(--sg-primary-dark);
+            letter-spacing: -1.5px;
+            line-height: 1.05;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .sg-page-sub {
+            font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+            line-height: 1.6;
+            color: var(--sg-text-muted);
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        .sg-badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 100px;
+            background: #FFFFFF;
+            color: var(--sg-primary-dark);
+            font-size: 11.5px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+            box-shadow: 0 2px 6px rgba(9, 15, 45, 0.04);
+            border: 1px solid var(--sg-border-light);
+        }
+
+        /* Video Cards */
+        .sg-video-item-card {
+            background: #FFFFFF;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--sg-border-light);
+            transition: all 0.35s var(--sg-ease);
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sg-video-item-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(9, 15, 45, 0.08);
+            border-color: rgba(3, 115, 255, 0.3);
+        }
+
+        .sg-video-thumb-box {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #090F2D;
+            overflow: hidden;
+        }
+
+        .sg-video-thumb-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .sg-video-item-card:hover .sg-video-thumb-box img {
+            transform: scale(1.06);
+        }
+
+        .sg-play-circle-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--sg-blue);
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            box-shadow: 0 4px 16px rgba(3, 115, 255, 0.5);
+            transition: all 0.25s ease;
+        }
+
+        .sg-video-item-card:hover .sg-play-circle-btn {
+            transform: translate(-50%, -50%) scale(1.15);
+            background: #090F2D;
+        }
+
+        .sg-tsg-pill {
+            display: inline-block;
+            background: var(--sg-bg-card);
+            color: var(--sg-blue);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* Footer */
+        .sg-footer-dark {
+            padding: 110px 0 50px 0;
+            background: #060A1F;
+            color: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .sg-footer-h2 {
+            font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+            font-weight: 800;
+            line-height: 1.05;
+            color: #FFFFFF;
+            letter-spacing: -1px;
+            margin-bottom: 28px;
+        }
+
+        .sg-footer-h2 span.text-sub {
+            color: #65768D;
+            display: block;
+        }
+
+        .sg-footer-logo-box {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 36px;
+        }
+
+        .sg-footer-logo-img {
+            height: 48px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        .sg-footer-brand-text {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: #FFFFFF;
+        }
+
+        .sg-btn-contact-pill {
+            background: var(--sg-blue);
+            color: #FFFFFF !important;
+            font-size: 13.5px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 14px 34px;
+            border-radius: 100px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 18px rgba(3, 115, 255, 0.4);
+        }
+
+        .sg-btn-contact-pill:hover {
+            background: #025cd0;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(3, 115, 255, 0.6);
+        }
+
+        .sg-footer-link-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .sg-footer-link-list li a {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            transition: color 0.2s ease, transform 0.2s ease;
+            display: inline-block;
+        }
+
+        .sg-footer-link-list li a:hover {
+            color: var(--sg-blue);
+            transform: translateX(4px);
+        }
+
+        .sg-footer-bottom-bar {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 36px;
+            margin-top: 80px;
+            color: #8E9BAE;
+            font-size: 13.5px;
+        }
+
+        .sg-footer-bottom-bar a {
+            color: #8E9BAE;
+        }
+
+        .sg-footer-bottom-bar a:hover {
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sg-cursor-dot" id="cursorDot"></div>
+
+    <header class="sg-header" id="mainHeader">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between">
+                <nav class="d-none d-lg-block">
+                    <ul class="sg-nav-links">
+                        <li class="sg-nav-item"><a href="programs.html">PROGRAMS</a></li>
+                        <li class="sg-nav-item"><a href="pedagogy.html">PEDAGOGY</a></li>
+                        <li class="sg-nav-item"><a href="about.html">ABOUT</a></li>
+                        <li class="sg-nav-item"><a href="videos.html" class="active">VIDEOS</a></li>
+                        <li class="sg-nav-item"><a href="admissions.html">ADMISSIONS</a></li>
+                    </ul>
+                </nav>
+
+                <div class="sg-brand-center">
+                    <a href="index.html" class="d-flex align-items-center gap-2">
+                        <img src="assets/frontend/img/logo1.png?v=3" alt="Shree Gurus Academy" class="sg-brand-logo-img">
+                    </a>
+                </div>
+
+                <div class="d-flex align-items-center gap-3">
+                    <a href="admissions.html" class="sg-btn-talk">
+                        <span>LET’S TALK</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="sg-page-hero">
+        <div class="container">
+            <span class="sg-badge-pill"><i class="fa-solid fa-clapperboard text-primary me-1"></i> INSTITUTIONAL ARCHIVE</span>
+            <h1 class="sg-page-h1">VIDEO VAULT</h1>
+            <p class="sg-page-sub">
+                Explore official documentaries, faculty keynotes by Director Sri Guru Brahmam, student hostel life, and medical biology lab tours across our Vijayawada and Mangalagiri campuses.
+            </p>
+        </div>
+    </section>
+
+    <!-- Video Grid -->
+    <section class="py-5 bg-white">
+        <div class="container pb-5">
+            <div class="row g-4">
+                <!-- Video 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="sg-video-item-card" onclick="openVideoModal('uG8FY-3K98w', 'Gurus Medical & IIT Academy Campus Showcase')">
+                        <div class="sg-video-thumb-box">
+                            <img src="https://img.youtube.com/vi/uG8FY-3K98w/hqdefault.jpg" alt="Campus Showcase">
+                            <div class="sg-play-circle-btn"><i class="fa-solid fa-play"></i></div>
+                        </div>
+                        <div class="p-4">
+                            <span class="sg-tsg-pill mb-2">CAMPUS TOUR</span>
+                            <h5 class="fw-bold text-dark mb-2">Guru's Medical &amp; IIT Academy Campus</h5>
+                            <p class="small text-muted mb-0">Official institutional campus tour, lecture halls, and counseling desks.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="sg-video-item-card" onclick="openVideoModal('cNqWf88w8TY', 'Director Sri A. Guru Brahmam Message')">
+                        <div class="sg-video-thumb-box">
+                            <img src="https://img.youtube.com/vi/cNqWf88w8TY/hqdefault.jpg" alt="Director Message">
+                            <div class="sg-play-circle-btn"><i class="fa-solid fa-play"></i></div>
+                        </div>
+                        <div class="p-4">
+                            <span class="sg-tsg-pill mb-2">LEADERSHIP</span>
+                            <h5 class="fw-bold text-dark mb-2">Director Sri Guru Brahmam's Vision</h5>
+                            <p class="small text-muted mb-0">Small-cohort philosophy and structured competitive exam coaching.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="sg-video-item-card" onclick="openVideoModal('yifVWi6rPDc', 'Guru Brahmam on Grand Tests & 3-Tier Error Analysis')">
+                        <div class="sg-video-thumb-box">
+                            <img src="https://img.youtube.com/vi/yifVWi6rPDc/hqdefault.jpg" alt="Grand Test Strategy">
+                            <div class="sg-play-circle-btn"><i class="fa-solid fa-play"></i></div>
+                        </div>
+                        <div class="p-4">
+                            <span class="sg-tsg-pill mb-2">EXAM STRATEGY</span>
+                            <h5 class="fw-bold text-dark mb-2">Grand Tests &amp; Error Logbook</h5>
+                            <p class="small text-muted mb-0">How 3-tier error classification drives scores to 680+ in NEET &amp; JEE.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 4 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="sg-video-item-card" onclick="openVideoModal('8T9AIINYRcY', 'Gurus Medical Academy & NEET Biology Labs')">
+                        <div class="sg-video-thumb-box">
+                            <img src="https://img.youtube.com/vi/8T9AIINYRcY/hqdefault.jpg" alt="NEET Biology Labs">
+                            <div class="sg-play-circle-btn"><i class="fa-solid fa-play"></i></div>
+                        </div>
+                        <div class="p-4">
+                            <span class="sg-tsg-pill mb-2">NEET LABS</span>
+                            <h5 class="fw-bold text-dark mb-2">Medical Academy &amp; Biology Labs</h5>
+                            <p class="small text-muted mb-0">Specimen dissections, high-magnification microscopy, and anatomy charts.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 5 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="sg-video-item-card" onclick="openVideoModal('xIF62MFzEoc', 'Guru\'s Campus & Infrastructure Walkthrough')">
+                        <div class="sg-video-thumb-box">
+                            <img src="https://img.youtube.com/vi/xIF62MFzEoc/hqdefault.jpg" alt="Infrastructure">
+                            <div class="sg-play-circle-btn"><i class="fa-solid fa-play"></i></div>
+                        </div>
+                        <div class="p-4">
+                            <span class="sg-tsg-pill mb-2">FACILITIES</span>
+                            <h5 class="fw-bold text-dark mb-2">Campus Walkthrough &amp; Library</h5>
+                            <p class="small text-muted mb-0">Air-conditioned study lounges, doubt counters, and test simulation labs.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 6 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="sg-video-item-card" onclick="openVideoModal('xdmFCuM5hTg', 'Gurus Academy Academic Documentary')">
+                        <div class="sg-video-thumb-box">
+                            <img src="https://img.youtube.com/vi/xdmFCuM5hTg/hqdefault.jpg" alt="Classroom Documentary">
+                            <div class="sg-play-circle-btn"><i class="fa-solid fa-play"></i></div>
+                        </div>
+                        <div class="p-4">
+                            <span class="sg-tsg-pill mb-2">CLASSROOMS</span>
+                            <h5 class="fw-bold text-dark mb-2">Classroom Atmosphere Documentary</h5>
+                            <p class="small text-muted mb-0">Daily classroom interactions, student problem-solving, and faculty mentorship.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 7 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="sg-video-item-card" onclick="openVideoModal('CUY81RUT0m4', 'Gurus Vidyanikethan Foundation (Classes 8th–10th)')">
+                        <div class="sg-video-thumb-box">
+                            <img src="https://img.youtube.com/vi/CUY81RUT0m4/hqdefault.jpg" alt="Vidyanikethan Foundation">
+                            <div class="sg-play-circle-btn"><i class="fa-solid fa-play"></i></div>
+                        </div>
+                        <div class="p-4">
+                            <span class="sg-tsg-pill mb-2">FOUNDATION</span>
+                            <h5 class="fw-bold text-dark mb-2">Gurus Vidyanikethan Foundation</h5>
+                            <p class="small text-muted mb-0">Early conceptual foundation for Grades 8–10 targeting NTSE &amp; Olympiads.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 8 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="sg-video-item-card" onclick="openVideoModal('EBZgtA421BU', 'Gurus Educational Society Legacy & Excellence')">
+                        <div class="sg-video-thumb-box">
+                            <img src="https://img.youtube.com/vi/EBZgtA421BU/hqdefault.jpg" alt="Educational Society">
+                            <div class="sg-play-circle-btn"><i class="fa-solid fa-play"></i></div>
+                        </div>
+                        <div class="p-4">
+                            <span class="sg-tsg-pill mb-2">LEGACY</span>
+                            <h5 class="fw-bold text-dark mb-2">Gurus Educational Society Overview</h5>
+                            <p class="small text-muted mb-0">Decades of building medical and engineering rank-holders in Andhra Pradesh.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 9 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="sg-video-item-card" onclick="openVideoModal('AVOXpDlioUc', 'Student Life, Discipline & Residential Hostels')">
+                        <div class="sg-video-thumb-box">
+                            <img src="https://img.youtube.com/vi/AVOXpDlioUc/hqdefault.jpg" alt="Hostels & Discipline">
+                            <div class="sg-play-circle-btn"><i class="fa-solid fa-play"></i></div>
+                        </div>
+                        <div class="p-4">
+                            <span class="sg-tsg-pill mb-2">STUDENT LIFE</span>
+                            <h5 class="fw-bold text-dark mb-2">Hostels, Diet &amp; Daily Routine</h5>
+                            <p class="small text-muted mb-0">Distraction-free air-conditioned dorms, nutritious meals, and 24/7 care.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="sg-footer-dark">
+        <div class="container">
+            <div class="row gy-5">
+                <div class="col-lg-6">
+                    <div class="sg-footer-logo-box">
+                        <img src="assets/frontend/img/logo1.png?v=3" alt="Shree Gurus" class="sg-footer-logo-img">
+                        <span class="sg-footer-brand-text">SHREE GURUS</span>
+                    </div>
+                    <h2 class="sg-footer-h2">
+                        Got a dream rank in mind?<br>
+                        <span class="text-sub">Let’s talk</span>
+                    </h2>
+                    <div class="mt-4 pt-2">
+                        <a href="admissions.html" class="sg-btn-contact-pill">
+                            <span>CONTACT US</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="row gy-4">
+                        <div class="col-6 ps-lg-5">
+                            <ul class="sg-footer-link-list">
+                                <li><a href="programs.html">PROGRAMS</a></li>
+                                <li><a href="index.html#tracks">RANKS &amp; RESULTS</a></li>
+                                <li><a href="pedagogy.html">PEDAGOGY</a></li>
+                                <li><a href="about.html">ABOUT</a></li>
+                                <li><a href="admissions.html">CONTACT US</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="sg-footer-link-list">
+                                <li><a href="programs.html#neet">NEET (MEDICAL)</a></li>
+                                <li><a href="programs.html#jee">IIT-JEE (ENGG)</a></li>
+                                <li><a href="programs.html#foundation">FOUNDATION (8-10)</a></li>
+                                <li><a href="videos.html" style="color: var(--sg-blue);">VIDEO VAULT</a></li>
+                                <li><a href="privacy-policy.html">PRIVACY POLICY</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sg-footer-bottom-bar d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                <div>&copy; 2026 Shree Gurus Group of Institutions. All Rights Reserved.</div>
+                <div class="d-flex align-items-center gap-4">
+                    <a href="tel:9640711111"><i class="fa-solid fa-phone me-1"></i> +91 9640711111</a>
+                    <span>|</span>
+                    <a href="https://youtube.com" target="_blank">YouTube</a>
+                    <a href="https://instagram.com" target="_blank">Instagram</a>
+                    <a href="index.html">Vijayawada</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <div class="modal fade" id="sgVideoModal" tabindex="-1" aria-labelledby="sgVideoModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content" style="background: #090F2D; border: 1px solid rgba(3, 115, 255, 0.4); border-radius: 16px; overflow: hidden; box-shadow: 0 25px 60px rgba(0,0,0,0.85);">
+                <div class="modal-header border-0 px-4 pt-4 pb-2 d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="badge bg-primary text-white fw-bold px-2 py-1"><i class="fa-solid fa-play me-1"></i> SHREE GURUS</span>
+                        <h5 class="modal-title text-white fw-bold mb-0" id="sgVideoModalTitle">Video Title</h5>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-2 p-md-4">
+                    <div class="ratio ratio-16x9 rounded-3 overflow-hidden shadow">
+                        <iframe id="sgModalIframe" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vendor JS -->
+    <script src="assets/frontend/js/vendor/bootstrap.bundle.min.js"></script>
+    <script>
+        const cursorDot = document.getElementById('cursorDot');
+        let mouseX = 0, mouseY = 0, curX = 0, curY = 0;
+        window.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
+        function animateCursor() {
+            curX += (mouseX - curX) * 0.2;
+            curY += (mouseY - curY) * 0.2;
+            cursorDot.style.transform = `translate(${curX}px, ${curY}px)`;
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        document.querySelectorAll('a, button, .sg-video-item-card').forEach(target => {
+            target.addEventListener('mouseenter', () => document.body.classList.add('sg-cursor-hover'));
+            target.addEventListener('mouseleave', () => document.body.classList.remove('sg-cursor-hover'));
+        });
+
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('mainHeader');
+            if (window.scrollY > 30) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        });
+
+        function openVideoModal(videoId, title) {
+            const iframe = document.getElementById('sgModalIframe');
+            const titleEl = document.getElementById('sgVideoModalTitle');
+            if (titleEl) titleEl.textContent = title;
+            if (iframe) {
+                iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+            }
+            const modalEl = document.getElementById('sgVideoModal');
+            const modal = new bootstrap.Modal(modalEl);
+            modal.show();
+        }
+
+        const videoModalEl = document.getElementById('sgVideoModal');
+        if (videoModalEl) {
+            videoModalEl.addEventListener('hidden.bs.modal', function () {
+                const iframe = document.getElementById('sgModalIframe');
+                if (iframe) iframe.src = '';
+            });
+        }
+    </script>
+</body>
+</html>

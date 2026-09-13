@@ -2,379 +2,632 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Programs Overview | Shree Gurus NEET • JEE • Foundation Academy</title>
-    <meta name="description" content="Explore Shree Gurus academic tracks: Foundation for long-term conceptual strength, JEE for engineering aspirants, and NEET for medical aspirants. Compare curriculum, schedule and fees.">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Programs &amp; Wings — Shree Gurus Academy</title>
+    <meta name="description" content="Explore NEET Medical, IIT-JEE Advanced, and Vidyanikethan Foundation programs at Shree Gurus Group of Institutions.">
     <link rel="shortcut icon" type="image/png" href="assets/frontend/img/favicon.png?v=4">
 
-    <!-- Vendor CSS -->
+    <!-- Fonts: Inter Tight & System Sans-serif -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome & Bootstrap Grid -->
     <link rel="stylesheet" href="assets/frontend/css/vendor/bootstrap.min.css">
     <link rel="stylesheet" href="assets/frontend/css/vendor/fontawesome-pro.css">
-    <link rel="stylesheet" href="assets/frontend/css/main.css">
-    <link rel="stylesheet" href="assets/frontend/css/shreegurus-theme.css?v=3">
+
+    <style>
+        :root {
+            --sg-bg-white: #FFFFFF;
+            --sg-bg-light: #F4F7FB;
+            --sg-bg-card: #EFF3F9;
+            --sg-bg-card-hover: #E2ECF8;
+            --sg-primary-dark: #090F2D;
+            --sg-text-muted: #65768D;
+            --sg-text-light: #8E9BAE;
+            --sg-blue: #0373FF;
+            --sg-blue-dark: #025cd0;
+            --sg-border-light: #E0EAF8;
+            --sg-border-subtle: rgba(9, 15, 45, 0.08);
+            --sg-font-main: 'Inter Tight', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --sg-ease: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none !important;
+        }
+
+        html {
+            scroll-behavior: auto;
+            background-color: #FFFFFF;
+        }
+
+        body {
+            background-color: #FFFFFF;
+            color: var(--sg-primary-dark);
+            font-family: var(--sg-font-main);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Trailing Cursor */
+        .sg-cursor-dot {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 14px;
+            height: 14px;
+            background-color: var(--sg-blue);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 999999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.08s ease, width 0.25s ease, height 0.25s ease, background-color 0.25s ease;
+            box-shadow: 0 0 12px rgba(3, 115, 255, 0.4);
+        }
+
+        .sg-cursor-hover .sg-cursor-dot {
+            width: 42px;
+            height: 42px;
+            background-color: rgba(3, 115, 255, 0.25);
+            border: 2px solid var(--sg-blue);
+            backdrop-filter: blur(2px);
+        }
+
+        /* Top Header */
+        .sg-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 26px 0;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(16px);
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(9, 15, 45, 0.05);
+        }
+
+        .sg-header.scrolled {
+            padding: 16px 0;
+            box-shadow: 0 4px 20px rgba(9, 15, 45, 0.04);
+        }
+
+        .sg-nav-links {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sg-nav-item a {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            color: var(--sg-primary-dark);
+            transition: color 0.2s ease;
+        }
+
+        .sg-nav-item a:hover,
+        .sg-nav-item a.active {
+            color: var(--sg-blue);
+        }
+
+        .sg-brand-center {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sg-brand-logo-img {
+            height: 46px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .sg-brand-logo-img:hover {
+            transform: scale(1.06);
+        }
+
+        .sg-btn-talk {
+            background-color: var(--sg-blue);
+            color: #FFFFFF !important;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 11px 28px;
+            border-radius: 100px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 14px rgba(3, 115, 255, 0.3);
+        }
+
+        .sg-btn-talk:hover {
+            background-color: var(--sg-blue-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(3, 115, 255, 0.45);
+        }
+
+        /* Hero */
+        .sg-page-hero {
+            padding-top: 160px;
+            padding-bottom: 70px;
+            background: #FFFFFF;
+            text-align: center;
+        }
+
+        .sg-page-h1 {
+            font-size: clamp(3.2rem, 7vw, 5.8rem);
+            font-weight: 800;
+            color: var(--sg-primary-dark);
+            letter-spacing: -1.5px;
+            line-height: 1.05;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .sg-page-sub {
+            font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+            line-height: 1.6;
+            color: var(--sg-text-muted);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Bento Cards */
+        .sg-bento-card {
+            background: var(--sg-bg-card);
+            border-radius: 20px;
+            padding: 44px 40px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.35s var(--sg-ease);
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sg-bento-card:hover {
+            background: var(--sg-bg-card-hover);
+            transform: translateY(-4px);
+            border-color: var(--sg-border-light);
+            box-shadow: 0 16px 36px rgba(9, 15, 45, 0.06);
+        }
+
+        .sg-badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 100px;
+            background: #FFFFFF;
+            color: var(--sg-primary-dark);
+            font-size: 11.5px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+            box-shadow: 0 2px 6px rgba(9, 15, 45, 0.04);
+        }
+
+        .sg-card-h3 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: var(--sg-primary-dark);
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .sg-card-desc {
+            font-size: 15.5px;
+            line-height: 1.6;
+            color: var(--sg-text-muted);
+            margin-bottom: 24px;
+        }
+
+        .sg-pills-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 28px;
+        }
+
+        .sg-mini-pill {
+            background: #FFFFFF;
+            border: 1px solid var(--sg-border-light);
+            padding: 6px 14px;
+            border-radius: 100px;
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--sg-primary-dark);
+        }
+
+        .sg-card-arrow-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: var(--sg-primary-dark);
+            text-transform: uppercase;
+            transition: all 0.25s ease;
+        }
+
+        .sg-card-arrow-circle {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(9, 15, 45, 0.06);
+            transition: all 0.25s ease;
+            color: var(--sg-primary-dark);
+        }
+
+        .sg-bento-card:hover .sg-card-arrow-circle {
+            background: var(--sg-blue);
+            color: #FFFFFF;
+            transform: translateX(4px);
+        }
+
+        /* Matrix Table */
+        .sg-matrix-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border: 1px solid var(--sg-border-light);
+            border-radius: 18px;
+            overflow: hidden;
+            background: #FFFFFF;
+        }
+
+        .sg-matrix-table th {
+            background: var(--sg-bg-card);
+            padding: 18px 24px;
+            font-size: 13.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--sg-primary-dark);
+            border-bottom: 1px solid var(--sg-border-light);
+        }
+
+        .sg-matrix-table td {
+            padding: 20px 24px;
+            font-size: 15px;
+            color: var(--sg-primary-dark);
+            border-bottom: 1px solid var(--sg-border-light);
+            vertical-align: middle;
+        }
+
+        .sg-matrix-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Footer */
+        .sg-footer-dark {
+            padding: 110px 0 50px 0;
+            background: #060A1F;
+            color: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .sg-footer-h2 {
+            font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+            font-weight: 800;
+            line-height: 1.05;
+            color: #FFFFFF;
+            letter-spacing: -1px;
+            margin-bottom: 28px;
+        }
+
+        .sg-footer-h2 span.text-sub {
+            color: #65768D;
+            display: block;
+        }
+
+        .sg-footer-logo-box {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 36px;
+        }
+
+        .sg-footer-logo-img {
+            height: 48px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        .sg-footer-brand-text {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: #FFFFFF;
+        }
+
+        .sg-btn-contact-pill {
+            background: var(--sg-blue);
+            color: #FFFFFF !important;
+            font-size: 13.5px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 14px 34px;
+            border-radius: 100px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 18px rgba(3, 115, 255, 0.4);
+        }
+
+        .sg-btn-contact-pill:hover {
+            background: #025cd0;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(3, 115, 255, 0.6);
+        }
+
+        .sg-footer-link-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .sg-footer-link-list li a {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            transition: color 0.2s ease, transform 0.2s ease;
+            display: inline-block;
+        }
+
+        .sg-footer-link-list li a:hover {
+            color: var(--sg-blue);
+            transform: translateX(4px);
+        }
+
+        .sg-footer-bottom-bar {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 36px;
+            margin-top: 80px;
+            color: #8E9BAE;
+            font-size: 13.5px;
+        }
+
+        .sg-footer-bottom-bar a {
+            color: #8E9BAE;
+        }
+
+        .sg-footer-bottom-bar a:hover {
+            color: #FFFFFF;
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- ---------------- Top Bar ---------------- -->
-    <div class="sg-topbar">
-        <div class="container">
-            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
-                <div class="d-flex align-items-center gap-3">
-                    <span><a href="tel:9640711111"><i class="fa-solid fa-phone me-1 text-warning"></i> +91 9640711111</a> / <a href="tel:9171222333">+91 9171222333</a></span>
-                    <span class="d-none d-md-inline">|</span>
-                    <span class="d-none d-md-inline"><a href="mailto:mail2gurus@gmail.com"><i class="fa-solid fa-envelope me-1 text-warning"></i> mail2gurus@gmail.com</a></span>
-                </div>
-                <div class="d-flex align-items-center gap-3">
-                    <span class="d-none d-lg-inline"><i class="fa-solid fa-location-dot me-1 text-warning"></i> HEAD OFFICE: D.No: 48-19-5/9, Ballem Vari St, Vijayawada-520007</span>
-                    <span class="sg-topbar-badge"><i class="fa-solid fa-award me-1"></i> NEET • JEE • FOUNDATION</span>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- Trailing Dot -->
+    <div class="sg-cursor-dot" id="cursorDot"></div>
 
-    <!-- ---------------- Main Navigation Navbar ---------------- -->
-    <nav class="sg-navbar navbar navbar-expand-lg">
+    <!-- Header -->
+    <header class="sg-header" id="mainHeader">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <img src="assets/frontend/img/logo1.png?v=3" alt="Shree Gurus Academy Logo" class="sg-logo-img">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="fa-solid fa-bars" style="color: var(--sg-purple-main); font-size: 24px;"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
-                <ul class="navbar-nav align-items-lg-center gap-1 mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link sg-nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link sg-nav-link active dropdown-toggle" href="programs.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Programs
-                        </a>
-                        <ul class="dropdown-menu shadow-sm border-0">
-                            <li><a class="dropdown-item py-2 fw-semibold" href="programs.html"><i class="fa-solid fa-list-check text-warning me-2"></i> All Programs Overview</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item py-2" href="course-neet.html"><i class="fa-solid fa-stethoscope text-primary me-2"></i> NEET (Medical Entrance 2-Yr)</a></li>
-                            <li><a class="dropdown-item py-2" href="course-jee-advanced.html"><i class="fa-solid fa-atom text-danger me-2"></i> JEE Main & Advanced (2-Yr)</a></li>
-                            <li><a class="dropdown-item py-2" href="programs.html#foundation"><i class="fa-solid fa-graduation-cap text-success me-2"></i> Foundation (Classes 8th-10th)</a></li>
-                            <li><a class="dropdown-item py-2" href="programs.html#repeaters"><i class="fa-solid fa-bolt text-warning me-2"></i> Long-Term Repeaters Batch</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link sg-nav-link" href="admissions.html">Admissions & SG-SAT</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link sg-nav-link" href="index.html#videos"><i class="fa-solid fa-play-circle text-danger me-1"></i> Videos &amp; Tours</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link sg-nav-link" href="index.html#pedagogy">Pedagogy</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link sg-nav-link" href="index.html#results">Results</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link sg-nav-link" href="student-portal.html" style="color: #9333ea !important; font-weight: 700;">
-                            <i class="fa-solid fa-chart-line me-1 text-warning"></i> Student Portal
-                        </a>
-                    </li>
-                </ul>
-                <div class="d-flex align-items-center gap-2 ms-lg-3 mt-3 mt-lg-0">
-                    <a href="admissions.html" class="sg-btn-primary btn-sm py-2 px-3">
-                        <i class="fa-solid fa-file-signature"></i> Apply / SG-SAT
+            <div class="d-flex align-items-center justify-content-between">
+                <!-- Nav -->
+                <nav class="d-none d-lg-block">
+                    <ul class="sg-nav-links">
+                        <li class="sg-nav-item"><a href="programs.html" class="active">PROGRAMS</a></li>
+                        <li class="sg-nav-item"><a href="pedagogy.html">PEDAGOGY</a></li>
+                        <li class="sg-nav-item"><a href="about.html">ABOUT</a></li>
+                        <li class="sg-nav-item"><a href="videos.html">VIDEOS</a></li>
+                        <li class="sg-nav-item"><a href="admissions.html">ADMISSIONS</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Center Logo -->
+                <div class="sg-brand-center">
+                    <a href="index.html" class="d-flex align-items-center gap-2">
+                        <img src="assets/frontend/img/logo1.png?v=3" alt="Shree Gurus Academy" class="sg-brand-logo-img">
                     </a>
                 </div>
-            </div>
-        </div>
-    </nav>
 
-    <!-- ---------------- Page Hero (Uizard Blueprint) ---------------- -->
-    <header class="sg-page-hero">
-        <div class="container">
-            <div class="sg-breadcrumb">
-                <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
-                <span>/</span>
-                <span>Programs Overview</span>
-            </div>
-            <div class="row align-items-center">
-                <div class="col-lg-8">
-                    <span class="badge bg-warning text-dark px-3 py-1 fw-bold mb-2">ACADEMIC TRACKS 2026-27</span>
-                    <h1 class="display-5 fw-bold text-white mb-3">Programs Overview — Choose the Right Track</h1>
-                    <p class="text-light fs-5 mb-4" style="max-width: 720px;">
-                        Explore our three core academic tracks tailored to different goals: Foundation for long-term conceptual strength, JEE for engineering aspirants, and NEET for medical aspirants. Compare features, curriculum highlights, weekly commitment, and pricing to find the best fit.
-                    </p>
-                    <div class="d-flex flex-wrap gap-3">
-                        <a href="admissions.html" class="sg-btn-primary">
-                            <i class="fa-solid fa-file-arrow-down"></i> Download Program Guide (PDF)
-                        </a>
-                        <a href="tel:9640711111" class="sg-btn-secondary">
-                            <i class="fa-solid fa-user-tie"></i> Contact Academic Advisor
-                        </a>
-                    </div>
+                <!-- Right Action -->
+                <div class="d-flex align-items-center gap-3">
+                    <a href="admissions.html" class="sg-btn-talk">
+                        <span>LET’S TALK</span>
+                    </a>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- ---------------- 3 Core Program Cards (Side-by-Side Uizard Blueprint) ---------------- -->
-    <section class="py-5" style="background: #f8fafc;">
-        <div class="container py-4">
-            <div class="row g-4 align-items-stretch">
-                <!-- Track 1: Foundation -->
-                <div class="col-lg-4" id="foundation">
-                    <div class="sg-program-card-premium h-100">
-                        <div class="sg-program-badge">FOUNDATION</div>
-                        <div class="sg-program-header">
-                            <div class="d-flex align-items-center gap-2 mb-2">
-                                <i class="fa-solid fa-graduation-cap fa-xl text-success"></i>
-                                <h3 class="h4 fw-bold mb-0">Foundation Track</h3>
+    <!-- Hero -->
+    <section class="sg-page-hero">
+        <div class="container">
+            <span class="sg-badge-pill"><i class="fa-solid fa-graduation-cap text-primary me-1"></i> ACADEMIC PATHWAYS</span>
+            <h1 class="sg-page-h1">PROGRAMS</h1>
+            <p class="sg-page-sub">
+                Small 25-student cohorts, daily diagnostic test series, and dedicated 1-on-1 faculty mentorship designed to systematically build Top 100 National Ranks.
+            </p>
+        </div>
+    </section>
+
+    <!-- Bento Programs Grid -->
+    <section class="py-5 bg-white">
+        <div class="container pb-5">
+            <div class="row g-4">
+                <!-- NEET Medical Wing -->
+                <div class="col-lg-6" id="neet">
+                    <div class="sg-bento-card">
+                        <div>
+                            <span class="sg-badge-pill"><i class="fa-solid fa-stethoscope text-primary me-1"></i> MEDICAL WING</span>
+                            <h3 class="sg-card-h3">NEET Super-60 &amp; 2-Year Integrated Bi.P.C</h3>
+                            <p class="sg-card-desc">
+                                Complete NCERT line-by-line mastery, high-magnification biology specimen dissections, and daily negative marking reduction drills targeting 680+ in NEET UG.
+                            </p>
+                            <div class="sg-pills-row">
+                                <span class="sg-mini-pill">Super-60 Batch</span>
+                                <span class="sg-mini-pill">NCERT Diagnostics</span>
+                                <span class="sg-mini-pill">Biology Wet Labs</span>
+                                <span class="sg-mini-pill">AIIMS Simulation</span>
                             </div>
-                            <small class="text-muted">Target: Grades 8–10</small>
                         </div>
-                        <div class="sg-program-body">
-                            <div class="sg-spec-grid">
-                                <div class="sg-spec-item">
-                                    <span class="sg-spec-label">Duration</span>
-                                    <span class="sg-spec-val">12 Months</span>
-                                </div>
-                                <div class="sg-spec-item">
-                                    <span class="sg-spec-label">Mode</span>
-                                    <span class="sg-spec-val">Hybrid / Classroom</span>
-                                </div>
-                                <div class="sg-spec-item">
-                                    <span class="sg-spec-label">Weekly Time</span>
-                                    <span class="sg-spec-val">6–8 Hours</span>
-                                </div>
-                                <div class="sg-spec-item">
-                                    <span class="sg-spec-label">Batch Size</span>
-                                    <span class="sg-spec-val">Max 20 Students</span>
-                                </div>
-                            </div>
-
-                            <h6 class="fw-bold text-dark mb-2">Core Topics Covered:</h6>
-                            <p class="small text-muted mb-3">Math, Algebra, Number Theory, Basic Mechanics, Chemistry Foundations, Logical Reasoning &amp; Olympiad Problem Sets.</p>
-
-                            <ul class="sg-check-list mb-4">
-                                <li><i class="fa-solid fa-circle-check"></i> Assessment: Weekly concept checks</li>
-                                <li><i class="fa-solid fa-circle-check"></i> NTSE, RMO &amp; Olympiad syllabus sync</li>
-                                <li><i class="fa-solid fa-circle-check"></i> Monthly parent-faculty review meetings</li>
-                            </ul>
-
-                            <div class="p-3 bg-light rounded-3 border mb-4 text-center">
-                                <small class="text-muted d-block">Installment Structure</small>
-                                <div class="d-flex justify-content-around fw-bold text-dark mt-1">
-                                    <span>₹9,000</span>
-                                    <span class="text-muted">|</span>
-                                    <span>₹14,000</span>
-                                    <span class="text-muted">|</span>
-                                    <span class="text-primary">₹20,000</span>
-                                </div>
-                            </div>
-
-                            <a href="admissions.html?track=foundation" class="sg-btn-primary w-100 justify-content-center py-2 mt-auto">
-                                Enroll in Foundation <i class="fa-solid fa-arrow-right ms-1"></i>
-                            </a>
-                        </div>
+                        <a href="admissions.html" class="sg-card-arrow-btn">
+                            <span>Apply for NEET Wing</span>
+                            <div class="sg-card-arrow-circle"><i class="fa-solid fa-arrow-right"></i></div>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Track 2: JEE Advanced -->
-                <div class="col-lg-4" id="jee">
-                    <div class="sg-program-card-premium h-100 border-2" style="border-color: var(--sg-gold-main) !important; box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2) !important;">
-                        <div class="sg-program-badge bg-warning text-dark">ENGINEERING</div>
-                        <div class="sg-program-header" style="background: #fcf8fd;">
-                            <div class="d-flex align-items-center gap-2 mb-2">
-                                <i class="fa-solid fa-atom fa-xl text-danger"></i>
-                                <h3 class="h4 fw-bold mb-0">JEE Advanced Track</h3>
-                            </div>
-                            <small class="text-muted">Target: Grades 11–12 &amp; Droppers</small>
-                        </div>
-                        <div class="sg-program-body">
-                            <div class="sg-spec-grid">
-                                <div class="sg-spec-item">
-                                    <span class="sg-spec-label">Duration</span>
-                                    <span class="sg-spec-val">24 Months</span>
-                                </div>
-                                <div class="sg-spec-item">
-                                    <span class="sg-spec-label">Mode</span>
-                                    <span class="sg-spec-val">Classroom + Supervised</span>
-                                </div>
-                                <div class="sg-spec-item">
-                                    <span class="sg-spec-label">Weekly Time</span>
-                                    <span class="sg-spec-val">12–16 Hours</span>
-                                </div>
-                                <div class="sg-spec-item">
-                                    <span class="sg-spec-label">Avg Topper Score</span>
-                                    <span class="sg-spec-val text-warning">99.4% Percentile</span>
-                                </div>
-                            </div>
-
-                            <h6 class="fw-bold text-dark mb-2">Core Topics Covered:</h6>
-                            <p class="small text-muted mb-3">Rotational Dynamics, Electromagnetism, Organic Mechanism, Coordinate Geometry, Integral Calculus, Sectional Timed CBT Drills.</p>
-
-                            <ul class="sg-check-list mb-4">
-                                <li><i class="fa-solid fa-circle-check"></i> Sri Guru Brahmam error analysis logbook</li>
-                                <li><i class="fa-solid fa-circle-check"></i> Daily Practice Problems (DPPs) with video hints</li>
-                                <li><i class="fa-solid fa-circle-check"></i> National All India Rank (AIR) test series</li>
-                            </ul>
-
-                            <div class="p-3 bg-light rounded-3 border mb-4 text-center">
-                                <small class="text-muted d-block">Installment Structure</small>
-                                <div class="d-flex justify-content-around fw-bold text-dark mt-1">
-                                    <span>₹12,000</span>
-                                    <span class="text-muted">|</span>
-                                    <span>₹22,000</span>
-                                    <span class="text-muted">|</span>
-                                    <span class="text-danger">₹32,000</span>
-                                </div>
-                            </div>
-
-                            <div class="d-flex gap-2 mt-auto">
-                                <a href="course-jee-advanced.html" class="sg-btn-gold-outline flex-grow-1 justify-content-center py-2">
-                                    View Syllabus
-                                </a>
-                                <a href="admissions.html?track=jee" class="sg-btn-primary flex-grow-1 justify-content-center py-2">
-                                    Apply Now
-                                </a>
+                <!-- IIT-JEE Wing -->
+                <div class="col-lg-6" id="jee">
+                    <div class="sg-bento-card">
+                        <div>
+                            <span class="sg-badge-pill"><i class="fa-solid fa-atom text-primary me-1"></i> ENGINEERING WING</span>
+                            <h3 class="sg-card-h3">IIT-JEE Main &amp; Advanced 2-Year M.P.C</h3>
+                            <p class="sg-card-desc">
+                                Multi-concept problem solving across Advanced Physics, Organic Mechanisms, and Higher Calculus with personalized error logbooks under senior IITian mentors.
+                            </p>
+                            <div class="sg-pills-row">
+                                <span class="sg-mini-pill">JEE Advanced Rigor</span>
+                                <span class="sg-mini-pill">Multi-Concept Sets</span>
+                                <span class="sg-mini-pill">Rankers Cohort</span>
+                                <span class="sg-mini-pill">IITian Faculty</span>
                             </div>
                         </div>
+                        <a href="admissions.html" class="sg-card-arrow-btn">
+                            <span>Apply for JEE Wing</span>
+                            <div class="sg-card-arrow-circle"><i class="fa-solid fa-arrow-right"></i></div>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Track 3: NEET Medical -->
-                <div class="col-lg-4" id="neet">
-                    <div class="sg-program-card-premium h-100">
-                        <div class="sg-program-badge" style="background: linear-gradient(135deg, #0284c7, #38bdf8); color: #fff;">MEDICAL</div>
-                        <div class="sg-program-header">
-                            <div class="d-flex align-items-center gap-2 mb-2">
-                                <i class="fa-solid fa-stethoscope fa-xl text-primary"></i>
-                                <h3 class="h4 fw-bold mb-0">NEET Medical Track</h3>
-                            </div>
-                            <small class="text-muted">Target: Grades 11–12 &amp; Droppers</small>
-                        </div>
-                        <div class="sg-program-body">
-                            <div class="sg-spec-grid">
-                                <div class="sg-spec-item">
-                                    <span class="sg-spec-label">Duration</span>
-                                    <span class="sg-spec-val">24 Months</span>
-                                </div>
-                                <div class="sg-spec-item">
-                                    <span class="sg-spec-label">Mode</span>
-                                    <span class="sg-spec-val">Integrated Day / Res.</span>
-                                </div>
-                                <div class="sg-spec-item">
-                                    <span class="sg-spec-label">Weekly Time</span>
-                                    <span class="sg-spec-val">14–18 Hours</span>
-                                </div>
-                                <div class="sg-spec-item">
-                                    <span class="sg-spec-label">Selection Rate</span>
-                                    <span class="sg-spec-val text-success">93.4% Qualifying</span>
-                                </div>
-                            </div>
-
-                            <h6 class="fw-bold text-dark mb-2">Core Topics Covered:</h6>
-                            <p class="small text-muted mb-3">Human Physiology, Genetics &amp; Evolution, Physical &amp; Organic Chemistry, Botany, Zoology line-by-line NCERT drills.</p>
-
-                            <ul class="sg-check-list mb-4">
-                                <li><i class="fa-solid fa-circle-check"></i> 720-mark OMR simulation tests every Sunday</li>
-                                <li><i class="fa-solid fa-circle-check"></i> High-yield assertion-reasoning question banks</li>
-                                <li><i class="fa-solid fa-circle-check"></i> Medical college counseling &amp; seat roadmap</li>
-                            </ul>
-
-                            <div class="p-3 bg-light rounded-3 border mb-4 text-center">
-                                <small class="text-muted d-block">Installment Structure</small>
-                                <div class="d-flex justify-content-around fw-bold text-dark mt-1">
-                                    <span>₹10,000</span>
-                                    <span class="text-muted">|</span>
-                                    <span>₹18,000</span>
-                                    <span class="text-muted">|</span>
-                                    <span class="text-primary">₹28,000</span>
-                                </div>
-                            </div>
-
-                            <div class="d-flex gap-2 mt-auto">
-                                <a href="course-neet.html" class="sg-btn-gold-outline flex-grow-1 justify-content-center py-2">
-                                    View Syllabus
-                                </a>
-                                <a href="admissions.html?track=neet" class="sg-btn-primary flex-grow-1 justify-content-center py-2">
-                                    Apply Now
-                                </a>
+                <!-- Foundation Wing -->
+                <div class="col-lg-6" id="foundation">
+                    <div class="sg-bento-card">
+                        <div>
+                            <span class="sg-badge-pill"><i class="fa-solid fa-seedling text-primary me-1"></i> EARLY MASTERY</span>
+                            <h3 class="sg-card-h3">Gurus Vidyanikethan Foundation (Classes 8–10)</h3>
+                            <p class="sg-card-desc">
+                                Bridging school syllabi with competitive Olympiad rigor (PRMO, NTSE, NMTC, NSEJS) to build analytical depth before Class 11.
+                            </p>
+                            <div class="sg-pills-row">
+                                <span class="sg-mini-pill">Class 8th to 10th</span>
+                                <span class="sg-mini-pill">Olympiads &amp; NTSE</span>
+                                <span class="sg-mini-pill">Logic &amp; Reasoning</span>
+                                <span class="sg-mini-pill">Early Competitive Edge</span>
                             </div>
                         </div>
+                        <a href="admissions.html" class="sg-card-arrow-btn">
+                            <span>Apply for Foundation</span>
+                            <div class="sg-card-arrow-circle"><i class="fa-solid fa-arrow-right"></i></div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Long Term / Repeaters -->
+                <div class="col-lg-6" id="longterm">
+                    <div class="sg-bento-card">
+                        <div>
+                            <span class="sg-badge-pill"><i class="fa-solid fa-rotate text-primary me-1"></i> INTENSIVE RANK BOOSTER</span>
+                            <h3 class="sg-card-h3">Long-Term Repeaters (NEET &amp; JEE 1-Year)</h3>
+                            <p class="sg-card-desc">
+                                Intensive 1-year residential curriculum diagnosing previous attempt mistakes, rebuilding conceptual speed, and executing 120+ full-syllabus Grand Tests.
+                            </p>
+                            <div class="sg-pills-row">
+                                <span class="sg-mini-pill">1-Year Full Focus</span>
+                                <span class="sg-mini-pill">3-Tier Error Log</span>
+                                <span class="sg-mini-pill">120+ Grand Tests</span>
+                                <span class="sg-mini-pill">Air-Cooled Hostels</span>
+                            </div>
+                        </div>
+                        <a href="admissions.html" class="sg-card-arrow-btn">
+                            <span>Apply for Long-Term</span>
+                            <div class="sg-card-arrow-circle"><i class="fa-solid fa-arrow-right"></i></div>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ---------------- Feature Comparison Matrix Table (Uizard Blueprint) ---------------- -->
-    <section class="py-5" style="background: #ffffff;" id="matrix">
+    <!-- Program Matrix Comparison -->
+    <section class="py-5 bg-white border-top">
         <div class="container py-4">
-            <div class="text-center max-w-700 mx-auto mb-5">
-                <span class="sg-badge-accent mb-2"><i class="fa-solid fa-table-columns"></i> Side-by-Side</span>
-                <h2 class="h1 fw-bold" style="color: var(--sg-purple-main);">Program Comparison Matrix</h2>
-                <p class="text-muted">Evaluate how our structured tracks match your child's career aspirations and study pace.</p>
-            </div>
+            <h2 class="sg-card-h3 mb-4 text-center">Curriculum Matrix &amp; Weekly Rhythm</h2>
+            <p class="text-muted text-center mb-5" style="max-width: 650px; margin: 0 auto 40px auto;">
+                Every academic stream follows Sri Guru Brahmam's structured daily test-and-review protocol.
+            </p>
 
-            <div class="sg-table-responsive shadow-sm">
-                <table class="sg-table-custom table table-hover">
+            <div class="table-responsive">
+                <table class="sg-matrix-table">
                     <thead>
                         <tr>
-                            <th style="width: 25%;">Comparison Criteria</th>
-                            <th style="width: 25%;" class="text-success"><i class="fa-solid fa-graduation-cap me-1"></i> Foundation Track</th>
-                            <th style="width: 25%;" class="text-danger"><i class="fa-solid fa-atom me-1"></i> JEE Advanced Track</th>
-                            <th style="width: 25%;" class="text-primary"><i class="fa-solid fa-stethoscope me-1"></i> NEET Medical Track</th>
+                            <th>Program</th>
+                            <th>Cohort Size</th>
+                            <th>Daily Hours</th>
+                            <th>Testing Rhythm</th>
+                            <th>Hostel &amp; Mentorship</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="fw-bold">Target Grades</td>
-                            <td>Classes 8th – 10th</td>
-                            <td>Classes 11th, 12th &amp; Repeaters</td>
-                            <td>Classes 11th, 12th &amp; Repeaters</td>
+                            <td><strong>NEET Super-60</strong></td>
+                            <td><span class="badge bg-light text-dark border">25–30 Students</span></td>
+                            <td>6 hrs Lectures + 4 hrs Study</td>
+                            <td>Daily Micro Test + Sunday 200Q Mock</td>
+                            <td>24/7 Residential + Biology Faculty in Hostel</td>
                         </tr>
                         <tr>
-                            <td class="fw-bold">Core Focus Areas</td>
-                            <td>Concept building basics across Math &amp; Science</td>
-                            <td>Complex problem solving, advanced Math &amp; Physics</td>
-                            <td>Biology depth, Organic &amp; Inorganic Chemistry</td>
+                            <td><strong>IIT-JEE Advanced</strong></td>
+                            <td><span class="badge bg-light text-dark border">25–30 Students</span></td>
+                            <td>6 hrs Lectures + 4.5 hrs Problem Solving</td>
+                            <td>Daily DPPs + Weekend Multi-Concept CBT</td>
+                            <td>24/7 Residential + Senior IIT Mentors</td>
                         </tr>
                         <tr>
-                            <td class="fw-bold">Delivery Mode</td>
-                            <td>Hybrid / Classroom</td>
-                            <td>Classroom + Supervised Self-Study</td>
-                            <td>Integrated Day / Residential</td>
+                            <td><strong>Vidyanikethan (8–10)</strong></td>
+                            <td><span class="badge bg-light text-dark border">30 Students</span></td>
+                            <td>4 hrs Lectures + 2.5 hrs Activity</td>
+                            <td>Weekly Olympiad Aptitude Tests</td>
+                            <td>Day Scholar / Semi-Residential</td>
                         </tr>
                         <tr>
-                            <td class="fw-bold">Weekly Commitment</td>
-                            <td>6–8 Hours</td>
-                            <td>12–16 Hours</td>
-                            <td>14–18 Hours</td>
-                        </tr>
-                        <tr>
-                            <td class="fw-bold">Doubt Resolution</td>
-                            <td>Daily post-class 30-min clinic</td>
-                            <td>1:1 Dedicated faculty mentor slot</td>
-                            <td>Continuous desk-side doubt clearing</td>
-                        </tr>
-                        <tr>
-                            <td class="fw-bold">Testing System</td>
-                            <td>Bi-weekly chapter tests</td>
-                            <td>Weekly NTA CBT + Sectional drills</td>
-                            <td>Weekly 720-mark OMR test + Error log</td>
-                        </tr>
-                        <tr>
-                            <td class="fw-bold">Typical Outcome</td>
-                            <td>Strong foundation for Olympiad &amp; NTSE</td>
-                            <td>High JEE Ranks &amp; Top IIT/NIT Admissions</td>
-                            <td>Top NEET scores &amp; Govt Medical College seats</td>
-                        </tr>
-                        <tr>
-                            <td class="fw-bold">Scholarship Available</td>
-                            <td>Up to 100% via SG-SAT</td>
-                            <td>Up to 100% via SG-SAT</td>
-                            <td>Up to 100% via SG-SAT</td>
+                            <td><strong>Long-Term Repeaters</strong></td>
+                            <td><span class="badge bg-light text-dark border">35 Students</span></td>
+                            <td>8 hrs Intensive + 5 hrs Self Study</td>
+                            <td>3 Grand Tests per Week + Error Analysis</td>
+                            <td>Exclusive Repeaters Campus in Vijayawada</td>
                         </tr>
                     </tbody>
                 </table>
@@ -382,171 +635,87 @@
         </div>
     </section>
 
-    <!-- ---------------- Program Video Spotlights ---------------- -->
-    <section class="py-5" style="background: #ffffff; border-top: 1px solid #e2e8f0;">
-        <div class="container py-3">
-            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
-                <div>
-                    <span class="badge bg-danger text-white px-3 py-1 fw-bold mb-2"><i class="fa-solid fa-play-circle me-1"></i> VIDEO SHOWCASE</span>
-                    <h3 class="h3 fw-bold mb-0 text-dark font-display">Experience Academic Life &amp; Foundation at Gurus</h3>
-                </div>
-                <a href="index.html#videos" class="sg-btn-primary btn-sm py-2 px-3">
-                    <i class="fa-solid fa-video me-1"></i> Watch All 9 Institutional Videos
-                </a>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
-                    <div class="sg-video-card h-100 shadow-sm" style="cursor: pointer;" onclick="openVideoModal('CUY81RUT0m4', 'Gurus Vidyanikethan Foundation (Classes 8th–10th)')">
-                        <div class="sg-video-thumb position-relative overflow-hidden rounded-3">
-                            <img src="https://img.youtube.com/vi/CUY81RUT0m4/hqdefault.jpg" alt="Foundation Prep" class="img-fluid w-100">
-                            <span class="sg-video-duration">Foundation Track</span>
-                            <div class="sg-play-badge"><i class="fa-solid fa-play"></i></div>
-                        </div>
-                        <div class="p-3">
-                            <h6 class="fw-bold mb-1 text-dark">Gurus Vidyanikethan Foundation</h6>
-                            <p class="small text-muted mb-0">Early conceptual mastery for school toppers targeting NTSE, Olympiads, and early JEE/NEET grounding.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="sg-video-card h-100 shadow-sm" style="cursor: pointer;" onclick="openVideoModal('uG8FY-3K98w', 'Campus Showcase & Smart Labs Tour')">
-                        <div class="sg-video-thumb position-relative overflow-hidden rounded-3">
-                            <img src="https://img.youtube.com/vi/uG8FY-3K98w/hqdefault.jpg" alt="Campus Walkthrough" class="img-fluid w-100">
-                            <span class="sg-video-duration">Campus Tour</span>
-                            <div class="sg-play-badge"><i class="fa-solid fa-play"></i></div>
-                        </div>
-                        <div class="p-3">
-                            <h6 class="fw-bold mb-1 text-dark">Gurus Medical &amp; IIT Academy Campus</h6>
-                            <p class="small text-muted mb-0">State-of-the-art academic infrastructure across Vijayawada, Guntur &amp; Mangalagiri campuses.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="sg-video-card h-100 shadow-sm" style="cursor: pointer;" onclick="openVideoModal('AVOXpDlioUc', 'Student Discipline & Residential Hostels')">
-                        <div class="sg-video-thumb position-relative overflow-hidden rounded-3">
-                            <img src="https://img.youtube.com/vi/AVOXpDlioUc/hqdefault.jpg" alt="Hostel & Student Life" class="img-fluid w-100">
-                            <span class="sg-video-duration">Student Life</span>
-                            <div class="sg-play-badge"><i class="fa-solid fa-play"></i></div>
-                        </div>
-                        <div class="p-3">
-                            <h6 class="fw-bold mb-1 text-dark">Hostels, Diet &amp; Daily Routine</h6>
-                            <p class="small text-muted mb-0">Hygienic residential dining, distraction-free air-conditioned dorms, and 24/7 warden supervision.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ---------------- Prestige Footer ---------------- -->
-    <footer class="sg-footer pt-5 pb-4" style="background: var(--sg-purple-dark); color: #cbd5e1; border-top: 3px solid var(--sg-gold-main);">
+    <!-- Footer (Shree Gurus Dark Navy) -->
+    <footer class="sg-footer-dark">
         <div class="container">
-            <div class="row g-4 mb-5">
-                <div class="col-lg-4">
-                    <div class="d-flex align-items-center gap-2 mb-3">
-                        <img src="assets/frontend/img/logo_emblem.png" alt="Shree Gurus" style="height: 52px; width: auto;">
-                        <div>
-                            <h4 class="h5 fw-bold text-white mb-0 font-display">SHREE GURUS</h4>
-                            <small style="color: var(--sg-gold-light);">GROUP OF INSTITUTIONS • VIJAYAWADA</small>
+            <div class="row gy-5">
+                <div class="col-lg-6">
+                    <div class="sg-footer-logo-box">
+                        <img src="assets/frontend/img/logo1.png?v=3" alt="Shree Gurus" class="sg-footer-logo-img">
+                        <span class="sg-footer-brand-text">SHREE GURUS</span>
+                    </div>
+                    <h2 class="sg-footer-h2">
+                        Got a dream rank in mind?<br>
+                        <span class="text-sub">Let’s talk</span>
+                    </h2>
+                    <div class="mt-4 pt-2">
+                        <a href="admissions.html" class="sg-btn-contact-pill">
+                            <span>CONTACT US</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="row gy-4">
+                        <div class="col-6 ps-lg-5">
+                            <ul class="sg-footer-link-list">
+                                <li><a href="programs.html" style="color: var(--sg-blue);">PROGRAMS</a></li>
+                                <li><a href="index.html#tracks">RANKS &amp; RESULTS</a></li>
+                                <li><a href="pedagogy.html">PEDAGOGY</a></li>
+                                <li><a href="about.html">ABOUT</a></li>
+                                <li><a href="admissions.html">CONTACT US</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="sg-footer-link-list">
+                                <li><a href="#neet">NEET (MEDICAL)</a></li>
+                                <li><a href="#jee">IIT-JEE (ENGG)</a></li>
+                                <li><a href="#foundation">FOUNDATION (8-10)</a></li>
+                                <li><a href="videos.html">VIDEO VAULT</a></li>
+                                <li><a href="privacy-policy.html">PRIVACY POLICY</a></li>
+                            </ul>
                         </div>
                     </div>
-                    <p class="small text-light mb-3">
-                        Personalized learning preparation for NEET, JEE and Foundation with mentor-led coaching, structured error analysis, and data-driven practice.
-                    </p>
-                    <div class="text-warning small mb-3">
-                        <em>"Guiding Minds ★ Building Futures"</em>
-                    </div>
-                </div>
-
-                <div class="col-lg-2 col-md-4">
-                    <h5 class="text-white h6 fw-bold mb-3 font-display">PROGRAMS</h5>
-                    <ul class="list-unstyled small d-flex flex-column gap-2">
-                        <li><a href="course-neet.html" class="text-light text-decoration-none">NEET Comprehensive</a></li>
-                        <li><a href="course-jee-advanced.html" class="text-light text-decoration-none">JEE Advanced Accelerator</a></li>
-                        <li><a href="programs.html#foundation" class="text-light text-decoration-none">Foundation Builder (8-10)</a></li>
-                        <li><a href="programs.html#repeaters" class="text-light text-decoration-none">Long-Term Repeaters</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-2 col-md-4">
-                    <h5 class="text-white h6 fw-bold mb-3 font-display">RESOURCES</h5>
-                    <ul class="list-unstyled small d-flex flex-column gap-2">
-                        <li><a href="admissions.html" class="text-light text-decoration-none">Admissions &amp; SG-SAT</a></li>
-                        <li><a href="student-portal.html" class="text-light text-decoration-none">Student Portal</a></li>
-                        <li><a href="admissions.html#calculator" class="text-light text-decoration-none">Scholarship Estimator</a></li>
-                        <li><a href="index.html#pedagogy" class="text-light text-decoration-none">Academic Pedagogy</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-4 col-md-4">
-                    <h5 class="text-white h6 fw-bold mb-3 font-display">HEAD OFFICE &amp; CONTACT</h5>
-                    <ul class="list-unstyled small d-flex flex-column gap-2">
-                        <li><i class="fa-solid fa-location-dot text-warning me-2"></i> D.No: 48-19-5/9, Ballem Vari Street, Vijayawada-520007</li>
-                        <li><i class="fa-solid fa-phone text-warning me-2"></i> <a href="tel:9640711111" class="text-light text-decoration-none">+91 9640711111</a>, <a href="tel:9171222333" class="text-light text-decoration-none">9171222333</a></li>
-                        <li><i class="fa-solid fa-envelope text-warning me-2"></i> <a href="mailto:mail2gurus@gmail.com" class="text-light text-decoration-none">mail2gurus@gmail.com</a></li>
-                        <li><i class="fa-solid fa-globe text-warning me-2"></i> www.shreegurus.com</li>
-                        <li><i class="fa-solid fa-user-tie text-warning me-2"></i> <strong>Sri. A. Guru Brahmam</strong> (Academic Director)</li>
-                    </ul>
                 </div>
             </div>
 
-            <div class="border-top pt-3 text-center small text-light" style="border-color: rgba(255, 255, 255, 0.1) !important;">
-                <p class="mb-0">&copy; <span id="year"></span> Shree Gurus Group of Institutions. All rights reserved. Vijayawada, Andhra Pradesh.</p>
+            <div class="sg-footer-bottom-bar d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                <div>&copy; 2026 Shree Gurus Group of Institutions. All Rights Reserved.</div>
+                <div class="d-flex align-items-center gap-4">
+                    <a href="tel:9640711111"><i class="fa-solid fa-phone me-1"></i> +91 9640711111</a>
+                    <span>|</span>
+                    <a href="https://youtube.com" target="_blank">YouTube</a>
+                    <a href="https://instagram.com" target="_blank">Instagram</a>
+                    <a href="index.html">Vijayawada</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- ---------------- Lightbox Video Modal ---------------- -->
-    <div class="modal fade" id="sgVideoModal" tabindex="-1" aria-labelledby="sgVideoModalTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content" style="background: #0f0214; border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 18px; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.85);">
-                <div class="modal-header border-0 px-4 pt-4 pb-2 d-flex align-items-center justify-content-between">
-                    <div class="d-flex align-items-center gap-2">
-                        <span class="badge bg-warning text-dark fw-bold px-2 py-1"><i class="fa-solid fa-play me-1"></i> SHREE GURUS</span>
-                        <h5 class="modal-title text-white fw-bold mb-0" id="sgVideoModalTitle">Video Title</h5>
-                    </div>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body p-2 p-md-4">
-                    <div class="ratio ratio-16x9 rounded-3 overflow-hidden shadow">
-                        <iframe id="sgModalIframe" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Vendor Scripts -->
-    <script src="assets/frontend/js/vendor/jquery-3.7.1.min.js"></script>
+    <!-- Vendor JS -->
     <script src="assets/frontend/js/vendor/bootstrap.bundle.min.js"></script>
     <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Video Lightbox Modal Controller
-        function openVideoModal(videoId, title) {
-            const iframe = document.getElementById('sgModalIframe');
-            const titleEl = document.getElementById('sgVideoModalTitle');
-            if (titleEl) titleEl.textContent = title;
-            if (iframe) {
-                iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
-            }
-            const modalEl = document.getElementById('sgVideoModal');
-            const modal = new bootstrap.Modal(modalEl);
-            modal.show();
+        const cursorDot = document.getElementById('cursorDot');
+        let mouseX = 0, mouseY = 0, curX = 0, curY = 0;
+        window.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
+        function animateCursor() {
+            curX += (mouseX - curX) * 0.2;
+            curY += (mouseY - curY) * 0.2;
+            cursorDot.style.transform = `translate(${curX}px, ${curY}px)`;
+            requestAnimationFrame(animateCursor);
         }
+        animateCursor();
 
-        // Stop video playback on modal close
-        const videoModalEl = document.getElementById('sgVideoModal');
-        if (videoModalEl) {
-            videoModalEl.addEventListener('hidden.bs.modal', function () {
-                const iframe = document.getElementById('sgModalIframe');
-                if (iframe) iframe.src = '';
-            });
-        }
+        document.querySelectorAll('a, button, .sg-bento-card').forEach(target => {
+            target.addEventListener('mouseenter', () => document.body.classList.add('sg-cursor-hover'));
+            target.addEventListener('mouseleave', () => document.body.classList.remove('sg-cursor-hover'));
+        });
+
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('mainHeader');
+            if (window.scrollY > 30) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        });
     </script>
 </body>
-
 </html>

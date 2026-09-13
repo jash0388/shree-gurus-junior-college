@@ -2,356 +2,511 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Student Learning Portal & Analytics | Shree Gurus Academy</title>
-    <meta name="description" content="Shree Gurus Student Learning Dashboard: Real-time AIR mock test rankings, error logbook, subject analytics, DPP submissions, and mentor doubt clearing.">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal &amp; Analytics — Shree Gurus Academy</title>
+    <meta name="description" content="Student Learning Portal: AIR mock test performance, error diagnostic logbook, DPP submissions, and mentor analytics.">
     <link rel="shortcut icon" type="image/png" href="assets/frontend/img/favicon.png?v=4">
 
-    <!-- Vendor CSS -->
+    <!-- Fonts: Inter Tight & System Sans-serif -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome & Bootstrap Grid -->
     <link rel="stylesheet" href="assets/frontend/css/vendor/bootstrap.min.css">
     <link rel="stylesheet" href="assets/frontend/css/vendor/fontawesome-pro.css">
-    <link rel="stylesheet" href="assets/frontend/css/main.css">
-    <link rel="stylesheet" href="assets/frontend/css/shreegurus-theme.css?v=3">
+
+    <style>
+        :root {
+            --sg-bg-white: #FFFFFF;
+            --sg-bg-light: #F4F7FB;
+            --sg-bg-card: #EFF3F9;
+            --sg-bg-card-hover: #E2ECF8;
+            --sg-primary-dark: #090F2D;
+            --sg-text-muted: #65768D;
+            --sg-text-light: #8E9BAE;
+            --sg-blue: #0373FF;
+            --sg-blue-dark: #025cd0;
+            --sg-border-light: #E0EAF8;
+            --sg-border-subtle: rgba(9, 15, 45, 0.08);
+            --sg-font-main: 'Inter Tight', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --sg-ease: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none !important;
+        }
+
+        html {
+            scroll-behavior: auto;
+            background-color: #FFFFFF;
+        }
+
+        body {
+            background-color: #FFFFFF;
+            color: var(--sg-primary-dark);
+            font-family: var(--sg-font-main);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Trailing Cursor */
+        .sg-cursor-dot {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 14px;
+            height: 14px;
+            background-color: var(--sg-blue);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 999999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.08s ease, width 0.25s ease, height 0.25s ease, background-color 0.25s ease;
+            box-shadow: 0 0 12px rgba(3, 115, 255, 0.4);
+        }
+
+        .sg-cursor-hover .sg-cursor-dot {
+            width: 42px;
+            height: 42px;
+            background-color: rgba(3, 115, 255, 0.25);
+            border: 2px solid var(--sg-blue);
+            backdrop-filter: blur(2px);
+        }
+
+        /* Header */
+        .sg-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 26px 0;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(16px);
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(9, 15, 45, 0.05);
+        }
+
+        .sg-header.scrolled {
+            padding: 16px 0;
+            box-shadow: 0 4px 20px rgba(9, 15, 45, 0.04);
+        }
+
+        .sg-nav-links {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sg-nav-item a {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            color: var(--sg-primary-dark);
+            transition: color 0.2s ease;
+        }
+
+        .sg-nav-item a:hover,
+        .sg-nav-item a.active {
+            color: var(--sg-blue);
+        }
+
+        .sg-brand-center {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sg-brand-logo-img {
+            height: 46px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .sg-brand-logo-img:hover {
+            transform: scale(1.06);
+        }
+
+        .sg-btn-talk {
+            background-color: var(--sg-blue);
+            color: #FFFFFF !important;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 11px 28px;
+            border-radius: 100px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 14px rgba(3, 115, 255, 0.3);
+        }
+
+        .sg-btn-talk:hover {
+            background-color: var(--sg-blue-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(3, 115, 255, 0.45);
+        }
+
+        /* Page Layout */
+        .sg-portal-hero {
+            padding-top: 150px;
+            padding-bottom: 60px;
+            background: #FFFFFF;
+        }
+
+        .sg-portal-h1 {
+            font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+            font-weight: 800;
+            color: var(--sg-primary-dark);
+            letter-spacing: -1px;
+            line-height: 1.1;
+            margin-bottom: 14px;
+        }
+
+        .sg-portal-sub {
+            font-size: 1.15rem;
+            color: var(--sg-text-muted);
+            max-width: 750px;
+            line-height: 1.6;
+        }
+
+        /* Dashboard Bento Card */
+        .sg-dash-card {
+            background: var(--sg-bg-card);
+            border-radius: 18px;
+            padding: 34px;
+            border: 1px solid var(--sg-border-light);
+            height: 100%;
+            transition: all 0.3s var(--sg-ease);
+        }
+
+        .sg-dash-card:hover {
+            background: var(--sg-bg-card-hover);
+            border-color: rgba(3, 115, 255, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(9, 15, 45, 0.06);
+        }
+
+        .sg-stat-num {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--sg-blue);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        /* Tab Pills */
+        .sg-filter-pill {
+            background: #FFFFFF;
+            border: 1px solid var(--sg-border-light);
+            padding: 10px 22px;
+            border-radius: 100px;
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--sg-primary-dark);
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .sg-filter-pill.active,
+        .sg-filter-pill:hover {
+            background: var(--sg-blue);
+            color: #FFFFFF;
+            border-color: var(--sg-blue);
+        }
+
+        /* Footer */
+        .sg-footer-dark {
+            padding: 110px 0 50px 0;
+            background: #060A1F;
+            color: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .sg-footer-h2 {
+            font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+            font-weight: 800;
+            line-height: 1.05;
+            color: #FFFFFF;
+            letter-spacing: -1px;
+            margin-bottom: 28px;
+        }
+
+        .sg-footer-h2 span.text-sub {
+            color: #65768D;
+            display: block;
+        }
+
+        .sg-btn-contact-pill {
+            background: var(--sg-blue);
+            color: #FFFFFF !important;
+            font-size: 13.5px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 14px 34px;
+            border-radius: 100px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 18px rgba(3, 115, 255, 0.4);
+        }
+
+        .sg-footer-link-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .sg-footer-link-list a {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            color: #FFFFFF;
+            transition: color 0.2s ease;
+        }
+
+        .sg-footer-link-list a:hover {
+            color: var(--sg-blue);
+        }
+
+        .sg-footer-bottom-bar {
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 13.5px;
+            color: #65768D;
+        }
+    </style>
 </head>
 
 <body>
+    <!-- Custom Smooth Cursor -->
+    <div class="sg-cursor-dot" id="cursorDot"></div>
 
-    <!-- ---------------- Top Bar ---------------- -->
-    <div class="sg-topbar">
-        <div class="container">
-            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
-                <div class="d-flex align-items-center gap-3">
-                    <span><i class="fa-solid fa-user-graduate text-warning me-1"></i> Student Portal Session: <strong>Aanya Verma (Roll: SG-JEE-042)</strong></span>
-                </div>
-                <div class="d-flex align-items-center gap-3">
-                    <span class="d-none d-md-inline"><i class="fa-solid fa-location-dot me-1 text-warning"></i> Vijayawada Campus</span>
-                    <span class="sg-topbar-badge"><i class="fa-solid fa-shield-check me-1"></i> BATCH A1 ELITE</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ---------------- Main Navigation Navbar ---------------- -->
-    <nav class="sg-navbar navbar navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <img src="assets/frontend/img/logo1.png?v=3" alt="Shree Gurus Academy Logo" class="sg-logo-img">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="fa-solid fa-bars" style="color: var(--sg-purple-main); font-size: 24px;"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
-                <ul class="navbar-nav align-items-lg-center gap-1 mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link sg-nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link sg-nav-link dropdown-toggle" href="programs.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Programs
-                        </a>
-                        <ul class="dropdown-menu shadow-sm border-0">
-                            <li><a class="dropdown-item py-2 fw-semibold" href="programs.html"><i class="fa-solid fa-list-check text-warning me-2"></i> All Programs Overview</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item py-2" href="course-neet.html"><i class="fa-solid fa-stethoscope text-primary me-2"></i> NEET (Medical Entrance 2-Yr)</a></li>
-                            <li><a class="dropdown-item py-2" href="course-jee-advanced.html"><i class="fa-solid fa-atom text-danger me-2"></i> JEE Main & Advanced (2-Yr)</a></li>
-                            <li><a class="dropdown-item py-2" href="programs.html#foundation"><i class="fa-solid fa-graduation-cap text-success me-2"></i> Foundation (Classes 8th-10th)</a></li>
-                            <li><a class="dropdown-item py-2" href="programs.html#repeaters"><i class="fa-solid fa-bolt text-warning me-2"></i> Long-Term Repeaters Batch</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link sg-nav-link" href="admissions.html">Admissions & SG-SAT</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link sg-nav-link" href="index.html#videos"><i class="fa-solid fa-play-circle text-danger me-1"></i> Videos &amp; Tours</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link sg-nav-link active" href="student-portal.html" style="color: #9333ea !important; font-weight: 700;">
-                            <i class="fa-solid fa-chart-line me-1 text-warning"></i> Student Portal
-                        </a>
-                    </li>
-                </ul>
-                <div class="d-flex align-items-center gap-2 ms-lg-3 mt-3 mt-lg-0">
-                    <button class="sg-btn-primary btn-sm py-2 px-3" onclick="alert('Doubt slot booked with Sri Guru Brahmam for Thursday at 4:30 PM!');">
-                        <i class="fa-solid fa-calendar-plus"></i> Book Doubt Slot
-                    </button>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- ---------------- Dashboard Portal Main ---------------- -->
-    <div class="sg-portal-container">
-        <div class="container">
-            <!-- Student Header Profile Banner -->
-            <div class="sg-portal-header-card">
-                <div class="d-flex align-items-center gap-3">
-                    <div class="rounded-circle d-flex align-items-center justify-content-center fw-bold fs-3 border border-2 border-warning" style="width: 68px; height: 68px; background: rgba(212, 175, 55, 0.2); color: var(--sg-gold-light);">
-                        AV
-                    </div>
-                    <div>
-                        <div class="d-flex align-items-center gap-2">
-                            <h2 class="h3 fw-bold mb-0 text-white">Aanya Verma</h2>
-                            <span class="badge bg-warning text-dark fw-bold">TOP 50 AIR SQUAD</span>
-                        </div>
-                        <p class="mb-0 small text-light opacity-75">
-                            JEE Advanced 2-Year Track • Roll No: <strong>SG-2026-JEE-042</strong> • Mentor: <strong>Sri. A. Guru Brahmam</strong>
-                        </p>
-                    </div>
-                </div>
-                <div class="d-flex gap-2">
-                    <button class="btn btn-outline-light btn-sm" onclick="alert('Downloading latest All-India Mock Test Performance Report (PDF)...')"><i class="fa-solid fa-download me-1"></i> Report Card</button>
-                    <button class="btn btn-warning btn-sm fw-bold" onclick="alert('Opening Daily Practice Problem Set #48...')"><i class="fa-solid fa-pen-to-square me-1"></i> Solve Today's DPP</button>
-                </div>
-            </div>
-
-            <!-- 4 Top KPI Metric Cards (Uizard Blueprint) -->
-            <div class="row g-3 mb-4">
-                <div class="col-md-3">
-                    <div class="sg-portal-kpi-card">
-                        <div>
-                            <small class="text-muted text-uppercase fw-bold" style="font-size: 11px;">Current Mock AIR</small>
-                            <div class="sg-portal-kpi-num text-danger">AIR #42</div>
-                            <small class="text-success fw-bold"><i class="fa-solid fa-arrow-up me-1"></i> +12 ranks up</small>
-                        </div>
-                        <div class="p-3 rounded-circle bg-danger-subtle text-danger">
-                            <i class="fa-solid fa-trophy fa-xl"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="sg-portal-kpi-card">
-                        <div>
-                            <small class="text-muted text-uppercase fw-bold" style="font-size: 11px;">Overall Percentile</small>
-                            <div class="sg-portal-kpi-num text-warning">98.6%</div>
-                            <small class="text-muted">Target: 99.5%+</small>
-                        </div>
-                        <div class="p-3 rounded-circle bg-warning-subtle text-warning">
-                            <i class="fa-solid fa-chart-line-up fa-xl"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="sg-portal-kpi-card">
-                        <div>
-                            <small class="text-muted text-uppercase fw-bold" style="font-size: 11px;">Attendance Rate</small>
-                            <div class="sg-portal-kpi-num text-success">96.5%</div>
-                            <small class="text-success fw-bold">58/60 Supervised Days</small>
-                        </div>
-                        <div class="p-3 rounded-circle bg-success-subtle text-success">
-                            <i class="fa-solid fa-calendar-check fa-xl"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="sg-portal-kpi-card">
-                        <div>
-                            <small class="text-muted text-uppercase fw-bold" style="font-size: 11px;">DPP Problems Solved</small>
-                            <div class="sg-portal-kpi-num text-primary">480 / 500</div>
-                            <small class="text-primary fw-bold">96% Completed</small>
-                        </div>
-                        <div class="p-3 rounded-circle bg-primary-subtle text-primary">
-                            <i class="fa-solid fa-list-check fa-xl"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Subject Performance & Error Logbook -->
-            <div class="row g-4 mb-4">
-                <!-- Left: Subject Mastery Bars (6 cols) -->
-                <div class="col-lg-6">
-                    <div class="sg-portal-chart-card h-100">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h4 class="h5 fw-bold mb-0 text-dark"><i class="fa-solid fa-chart-simple text-warning me-2"></i> Subject Accuracy &amp; Speed Metrics</h4>
-                            <span class="badge bg-light text-dark border">Last 4 CBT Mocks</span>
-                        </div>
-
-                        <!-- Physics -->
-                        <div class="mb-3">
-                            <div class="d-flex justify-content-between text-dark small fw-bold">
-                                <span><i class="fa-solid fa-atom text-danger me-1"></i> Physics (Mechanics &amp; Optics)</span>
-                                <span>88% Accuracy (92/100 Avg)</span>
-                            </div>
-                            <div class="sg-progress-bar-custom">
-                                <div class="sg-progress-fill-purple" style="width: 88%;"></div>
-                            </div>
-                        </div>
-
-                        <!-- Chemistry -->
-                        <div class="mb-3">
-                            <div class="d-flex justify-content-between text-dark small fw-bold">
-                                <span><i class="fa-solid fa-flask text-success me-1"></i> Chemistry (Organic Mechanisms &amp; Inorganic)</span>
-                                <span>92% Accuracy (96/100 Avg)</span>
-                            </div>
-                            <div class="sg-progress-bar-custom">
-                                <div class="sg-progress-fill-green" style="width: 92%;"></div>
-                            </div>
-                        </div>
-
-                        <!-- Mathematics -->
-                        <div class="mb-3">
-                            <div class="d-flex justify-content-between text-dark small fw-bold">
-                                <span><i class="fa-solid fa-square-root-variable text-warning me-1"></i> Mathematics (Calculus &amp; Vectors)</span>
-                                <span>85% Accuracy (88/100 Avg)</span>
-                            </div>
-                            <div class="sg-progress-bar-custom">
-                                <div class="sg-progress-fill-gold" style="width: 85%;"></div>
-                            </div>
-                        </div>
-
-                        <div class="p-3 bg-light rounded-3 border mt-4">
-                            <small class="fw-bold text-dark d-block mb-1"><i class="fa-solid fa-user-tie text-warning me-1"></i> Director Mentor Note (Sri Guru Brahmam):</small>
-                            <small class="text-muted">"Aanya is scoring top marks in Physical Chemistry and Coordinate Geometry. Focus next 10 days on Rotational Dynamics moment of inertia integration to push overall AIR into single digits."</small>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right: Upcoming Test Countdown & DPP (6 cols) -->
-                <div class="col-lg-6">
-                    <div class="sg-portal-chart-card h-100 d-flex flex-column justify-content-between">
-                        <div>
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <h4 class="h5 fw-bold mb-0 text-dark"><i class="fa-solid fa-stopwatch text-danger me-2"></i> Upcoming Test Schedule</h4>
-                                <span class="badge bg-danger text-white">MANDATORY</span>
-                            </div>
-
-                            <div class="p-3 bg-light rounded-3 border mb-3">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <strong class="d-block text-dark">Mock #12: All India JEE Advanced CBT Simulation</strong>
-                                        <small class="text-muted"><i class="fa-solid fa-calendar me-1"></i> Saturday, 26 Sep 2026 • 09:00 AM – 12:00 PM (Paper 1 &amp; 2)</small>
-                                    </div>
-                                    <span class="badge bg-warning text-dark">In 4 Days</span>
-                                </div>
-                            </div>
-
-                            <div class="p-3 bg-light rounded-3 border mb-3">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <strong class="d-block text-dark">Daily Practice Problem Set (DPP #48)</strong>
-                                        <small class="text-muted"><i class="fa-solid fa-clock me-1"></i> Due: Tonight by 8:30 PM (Supervised Study)</small>
-                                    </div>
-                                    <span class="badge bg-primary text-white">Pending</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <button class="sg-btn-primary w-100 justify-content-center py-2" onclick="alert('Starting CBT Interface for Mock Exam Simulation...')">
-                            Launch Practice Test Simulator <i class="fa-solid fa-play ms-1"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Error Analysis Logbook (Sri Guru Brahmam Pedagogy) -->
-            <div class="sg-portal-chart-card">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <div>
-                        <h4 class="h5 fw-bold mb-0 text-dark"><i class="fa-solid fa-book-bookmark text-warning me-2"></i> Sri Guru Brahmam Error Analysis Logbook</h4>
-                        <small class="text-muted">Indexed tracking of incorrect questions from daily tests for targeted rectification</small>
-                    </div>
-                    <button class="btn btn-outline-primary btn-sm" onclick="alert('Log entry added! Faculty mentor will review on Saturday.')"><i class="fa-solid fa-plus me-1"></i> Log New Error</button>
-                </div>
-
-                <div class="sg-table-responsive">
-                    <table class="sg-table-custom table table-hover">
-                        <thead>
-                            <tr>
-                                <th>Test &amp; Date</th>
-                                <th>Subject &amp; Topic</th>
-                                <th>Question Type</th>
-                                <th>Error Root Cause</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="fw-bold">Mock #11 (19 Sep)</td>
-                                <td>Physics: Rotational Motion</td>
-                                <td>Multi-Correct Advanced</td>
-                                <td>Calculation error in moment of inertia axis theorem</td>
-                                <td><span class="sg-badge-status sg-badge-progress">Needs Practice</span></td>
-                                <td><a href="#" class="btn btn-sm btn-light border" onclick="event.preventDefault(); alert('Opening video solution hint and similar 5 drill problems...');">Practice Similar</a></td>
-                            </tr>
-                            <tr>
-                                <td class="fw-bold">Mock #11 (19 Sep)</td>
-                                <td>Mathematics: Definite Integrals</td>
-                                <td>Integer Value Type</td>
-                                <td>Missed periodicity property integration limit</td>
-                                <td><span class="sg-badge-status sg-badge-mastered">Resolved</span></td>
-                                <td><a href="#" class="btn btn-sm btn-light border" onclick="event.preventDefault(); alert('Viewed resolution verification.');">View Solution</a></td>
-                            </tr>
-                            <tr>
-                                <td class="fw-bold">Mock #10 (12 Sep)</td>
-                                <td>Chemistry: Aldehydes &amp; Ketones</td>
-                                <td>Single Correct</td>
-                                <td>Aldol condensation reagent temperature confusion</td>
-                                <td><span class="sg-badge-status sg-badge-mastered">Mastered</span></td>
-                                <td><a href="#" class="btn btn-sm btn-light border" onclick="event.preventDefault(); alert('Topic mastered badge awarded.');">Reviewed</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ---------------- Prestige Footer ---------------- -->
-    <footer class="sg-footer pt-5 pb-4" style="background: var(--sg-purple-dark); color: #cbd5e1; border-top: 3px solid var(--sg-gold-main);">
-        <div class="container">
-            <div class="row g-4 mb-5">
-                <div class="col-lg-4">
-                    <div class="d-flex align-items-center gap-2 mb-3">
-                        <img src="assets/frontend/img/logo_emblem.png" alt="Shree Gurus" style="height: 52px; width: auto;">
-                        <div>
-                            <h4 class="h5 fw-bold text-white mb-0 font-display">SHREE GURUS</h4>
-                            <small style="color: var(--sg-gold-light);">GROUP OF INSTITUTIONS • VIJAYAWADA</small>
-                        </div>
-                    </div>
-                    <p class="small text-light mb-3">
-                        Personalized learning preparation for NEET, JEE and Foundation with mentor-led coaching, structured error analysis, and data-driven practice.
-                    </p>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <h5 class="text-white h6 fw-bold mb-3 font-display">STUDENT SUPPORT</h5>
-                    <ul class="list-unstyled small d-flex flex-column gap-2">
-                        <li><i class="fa-solid fa-headset text-warning me-2"></i> Student Helpdesk: <strong>9640711111</strong></li>
-                        <li><i class="fa-solid fa-envelope text-warning me-2"></i> Portal Queries: <strong>mail2gurus@gmail.com</strong></li>
-                        <li><i class="fa-solid fa-user-tie text-warning me-2"></i> Academic Operations: <strong>Sri. A. Guru Brahmam</strong></li>
+    <!-- Header Navigation -->
+    <header class="sg-header" id="mainHeader">
+        <div class="container-fluid px-lg-5">
+            <div class="row align-items-center">
+                <div class="col-4 d-none d-lg-block">
+                    <ul class="sg-nav-links">
+                        <li class="sg-nav-item"><a href="programs.html">PROGRAMS</a></li>
+                        <li class="sg-nav-item"><a href="pedagogy.html">PEDAGOGY</a></li>
+                        <li class="sg-nav-item"><a href="about.html">ABOUT</a></li>
+                        <li class="sg-nav-item"><a href="videos.html">VIDEOS</a></li>
+                        <li class="sg-nav-item"><a href="admissions.html">ADMISSIONS</a></li>
                     </ul>
                 </div>
+                <div class="col-6 col-lg-4 text-start text-lg-center">
+                    <a href="index.html" class="d-inline-flex align-items-center gap-2">
+                        <img src="assets/frontend/img/logo1.png?v=3" alt="Shree Gurus" class="sg-brand-logo-img">
+                    </a>
+                </div>
+                <div class="col-6 col-lg-4 text-end">
+                    <a href="admissions.html" class="sg-btn-talk">
+                        <span>LET'S TALK</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
 
-                <div class="col-lg-4 col-md-6">
-                    <h5 class="text-white h6 fw-bold mb-3 font-display">QUICK NAVIGATION</h5>
-                    <div class="d-flex gap-3 small">
-                        <a href="index.html" class="text-light text-decoration-none">Home</a> |
-                        <a href="programs.html" class="text-light text-decoration-none">Programs</a> |
-                        <a href="admissions.html" class="text-light text-decoration-none">Admissions</a> |
-                        <a href="course-jee-advanced.html" class="text-light text-decoration-none">JEE</a> |
-                        <a href="course-neet.html" class="text-light text-decoration-none">NEET</a>
+    <!-- Student Dashboard Hero -->
+    <section class="sg-portal-hero">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-end flex-wrap gap-4 mb-5">
+                <div>
+                    <span class="badge bg-primary text-white fw-bold px-3 py-2 rounded-pill mb-3">STUDENT PORTAL LIVE</span>
+                    <h1 class="sg-portal-h1">Aanya Verma</h1>
+                    <p class="sg-portal-sub">Roll No: <strong>SG-2026-JEE-042</strong> &bull; Batch: <strong>Super-60 IIT-JEE Advanced</strong> &bull; Campus: <strong>Vijayawada</strong></p>
+                </div>
+                <div class="d-flex gap-2">
+                    <button class="sg-filter-pill active"><i class="fa-solid fa-chart-line me-1"></i> Analytics</button>
+                    <button class="sg-filter-pill"><i class="fa-solid fa-book-open me-1"></i> Error Log</button>
+                    <button class="sg-filter-pill"><i class="fa-solid fa-file-signature me-1"></i> DPP Sheets</button>
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="row g-4 mb-5">
+                <div class="col-lg-3 col-md-6">
+                    <div class="sg-dash-card">
+                        <span class="text-muted fw-bold small text-uppercase">Current Mock Score</span>
+                        <div class="sg-stat-num">284<span style="font-size:1.2rem; color:var(--sg-text-muted);">/300</span></div>
+                        <p class="small text-success mb-0 fw-semibold"><i class="fa-solid fa-arrow-trend-up me-1"></i> +18 pts vs Last Grand Test</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="sg-dash-card">
+                        <span class="text-muted fw-bold small text-uppercase">Projected AIR Rank</span>
+                        <div class="sg-stat-num">AIR 42</div>
+                        <p class="small text-muted mb-0">Across All 9 Campuses (2,400+ aspirants)</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="sg-dash-card">
+                        <span class="text-muted fw-bold small text-uppercase">Error Elimination Rate</span>
+                        <div class="sg-stat-num">94.8%</div>
+                        <p class="small text-muted mb-0">Zero repeat mistakes logged in Tier-1 & 2</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="sg-dash-card">
+                        <span class="text-muted fw-bold small text-uppercase">DPP Completion</span>
+                        <div class="sg-stat-num">100%</div>
+                        <p class="small text-success mb-0 fw-semibold"><i class="fa-solid fa-circle-check me-1"></i> 48/48 Sheets Cleared</p>
                     </div>
                 </div>
             </div>
 
-            <div class="border-top pt-3 text-center small text-light" style="border-color: rgba(255, 255, 255, 0.1) !important;">
-                <p class="mb-0">&copy; <span id="year"></span> Shree Gurus Group of Institutions. All rights reserved. Vijayawada, Andhra Pradesh.</p>
+            <!-- Subject Mastery Section -->
+            <div class="row g-4">
+                <div class="col-lg-8">
+                    <div class="sg-dash-card">
+                        <h4 class="fw-bold mb-4">Subject Mastery &amp; Chapter Velocity</h4>
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="fw-bold">Physics (Mechanics, Electrodynamics &amp; Optics)</span>
+                                <span class="fw-bold text-primary">96%</span>
+                            </div>
+                            <div class="progress" style="height: 10px; border-radius: 100px; background: #e2ecf8;">
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 96%; border-radius: 100px;"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="fw-bold">Mathematics (Calculus, Coordinate Geometry, Vectors)</span>
+                                <span class="fw-bold text-primary">94%</span>
+                            </div>
+                            <div class="progress" style="height: 10px; border-radius: 100px; background: #e2ecf8;">
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 94%; border-radius: 100px;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="fw-bold">Chemistry (Organic Mechanisms, Physical Equilibrium)</span>
+                                <span class="fw-bold text-primary">92%</span>
+                            </div>
+                            <div class="progress" style="height: 10px; border-radius: 100px; background: #e2ecf8;">
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 92%; border-radius: 100px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="sg-dash-card">
+                        <h4 class="fw-bold mb-3">1-on-1 Mentor Notes</h4>
+                        <div class="p-3 bg-white rounded-3 border mb-3">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <i class="fa-solid fa-user-tie text-primary"></i>
+                                <span class="fw-bold small">Sri Guru Brahmam Sir</span>
+                            </div>
+                            <p class="small text-muted mb-0">"Excellent calculation speed in Rotational Mechanics. Focus on 2nd-order differential approximations during Sunday Grand Test."</p>
+                        </div>
+                        <a href="admissions.html" class="sg-btn-talk w-100 justify-content-center">
+                            <span>Book Mentor Slot</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dark Footer -->
+    <footer class="sg-footer-dark">
+        <div class="container">
+            <div class="row gy-5">
+                <div class="col-lg-6">
+                    <h2 class="sg-footer-h2">
+                        Got a dream rank in mind?<br>
+                        <span class="text-sub">Let’s talk</span>
+                    </h2>
+                    <div class="mt-4 pt-2">
+                        <a href="admissions.html" class="sg-btn-contact-pill">
+                            <span>CONTACT US</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row gy-4">
+                        <div class="col-6 col-md-6 ps-lg-5">
+                            <ul class="sg-footer-link-list">
+                                <li><a href="programs.html">PROGRAMS</a></li>
+                                <li><a href="pedagogy.html">PEDAGOGY</a></li>
+                                <li><a href="about.html">ABOUT</a></li>
+                                <li><a href="videos.html">VIDEO VAULT</a></li>
+                                <li><a href="admissions.html">CONTACT US</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-md-6">
+                            <ul class="sg-footer-link-list">
+                                <li><a href="programs.html#neet">NEET (MEDICAL)</a></li>
+                                <li><a href="programs.html#jee">IIT-JEE (ENGG)</a></li>
+                                <li><a href="programs.html#foundation">FOUNDATION (8-10)</a></li>
+                                <li><a href="student-portal.html" style="color: var(--sg-blue);">STUDENT PORTAL</a></li>
+                                <li><a href="privacy-policy.html">PRIVACY POLICY</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sg-footer-bottom-bar d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                <div>&copy; 2026 Shree Gurus Group of Institutions. All Rights Reserved.</div>
+                <div class="d-flex align-items-center gap-4">
+                    <a href="tel:9640711111"><i class="fa-solid fa-phone me-1"></i> +91 9640711111</a>
+                    <span>|</span>
+                    <a href="index.html">Vijayawada</a>
+                </div>
             </div>
         </div>
     </footer>
 
     <!-- Scripts -->
-    <script src="assets/frontend/js/vendor/jquery-3.7.1.min.js"></script>
     <script src="assets/frontend/js/vendor/bootstrap.bundle.min.js"></script>
     <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
+        const cursorDot = document.getElementById('cursorDot');
+        let mouseX = 0, mouseY = 0, curX = 0, curY = 0;
+        window.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
+        function animateCursor() {
+            curX += (mouseX - curX) * 0.2;
+            curY += (mouseY - curY) * 0.2;
+            cursorDot.style.transform = `translate(${curX}px, ${curY}px)`;
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+        document.querySelectorAll('a, button, .sg-dash-card, .sg-filter-pill').forEach(t => {
+            t.addEventListener('mouseenter', () => document.body.classList.add('sg-cursor-hover'));
+            t.addEventListener('mouseleave', () => document.body.classList.remove('sg-cursor-hover'));
+        });
+        window.addEventListener('scroll', () => {
+            const h = document.getElementById('mainHeader');
+            if (window.scrollY > 30) h.classList.add('scrolled'); else h.classList.remove('scrolled');
+        });
     </script>
 </body>
-
 </html>
