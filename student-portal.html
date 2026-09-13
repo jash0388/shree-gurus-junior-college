@@ -83,14 +83,14 @@
             backdrop-filter: blur(2px);
         }
 
-        /* Header */
+                /* Top Header (3-Column True Center Grid) */
         .sg-header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-            padding: 26px 0;
+            padding: 18px 0;
             background: rgba(255, 255, 255, 0.94);
             backdrop-filter: blur(16px);
             transition: all 0.3s ease;
@@ -98,21 +98,46 @@
         }
 
         .sg-header.scrolled {
-            padding: 16px 0;
+            padding: 12px 0;
             box-shadow: 0 4px 20px rgba(9, 15, 45, 0.04);
+        }
+
+        .sg-header-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            width: 100%;
+        }
+
+        .sg-header-left {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .sg-header-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sg-header-right {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
         }
 
         .sg-nav-links {
             display: flex;
             align-items: center;
-            gap: 36px;
+            gap: 32px;
             list-style: none;
             margin: 0;
             padding: 0;
         }
 
         .sg-nav-item a {
-            font-size: 14px;
+            font-size: 13.5px;
             font-weight: 700;
             letter-spacing: 0.8px;
             text-transform: uppercase;
@@ -125,20 +150,17 @@
             color: var(--sg-blue);
         }
 
-        .sg-brand-center {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
         .sg-brand-logo-img {
-            height: 46px;
+            height: 64px;
             width: auto;
+            max-width: 260px;
+            object-fit: contain;
+            display: block;
             transition: transform 0.3s ease;
         }
 
         .sg-brand-logo-img:hover {
-            transform: scale(1.06);
+            transform: scale(1.04);
         }
 
         .sg-btn-talk {
@@ -309,10 +331,12 @@
     <div class="sg-cursor-dot" id="cursorDot"></div>
 
     <!-- Header Navigation -->
+        <!-- Header -->
     <header class="sg-header" id="mainHeader">
         <div class="container-fluid px-lg-5">
-            <div class="row align-items-center">
-                <div class="col-4 d-none d-lg-block">
+            <div class="sg-header-grid">
+                <!-- Left Nav -->
+                <div class="sg-header-left d-none d-lg-flex">
                     <ul class="sg-nav-links">
                         <li class="sg-nav-item"><a href="programs.html">PROGRAMS</a></li>
                         <li class="sg-nav-item"><a href="pedagogy.html">PEDAGOGY</a></li>
@@ -321,14 +345,18 @@
                         <li class="sg-nav-item"><a href="admissions.html">ADMISSIONS</a></li>
                     </ul>
                 </div>
-                <div class="col-6 col-lg-4 text-start text-lg-center">
-                    <a href="index.html" class="d-inline-flex align-items-center gap-2">
-                        <img src="assets/frontend/img/logo1.png?v=3" alt="Shree Gurus" class="sg-brand-logo-img">
+
+                <!-- Center Logo -->
+                <div class="sg-header-center">
+                    <a href="index.html" class="d-inline-flex align-items-center">
+                        <img src="assets/frontend/img/logo1.png?v=3" alt="Shree Gurus Academy" class="sg-brand-logo-img">
                     </a>
                 </div>
-                <div class="col-6 col-lg-4 text-end">
+
+                <!-- Right Action -->
+                <div class="sg-header-right">
                     <a href="admissions.html" class="sg-btn-talk">
-                        <span>LET'S TALK</span>
+                        <span>LET’S TALK</span>
                     </a>
                 </div>
             </div>
