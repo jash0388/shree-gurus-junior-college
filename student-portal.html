@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Student Learning Portal & Analytics | Shree Gurus Academy</title>
+    <meta name="description" content="Shree Gurus Student Learning Dashboard: Real-time AIR mock test rankings, error logbook, subject analytics, DPP submissions, and mentor doubt clearing.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="assets/frontend/img/favicon.png?v=4">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="assets/frontend/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/frontend/css/vendor/fontawesome-pro.css">
+    <link rel="stylesheet" href="assets/frontend/css/main.css">
+    <link rel="stylesheet" href="assets/frontend/css/shreegurus-theme.css?v=3">
+</head>
+
+<body>
+
+    <!-- ---------------- Top Bar ---------------- -->
+    <div class="sg-topbar">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                <div class="d-flex align-items-center gap-3">
+                    <span><i class="fa-solid fa-user-graduate text-warning me-1"></i> Student Portal Session: <strong>Aanya Verma (Roll: SG-JEE-042)</strong></span>
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                    <span class="d-none d-md-inline"><i class="fa-solid fa-location-dot me-1 text-warning"></i> Vijayawada Campus</span>
+                    <span class="sg-topbar-badge"><i class="fa-solid fa-shield-check me-1"></i> BATCH A1 ELITE</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ---------------- Main Navigation Navbar ---------------- -->
+    <nav class="sg-navbar navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/frontend/img/logo1.png?v=3" alt="Shree Gurus Academy Logo" class="sg-logo-img">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="fa-solid fa-bars" style="color: var(--sg-purple-main); font-size: 24px;"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+                <ul class="navbar-nav align-items-lg-center gap-1 mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link sg-nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link sg-nav-link dropdown-toggle" href="programs.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Programs
+                        </a>
+                        <ul class="dropdown-menu shadow-sm border-0">
+                            <li><a class="dropdown-item py-2 fw-semibold" href="programs.html"><i class="fa-solid fa-list-check text-warning me-2"></i> All Programs Overview</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item py-2" href="course-neet.html"><i class="fa-solid fa-stethoscope text-primary me-2"></i> NEET (Medical Entrance 2-Yr)</a></li>
+                            <li><a class="dropdown-item py-2" href="course-jee-advanced.html"><i class="fa-solid fa-atom text-danger me-2"></i> JEE Main & Advanced (2-Yr)</a></li>
+                            <li><a class="dropdown-item py-2" href="programs.html#foundation"><i class="fa-solid fa-graduation-cap text-success me-2"></i> Foundation (Classes 8th-10th)</a></li>
+                            <li><a class="dropdown-item py-2" href="programs.html#repeaters"><i class="fa-solid fa-bolt text-warning me-2"></i> Long-Term Repeaters Batch</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link sg-nav-link" href="admissions.html">Admissions & SG-SAT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link sg-nav-link active" href="student-portal.html" style="color: #9333ea !important; font-weight: 700;">
+                            <i class="fa-solid fa-chart-line me-1 text-warning"></i> Student Portal
+                        </a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center gap-2 ms-lg-3 mt-3 mt-lg-0">
+                    <button class="sg-btn-primary btn-sm py-2 px-3" onclick="alert('Doubt slot booked with Sri Guru Brahmam for Thursday at 4:30 PM!');">
+                        <i class="fa-solid fa-calendar-plus"></i> Book Doubt Slot
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ---------------- Dashboard Portal Main ---------------- -->
+    <div class="sg-portal-container">
+        <div class="container">
+            <!-- Student Header Profile Banner -->
+            <div class="sg-portal-header-card">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="rounded-circle d-flex align-items-center justify-content-center fw-bold fs-3 border border-2 border-warning" style="width: 68px; height: 68px; background: rgba(212, 175, 55, 0.2); color: var(--sg-gold-light);">
+                        AV
+                    </div>
+                    <div>
+                        <div class="d-flex align-items-center gap-2">
+                            <h2 class="h3 fw-bold mb-0 text-white">Aanya Verma</h2>
+                            <span class="badge bg-warning text-dark fw-bold">TOP 50 AIR SQUAD</span>
+                        </div>
+                        <p class="mb-0 small text-light opacity-75">
+                            JEE Advanced 2-Year Track • Roll No: <strong>SG-2026-JEE-042</strong> • Mentor: <strong>Sri. A. Guru Brahmam</strong>
+                        </p>
+                    </div>
+                </div>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-light btn-sm" onclick="alert('Downloading latest All-India Mock Test Performance Report (PDF)...')"><i class="fa-solid fa-download me-1"></i> Report Card</button>
+                    <button class="btn btn-warning btn-sm fw-bold" onclick="alert('Opening Daily Practice Problem Set #48...')"><i class="fa-solid fa-pen-to-square me-1"></i> Solve Today's DPP</button>
+                </div>
+            </div>
+
+            <!-- 4 Top KPI Metric Cards (Uizard Blueprint) -->
+            <div class="row g-3 mb-4">
+                <div class="col-md-3">
+                    <div class="sg-portal-kpi-card">
+                        <div>
+                            <small class="text-muted text-uppercase fw-bold" style="font-size: 11px;">Current Mock AIR</small>
+                            <div class="sg-portal-kpi-num text-danger">AIR #42</div>
+                            <small class="text-success fw-bold"><i class="fa-solid fa-arrow-up me-1"></i> +12 ranks up</small>
+                        </div>
+                        <div class="p-3 rounded-circle bg-danger-subtle text-danger">
+                            <i class="fa-solid fa-trophy fa-xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="sg-portal-kpi-card">
+                        <div>
+                            <small class="text-muted text-uppercase fw-bold" style="font-size: 11px;">Overall Percentile</small>
+                            <div class="sg-portal-kpi-num text-warning">98.6%</div>
+                            <small class="text-muted">Target: 99.5%+</small>
+                        </div>
+                        <div class="p-3 rounded-circle bg-warning-subtle text-warning">
+                            <i class="fa-solid fa-chart-line-up fa-xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="sg-portal-kpi-card">
+                        <div>
+                            <small class="text-muted text-uppercase fw-bold" style="font-size: 11px;">Attendance Rate</small>
+                            <div class="sg-portal-kpi-num text-success">96.5%</div>
+                            <small class="text-success fw-bold">58/60 Supervised Days</small>
+                        </div>
+                        <div class="p-3 rounded-circle bg-success-subtle text-success">
+                            <i class="fa-solid fa-calendar-check fa-xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="sg-portal-kpi-card">
+                        <div>
+                            <small class="text-muted text-uppercase fw-bold" style="font-size: 11px;">DPP Problems Solved</small>
+                            <div class="sg-portal-kpi-num text-primary">480 / 500</div>
+                            <small class="text-primary fw-bold">96% Completed</small>
+                        </div>
+                        <div class="p-3 rounded-circle bg-primary-subtle text-primary">
+                            <i class="fa-solid fa-list-check fa-xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subject Performance & Error Logbook -->
+            <div class="row g-4 mb-4">
+                <!-- Left: Subject Mastery Bars (6 cols) -->
+                <div class="col-lg-6">
+                    <div class="sg-portal-chart-card h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="h5 fw-bold mb-0 text-dark"><i class="fa-solid fa-chart-simple text-warning me-2"></i> Subject Accuracy &amp; Speed Metrics</h4>
+                            <span class="badge bg-light text-dark border">Last 4 CBT Mocks</span>
+                        </div>
+
+                        <!-- Physics -->
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between text-dark small fw-bold">
+                                <span><i class="fa-solid fa-atom text-danger me-1"></i> Physics (Mechanics &amp; Optics)</span>
+                                <span>88% Accuracy (92/100 Avg)</span>
+                            </div>
+                            <div class="sg-progress-bar-custom">
+                                <div class="sg-progress-fill-purple" style="width: 88%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Chemistry -->
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between text-dark small fw-bold">
+                                <span><i class="fa-solid fa-flask text-success me-1"></i> Chemistry (Organic Mechanisms &amp; Inorganic)</span>
+                                <span>92% Accuracy (96/100 Avg)</span>
+                            </div>
+                            <div class="sg-progress-bar-custom">
+                                <div class="sg-progress-fill-green" style="width: 92%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Mathematics -->
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between text-dark small fw-bold">
+                                <span><i class="fa-solid fa-square-root-variable text-warning me-1"></i> Mathematics (Calculus &amp; Vectors)</span>
+                                <span>85% Accuracy (88/100 Avg)</span>
+                            </div>
+                            <div class="sg-progress-bar-custom">
+                                <div class="sg-progress-fill-gold" style="width: 85%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="p-3 bg-light rounded-3 border mt-4">
+                            <small class="fw-bold text-dark d-block mb-1"><i class="fa-solid fa-user-tie text-warning me-1"></i> Director Mentor Note (Sri Guru Brahmam):</small>
+                            <small class="text-muted">"Aanya is scoring top marks in Physical Chemistry and Coordinate Geometry. Focus next 10 days on Rotational Dynamics moment of inertia integration to push overall AIR into single digits."</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Upcoming Test Countdown & DPP (6 cols) -->
+                <div class="col-lg-6">
+                    <div class="sg-portal-chart-card h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4 class="h5 fw-bold mb-0 text-dark"><i class="fa-solid fa-stopwatch text-danger me-2"></i> Upcoming Test Schedule</h4>
+                                <span class="badge bg-danger text-white">MANDATORY</span>
+                            </div>
+
+                            <div class="p-3 bg-light rounded-3 border mb-3">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <strong class="d-block text-dark">Mock #12: All India JEE Advanced CBT Simulation</strong>
+                                        <small class="text-muted"><i class="fa-solid fa-calendar me-1"></i> Saturday, 26 Sep 2026 • 09:00 AM – 12:00 PM (Paper 1 &amp; 2)</small>
+                                    </div>
+                                    <span class="badge bg-warning text-dark">In 4 Days</span>
+                                </div>
+                            </div>
+
+                            <div class="p-3 bg-light rounded-3 border mb-3">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <strong class="d-block text-dark">Daily Practice Problem Set (DPP #48)</strong>
+                                        <small class="text-muted"><i class="fa-solid fa-clock me-1"></i> Due: Tonight by 8:30 PM (Supervised Study)</small>
+                                    </div>
+                                    <span class="badge bg-primary text-white">Pending</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="sg-btn-primary w-100 justify-content-center py-2" onclick="alert('Starting CBT Interface for Mock Exam Simulation...')">
+                            Launch Practice Test Simulator <i class="fa-solid fa-play ms-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Error Analysis Logbook (Sri Guru Brahmam Pedagogy) -->
+            <div class="sg-portal-chart-card">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div>
+                        <h4 class="h5 fw-bold mb-0 text-dark"><i class="fa-solid fa-book-bookmark text-warning me-2"></i> Sri Guru Brahmam Error Analysis Logbook</h4>
+                        <small class="text-muted">Indexed tracking of incorrect questions from daily tests for targeted rectification</small>
+                    </div>
+                    <button class="btn btn-outline-primary btn-sm" onclick="alert('Log entry added! Faculty mentor will review on Saturday.')"><i class="fa-solid fa-plus me-1"></i> Log New Error</button>
+                </div>
+
+                <div class="sg-table-responsive">
+                    <table class="sg-table-custom table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Test &amp; Date</th>
+                                <th>Subject &amp; Topic</th>
+                                <th>Question Type</th>
+                                <th>Error Root Cause</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="fw-bold">Mock #11 (19 Sep)</td>
+                                <td>Physics: Rotational Motion</td>
+                                <td>Multi-Correct Advanced</td>
+                                <td>Calculation error in moment of inertia axis theorem</td>
+                                <td><span class="sg-badge-status sg-badge-progress">Needs Practice</span></td>
+                                <td><a href="#" class="btn btn-sm btn-light border" onclick="event.preventDefault(); alert('Opening video solution hint and similar 5 drill problems...');">Practice Similar</a></td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold">Mock #11 (19 Sep)</td>
+                                <td>Mathematics: Definite Integrals</td>
+                                <td>Integer Value Type</td>
+                                <td>Missed periodicity property integration limit</td>
+                                <td><span class="sg-badge-status sg-badge-mastered">Resolved</span></td>
+                                <td><a href="#" class="btn btn-sm btn-light border" onclick="event.preventDefault(); alert('Viewed resolution verification.');">View Solution</a></td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold">Mock #10 (12 Sep)</td>
+                                <td>Chemistry: Aldehydes &amp; Ketones</td>
+                                <td>Single Correct</td>
+                                <td>Aldol condensation reagent temperature confusion</td>
+                                <td><span class="sg-badge-status sg-badge-mastered">Mastered</span></td>
+                                <td><a href="#" class="btn btn-sm btn-light border" onclick="event.preventDefault(); alert('Topic mastered badge awarded.');">Reviewed</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ---------------- Prestige Footer ---------------- -->
+    <footer class="sg-footer pt-5 pb-4" style="background: var(--sg-purple-dark); color: #cbd5e1; border-top: 3px solid var(--sg-gold-main);">
+        <div class="container">
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <img src="assets/frontend/img/logo_emblem.png" alt="Shree Gurus" style="height: 52px; width: auto;">
+                        <div>
+                            <h4 class="h5 fw-bold text-white mb-0 font-display">SHREE GURUS</h4>
+                            <small style="color: var(--sg-gold-light);">GROUP OF INSTITUTIONS • VIJAYAWADA</small>
+                        </div>
+                    </div>
+                    <p class="small text-light mb-3">
+                        Personalized learning preparation for NEET, JEE and Foundation with mentor-led coaching, structured error analysis, and data-driven practice.
+                    </p>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="text-white h6 fw-bold mb-3 font-display">STUDENT SUPPORT</h5>
+                    <ul class="list-unstyled small d-flex flex-column gap-2">
+                        <li><i class="fa-solid fa-headset text-warning me-2"></i> Student Helpdesk: <strong>9640711111</strong></li>
+                        <li><i class="fa-solid fa-envelope text-warning me-2"></i> Portal Queries: <strong>mail2gurus@gmail.com</strong></li>
+                        <li><i class="fa-solid fa-user-tie text-warning me-2"></i> Academic Operations: <strong>Sri. A. Guru Brahmam</strong></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="text-white h6 fw-bold mb-3 font-display">QUICK NAVIGATION</h5>
+                    <div class="d-flex gap-3 small">
+                        <a href="index.html" class="text-light text-decoration-none">Home</a> |
+                        <a href="programs.html" class="text-light text-decoration-none">Programs</a> |
+                        <a href="admissions.html" class="text-light text-decoration-none">Admissions</a> |
+                        <a href="course-jee-advanced.html" class="text-light text-decoration-none">JEE</a> |
+                        <a href="course-neet.html" class="text-light text-decoration-none">NEET</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-top pt-3 text-center small text-light" style="border-color: rgba(255, 255, 255, 0.1) !important;">
+                <p class="mb-0">&copy; <span id="year"></span> Shree Gurus Group of Institutions. All rights reserved. Vijayawada, Andhra Pradesh.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/frontend/js/vendor/jquery-3.7.1.min.js"></script>
+    <script src="assets/frontend/js/vendor/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

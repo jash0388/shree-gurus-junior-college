@@ -1018,3 +1018,374 @@ body.sg-loading-lock {
     }
 }
 
+/* ==========================================================================
+   INNER PAGE HERO & BREADCRUMBS
+   ========================================================================== */
+.sg-page-hero {
+    background: var(--sg-purple-gradient);
+    padding: 65px 0 55px 0;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+.sg-page-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 85% 30%, rgba(212, 175, 55, 0.12) 0%, transparent 60%);
+    pointer-events: none;
+}
+.sg-breadcrumb {
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    color: rgba(255, 255, 255, 0.7);
+}
+.sg-breadcrumb a {
+    color: var(--sg-gold-light);
+    text-decoration: none;
+}
+.sg-breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   PROGRAMS OVERVIEW & FILTER SYSTEM
+   ========================================================================== */
+.sg-filter-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+.sg-filter-btn {
+    background: #ffffff;
+    border: 1.5px solid var(--sg-border-light);
+    color: var(--sg-purple-main);
+    font-weight: 600;
+    font-size: 14.5px;
+    padding: 9px 22px;
+    border-radius: 30px;
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+.sg-filter-btn:hover, .sg-filter-btn.active {
+    background: var(--sg-purple-main);
+    color: var(--sg-gold-light);
+    border-color: var(--sg-purple-main);
+    box-shadow: var(--sg-shadow-md);
+}
+
+.sg-program-card-premium {
+    background: #ffffff;
+    border: 1.5px solid var(--sg-border-light);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-shadow: var(--sg-shadow-sm);
+    position: relative;
+}
+.sg-program-card-premium:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sg-shadow-lg);
+    border-color: rgba(212, 175, 55, 0.45);
+}
+.sg-program-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: var(--sg-gold-gradient);
+    color: var(--sg-purple-dark);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+.sg-program-header {
+    background: #fdfaf8;
+    padding: 24px;
+    border-bottom: 1px solid #f1f5f9;
+}
+.sg-program-header h3 {
+    font-size: 1.45rem;
+    margin-bottom: 6px;
+    color: var(--sg-purple-main);
+}
+.sg-program-body {
+    padding: 24px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.sg-spec-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f1f5f9;
+}
+.sg-spec-item {
+    display: flex;
+    flex-direction: column;
+}
+.sg-spec-label {
+    font-size: 11px;
+    color: #64748b;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+.sg-spec-val {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+/* Feature Checklists */
+.sg-check-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px 0;
+}
+.sg-check-list li {
+    font-size: 13.5px;
+    color: #334155;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+.sg-check-list li i {
+    color: #16a34a;
+    font-size: 13px;
+    margin-top: 3px;
+}
+
+/* ==========================================================================
+   COURSE DETAIL MODULES & TIMETABLE
+   ========================================================================== */
+.sg-sticky-card {
+    background: #ffffff;
+    border: 2px solid var(--sg-gold-main);
+    border-radius: 14px;
+    padding: 30px;
+    box-shadow: var(--sg-shadow-lg);
+    position: sticky;
+    top: 100px;
+}
+.sg-schedule-box {
+    background: #fdfaf8;
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+}
+.sg-schedule-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px dashed #e2e8f0;
+}
+.sg-schedule-row:last-child {
+    border-bottom: none;
+}
+.sg-time-pill {
+    background: var(--sg-purple-main);
+    color: var(--sg-gold-light);
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 6px;
+}
+
+/* Faculty Mentor Cards */
+.sg-faculty-card-modern {
+    background: #ffffff;
+    border: 1px solid var(--sg-border-light);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: var(--sg-shadow-sm);
+    transition: all 0.2s ease;
+}
+.sg-faculty-card-modern:hover {
+    border-color: var(--sg-gold-main);
+    transform: translateY(-2px);
+    box-shadow: var(--sg-shadow-md);
+}
+.sg-faculty-avatar {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--sg-gold-main);
+}
+
+/* ==========================================================================
+   ADMISSIONS & SG-SAT SCHOLARSHIP CALCULATOR
+   ========================================================================== */
+.sg-calc-container {
+    background: #ffffff;
+    border: 2px solid var(--sg-gold-main);
+    border-radius: 16px;
+    padding: 36px;
+    box-shadow: var(--sg-shadow-lg);
+}
+.sg-calc-result-box {
+    background: var(--sg-purple-gradient);
+    color: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+}
+.sg-calc-reward-percent {
+    font-size: 3rem;
+    font-weight: 800;
+    font-family: var(--sg-font-heading);
+    color: var(--sg-gold-light);
+    line-height: 1;
+    margin: 10px 0;
+}
+.sg-step-number {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--sg-gold-gradient);
+    color: var(--sg-purple-dark);
+    font-weight: 800;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+}
+
+/* ==========================================================================
+   STUDENT DASHBOARD PORTAL
+   ========================================================================== */
+.sg-portal-container {
+    background: #f8fafc;
+    min-height: 85vh;
+    padding: 40px 0 60px 0;
+}
+.sg-portal-header-card {
+    background: var(--sg-purple-gradient);
+    color: #ffffff;
+    border-radius: 14px;
+    padding: 28px 32px;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    box-shadow: var(--sg-shadow-md);
+}
+.sg-portal-kpi-card {
+    background: #ffffff;
+    border: 1px solid var(--sg-border-light);
+    border-radius: 12px;
+    padding: 22px;
+    box-shadow: var(--sg-shadow-sm);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.sg-portal-kpi-num {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--sg-purple-main);
+    line-height: 1.1;
+    margin: 4px 0 0 0;
+}
+.sg-portal-chart-card {
+    background: #ffffff;
+    border: 1px solid var(--sg-border-light);
+    border-radius: 14px;
+    padding: 26px;
+    box-shadow: var(--sg-shadow-sm);
+    margin-bottom: 24px;
+}
+.sg-progress-bar-custom {
+    height: 9px;
+    background: #f1f5f9;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 8px 0 16px 0;
+}
+.sg-progress-fill-purple {
+    background: var(--sg-purple-main);
+    height: 100%;
+}
+.sg-progress-fill-gold {
+    background: var(--sg-gold-main);
+    height: 100%;
+}
+.sg-progress-fill-teal {
+    background: #0284c7;
+    height: 100%;
+}
+.sg-progress-fill-green {
+    background: #16a34a;
+    height: 100%;
+}
+
+/* Error Logbook Table */
+.sg-table-responsive {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--sg-border-light);
+}
+.sg-table-custom {
+    width: 100%;
+    margin-bottom: 0;
+    font-size: 13.5px;
+}
+.sg-table-custom th {
+    background: #f8fafc;
+    color: var(--sg-purple-main);
+    font-weight: 700;
+    padding: 12px 16px;
+    border-bottom: 1.5px solid var(--sg-border-light);
+}
+.sg-table-custom td {
+    padding: 12px 16px;
+    vertical-align: middle;
+    border-bottom: 1px solid #f1f5f9;
+}
+.sg-badge-status {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.sg-badge-revision {
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+}
+.sg-badge-mastered {
+    background: #f0fdf4;
+    color: #16a34a;
+    border: 1px solid #bbf7d0;
+}
+.sg-badge-progress {
+    background: #fefce8;
+    color: #ca8a04;
+    border: 1px solid #fef08a;
+}
+
+
