@@ -21,6 +21,66 @@
 
 <body>
 
+    <!-- ==========================================================================
+         SHREE GURUS PRESTIGE BRANDED LOADING / SPLASH SCREEN
+         ========================================================================== -->
+    <div id="sg-splash-screen" class="sg-splash-screen" aria-live="polite" aria-label="Loading Shree Gurus">
+        <!-- Academic Geometric Background Elements -->
+        <div class="sg-splash-bg-grid"></div>
+        <div class="sg-splash-radial-glow"></div>
+        <div class="sg-splash-particles">
+            <span class="sg-particle sg-p1"></span>
+            <span class="sg-particle sg-p2"></span>
+            <span class="sg-particle sg-p3"></span>
+            <span class="sg-particle sg-p4"></span>
+            <span class="sg-particle sg-p5"></span>
+            <span class="sg-particle sg-p6"></span>
+        </div>
+
+        <!-- Center Branded Content Box -->
+        <div class="sg-splash-card">
+            <!-- Circular Logo Container with Gold Progress Orbit Ring -->
+            <div class="sg-splash-logo-container">
+                <svg class="sg-splash-ring-svg" viewBox="0 0 160 160">
+                    <defs>
+                        <linearGradient id="sgSplashGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#f7e7a9" />
+                            <stop offset="50%" stop-color="#d4af37" />
+                            <stop offset="100%" stop-color="#aa851d" />
+                        </linearGradient>
+                    </defs>
+                    <circle class="sg-ring-track" cx="80" cy="80" r="74" />
+                    <circle class="sg-ring-animated" cx="80" cy="80" r="74" />
+                </svg>
+
+                <div class="sg-splash-logo-wrapper">
+                    <img src="assets/frontend/img/logo_emblem.png" alt="Shree Gurus Academy Emblem" class="sg-splash-emblem-img">
+                </div>
+            </div>
+
+            <!-- Brand Name & Badges -->
+            <div class="sg-splash-brand-group">
+                <h1 class="sg-splash-brand-title">SHREE GURUS</h1>
+                <div class="sg-splash-subtitle">
+                    <span>NEET</span>
+                    <span class="sg-sub-sep">•</span>
+                    <span>JEE</span>
+                    <span class="sg-sub-sep">•</span>
+                    <span>FOUNDATION</span>
+                </div>
+                <div class="sg-splash-tagline">Guiding Minds • Building Futures</div>
+            </div>
+
+            <!-- Loading Indicator & Text -->
+            <div class="sg-splash-status-box">
+                <div class="sg-splash-progress-bar">
+                    <div class="sg-splash-progress-fill"></div>
+                </div>
+                <p class="sg-splash-status-text">Preparing your learning journey<span class="sg-dots">...</span></p>
+            </div>
+        </div>
+    </div>
+
     <!-- ---------------- Top Bar ---------------- -->
     <div class="sg-topbar">
         <div class="container">
@@ -599,6 +659,40 @@
     <script src="assets/frontend/js/vendor/bootstrap.bundle.min.js"></script>
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Shree Gurus Premium Splash Dismissal Handler
+        (function() {
+            var splash = document.getElementById('sg-splash-screen');
+            if (!splash) return;
+            document.body.classList.add('sg-loading-lock');
+            
+            var startTime = Date.now();
+            var minDisplayTime = 850; // Snappy, premium branded entrance without unnecessary blocking
+            var maxTimeout = 2500;    // Fail-safe to ensure user is never blocked
+            
+            function dismissSplash() {
+                if (splash.classList.contains('sg-splash-hidden')) return;
+                var elapsed = Date.now() - startTime;
+                var remaining = Math.max(0, minDisplayTime - elapsed);
+                
+                setTimeout(function() {
+                    splash.classList.add('sg-splash-hidden');
+                    document.body.classList.remove('sg-loading-lock');
+                    setTimeout(function() {
+                        if (splash.parentNode) {
+                            splash.parentNode.removeChild(splash);
+                        }
+                    }, 700);
+                }, remaining);
+            }
+            
+            if (document.readyState === 'complete') {
+                dismissSplash();
+            } else {
+                window.addEventListener('load', dismissSplash);
+                setTimeout(dismissSplash, maxTimeout);
+            }
+        })();
     </script>
 </body>
 

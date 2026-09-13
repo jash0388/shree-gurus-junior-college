@@ -627,3 +627,394 @@ h1, h2, h3, h4, h5, h6 {
     }
     .sg-cta-banner { padding: 35px 20px; }
 }
+
+/* ==========================================================================
+   SHREE GURUS - PRESTIGE BRANDED LOADING / SPLASH SCREEN
+   ========================================================================== */
+
+/* Prevent scrolling while loading */
+body.sg-loading-lock {
+    overflow: hidden !important;
+    height: 100vh !important;
+}
+
+/* Hide legacy loader if present */
+#loading {
+    display: none !important;
+}
+
+.sg-splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999999;
+    background: radial-gradient(circle at 50% 45%, #2a0730 0%, #17031b 60%, #0c010e 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 0;
+    padding: 24px;
+    box-sizing: border-box;
+    transition: opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1), 
+                visibility 0.65s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity, transform, visibility;
+}
+
+.sg-splash-screen.sg-splash-hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-18px) scale(1.015);
+    pointer-events: none;
+}
+
+/* Academic Geometric Grid Pattern */
+.sg-splash-bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(rgba(212, 175, 55, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212, 175, 55, 0.035) 1px, transparent 1px);
+    background-size: 44px 44px;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+/* Subtle Gold Radial Glow Behind Logo */
+.sg-splash-radial-glow {
+    position: absolute;
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.16) 0%, rgba(82, 24, 88, 0.18) 45%, transparent 70%);
+    filter: blur(40px);
+    pointer-events: none;
+    animation: sgGlowPulse 4s ease-in-out infinite alternate;
+}
+
+/* Floating Academic Spark Particles */
+.sg-splash-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.sg-particle {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(247, 231, 169, 0.8) 0%, rgba(212, 175, 55, 0) 70%);
+    opacity: 0.25;
+    animation: sgParticleFloat 6s ease-in-out infinite;
+}
+
+.sg-p1 { width: 6px; height: 6px; top: 22%; left: 28%; animation-delay: 0s; animation-duration: 5.5s; }
+.sg-p2 { width: 4px; height: 4px; top: 35%; right: 24%; animation-delay: 1.2s; animation-duration: 7s; }
+.sg-p3 { width: 8px; height: 8px; bottom: 26%; left: 32%; animation-delay: 2.5s; animation-duration: 6.2s; }
+.sg-p4 { width: 5px; height: 5px; bottom: 32%; right: 30%; animation-delay: 0.8s; animation-duration: 5.8s; }
+.sg-p5 { width: 4px; height: 4px; top: 18%; right: 40%; animation-delay: 3s; animation-duration: 6.8s; }
+.sg-p6 { width: 6px; height: 6px; bottom: 20%; left: 45%; animation-delay: 1.8s; animation-duration: 6s; }
+
+/* Center Branded Card */
+.sg-splash-card {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 460px;
+    width: 100%;
+}
+
+/* Logo & Progress Orbit Container */
+.sg-splash-logo-container {
+    position: relative;
+    width: 154px;
+    height: 154px;
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Circular SVG Gold Ring */
+.sg-splash-ring-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+    overflow: visible;
+}
+
+.sg-ring-track {
+    fill: none;
+    stroke: rgba(212, 175, 55, 0.16);
+    stroke-width: 2.5px;
+}
+
+.sg-ring-animated {
+    fill: none;
+    stroke: url(#sgSplashGoldGrad);
+    stroke-width: 3.5px;
+    stroke-linecap: round;
+    stroke-dasharray: 465;
+    stroke-dashoffset: 465;
+    animation: sgRingFill 2s cubic-bezier(0.4, 0, 0.2, 1) infinite,
+               sgRingSpin 4.5s linear infinite;
+    transform-origin: center;
+}
+
+/* Circular Emblem Wrapper */
+.sg-splash-logo-wrapper {
+    width: 126px;
+    height: 126px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #2a0730 0%, #16031b 100%);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.25), 
+                inset 0 0 16px rgba(0, 0, 0, 0.7);
+    border: 1.5px solid rgba(212, 175, 55, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    animation: sgLogoEntrance 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.sg-splash-emblem-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.6));
+}
+
+/* Brand Name & Subtitles */
+.sg-splash-brand-group {
+    margin-bottom: 24px;
+}
+
+.sg-splash-brand-title {
+    font-family: var(--sg-font-display);
+    font-size: 2.35rem;
+    font-weight: 700;
+    letter-spacing: 5px;
+    color: #ffffff;
+    margin: 0 0 6px 0;
+    text-transform: uppercase;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7), 0 0 30px rgba(212, 175, 55, 0.2);
+    animation: sgTextFadeUp 0.8s ease-out 0.15s both;
+}
+
+.sg-splash-subtitle {
+    font-family: var(--sg-font-heading);
+    font-size: 0.96rem;
+    font-weight: 700;
+    letter-spacing: 2.8px;
+    background: linear-gradient(135deg, #f7e7a9 0%, #d4af37 50%, #f3d068 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    animation: sgTextFadeUp 0.8s ease-out 0.3s both;
+}
+
+.sg-sub-sep {
+    color: var(--sg-gold-main);
+    -webkit-text-fill-color: var(--sg-gold-main);
+    opacity: 0.7;
+    font-size: 0.75rem;
+}
+
+.sg-splash-tagline {
+    font-family: var(--sg-font-body);
+    font-size: 0.76rem;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(226, 232, 240, 0.6);
+    animation: sgTextFadeUp 0.8s ease-out 0.42s both;
+}
+
+/* Loading Status Indicator & Message */
+.sg-splash-status-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.sg-splash-progress-bar {
+    width: 180px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 14px;
+    position: relative;
+    border: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.sg-splash-progress-fill {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #aa851d 0%, #d4af37 40%, #f7e7a9 65%, #aa851d 100%);
+    background-size: 200% 100%;
+    border-radius: 4px;
+    animation: sgProgressMove 1.6s ease-in-out infinite;
+}
+
+.sg-splash-status-text {
+    font-family: var(--sg-font-body);
+    font-size: 0.84rem;
+    color: #cbd5e1;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    margin: 0;
+    animation: sgPulseOpacity 2.4s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes sgLogoEntrance {
+    0% {
+        opacity: 0;
+        transform: scale(0.90);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes sgTextFadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes sgGlowPulse {
+    0% {
+        opacity: 0.6;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+}
+
+@keyframes sgRingFill {
+    0% {
+        stroke-dashoffset: 465;
+    }
+    50% {
+        stroke-dashoffset: 120;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes sgRingSpin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes sgProgressMove {
+    0% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+@keyframes sgPulseOpacity {
+    0%, 100% {
+        opacity: 0.65;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes sgParticleFloat {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+        opacity: 0.2;
+    }
+    50% {
+        transform: translateY(-16px) translateX(8px);
+        opacity: 0.5;
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 576px) {
+    .sg-splash-logo-container {
+        width: 130px;
+        height: 130px;
+        margin-bottom: 18px;
+    }
+    .sg-splash-logo-wrapper {
+        width: 106px;
+        height: 106px;
+        padding: 6px;
+    }
+    .sg-splash-brand-title {
+        font-size: 1.85rem;
+        letter-spacing: 3.5px;
+    }
+    .sg-splash-subtitle {
+        font-size: 0.82rem;
+        letter-spacing: 1.8px;
+    }
+    .sg-splash-progress-bar {
+        width: 150px;
+    }
+    .sg-splash-status-text {
+        font-size: 0.78rem;
+    }
+}
+
+/* Accessibility: prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+    .sg-splash-screen,
+    .sg-splash-screen.sg-splash-hidden {
+        transition: opacity 0.3s ease !important;
+        transform: none !important;
+    }
+    .sg-splash-logo-wrapper,
+    .sg-splash-brand-title,
+    .sg-splash-subtitle,
+    .sg-splash-tagline,
+    .sg-splash-radial-glow,
+    .sg-ring-animated,
+    .sg-splash-progress-fill,
+    .sg-splash-status-text,
+    .sg-particle {
+        animation: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+        stroke-dashoffset: 0 !important;
+    }
+}
+
