@@ -1231,23 +1231,23 @@
             updateSoundUI(false);
         }
 
+        function muteHeroAudio() {
+            if (!campusVideo) return;
+            campusVideo.muted = true;
+            updateSoundUI(true);
+        }
+
         if (campusVideo) {
             campusVideo.volume = 0.5;
-            // Attempt unmuted play at 50% volume
-            campusVideo.muted = false;
-            const playPromise = campusVideo.play();
-            if (playPromise !== undefined) {
-                playPromise.catch(() => {
-                    // Browser blocked unmuted autoplay; play muted initially and enable on first interaction
-                    campusVideo.muted = true;
-                    campusVideo.play();
-                    updateSoundUI(true);
-                });
-            }
+            campusVideo.muted = true; // Start safely muted for autoplay compliance
+            updateSoundUI(true);
+            campusVideo.play().catch(() => {});
 
-            // Click anywhere on video to toggle play/pause
-            campusVideo.addEventListener('click', () => {
+            // Click on hero video toggles play/pause with 50% sound
+            campusVideo.addEventListener('click', (e) => {
+                e.stopPropagation();
                 if (campusVideo.paused) {
+                    setAudioVolume50();
                     campusVideo.play();
                     triggerPulse(true);
                 } else {
@@ -1270,37 +1270,31 @@
                 e.stopPropagation();
                 if (!campusVideo) return;
                 if (campusVideo.muted || campusVideo.volume === 0) {
+                    if (campusVideo.paused) campusVideo.play();
                     setAudioVolume50();
                 } else {
-                    campusVideo.muted = true;
-                    updateSoundUI(true);
+                    muteHeroAudio();
                 }
             });
         }
 
-        // Unmute at 50% sound on first user interaction if currently muted
-        const enableAudioOnUserGesture = () => {
-            if (campusVideo && campusVideo.muted) {
-                setAudioVolume50();
-            }
-            window.removeEventListener('click', enableAudioOnUserGesture);
-            window.removeEventListener('keydown', enableAudioOnUserGesture);
-            window.removeEventListener('touchstart', enableAudioOnUserGesture);
-        };
-        window.addEventListener('click', enableAudioOnUserGesture, { once: true });
-        window.addEventListener('keydown', enableAudioOnUserGesture, { once: true });
-        window.addEventListener('touchstart', enableAudioOnUserGesture, { once: true });
-
-        // 5. Lightbox Video Modal Controller
+        // 5. Lightbox Video Modal Controller (Immediately shuts down all background videos)
         function openVideoModal(videoId, title) {
+            // Instantly shut down & mute background hero video
+            if (campusVideo) {
+                campusVideo.pause();
+                muteHeroAudio();
+            }
+
             const iframe = document.getElementById('sgModalIframe');
             const titleEl = document.getElementById('sgVideoModalTitle');
             if (titleEl) titleEl.textContent = title;
             if (iframe) {
+                // Ensure fresh clean playback for selected video only
                 iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
             }
             const modalEl = document.getElementById('sgVideoModal');
-            const modal = new bootstrap.Modal(modalEl);
+            const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
             modal.show();
         }
 
