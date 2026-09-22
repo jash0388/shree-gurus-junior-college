@@ -127,18 +127,18 @@
 
         .sg-nav-item a,
         .sg-nav-item .dropdown-toggle {
-            font-size: 13.5px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            color: var(--sg-primary-dark);
-            transition: color 0.2s ease;
+            font-size: 14.5px;
+            font-weight: 500;
+            color: #1D1D1F;
+            transition: color 0.18s ease;
             cursor: pointer;
+            text-transform: none;
+            letter-spacing: -0.1px;
         }
 
         .sg-nav-item a:hover,
         .sg-nav-item .dropdown-toggle:hover {
-            color: var(--sg-blue);
+            color: var(--sg-gold);
         }
 
         .dropdown-menu {
@@ -177,25 +177,27 @@
         }
 
         .sg-btn-enquiry {
-            background: linear-gradient(135deg, var(--sg-gold) 0%, var(--sg-gold-dark) 100%);
+            background: var(--sg-gold);
             color: #FFFFFF !important;
-            font-size: 13px;
-            font-weight: 800;
-            letter-spacing: 0.8px;
-            text-transform: uppercase;
-            padding: 12px 26px;
-            border-radius: 100px;
+            font-size: 13.5px;
+            font-weight: 600;
+            letter-spacing: 0.1px;
+            text-transform: none;
+            padding: 9px 22px;
+            border-radius: 999px;
             display: inline-flex;
             align-items: center;
             gap: 8px;
             border: none;
-            transition: all 0.25s ease;
-            box-shadow: 0 4px 16px rgba(197, 155, 39, 0.35);
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(157, 104, 36, 0.25);
+            text-decoration: none;
         }
 
         .sg-btn-enquiry:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 22px rgba(197, 155, 39, 0.55);
+            background: var(--sg-gold-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 14px rgba(157, 104, 36, 0.35);
             color: #FFFFFF;
         }
 
@@ -576,70 +578,287 @@
             background: #060A1F;
         }
 
-        /* ---------------- Admission Enquiry Section (Handwritten Layout Replica) ---------------- */
+        /* ---------------- Apple-Inspired Premium Admission Enquiry Section ---------------- */
         .sg-enquiry-sec {
-            padding: 90px 0;
-            background: linear-gradient(135deg, #090F2D 0%, #060A1F 100%);
-            color: #FFFFFF;
+            padding: 80px 0 110px 0;
+            background: #FBFBFD;
             position: relative;
+            overflow: hidden;
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
         }
 
-        .sg-enquiry-card {
-            background: #FFFFFF;
-            color: var(--sg-primary-dark);
-            border-radius: 24px;
-            padding: 44px 38px;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+        /* Ambient soft pastel glows matching Apple mockup */
+        .sg-enquiry-sec::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: -120px;
+            width: 620px;
+            height: 620px;
+            background: radial-gradient(circle, rgba(190, 220, 255, 0.65) 0%, rgba(220, 236, 255, 0.28) 42%, rgba(251, 251, 253, 0) 70%);
+            pointer-events: none;
+            z-index: 1;
         }
 
-        .sg-form-label {
-            font-size: 13px;
-            font-weight: 700;
-            color: #334155;
-            margin-bottom: 6px;
+        .sg-enquiry-sec::after {
+            content: '';
+            position: absolute;
+            top: 60px;
+            right: -120px;
+            width: 620px;
+            height: 620px;
+            background: radial-gradient(circle, rgba(255, 235, 205, 0.75) 0%, rgba(255, 245, 230, 0.32) 42%, rgba(251, 251, 253, 0) 70%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .sg-enquiry-header {
+            max-width: 760px;
+            margin: 0 auto 40px auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .sg-enquiry-eyebrow {
+            font-size: 11.5px;
+            font-weight: 600;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            color: #86868B;
+            margin-bottom: 12px;
         }
 
-        .sg-form-control {
-            width: 100%;
-            padding: 13px 16px;
-            border-radius: 10px;
-            border: 1.5px solid var(--sg-border-light);
-            background: #F8FAFD;
-            font-size: 14.5px;
-            font-family: inherit;
-            color: var(--sg-primary-dark);
-            transition: all 0.25s ease;
-        }
-
-        .sg-form-control:focus {
-            outline: none;
-            border-color: var(--sg-blue);
-            background: #FFFFFF;
-            box-shadow: 0 0 0 4px rgba(3, 115, 255, 0.15);
-        }
-
-        .sg-btn-submit-enquiry {
-            background: linear-gradient(135deg, var(--sg-blue) 0%, var(--sg-blue-dark) 100%);
-            color: #FFFFFF;
-            font-size: 15px;
+        .sg-enquiry-headline {
+            font-size: clamp(2.3rem, 3.8vw, 3.1rem);
             font-weight: 800;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            padding: 15px 36px;
+            color: #1D1D1F;
+            letter-spacing: -0.035em;
+            line-height: 1.15;
+            margin-bottom: 14px;
+        }
+
+        .sg-enquiry-subtext {
+            font-size: 15px;
+            color: #6E6E73;
+            max-width: 580px;
+            margin: 0 auto;
+            line-height: 1.5;
+            font-weight: 400;
+        }
+
+        /* Left & Right Side Text Pillars from Mockup */
+        .sg-side-pillar {
+            position: absolute;
+            top: 135px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            font-size: 13.5px;
+            font-weight: 500;
+            color: #8E8E93;
+            line-height: 1.45;
+            z-index: 2;
+            user-select: none;
+        }
+
+        .sg-side-pillar.left {
+            left: clamp(20px, 4.5vw, 85px);
+            text-align: left;
+        }
+
+        .sg-side-pillar.right {
+            right: clamp(20px, 4.5vw, 85px);
+            text-align: left;
+        }
+
+        .sg-pillar-dash {
+            width: 22px;
+            height: 1.5px;
+            background: #C7C7CC;
+            margin-top: 10px;
+        }
+
+        /* The Centered Apple Card */
+        .sg-apple-form-card {
+            background: #FFFFFF;
+            border-radius: 28px;
+            padding: 40px 48px;
+            max-width: 880px;
+            margin: 0 auto;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 14px 45px -10px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.02);
+            position: relative;
+            z-index: 3;
+        }
+
+        @media (max-width: 768px) {
+            .sg-apple-form-card {
+                padding: 26px 18px;
+                border-radius: 20px;
+            }
+        }
+
+        /* Card Header Inside Card */
+        .sg-card-inner-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 26px;
+        }
+
+        .sg-card-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1D1D1F;
+            letter-spacing: -0.02em;
+            margin-bottom: 3px;
+        }
+
+        .sg-card-desc {
+            font-size: 13.5px;
+            color: #86868B;
+            margin: 0;
+        }
+
+        .sg-quick-response-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #F8F8FA;
+            border: 1px solid #E5E5EA;
             border-radius: 12px;
-            border: none;
+            padding: 8px 16px;
+        }
+
+        .sg-quick-response-badge .title {
+            font-size: 12px;
+            font-weight: 700;
+            color: #1D1D1F;
+            line-height: 1.2;
+        }
+
+        .sg-quick-response-badge .sub {
+            font-size: 11px;
+            color: #86868B;
+            line-height: 1.2;
+        }
+
+        /* Input Controls & Labels */
+        .sg-field-label {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: #1D1D1F;
+            margin-bottom: 7px;
+            display: block;
+            letter-spacing: -0.01em;
+        }
+
+        .sg-input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
             width: 100%;
-            transition: all 0.25s ease;
-            box-shadow: 0 8px 24px rgba(3, 115, 255, 0.35);
+        }
+
+        .sg-input-icon {
+            position: absolute;
+            left: 16px;
+            font-size: 14.5px;
+            color: #86868B;
+            pointer-events: none;
+            transition: color 0.18s ease;
+            z-index: 2;
+        }
+
+        .sg-native-input,
+        .sg-native-select {
+            width: 100%;
+            height: 50px;
+            padding: 0 16px 0 46px;
+            border-radius: 12px;
+            border: 1px solid #E5E5EA;
+            background: #FFFFFF;
+            font-size: 14.5px;
+            color: #1D1D1F;
+            font-family: var(--sg-font-main);
+            transition: border-color 0.18s ease, box-shadow 0.18s ease;
+        }
+
+        .sg-native-select {
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%2386868B' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            background-size: 11px 7px;
+            cursor: pointer;
+            padding-right: 38px;
+        }
+
+        .sg-native-input::placeholder {
+            color: #8E8E93;
+            font-weight: 400;
+        }
+
+        .sg-native-input:hover,
+        .sg-native-select:hover {
+            border-color: #C7C7CC;
+        }
+
+        .sg-native-input:focus,
+        .sg-native-select:focus {
+            outline: none;
+            border-color: #0071E3;
+            box-shadow: 0 0 0 3.5px rgba(0, 113, 227, 0.12);
+        }
+
+        .sg-input-wrapper:focus-within .sg-input-icon {
+            color: #0071E3;
+        }
+
+        /* Dark Apple CTA Button from Mockup */
+        .sg-apple-submit-btn {
+            width: 100%;
+            height: 52px;
+            background: #1D1D1F;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 14px;
+            font-size: 15.5px;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
             cursor: pointer;
         }
 
-        .sg-btn-submit-enquiry:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(3, 115, 255, 0.55);
+        .sg-apple-submit-btn:hover {
+            background: #000000;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            color: #FFFFFF;
+        }
+
+        .sg-apple-submit-btn:active {
+            transform: scale(0.99);
+        }
+
+        .sg-security-note {
+            font-size: 12.5px;
+            color: #86868B;
+            text-align: center;
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
         }
 
         /* ---------------- Floating Chat Widget ---------------- */
@@ -815,8 +1034,8 @@
                 <!-- Action Button: Admission Enquiry -->
                 <div class="d-flex align-items-center gap-3">
                     <a href="#enquiry" class="sg-btn-enquiry">
-                        <i class="fa-solid fa-clipboard-check"></i>
                         <span>Admission Enquiry</span>
+                        <i class="fa-solid fa-arrow-right" style="font-size: 12px;"></i>
                     </a>
                 </div>
             </div>
@@ -1209,9 +1428,9 @@
 
             <div class="row g-4">
                 <div class="col-md-4">
-                    <div class="sg-video-card" onclick="openVideoModal('b0gZ815wY1E', 'Campus Tour & Laboratory Infrastructure')">
+                    <div class="sg-video-card" onclick="openVideoModal('xIF62MFzEoc', 'Campus Walkthrough & Laboratory Infrastructure')">
                         <div class="sg-video-thumb">
-                            <img src="https://img.youtube.com/vi/b0gZ815wY1E/hqdefault.jpg" alt="Campus Tour">
+                            <img src="https://img.youtube.com/vi/xIF62MFzEoc/hqdefault.jpg" alt="Campus Walkthrough" onerror="this.src='assets/frontend/img/why_nizampet.webp'">
                             <div class="sg-play-btn"><i class="fa-solid fa-play"></i></div>
                         </div>
                         <div class="p-3">
@@ -1223,9 +1442,9 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="sg-video-card" onclick="openVideoModal('q55Qo7kHjoc', 'NEET & JEE Faculty Mentorship System')">
+                    <div class="sg-video-card" onclick="openVideoModal('cNqWf88w8TY', 'Director Sri Guru Brahmam Message')">
                         <div class="sg-video-thumb">
-                            <img src="https://img.youtube.com/vi/q55Qo7kHjoc/hqdefault.jpg" alt="Faculty Mentorship">
+                            <img src="https://img.youtube.com/vi/cNqWf88w8TY/hqdefault.jpg" alt="Director Message" onerror="this.src='assets/frontend/img/future-1.jpg'">
                             <div class="sg-play-btn"><i class="fa-solid fa-play"></i></div>
                         </div>
                         <div class="p-3">
@@ -1237,9 +1456,9 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="sg-video-card" onclick="openVideoModal('3qQ8wYh0sNk', 'Student Success & Topper Feedback')">
+                    <div class="sg-video-card" onclick="openVideoModal('xdmFCuM5hTg', 'Student Classroom Atmosphere & Success')">
                         <div class="sg-video-thumb">
-                            <img src="https://img.youtube.com/vi/3qQ8wYh0sNk/hqdefault.jpg" alt="Student Feedback">
+                            <img src="https://img.youtube.com/vi/xdmFCuM5hTg/hqdefault.jpg" alt="Student Classroom Atmosphere" onerror="this.src='assets/frontend/img/students-studying-together.png'">
                             <div class="sg-play-btn"><i class="fa-solid fa-play"></i></div>
                         </div>
                         <div class="p-3">
@@ -1253,114 +1472,183 @@
         </div>
     </section>
 
-    <!-- ---------------- Admission Enquiry Form (Exact Layout from Handwritten Sketch) ---------------- -->
+    <!-- ---------------- Apple-Inspired Admission Enquiry Section ---------------- -->
     <section class="sg-enquiry-sec" id="enquiry">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="text-center mb-5">
-                        <span class="badge bg-warning text-dark fw-bold px-3 py-2 rounded-pill mb-2">LIMITED SEATS &bull; 2026-27 SESSION</span>
-                        <h2 class="display-6 fw-bold">Admission Enquiry 2026-27</h2>
-                        <p class="text-white-50">Fill in the official enquiry form below. Our academic counselors will get in touch with you within 2 hours.</p>
+        <!-- Left Side Floating Text Pillar from Mockup -->
+        <div class="sg-side-pillar left d-none d-xl-flex">
+            <div>Learn</div>
+            <div>Grow</div>
+            <div>Achieve</div>
+            <div class="sg-pillar-dash"></div>
+        </div>
+
+        <!-- Right Side Floating Text Pillar from Mockup -->
+        <div class="sg-side-pillar right d-none d-xl-flex">
+            <div>A Brighter</div>
+            <div>Tomorrow</div>
+            <div>Together</div>
+            <div class="sg-pillar-dash"></div>
+        </div>
+
+        <div class="container position-relative" style="z-index: 3;">
+            <!-- Header above card -->
+            <div class="sg-enquiry-header text-center">
+                <div class="sg-enquiry-eyebrow">ADMISSIONS 2026 – 2027</div>
+                <h2 class="sg-enquiry-headline">Begin Your Journey<br>with Shree Gurus</h2>
+                <p class="sg-enquiry-subtext">Fill in the enquiry form below. Our academic counselors will get in touch with you within 2 hours.</p>
+            </div>
+
+            <!-- Apple Form Card Container -->
+            <div class="sg-apple-form-card">
+                <!-- Card Inner Header -->
+                <div class="sg-card-inner-header">
+                    <div>
+                        <h3 class="sg-card-title">Admission Enquiry</h3>
+                        <p class="sg-card-desc">Share your details and we'll reach out soon.</p>
                     </div>
 
-                    <div class="sg-enquiry-card">
-                        <form id="admissionEnquiryForm" onsubmit="handleEnquirySubmit(event)">
-                            <div class="row g-4">
-                                <!-- 1. Year -->
-                                <div class="col-md-6">
-                                    <label class="sg-form-label">Academic Year</label>
-                                    <select class="sg-form-control" name="year" required>
-                                        <option value="2026-2027" selected>2026 - 2027 (Active Intake)</option>
-                                        <option value="2027-2028">2027 - 2028 (Early Foundation)</option>
-                                    </select>
-                                </div>
-
-                                <!-- 2. State -->
-                                <div class="col-md-6">
-                                    <label class="sg-form-label">State</label>
-                                    <select class="sg-form-control" name="state" required>
-                                        <option value="Andhra Pradesh" selected>Andhra Pradesh</option>
-                                        <option value="Telangana">Telangana</option>
-                                        <option value="Karnataka">Karnataka</option>
-                                        <option value="Tamil Nadu">Tamil Nadu</option>
-                                        <option value="Other">Other State</option>
-                                    </select>
-                                </div>
-
-                                <!-- 3. District -->
-                                <div class="col-md-6">
-                                    <label class="sg-form-label">District</label>
-                                    <input type="text" class="sg-form-control" name="district" placeholder="e.g. Vijayawada, Guntur, Kurnool, Krishna" required>
-                                </div>
-
-                                <!-- 4. Campus Type -->
-                                <div class="col-md-6">
-                                    <label class="sg-form-label">Campus Type</label>
-                                    <select class="sg-form-control" name="campus_type" required>
-                                        <option value="Residential" selected>Residential (Hostel + Food + 24/7 Mentoring)</option>
-                                        <option value="Semi-Residential">Semi-Residential (Day + Evening Study Care)</option>
-                                        <option value="Day Scholar">Day Scholar (Classroom + Labs)</option>
-                                    </select>
-                                </div>
-
-                                <!-- 5. Select Class -->
-                                <div class="col-md-6">
-                                    <label class="sg-form-label">Select Class</label>
-                                    <select class="sg-form-control" name="class" required>
-                                        <option value="" disabled selected>-- Choose Class --</option>
-                                        <option value="Class 11 / Inter 1st Year">Class 11 / Intermediate 1st Year</option>
-                                        <option value="Class 12 / Inter 2nd Year">Class 12 / Intermediate 2nd Year</option>
-                                        <option value="Long Term Repeaters">Long Term Repeaters (Target 2027)</option>
-                                        <option value="Foundation Class 6-10">Foundation Courses (Classes VI to X)</option>
-                                    </select>
-                                </div>
-
-                                <!-- 6. Select Course -->
-                                <div class="col-md-6">
-                                    <label class="sg-form-label">Select Course</label>
-                                    <select class="sg-form-control" name="course" required>
-                                        <option value="" disabled selected>-- Choose Course --</option>
-                                        <option value="Board + JEE Main + JEE Advanced">Board + JEE Main + JEE Advanced (M.P.C)</option>
-                                        <option value="Board + NEET">Board + NEET Medical (Bi.P.C)</option>
-                                        <option value="JEE Advanced Repeaters">JEE Main &amp; Advanced Repeater Batch</option>
-                                        <option value="NEET Super-60 Repeaters">NEET Super-60 Medical Repeater Batch</option>
-                                        <option value="Gurus Foundation">Gurus Foundation Olympiad Track</option>
-                                    </select>
-                                </div>
-
-                                <!-- 7. Student Name -->
-                                <div class="col-md-12">
-                                    <label class="sg-form-label">Student Name</label>
-                                    <input type="text" class="sg-form-control" name="student_name" placeholder="Full name of student" required>
-                                </div>
-
-                                <!-- 8. Email Address -->
-                                <div class="col-md-6">
-                                    <label class="sg-form-label">Email Address</label>
-                                    <input type="email" class="sg-form-control" name="email" placeholder="student or parent email" required>
-                                </div>
-
-                                <!-- 9. Phone No -->
-                                <div class="col-md-6">
-                                    <label class="sg-form-label">Phone Number</label>
-                                    <input type="tel" class="sg-form-control" name="phone" placeholder="10-digit mobile number" pattern="[0-9]{10}" required>
-                                </div>
-
-                                <!-- Submit Button -->
-                                <div class="col-12 mt-4">
-                                    <button type="submit" class="sg-btn-submit-enquiry" id="submitBtn">
-                                        <i class="fa-solid fa-circle-check me-2"></i> Submit Admission Enquiry
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-
-                        <div id="enquirySuccessMsg" class="alert alert-success mt-4 d-none">
-                            <h5 class="fw-bold"><i class="fa-solid fa-badge-check me-2"></i> Enquiry Submitted Successfully!</h5>
-                            <p class="mb-0">Thank you for registering your enquiry with Shree Gurus Group of Institutions. Our Senior Admissions Counselor will contact you shortly on your provided phone number.</p>
+                    <!-- Quick Response Badge from Mockup -->
+                    <div class="sg-quick-response-badge">
+                        <i class="fa-solid fa-bolt" style="font-size: 14px; color: #1D1D1F;"></i>
+                        <div>
+                            <div class="title">Quick Response</div>
+                            <div class="sub">Within 2 Hours</div>
                         </div>
                     </div>
+                </div>
+
+                <!-- Form -->
+                <form id="admissionEnquiryForm" onsubmit="handleEnquirySubmit(event)">
+                    <div class="row g-4">
+                        <!-- 1. Academic Year -->
+                        <div class="col-md-6">
+                            <label class="sg-field-label">Academic Year</label>
+                            <div class="sg-input-wrapper">
+                                <i class="fa-regular fa-calendar sg-input-icon"></i>
+                                <select class="sg-native-select" name="year" required>
+                                    <option value="2026 - 2027 (Active Intake)" selected>2026 - 2027 (Active Intake)</option>
+                                    <option value="2027 - 2028 (Foundation)">2027 - 2028 (Foundation)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- 2. State -->
+                        <div class="col-md-6">
+                            <label class="sg-field-label">State</label>
+                            <div class="sg-input-wrapper">
+                                <i class="fa-solid fa-location-dot sg-input-icon"></i>
+                                <select class="sg-native-select" name="state" required>
+                                    <option value="Andhra Pradesh" selected>Andhra Pradesh</option>
+                                    <option value="Telangana">Telangana</option>
+                                    <option value="Karnataka">Karnataka</option>
+                                    <option value="Tamil Nadu">Tamil Nadu</option>
+                                    <option value="Other">Other State</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- 3. District -->
+                        <div class="col-md-6">
+                            <label class="sg-field-label">District</label>
+                            <div class="sg-input-wrapper">
+                                <i class="fa-solid fa-landmark sg-input-icon"></i>
+                                <input type="text" class="sg-native-input" name="district" placeholder="e.g. Vijayawada, Guntur, Kurnool, Krishna" required>
+                            </div>
+                        </div>
+
+                        <!-- 4. Campus Type -->
+                        <div class="col-md-6">
+                            <label class="sg-field-label">Campus Type</label>
+                            <div class="sg-input-wrapper">
+                                <i class="fa-solid fa-building-columns sg-input-icon"></i>
+                                <select class="sg-native-select" name="campus_type" required>
+                                    <option value="Residential" selected>Residential (Hostel + Food + 24/7 Mentoring)</option>
+                                    <option value="Semi-Residential">Semi-Residential (Day + Evening Study Care)</option>
+                                    <option value="Day Scholar">Day Scholar (Classroom + Labs)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- 5. Select Class -->
+                        <div class="col-md-6">
+                            <label class="sg-field-label">Select Class</label>
+                            <div class="sg-input-wrapper">
+                                <i class="fa-solid fa-graduation-cap sg-input-icon"></i>
+                                <select class="sg-native-select" name="class" required>
+                                    <option value="" disabled selected>-- Choose Class --</option>
+                                    <option value="Class 11 / Inter 1st Year">Class 11 / Intermediate 1st Year</option>
+                                    <option value="Class 12 / Inter 2nd Year">Class 12 / Intermediate 2nd Year</option>
+                                    <option value="Long Term Repeaters">Long Term Repeaters (Target 2027)</option>
+                                    <option value="Foundation Class 6-10">Foundation Courses (Classes VI to X)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- 6. Select Course -->
+                        <div class="col-md-6">
+                            <label class="sg-field-label">Select Course</label>
+                            <div class="sg-input-wrapper">
+                                <i class="fa-solid fa-book-open sg-input-icon"></i>
+                                <select class="sg-native-select" name="course" required>
+                                    <option value="" disabled selected>-- Choose Course --</option>
+                                    <option value="Board + JEE Main + JEE Advanced">Board + JEE Main + JEE Advanced (M.P.C)</option>
+                                    <option value="Board + NEET">Board + NEET Medical (Bi.P.C)</option>
+                                    <option value="JEE Advanced Repeaters">JEE Main &amp; Advanced Repeater Batch</option>
+                                    <option value="NEET Super-60 Repeaters">NEET Super-60 Medical Repeater Batch</option>
+                                    <option value="Gurus Foundation">Gurus Foundation Olympiad Track</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- 7. Student Name -->
+                        <div class="col-12">
+                            <label class="sg-field-label">Student Name</label>
+                            <div class="sg-input-wrapper">
+                                <i class="fa-regular fa-user sg-input-icon"></i>
+                                <input type="text" class="sg-native-input" name="student_name" placeholder="Full name of student" required>
+                            </div>
+                        </div>
+
+                        <!-- 8. Email Address -->
+                        <div class="col-md-6">
+                            <label class="sg-field-label">Email Address</label>
+                            <div class="sg-input-wrapper">
+                                <i class="fa-regular fa-envelope sg-input-icon"></i>
+                                <input type="email" class="sg-native-input" name="email" placeholder="student or parent email" required>
+                            </div>
+                        </div>
+
+                        <!-- 9. Phone Number -->
+                        <div class="col-md-6">
+                            <label class="sg-field-label">Phone Number</label>
+                            <div class="sg-input-wrapper">
+                                <i class="fa-solid fa-phone sg-input-icon"></i>
+                                <input type="tel" class="sg-native-input" name="phone" placeholder="10-digit mobile number" pattern="[0-9]{10}" required>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button matching Mockup -->
+                        <div class="col-12 mt-4 pt-2">
+                            <button type="submit" class="sg-apple-submit-btn" id="submitBtn">
+                                <i class="fa-solid fa-arrow-right me-2"></i> Submit Admission Enquiry
+                            </button>
+                            
+                            <!-- Security disclaimer -->
+                            <div class="sg-security-note">
+                                <i class="fa-solid fa-lock" style="font-size: 11px;"></i>
+                                <span>Your information is safe with us. We respect your privacy.</span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Success Alert -->
+                <div id="enquirySuccessMsg" class="alert alert-success mt-4 d-none" style="border-radius: 14px; background: #F2FBF5; border: 1px solid #B8E6CA; color: #1E7E48; padding: 18px 22px;">
+                    <div class="d-flex align-items-center gap-2 mb-1">
+                        <i class="fa-solid fa-circle-check fs-5"></i>
+                        <h6 class="fw-bold mb-0">Enquiry Submitted Successfully!</h6>
+                    </div>
+                    <p class="small mb-0 ms-4">Thank you for reaching out to Shree Gurus Group of Institutions. Our Senior Academic Counselor will get in touch with you within 2 hours.</p>
                 </div>
             </div>
         </div>
