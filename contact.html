@@ -440,39 +440,79 @@
                         <form id="sgAdmissionsForm" onsubmit="handleFormSubmit(event)">
                             <div class="row g-3">
                                 <div class="col-md-6">
+                                    <label class="small fw-bold text-dark mb-1">Academic Year *</label>
+                                    <select class="sg-input" name="year" required>
+                                        <option value="2026-2027" selected>2026 - 2027 (Active Intake)</option>
+                                        <option value="2027-2028">2027 - 2028 (Foundation)</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="small fw-bold text-dark mb-1">State *</label>
+                                    <select class="sg-input" name="state" required>
+                                        <option value="Andhra Pradesh" selected>Andhra Pradesh</option>
+                                        <option value="Telangana">Telangana</option>
+                                        <option value="Karnataka">Karnataka</option>
+                                        <option value="Tamil Nadu">Tamil Nadu</option>
+                                        <option value="Other">Other State</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="small fw-bold text-dark mb-1">District *</label>
+                                    <input type="text" class="sg-input" name="district" placeholder="e.g. Vijayawada, Guntur, Kurnool" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="small fw-bold text-dark mb-1">Campus Type *</label>
+                                    <select class="sg-input" name="campus_type" required>
+                                        <option value="Residential" selected>Residential (Hostel + Food)</option>
+                                        <option value="Semi-Residential">Semi-Residential (Day + Study)</option>
+                                        <option value="Day Scholar">Day Scholar</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="small fw-bold text-dark mb-1">Select Class *</label>
+                                    <select class="sg-input" name="class" required>
+                                        <option value="" disabled selected>-- Choose Class --</option>
+                                        <option value="Class 11 / Inter 1st Year">Class 11 / Inter 1st Year</option>
+                                        <option value="Class 12 / Inter 2nd Year">Class 12 / Inter 2nd Year</option>
+                                        <option value="Long Term Repeaters">Long Term Repeaters (Target 2027)</option>
+                                        <option value="Foundation Class 6-10">Foundation (Classes VI to X)</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="small fw-bold text-dark mb-1">Select Course *</label>
+                                    <select class="sg-input" name="course" required>
+                                        <option value="" disabled selected>-- Choose Course --</option>
+                                        <option value="Board + JEE Main + JEE Advanced">Board + JEE Main &amp; Advanced (M.P.C)</option>
+                                        <option value="Board + NEET">Board + NEET Medical (Bi.P.C)</option>
+                                        <option value="JEE Advanced Repeaters">JEE Advanced Repeaters</option>
+                                        <option value="NEET Super-60 Repeaters">NEET Super-60 Repeaters</option>
+                                        <option value="Gurus Foundation">Gurus Foundation Olympiad</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-12">
                                     <label class="small fw-bold text-dark mb-1">Student Full Name *</label>
-                                    <input type="text" class="sg-input" placeholder="e.g. Sai Vardhan" required>
+                                    <input type="text" class="sg-input" name="student_name" placeholder="Full name of student" required>
                                 </div>
+
                                 <div class="col-md-6">
-                                    <label class="small fw-bold text-dark mb-1">Mobile / WhatsApp Number *</label>
-                                    <input type="tel" class="sg-input" placeholder="e.g. 9876543210" required>
+                                    <label class="small fw-bold text-dark mb-1">Email Address *</label>
+                                    <input type="email" class="sg-input" name="email" placeholder="student or parent email" required>
                                 </div>
+
                                 <div class="col-md-6">
-                                    <label class="small fw-bold text-dark mb-1">Target Stream *</label>
-                                    <select class="sg-input" required>
-                                        <option value="">Select Stream</option>
-                                        <option value="neet">NEET (Medical) Super-60</option>
-                                        <option value="jee">IIT-JEE (Advanced) 2-Year</option>
-                                        <option value="foundation">Vidyanikethan Foundation (Classes 8–10)</option>
-                                        <option value="longterm">Long-Term Repeaters</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="small fw-bold text-dark mb-1">Preferred Campus *</label>
-                                    <select class="sg-input" required>
-                                        <option value="vijayawada">Vijayawada (Main Campus &amp; Hostels)</option>
-                                        <option value="mangalagiri">Mangalagiri Campus</option>
-                                        <option value="guntur">Guntur Branch</option>
-                                    </select>
-                                </div>
-                                <div class="col-12">
-                                    <label class="small fw-bold text-dark mb-1">Current Class / School *</label>
-                                    <input type="text" class="sg-input" placeholder="e.g. Class 10, St. John's High School" required>
+                                    <label class="small fw-bold text-dark mb-1">Phone Number *</label>
+                                    <input type="tel" class="sg-input" name="phone" placeholder="10-digit mobile number" pattern="[0-9]{10}" required>
                                 </div>
                             </div>
 
-                            <button type="submit" class="sg-btn-talk w-100 justify-content-center py-3 fs-6 mt-2" id="submitBtn">
-                                <span>SUBMIT SG-SAT APPLICATION</span>
+                            <button type="submit" class="sg-btn-talk w-100 justify-content-center py-3 fs-6 mt-3" id="submitBtn">
+                                <span>SUBMIT ADMISSION ENQUIRY</span>
                             </button>
 
                             <div id="formSuccessAlert" class="alert alert-success mt-3 d-none" role="alert">
