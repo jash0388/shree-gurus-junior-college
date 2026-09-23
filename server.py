@@ -3,7 +3,7 @@ import socketserver
 import os
 import mimetypes
 
-PORT = 8500
+PORT = 8000
 
 class FastHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
     def end_headers(self):
