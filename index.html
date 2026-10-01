@@ -969,7 +969,7 @@
                 <div class="d-flex align-items-center gap-4 flex-wrap">
                     <div>
                         <i class="fa-solid fa-envelope text-primary me-1"></i>
-                        <a href="mailto:mail2gurus@gmail.com">mail2gurus@gmail.com</a>
+                        <a href="mailto:mail2shreegurus@gmail.com">mail2shreegurus@gmail.com</a>
                     </div>
                     <div>
                         <i class="fa-solid fa-phone text-warning me-1"></i>
@@ -1113,7 +1113,7 @@
                             <i class="fa-solid fa-paper-plane me-1"></i> Apply / Enquire Now
                         </a>
                         <button type="button" class="btn btn-outline-dark fw-bold rounded-pill px-4 py-3" onclick="openPosterModal()">
-                            <i class="fa-solid fa-expand me-1"></i> View Full Poster
+                            <i class="fa-solid fa-expand me-1"></i> View Full Pamphlet
                         </button>
                     </div>
                 </div>
@@ -1123,7 +1123,7 @@
                     <div class="sg-hero-poster-card" onclick="openPosterModal()">
                         <img src="assets/frontend/img/admissions-poster-2026-27.jpg" alt="Shree Gurus Admissions Open 2026-27 Poster" class="sg-hero-poster-img">
                         <div class="sg-poster-zoom-btn">
-                            <i class="fa-solid fa-magnifying-glass-plus"></i> Click to Enlarge Poster
+                            <i class="fa-solid fa-magnifying-glass-plus"></i> Click to View Pamphlet
                         </div>
                     </div>
                 </div>
@@ -1776,7 +1776,7 @@
                         <i class="fa-solid fa-envelope text-primary mt-1"></i>
                         <div>
                             <strong>Email ID:</strong><br>
-                            <a href="mailto:mail2gurus@gmail.com" class="text-white">mail2gurus@gmail.com</a>
+                            <a href="mailto:mail2shreegurus@gmail.com" class="text-white">mail2shreegurus@gmail.com</a>
                         </div>
                     </div>
 
@@ -1822,17 +1822,33 @@
             <div class="modal-content" style="background: #060A1F; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 16px; overflow: hidden;">
                 <div class="modal-header border-0 px-4 pt-3 pb-2 d-flex justify-content-between align-items-center">
                     <h5 class="modal-title text-white fw-bold" id="sgPosterModalLabel">
-                        <i class="fa-solid fa-sparkles text-warning me-2"></i> Shree Gurus — Admissions Open 2026-27 Official Poster
+                        <i class="fa-solid fa-sparkles text-warning me-2"></i> Shree Gurus — Official Pamphlet 2026-27
                     </h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body p-2 text-center">
-                    <img src="assets/frontend/img/admissions-poster-2026-27.jpg" alt="Official Admissions Poster" class="img-fluid rounded-2 shadow" style="max-height: 88vh; object-fit: contain;">
+                <div class="modal-body p-2 text-center position-relative">
+                    <!-- Page 1 -->
+                    <img src="assets/frontend/img/pamphlet-page1.jpg" alt="Pamphlet Page 1 — Admissions & Campus" id="posterPage1" class="img-fluid rounded-2 shadow" style="max-height: 82vh; object-fit: contain; cursor: pointer; transition: opacity 0.35s ease;">
+                    <!-- Page 2 -->
+                    <img src="assets/frontend/img/pamphlet-page2.jpg" alt="Pamphlet Page 2 — Results & Toppers" id="posterPage2" class="img-fluid rounded-2 shadow" style="max-height: 82vh; object-fit: contain; display: none; cursor: pointer; transition: opacity 0.35s ease;">
+                    <!-- Navigation Arrows -->
+                    <button onclick="flipPosterPage(-1)" id="posterPrevBtn" class="btn btn-dark rounded-circle position-absolute top-50 translate-middle-y shadow-lg" style="left: 12px; width: 48px; height: 48px; opacity: 0.85; display: none; z-index: 2; border: 2px solid rgba(255,255,255,0.25);">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button onclick="flipPosterPage(1)" id="posterNextBtn" class="btn btn-dark rounded-circle position-absolute top-50 translate-middle-y shadow-lg" style="right: 12px; width: 48px; height: 48px; opacity: 0.85; z-index: 2; border: 2px solid rgba(255,255,255,0.25);">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
                 </div>
-                <div class="modal-footer border-0 justify-content-between px-4 pb-3">
+                <div class="modal-footer border-0 justify-content-between align-items-center px-4 pb-3">
                     <div class="text-white-50 small">Admissions Helpline: <strong>+91 9640711111 / 9171222333</strong></div>
-                    <a href="assets/frontend/img/admissions-poster-2026-27.jpg" download="Shree-Gurus-Admissions-2026-27.jpg" class="btn btn-primary rounded-pill px-4">
-                        <i class="fa-solid fa-download me-1"></i> Download Poster
+                    <!-- Page Indicator -->
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="poster-page-dot active" id="posterDot1" onclick="goToPosterPage(0)" style="width: 10px; height: 10px; border-radius: 50%; background: #fff; cursor: pointer; transition: all 0.3s;"></span>
+                        <span class="poster-page-dot" id="posterDot2" onclick="goToPosterPage(1)" style="width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.3); cursor: pointer; transition: all 0.3s;"></span>
+                        <span class="text-white-50 small ms-2" id="posterPageLabel">Page 1 of 2</span>
+                    </div>
+                    <a href="assets/frontend/img/pamphlet-draft.pdf" download="Shree-Gurus-Pamphlet-2026-27.pdf" class="btn btn-primary rounded-pill px-4">
+                        <i class="fa-solid fa-download me-1"></i> Download Pamphlet (PDF)
                     </a>
                 </div>
             </div>
@@ -1875,9 +1891,37 @@
 
         // Open Poster Modal
         function openPosterModal() {
+            // Reset to page 1 when opening
+            goToPosterPage(0);
             const modalEl = document.getElementById('sgPosterModal');
             const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
             modal.show();
+        }
+
+        // Poster page flip for 2-page pamphlet
+        let currentPosterPage = 0;
+        function flipPosterPage(dir) {
+            goToPosterPage(currentPosterPage + dir);
+        }
+        function goToPosterPage(idx) {
+            currentPosterPage = Math.max(0, Math.min(1, idx));
+            const p1 = document.getElementById('posterPage1');
+            const p2 = document.getElementById('posterPage2');
+            const prevBtn = document.getElementById('posterPrevBtn');
+            const nextBtn = document.getElementById('posterNextBtn');
+            const dot1 = document.getElementById('posterDot1');
+            const dot2 = document.getElementById('posterDot2');
+            const label = document.getElementById('posterPageLabel');
+            if (currentPosterPage === 0) {
+                p1.style.display = ''; p2.style.display = 'none';
+                prevBtn.style.display = 'none'; nextBtn.style.display = '';
+                dot1.style.background = '#fff'; dot2.style.background = 'rgba(255,255,255,0.3)';
+            } else {
+                p1.style.display = 'none'; p2.style.display = '';
+                prevBtn.style.display = ''; nextBtn.style.display = 'none';
+                dot1.style.background = 'rgba(255,255,255,0.3)'; dot2.style.background = '#fff';
+            }
+            if (label) label.textContent = 'Page ' + (currentPosterPage + 1) + ' of 2';
         }
 
         // Open Native Video Modal
