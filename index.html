@@ -282,6 +282,32 @@
             cursor: pointer;
         }
 
+        /* Poster hover crossfade effect */
+        .sg-poster-flip-wrapper {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+        }
+        .sg-poster-front,
+        .sg-poster-back {
+            transition: opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .sg-poster-back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+        }
+        .sg-hero-poster-card:hover .sg-poster-front {
+            opacity: 0;
+        }
+        .sg-hero-poster-card:hover .sg-poster-back {
+            opacity: 1;
+        }
+
         .sg-poster-zoom-btn {
             position: absolute;
             bottom: 24px;
@@ -1121,7 +1147,10 @@
                 <!-- Right Column: Official Poster Showcase Display -->
                 <div class="col-lg-6">
                     <div class="sg-hero-poster-card" onclick="openPosterModal()">
-                        <img src="assets/frontend/img/admissions-poster-2026-27.jpg" alt="Shree Gurus Admissions Open 2026-27 Poster" class="sg-hero-poster-img">
+                        <div class="sg-poster-flip-wrapper">
+                            <img src="assets/frontend/img/pamphlet-page1.jpg" alt="Shree Gurus Pamphlet — Admissions & Campus" class="sg-hero-poster-img sg-poster-front">
+                            <img src="assets/frontend/img/pamphlet-page2.jpg" alt="Shree Gurus Pamphlet — Results & Toppers" class="sg-hero-poster-img sg-poster-back">
+                        </div>
                         <div class="sg-poster-zoom-btn">
                             <i class="fa-solid fa-magnifying-glass-plus"></i> Click to View Pamphlet
                         </div>
@@ -1367,6 +1396,94 @@
                             <div class="sg-topper-marks text-primary" style="font-size: 20px;">97.32%</div>
                             <div class="sg-topper-name mt-2">R. SAI VASAVI</div>
                             <div class="sg-topper-dist">JEE Main</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 1st Year Inter Toppers (from Latest Pamphlet) -->
+            <div class="mt-5 pt-4" style="border-top: 2px solid rgba(0,0,0,0.06);">
+                <h4 class="fw-bold text-success mb-2 d-flex align-items-center gap-2">
+                    <i class="fa-solid fa-trophy"></i> 1st YEAR INTER TOPPERS — 100% PASS PERCENTAGE
+                </h4>
+                <p class="text-muted mb-4">Our students shine in Intermediate exams with exceptional scores year after year.</p>
+
+                <!-- MPC Toppers -->
+                <h6 class="fw-bold text-muted text-uppercase mb-3"><i class="fa-solid fa-calculator me-2 text-primary"></i>MPC Stream Toppers</h6>
+                <div class="row g-3 mb-4">
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="sg-topper-pill-card">
+                            <span class="sg-topper-rank-badge" style="background: linear-gradient(135deg, #FFD700, #FFA500);">465</span>
+                            <div class="sg-topper-name mt-2">B. SANTHOSHI</div>
+                            <div class="sg-topper-dist">H.T. 2612113893</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="sg-topper-pill-card">
+                            <span class="sg-topper-rank-badge" style="background: linear-gradient(135deg, #FFD700, #FFA500);">465</span>
+                            <div class="sg-topper-name mt-2">K. VINYATHA SAI</div>
+                            <div class="sg-topper-dist">H.T. 2612113133</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="sg-topper-pill-card">
+                            <span class="sg-topper-rank-badge" style="background: linear-gradient(135deg, #FFD700, #FFA500);">462</span>
+                            <div class="sg-topper-name mt-2">G. DEDEEPYA SUSHEELA</div>
+                            <div class="sg-topper-dist">H.T. 2612111562</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BiPC Toppers -->
+                <h6 class="fw-bold text-muted text-uppercase mb-3"><i class="fa-solid fa-microscope me-2 text-danger"></i>BiPC Stream Toppers</h6>
+                <div class="row g-3 mb-4">
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="sg-topper-pill-card">
+                            <span class="sg-topper-rank-badge" style="background: linear-gradient(135deg, #e74c3c, #c0392b);">450</span>
+                            <div class="sg-topper-name mt-2">K. JOSHITHA</div>
+                            <div class="sg-topper-dist">H.T. 2612117844</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="sg-topper-pill-card">
+                            <span class="sg-topper-rank-badge" style="background: linear-gradient(135deg, #e74c3c, #c0392b);">449</span>
+                            <div class="sg-topper-name mt-2">MD. AFSHA ZAREEN</div>
+                            <div class="sg-topper-dist">H.T. 2612115335</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="sg-topper-pill-card">
+                            <span class="sg-topper-rank-badge" style="background: linear-gradient(135deg, #e74c3c, #c0392b);">429</span>
+                            <div class="sg-topper-name mt-2">G. JAHNAVI</div>
+                            <div class="sg-topper-dist">H.T. 2612112858</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Banner -->
+                <div class="row g-3 mt-2">
+                    <div class="col-6 col-md-3">
+                        <div class="sg-topper-pill-card text-center" style="border-left: 4px solid #28a745;">
+                            <div class="fw-bold text-success" style="font-size: 28px;">6</div>
+                            <div class="small text-muted fw-bold">Students 460+ Marks</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="sg-topper-pill-card text-center" style="border-left: 4px solid #007bff;">
+                            <div class="fw-bold text-primary" style="font-size: 28px;">16</div>
+                            <div class="small text-muted fw-bold">Students 450+ Marks</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="sg-topper-pill-card text-center" style="border-left: 4px solid #ffc107;">
+                            <div class="fw-bold text-warning" style="font-size: 28px;">65</div>
+                            <div class="small text-muted fw-bold">Students 400+ Marks</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="sg-topper-pill-card text-center" style="border-left: 4px solid #e74c3c; background: linear-gradient(135deg, #fff5f5, #ffffff);">
+                            <div class="fw-bold text-danger" style="font-size: 28px;">100%</div>
+                            <div class="small text-muted fw-bold">Pass Percentage</div>
                         </div>
                     </div>
                 </div>
