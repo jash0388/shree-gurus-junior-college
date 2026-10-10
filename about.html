@@ -20,19 +20,24 @@
     <link rel="stylesheet" href="assets/frontend/css/vendor/bootstrap.min.css">
     <link rel="stylesheet" href="assets/frontend/css/vendor/fontawesome-pro.css">
 
+    <!-- Guru AI Admissions Chatbot Stylesheet -->
+    <link rel="stylesheet" href="assets/frontend/css/guru-bot.css">
+
     <style>
         :root {
             --sg-bg-white: #FFFFFF;
             --sg-bg-light: #F4F7FB;
-            --sg-bg-card: #EFF3F9;
-            --sg-bg-card-hover: #E2ECF8;
-            --sg-primary-dark: #090F2D;
-            --sg-text-muted: #65768D;
+            --sg-bg-card: #F4F7FD;
+            --sg-bg-card-hover: #E9EEFA;
+            --sg-primary-dark: #07153D;
+            --sg-text-muted: #556582;
             --sg-text-light: #8E9BAE;
-            --sg-blue: #0373FF;
-            --sg-blue-dark: #025cd0;
-            --sg-border-light: #E0EAF8;
-            --sg-border-subtle: rgba(9, 15, 45, 0.08);
+            --sg-blue: #2A4FD6;
+            --sg-blue-dark: #1A3EB8;
+            --sg-gold: #B88A44;
+            --sg-gold-dark: #986E2F;
+            --sg-border-light: #DDE6F7;
+            --sg-border-subtle: rgba(7, 21, 61, 0.08);
             --sg-font-main: 'Inter Tight', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             --sg-ease: cubic-bezier(0.16, 1, 0.3, 1);
         }
@@ -441,9 +446,6 @@
                 <nav class="d-none d-lg-block">
                     <ul class="sg-nav-links">
                         <li class="sg-nav-item">
-                            <a href="index.html">Home</a>
-                        </li>
-                        <li class="sg-nav-item">
                             <a href="about.html" class="active">About</a>
                         </li>
 
@@ -510,14 +512,18 @@
         </div>
     </section>
 
-    <!-- Director Showcase -->
+    <!-- Director Showcase (Ref: Sri Chaitanya filled image beside narrative text bar) -->
     <section class="py-5 bg-white">
         <div class="container pb-5">
-            <div class="sg-director-box">
-                <div class="row align-items-center gy-5">
-                    <div class="col-lg-7">
-                        <span class="badge bg-primary px-3 py-2 text-white fw-bold mb-3" style="letter-spacing: 1px;">FOUNDER &amp; ACADEMIC DIRECTOR</span>
-                        <h2 class="display-5 fw-bold text-white mb-4">Sri A. Guru Brahmam</h2>
+            <div class="sg-director-box" style="background: linear-gradient(135deg, #07153D 0%, #0D2261 100%); border-radius: 24px; padding: clamp(24px, 4vw, 48px); box-shadow: 0 20px 50px rgba(7, 21, 61, 0.18); border: 1px solid rgba(255,255,255,0.12);">
+                <div class="row align-items-stretch gy-5">
+                    <!-- Text Bar Column -->
+                    <div class="col-lg-7 d-flex flex-column justify-content-center pe-lg-4">
+                        <span class="badge px-3 py-2 text-white fw-bold mb-3 d-inline-block align-self-start" style="background: #2A4FD6; letter-spacing: 1px; border-radius: 8px;">FOUNDER &amp; ACADEMIC DIRECTOR</span>
+                        <h2 class="display-5 fw-bold text-white mb-2">Sri A. Guru Brahmam</h2>
+                        <div class="text-warning fw-semibold mb-3" style="font-size: 14.5px;">
+                            <i class="fa-solid fa-award me-1"></i> M.Sc Mathematics &bull; 25+ Years Mentoring State &amp; National Rankers
+                        </div>
                         <p class="text-white-50 fs-5 mb-4" style="line-height: 1.65;">
                             With over 25 years of classroom mastery in Mathematics and competitive entrance coaching, Sri Guru Brahmam pioneered the small-cohort 3-tier error analysis framework in Andhra Pradesh. Under his personal academic stewardship, hundreds of students have achieved single and double-digit AIRs in NEET, AIIMS, and IIT-JEE.
                         </p>
@@ -537,11 +543,17 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-5 text-center">
-                        <div class="p-4 rounded-4" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);">
-                            <img src="assets/frontend/img/logo1.png?v=5" alt="Emblem" style="height: 90px; margin-bottom: 20px; filter: brightness(0) invert(1);">
-                            <h4 class="text-white fw-bold mb-2">Sri Guru Brahmam Educational Society</h4>
-                            <p class="text-white-50 small mb-0">Registered Society • Vijayawada &amp; Mangalagiri Campuses</p>
+                    <!-- Fill Image Column (Ref: srichaitanya.net filled photography card) -->
+                    <div class="col-lg-5">
+                        <div class="h-100 position-relative rounded-4 overflow-hidden shadow-lg" style="min-height: 420px; border: 2px solid rgba(255,255,255,0.15);">
+                            <img src="assets/frontend/img/chairman.jpg" alt="Sri A. Guru Brahmam - Academic Director" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                            <div class="position-absolute bottom-0 start-0 end-0 p-4" style="background: linear-gradient(to top, rgba(7, 21, 61, 0.95) 0%, rgba(7, 21, 61, 0.4) 60%, transparent 100%);">
+                                <div class="badge px-3 py-1 mb-2 fw-bold" style="background: var(--sg-gold); color: #FFFFFF;">
+                                    <i class="fa-solid fa-star me-1"></i> Academic Leadership
+                                </div>
+                                <h5 class="text-white fw-bold mb-1">Sri A. Guru Brahmam</h5>
+                                <p class="text-white-50 small mb-0">Founder &amp; Director &bull; Shree Gurus Group of Institutions</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -660,8 +672,10 @@
         window.addEventListener('scroll', () => {
             const header = document.getElementById('mainHeader');
             if (window.scrollY > 30) header.classList.add('scrolled');
-            else header.classList.remove('scrolled');
         });
     </script>
+
+    <!-- Guru AI Admissions Chatbot Widget -->
+    <script src="assets/frontend/js/guru-bot.js"></script>
 </body>
 </html>

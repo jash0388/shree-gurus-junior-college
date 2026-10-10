@@ -1,0 +1,18 @@
+[
+  {
+    "enquiry_id": "SG-261010174722",
+    "timestamp": "2026-10-10 17:47:22",
+    "name": "Sai Teja",
+    "parent_name": "",
+    "phone": "9876543210",
+    "email": "saiteja@example.com",
+    "city": "Hyderabad",
+    "course": "Board + JEE Main & Advanced",
+    "academic_year": "2027-28",
+    "campus": "Vijayawada Campus",
+    "hostel": "Not Specified",
+    "notes": "Looking for hostel admission for 2026 batch",
+    "source": "AI Chatbot Registration",
+    "status": "Pending Followup"
+  }
+]

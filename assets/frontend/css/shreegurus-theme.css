@@ -6,23 +6,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-    --sg-purple-dark: #1b0422;
-    --sg-purple-main: #360d3b;
-    --sg-purple-light: #521858;
-    --sg-purple-soft: #f8f2f9;
-    --sg-gold-main: #d4af37;
-    --sg-gold-light: #f7e7a9;
-    --sg-gold-dark: #aa851d;
-    --sg-gold-gradient: linear-gradient(135deg, #d4af37 0%, #f7e7a9 50%, #b89124 100%);
-    --sg-purple-gradient: linear-gradient(135deg, #1b0422 0%, #360d3b 60%, #4e1753 100%);
-    --sg-dark-card: #230827;
-    --sg-text-dark: #0f172a;
-    --sg-text-muted: #475569;
-    --sg-border-light: #e2e8f0;
-    --sg-border-gold: rgba(212, 175, 55, 0.35);
-    --sg-shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-    --sg-shadow-md: 0 10px 15px -3px rgba(36, 13, 39, 0.08), 0 4px 6px -2px rgba(36, 13, 39, 0.04);
-    --sg-shadow-lg: 0 20px 25px -5px rgba(36, 13, 39, 0.12), 0 10px 10px -5px rgba(36, 13, 39, 0.04);
+    --sg-navy-dark: #07153D;
+    --sg-navy-main: #0B2265;
+    --sg-navy-light: #163691;
+    --sg-cobalt: #2A4FD6;
+    --sg-cobalt-light: #4A6FF2;
+    --sg-navy-soft: #F0F4FC;
+
+    /* Semantic Aliases from logo: Deep Royal Navy & Vibrant Cobalt Blue */
+    --sg-purple-dark: #07153D;
+    --sg-purple-main: #0B2265;
+    --sg-purple-light: #2A4FD6;
+    --sg-purple-soft: #F0F4FC;
+
+    /* Metallic Bronze Gold from Logo 'Group of Institutions' */
+    --sg-gold-main: #B88A44;
+    --sg-gold-light: #E8C88A;
+    --sg-gold-dark: #8E6527;
+    --sg-gold-gradient: linear-gradient(135deg, #B88A44 0%, #DFB76C 50%, #946E2E 100%);
+    --sg-purple-gradient: linear-gradient(135deg, #07153D 0%, #0B2265 60%, #1E3D9E 100%);
+    --sg-navy-gradient: linear-gradient(135deg, #07153D 0%, #0B2265 60%, #2A4FD6 100%);
+    --sg-dark-card: #0A1B4A;
+    --sg-text-dark: #07153D;
+    --sg-text-muted: #53647E;
+    --sg-border-light: #E2E8F0;
+    --sg-border-gold: rgba(184, 138, 68, 0.35);
+    --sg-shadow-sm: 0 4px 6px -1px rgba(7, 21, 61, 0.05), 0 2px 4px -1px rgba(7, 21, 61, 0.03);
+    --sg-shadow-md: 0 10px 15px -3px rgba(7, 21, 61, 0.08), 0 4px 6px -2px rgba(7, 21, 61, 0.04);
+    --sg-shadow-lg: 0 20px 25px -5px rgba(7, 21, 61, 0.12), 0 10px 10px -5px rgba(7, 21, 61, 0.04);
     --sg-font-heading: 'Outfit', sans-serif;
     --sg-font-display: 'Cinzel', serif;
     --sg-font-body: 'Inter', sans-serif;

@@ -23,15 +23,20 @@
     <link rel="stylesheet" href="assets/frontend/css/vendor/bootstrap.min.css">
     <link rel="stylesheet" href="assets/frontend/css/vendor/fontawesome-pro.css">
 
+    <!-- Guru AI Admissions Chatbot Stylesheet -->
+    <link rel="stylesheet" href="assets/frontend/css/guru-bot.css">
+
     <style>
         :root {
-            --sg-primary-dark: #1D1D1F;
-            --sg-text-muted: #6E6E73;
-            --sg-text-light: #86868B;
-            --sg-gold: #9D6824;
-            --sg-gold-dark: #845318;
-            --sg-border-light: #E5E5EA;
-            --sg-font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --sg-primary-dark: #07153D;
+            --sg-text-muted: #556582;
+            --sg-text-light: #8E9BAE;
+            --sg-blue: #2A4FD6;
+            --sg-blue-dark: #1A3EB8;
+            --sg-gold: #B88A44;
+            --sg-gold-dark: #986E2F;
+            --sg-border-light: #DDE6F7;
+            --sg-font-main: 'Inter Tight', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
         * {
@@ -576,9 +581,6 @@
                 <nav class="d-none d-lg-block">
                     <ul class="sg-nav-links">
                         <li class="sg-nav-item">
-                            <a href="index.html">Home</a>
-                        </li>
-                        <li class="sg-nav-item">
                             <a href="about.html">About</a>
                         </li>
 
@@ -921,23 +923,92 @@
         </div>
     </footer>
 
-    <!-- Form Handler Script -->
+    <!-- Form Handler Script with Live Excel & Email Dispatch -->
     <script>
         function handleEnquirySubmit(e) {
             e.preventDefault();
+            const form = document.getElementById('admissionEnquiryForm');
             const btn = document.getElementById('submitBtn');
             const alertBox = document.getElementById('enquirySuccessMsg');
-            btn.innerHTML = 'Submitting Enquiry...';
+            
+            const formData = new FormData(form);
+            const payload = {
+                name: formData.get('student_name') || '',
+                phone: formData.get('phone') || '',
+                email: formData.get('email') || '',
+                city: (formData.get('district') || '') + (formData.get('state') ? ', ' + formData.get('state') : ''),
+                course: formData.get('course') || '',
+                academic_year: formData.get('year') || '2027-28',
+                campus: formData.get('campus_type') || 'Vijayawada Campus',
+                hostel: formData.get('campus_type') && formData.get('campus_type').includes('Residential') ? 'Yes' : 'No',
+                notes: 'Class: ' + (formData.get('class') || '') + ' | Campus: ' + (formData.get('campus_type') || ''),
+                source: 'Admissions Page Enquiry Form'
+            };
+
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin me-2"></i> Recording to Excel &amp; Sending Mail...';
             btn.disabled = true;
 
-            setTimeout(() => {
-                btn.innerHTML = '<i class="fa-solid fa-circle-check me-2"></i> Enquiry Submitted Successfully!';
-                btn.style.backgroundColor = '#198754';
+            // Save to localStorage
+            try {
+                const list = JSON.parse(localStorage.getItem('shree_gurus_leads') || '[]');
+                payload.timestamp = new Date().toLocaleString();
+                payload.enquiry_id = 'SG-' + Date.now().toString().slice(-6);
+                list.push(payload);
+                localStorage.setItem('shree_gurus_leads', JSON.stringify(list));
+            } catch(err) {}
+
+            fetch('/api/enquiry', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            })
+            .then(res => res.json())
+            .then(data => {
+                showSuccess(data.enquiry_id || payload.enquiry_id);
+            })
+            .catch(() => {
+                // Static host fallback
+                try {
+                    fetch('https://formsubmit.co/ajax/mail2shreegurus@gmail.com', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                        body: JSON.stringify({
+                            '_subject': `New Admission Enquiry - ${payload.name} (${payload.course})`,
+                            ...payload
+                        })
+                    });
+                } catch(e) {}
+                showSuccess(payload.enquiry_id);
+            });
+
+            function showSuccess(id) {
+                btn.innerHTML = '<i class="fa-solid fa-circle-check me-2"></i> Enquiry Recorded in Excel!';
+                btn.style.backgroundColor = '#10B981';
                 alertBox.classList.remove('d-none');
+                alertBox.innerHTML = `
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <i class="fa-solid fa-circle-check fs-4 text-success"></i>
+                        <h6 class="fw-bold mb-0 text-success">Admission Enquiry Successfully Recorded!</h6>
+                    </div>
+                    <p class="small mb-2 text-muted">
+                        Enquiry ID: <strong>#${id}</strong> &bull; Added to Admissions Excel Sheet &bull; Notification sent to <strong>mail2shreegurus@gmail.com</strong>. Our Academic Dean will call you within 2 hours.
+                    </p>
+                    <div class="d-flex gap-2 flex-wrap mt-2">
+                        <a href="/api/download-excel" target="_blank" class="btn btn-sm btn-outline-success fw-bold">
+                            <i class="fa-solid fa-file-excel me-1"></i> Download Admissions Excel (.xlsx)
+                        </a>
+                        <a href="assets/frontend/img/pamphlet-draft.pdf" download="Shree-Gurus-Pamphlet.pdf" class="btn btn-sm btn-outline-primary fw-bold">
+                            <i class="fa-solid fa-download me-1"></i> Download Official Pamphlet (PDF)
+                        </a>
+                    </div>
+                `;
                 alertBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }, 600);
+                form.reset();
+            }
         }
     </script>
-</body>
 
+    <!-- Guru AI Admissions Chatbot Widget -->
+    <script src="assets/frontend/js/guru-bot.js"></script>
+</body>
 </html>

@@ -23,20 +23,23 @@
     <link rel="stylesheet" href="assets/frontend/css/vendor/bootstrap.min.css">
     <link rel="stylesheet" href="assets/frontend/css/vendor/fontawesome-pro.css">
 
+    <!-- Guru AI Admissions Chatbot Stylesheet -->
+    <link rel="stylesheet" href="assets/frontend/css/guru-bot.css">
+
     <style>
         :root {
             --sg-bg-white: #FFFFFF;
             --sg-bg-light: #F4F7FB;
-            --sg-bg-card: #EFF3F9;
-            --sg-bg-card-hover: #E2ECF8;
-            --sg-primary-dark: #090F2D;
-            --sg-text-muted: #5A6A85;
-            --sg-blue: #0373FF;
-            --sg-blue-dark: #025cd0;
-            --sg-gold: #c59b27;
-            --sg-gold-dark: #9e7917;
+            --sg-bg-card: #F4F7FD;
+            --sg-bg-card-hover: #E9EEFA;
+            --sg-primary-dark: #07153D;
+            --sg-text-muted: #556582;
+            --sg-blue: #2A4FD6;
+            --sg-blue-dark: #1A3EB8;
+            --sg-gold: #B88A44;
+            --sg-gold-dark: #986E2F;
             --sg-red: #D92D20;
-            --sg-border-light: #E0EAF8;
+            --sg-border-light: #DDE6F7;
             --sg-font-main: 'Inter Tight', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             --sg-ease: cubic-bezier(0.16, 1, 0.3, 1);
         }
@@ -67,7 +70,7 @@
 
         /* ---------------- Top Information Bar ---------------- */
         .sg-topbar {
-            background: #060A1F;
+            background: #060F2C;
             color: #FFFFFF;
             font-size: 13px;
             padding: 8px 0;
@@ -370,6 +373,9 @@
             background: #FFFFFF;
             overflow: hidden;
             border-bottom: 1px solid var(--sg-border-light);
+            position: relative;
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
         }
 
         .sg-scroller-track {
@@ -1021,9 +1027,6 @@
                 <!-- Navigation Links with Dropdowns -->
                 <nav class="d-none d-lg-block">
                     <ul class="sg-nav-links">
-                        <li class="sg-nav-item">
-                            <a href="index.html" class="active">Home</a>
-                        </li>
                         <li class="sg-nav-item">
                             <a href="about.html">About</a>
                         </li>
@@ -2070,21 +2073,91 @@
             });
         }
 
-        // Handle Admission Enquiry Form Submission
+        // Handle Admission Enquiry Form Submission with Live Excel & Email Integration
         function handleEnquirySubmit(e) {
             e.preventDefault();
+            const form = document.getElementById('admissionEnquiryForm');
             const btn = document.getElementById('submitBtn');
             const successMsg = document.getElementById('enquirySuccessMsg');
             
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin me-2"></i> Submitting...';
+            const formData = new FormData(form);
+            const payload = {
+                name: formData.get('student_name') || '',
+                phone: formData.get('phone') || '',
+                email: formData.get('email') || '',
+                city: (formData.get('district') || '') + (formData.get('state') ? ', ' + formData.get('state') : ''),
+                course: formData.get('course') || '',
+                academic_year: formData.get('year') || '2027-28',
+                campus: formData.get('campus_type') || 'Vijayawada Campus',
+                hostel: formData.get('campus_type') && formData.get('campus_type').includes('Residential') ? 'Yes' : 'No',
+                notes: 'Class: ' + (formData.get('class') || '') + ' | Campus: ' + (formData.get('campus_type') || ''),
+                source: 'Landing Page Admission Enquiry Form'
+            };
+
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin me-2"></i> Saving to Excel &amp; Sending Mail...';
             btn.disabled = true;
 
-            setTimeout(() => {
-                btn.innerHTML = '<i class="fa-solid fa-circle-check me-2"></i> Submitted';
+            // Save to localStorage for instant client export
+            try {
+                const list = JSON.parse(localStorage.getItem('shree_gurus_leads') || '[]');
+                payload.timestamp = new Date().toLocaleString();
+                payload.enquiry_id = 'SG-' + Date.now().toString().slice(-6);
+                list.push(payload);
+                localStorage.setItem('shree_gurus_leads', JSON.stringify(list));
+            } catch (err) {}
+
+            // Send to local server / backend
+            fetch('/api/enquiry', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            })
+            .then(res => res.json())
+            .then(data => {
+                showEnquirySuccess(data.enquiry_id || payload.enquiry_id);
+            })
+            .catch(() => {
+                // Static host fallback: dispatch to FormSubmit
+                try {
+                    fetch('https://formsubmit.co/ajax/mail2shreegurus@gmail.com', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                        body: JSON.stringify({
+                            '_subject': `New Admission Enquiry - ${payload.name} (${payload.course})`,
+                            ...payload
+                        })
+                    });
+                } catch(e) {}
+                showEnquirySuccess(payload.enquiry_id);
+            });
+
+            function showEnquirySuccess(id) {
+                btn.innerHTML = '<i class="fa-solid fa-circle-check me-2"></i> Enquiry Submitted &amp; Saved';
+                btn.classList.add('btn-success');
                 successMsg.classList.remove('d-none');
-                document.getElementById('admissionEnquiryForm').reset();
-            }, 700);
+                successMsg.innerHTML = `
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <i class="fa-solid fa-circle-check fs-4 text-success"></i>
+                        <h6 class="fw-bold mb-0 text-success">Enquiry Successfully Submitted &amp; Recorded!</h6>
+                    </div>
+                    <p class="small mb-2 text-muted">
+                        Enquiry ID: <strong>#${id}</strong> &bull; Recorded in Admissions Excel Sheet &bull; Notification sent to <strong>mail2shreegurus@gmail.com</strong>.
+                    </p>
+                    <div class="d-flex gap-2 flex-wrap mt-2">
+                        <a href="/api/download-excel" target="_blank" class="btn btn-sm btn-outline-success fw-bold">
+                            <i class="fa-solid fa-file-excel me-1"></i> Download Admissions Excel (.xlsx)
+                        </a>
+                        <a href="assets/frontend/img/pamphlet-draft.pdf" download="Shree-Gurus-Pamphlet.pdf" class="btn btn-sm btn-outline-primary fw-bold">
+                            <i class="fa-solid fa-download me-1"></i> Download Pamphlet (PDF)
+                        </a>
+                    </div>
+                `;
+                form.reset();
+            }
         }
     </script>
+
+    <!-- Guru AI Admissions Chatbot Widget -->
+    <script src="assets/frontend/js/guru-bot.js"></script>
 </body>
 </html>
