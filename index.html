@@ -672,26 +672,27 @@
 
         .sg-topper-pill-card:hover {
             transform: translateY(-5px);
-            border-color: var(--sg-gold);
-            box-shadow: 0 16px 32px rgba(197, 155, 39, 0.15);
+            border-color: var(--sg-blue);
+            box-shadow: 0 16px 32px rgba(42, 79, 214, 0.15);
         }
 
         .sg-topper-rank-badge {
-            background: #090F2D;
-            color: #FFD700;
-            font-weight: 900;
-            font-size: 16px;
-            padding: 6px 14px;
+            background: #EBF1FF;
+            color: #2A4FD6;
+            font-weight: 800;
+            font-size: 13px;
+            padding: 5px 12px;
             border-radius: 100px;
             display: inline-block;
             margin-bottom: 12px;
             letter-spacing: 0.5px;
+            border: 1px solid #D2E0FB;
         }
 
         .sg-topper-marks {
             font-size: 22px;
             font-weight: 900;
-            color: var(--sg-red);
+            color: var(--sg-blue, #2A4FD6);
             line-height: 1;
             margin-bottom: 4px;
         }
@@ -1500,7 +1501,7 @@
 
             <!-- NEET Toppers Row -->
             <div class="mb-5">
-                <h4 class="fw-bold text-danger mb-4 d-flex align-items-center gap-2">
+                <h4 class="fw-bold text-primary mb-4 d-flex align-items-center gap-2">
                     <i class="fa-solid fa-stethoscope"></i> NEET TOPPERS — ALL INDIA RANKS
                 </h4>
                 <div class="row g-4">
@@ -1629,21 +1630,21 @@
                 <div class="row g-3 mb-4">
                     <div class="col-6 col-md-4 col-lg-2">
                         <div class="sg-topper-pill-card">
-                            <span class="sg-topper-rank-badge" style="background: linear-gradient(135deg, #FFD700, #FFA500);">465</span>
+                            <div class="sg-topper-marks text-primary" style="font-size: 20px;">465</div>
                             <div class="sg-topper-name mt-2">B. SANTHOSHI</div>
                             <div class="sg-topper-dist">H.T. 2612113893</div>
                         </div>
                     </div>
                     <div class="col-6 col-md-4 col-lg-2">
                         <div class="sg-topper-pill-card">
-                            <span class="sg-topper-rank-badge" style="background: linear-gradient(135deg, #FFD700, #FFA500);">465</span>
+                            <div class="sg-topper-marks text-primary" style="font-size: 20px;">465</div>
                             <div class="sg-topper-name mt-2">K. VINYATHA SAI</div>
                             <div class="sg-topper-dist">H.T. 2612113133</div>
                         </div>
                     </div>
                     <div class="col-6 col-md-4 col-lg-2">
                         <div class="sg-topper-pill-card">
-                            <span class="sg-topper-rank-badge" style="background: linear-gradient(135deg, #FFD700, #FFA500);">462</span>
+                            <div class="sg-topper-marks text-primary" style="font-size: 20px;">462</div>
                             <div class="sg-topper-name mt-2">G. DEDEEPYA SUSHEELA</div>
                             <div class="sg-topper-dist">H.T. 2612111562</div>
                         </div>
@@ -1651,25 +1652,25 @@
                 </div>
 
                 <!-- BiPC Toppers -->
-                <h6 class="fw-bold text-muted text-uppercase mb-3"><i class="fa-solid fa-microscope me-2 text-danger"></i>BiPC Stream Toppers</h6>
+                <h6 class="fw-bold text-muted text-uppercase mb-3"><i class="fa-solid fa-microscope me-2 text-primary"></i>BiPC Stream Toppers</h6>
                 <div class="row g-3 mb-4">
                     <div class="col-6 col-md-4 col-lg-2">
                         <div class="sg-topper-pill-card">
-                            <span class="sg-topper-rank-badge" style="background: linear-gradient(135deg, #e74c3c, #c0392b);">450</span>
+                            <div class="sg-topper-marks text-primary" style="font-size: 20px;">450</div>
                             <div class="sg-topper-name mt-2">K. JOSHITHA</div>
                             <div class="sg-topper-dist">H.T. 2612117844</div>
                         </div>
                     </div>
                     <div class="col-6 col-md-4 col-lg-2">
                         <div class="sg-topper-pill-card">
-                            <span class="sg-topper-rank-badge" style="background: linear-gradient(135deg, #e74c3c, #c0392b);">449</span>
+                            <div class="sg-topper-marks text-primary" style="font-size: 20px;">449</div>
                             <div class="sg-topper-name mt-2">MD. AFSHA ZAREEN</div>
                             <div class="sg-topper-dist">H.T. 2612115335</div>
                         </div>
                     </div>
                     <div class="col-6 col-md-4 col-lg-2">
                         <div class="sg-topper-pill-card">
-                            <span class="sg-topper-rank-badge" style="background: linear-gradient(135deg, #e74c3c, #c0392b);">429</span>
+                            <div class="sg-topper-marks text-primary" style="font-size: 20px;">429</div>
                             <div class="sg-topper-name mt-2">G. JAHNAVI</div>
                             <div class="sg-topper-dist">H.T. 2612112858</div>
                         </div>
@@ -1679,26 +1680,26 @@
                 <!-- Stats Banner -->
                 <div class="row g-3 mt-2">
                     <div class="col-6 col-md-3">
-                        <div class="sg-topper-pill-card text-center" style="border-left: 4px solid #28a745;">
-                            <div class="fw-bold text-success" style="font-size: 28px;">6</div>
+                        <div class="sg-topper-pill-card text-center" style="border-left: 4px solid var(--sg-blue, #2A4FD6);">
+                            <div class="fw-bold text-primary" style="font-size: 28px;">6</div>
                             <div class="small text-muted fw-bold">Students 460+ Marks</div>
                         </div>
                     </div>
                     <div class="col-6 col-md-3">
-                        <div class="sg-topper-pill-card text-center" style="border-left: 4px solid #007bff;">
+                        <div class="sg-topper-pill-card text-center" style="border-left: 4px solid var(--sg-blue, #2A4FD6);">
                             <div class="fw-bold text-primary" style="font-size: 28px;">16</div>
                             <div class="small text-muted fw-bold">Students 450+ Marks</div>
                         </div>
                     </div>
                     <div class="col-6 col-md-3">
-                        <div class="sg-topper-pill-card text-center" style="border-left: 4px solid #ffc107;">
-                            <div class="fw-bold text-warning" style="font-size: 28px;">65</div>
+                        <div class="sg-topper-pill-card text-center" style="border-left: 4px solid var(--sg-blue, #2A4FD6);">
+                            <div class="fw-bold text-primary" style="font-size: 28px;">65</div>
                             <div class="small text-muted fw-bold">Students 400+ Marks</div>
                         </div>
                     </div>
                     <div class="col-6 col-md-3">
-                        <div class="sg-topper-pill-card text-center" style="border-left: 4px solid #e74c3c; background: linear-gradient(135deg, #fff5f5, #ffffff);">
-                            <div class="fw-bold text-danger" style="font-size: 28px;">100%</div>
+                        <div class="sg-topper-pill-card text-center" style="border-left: 4px solid var(--sg-blue, #2A4FD6);">
+                            <div class="fw-bold text-primary" style="font-size: 28px;">100%</div>
                             <div class="small text-muted fw-bold">Pass Percentage</div>
                         </div>
                     </div>
