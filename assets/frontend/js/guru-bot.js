@@ -9,27 +9,27 @@
     // Knowledge Base for instant intelligent answers
     const GURU_FAQ = [
         {
-            keywords: ['fee', 'fees', 'cost', 'expensive', 'charge', 'installment', 'payment'],
-            answer: "🎓 <strong>Fee & Scholarship Structure:</strong><br>Our course fee varies by stream (Day Scholar vs Residential Hostel). We offer <strong>up to 100% Merit Scholarships</strong> based on Class 10 GPA and the Shree Gurus Talent Search Exam! Our academic dean will evaluate your eligibility and share exact fee concessions."
+            keywords: ['fee structure', 'fees structure', 'how much fee', 'course fee', 'cost of coaching', 'scholarship', 'fee concession'],
+            answer: "🎓 <strong>Fee &amp; Scholarship Structure:</strong><br>Our course fee varies by stream (Day Scholar vs Residential Hostel). We offer <strong>up to 100% Merit Scholarships</strong> based on Class 10 GPA and the Shree Gurus Talent Search Exam! Our academic dean evaluates your eligibility and grants fee concessions."
         },
         {
-            keywords: ['address', 'location', 'where', 'campus', 'landmark', 'city', 'vijayawada'],
+            keywords: ['where is the college', 'where is campus', 'campus location', 'college address', 'reach the campus', 'directions to campus', 'google map location'],
             answer: "🏫 <strong>Campus Location:</strong><br>Our primary campus is located at:<br><strong>Ballem Vari St, Near Ramavarappadu Ring, Vijayawada, Andhra Pradesh - 520007</strong>.<br>We operate separate specialized campuses for <strong>Boys</strong> and <strong>Girls</strong> with high security."
         },
         {
-            keywords: ['hostel', 'food', 'mess', 'stay', 'room', 'ac', 'dining', 'residential'],
-            answer: "🛏️ <strong>Hostel & Boarding:</strong><br>We provide premium Air-Cooled & AC residential hostels with attached hygienic washrooms, 24/7 power backup, nutritious doctor-approved South Indian dining, and resident faculty available for evening doubt-clearing sessions."
+            keywords: ['hostel facility', 'mess food', 'hostel room', 'residential facility', 'boarding facility', 'food menu in hostel'],
+            answer: "🛏️ <strong>Hostel &amp; Boarding:</strong><br>We provide premium Air-Cooled &amp; AC residential hostels with attached hygienic washrooms, 24/7 power backup, nutritious doctor-approved South Indian dining, and resident faculty available for evening doubt-clearing sessions."
         },
         {
-            keywords: ['topper', 'toppers', 'rank', 'marks', 'result', 'pass percentage', 'score'],
-            answer: "🏆 <strong>2026 Academic Records:</strong><br>• <strong>100% Pass Percentage</strong> in 1st Year Inter.<br>• <strong>MPC Topper:</strong> 465 / 470 Marks (AIR benchmark).<br>• <strong>BiPC Topper:</strong> 450 / 470 Marks.<br>• 35+ students scored 460+ marks in Mathematics & Natural Sciences!"
+            keywords: ['toppers list', 'highest mark', 'neet rank', 'jee rank', 'pass percentage', 'previous results in neet'],
+            answer: "🏆 <strong>2026 Academic Records:</strong><br>• <strong>100% Pass Percentage</strong> in 1st Year Inter.<br>• <strong>MPC Topper:</strong> 465 / 470 Marks (AIR benchmark).<br>• <strong>BiPC Topper:</strong> 450 / 470 Marks.<br>• 35+ students scored 460+ marks in Mathematics &amp; Natural Sciences!"
         },
         {
-            keywords: ['batch', 'strength', 'students', 'class size', 'ratio'],
+            keywords: ['batch size', 'class strength', 'how many students in batch', 'student to teacher ratio'],
             answer: "👥 <strong>Small Batch Ceiling:</strong><br>Unlike crowded mega-coaching institutes with 120+ students per class, Shree Gurus enforces a strict ceiling of <strong>25 to 30 students per cohort</strong>, guaranteeing individual error-tracking every single day."
         },
         {
-            keywords: ['contact', 'phone', 'call', 'helpline', 'number', 'whatsapp'],
+            keywords: ['contact number', 'helpline number', 'office number', 'principal phone', 'phone number to call'],
             answer: "📞 <strong>Admissions Helplines:</strong><br>• <strong>+91 9640711111</strong><br>• <strong>+91 9171222333</strong><br>• Email: <a href='mailto:mail2shreegurus@gmail.com'>mail2shreegurus@gmail.com</a>"
         }
     ];
@@ -249,6 +249,18 @@
         });
     }
 
+    // Check if user input is an explicit question rather than an answer
+    function isUserAskingQuestion(text) {
+        const lower = text.toLowerCase().trim();
+        if (lower.includes('?')) return true;
+        const questionStarters = [
+            'what is', 'what are', 'where is', 'where are', 'how much', 'how can',
+            'tell me', 'can you', 'could you', 'explain', 'do you provide', 'do you have',
+            'is there', 'are there', 'fee details', 'details about', 'fee structure'
+        ];
+        return questionStarters.some(starter => lower.startsWith(starter) || lower.includes(' ' + starter));
+    }
+
     // Check if user is asking a general question
     function checkFAQ(text) {
         const lower = text.toLowerCase();
@@ -263,7 +275,7 @@
     }
 
     // Handle incoming user input
-    function handleSend(userText = null) {
+    function handleSend(userText = null, isChip = false) {
         const input = document.getElementById('guruUserInput');
         const text = (userText !== null ? userText : input.value).trim();
         if (!text) return;
@@ -271,24 +283,32 @@
 
         appendMessage('user', text);
 
-        // Check if user is asking a question instead of answering current registration step
-        const faqAnswer = checkFAQ(text);
-        if (faqAnswer && currentStep < 8) {
-            showTyping(() => {
-                appendMessage('bot', `
-                    ${faqAnswer}<br><br>
-                    <span style="color: #2A4FD6; font-weight: 600;">✨ Now, let's continue with your registration:</span>
-                `);
-                promptCurrentStep();
-            });
+        // When user clicked an option chip, it is an explicit choice for the current step - NEVER intercept with FAQ!
+        if (isChip) {
+            processStep(text);
             return;
+        }
+
+        // Only check FAQ if the user is explicitly asking a question and not currently confirming
+        if (currentStep < 8 && isUserAskingQuestion(text)) {
+            const faqAnswer = checkFAQ(text);
+            if (faqAnswer) {
+                showTyping(() => {
+                    appendMessage('bot', `
+                        ${faqAnswer}<br><br>
+                        <span style="color: #2A4FD6; font-weight: 600;">✨ Now, let's continue with your registration:</span>
+                    `);
+                    promptCurrentStep();
+                });
+                return;
+            }
         }
 
         processStep(text);
     }
 
     function handleChipClick(val) {
-        handleSend(val);
+        handleSend(val, true);
     }
 
     function promptCurrentStep() {
@@ -309,7 +329,7 @@
                 appendMessage('bot', `Which <strong>City or District</strong> are you from?`, [
                     "Vijayawada", "Guntur", "Hyderabad", "Rajahmundry", "Visakhapatnam", "Tirupati"
                 ]);
-                updatePlaceholder("e.g. Vijayawada");
+                updatePlaceholder("Select city or type here...");
                 break;
             case 4:
                 appendMessage('bot', `Which <strong>Course / Stream</strong> are you interested in?`, [
@@ -349,16 +369,34 @@
     function processStep(text) {
         switch (currentStep) {
             case 0: // Name
-                if (text.length < 2 || text.includes('register') || text.includes('question')) {
-                    regData.name = "Prospective Student";
-                } else {
-                    regData.name = text;
+                if (text.toLowerCase().includes('register') || text.toLowerCase().includes('admission') || text.toLowerCase().includes('start')) {
+                    showTyping(() => {
+                        appendMessage('bot', "Great! Let's get you registered for <strong>2027–28 Admissions</strong>. 🎓<br><br>Please enter the <strong>Student or Parent's Full Name</strong>:");
+                        updatePlaceholder("Type full name (e.g. Rahul Sharma)...");
+                    });
+                    return;
                 }
+                if (text.toLowerCase().includes('question') || text.toLowerCase().includes('fee') || text.toLowerCase().includes('course')) {
+                    showTyping(() => {
+                        appendMessage('bot', `
+                            We offer top-ranked 2-Year Intermediate programs:
+                            <br>• <strong>Board + JEE Main &amp; Advanced (M.P.C)</strong>
+                            <br>• <strong>Board + NEET Medical (Bi.P.C)</strong>
+                            <br>• <strong>JEE / NEET Repeaters Long Term</strong>
+                            <br>• <strong>Foundation (Classes 8 to 10)</strong>
+                            <br><br>Scholarships up to 100% available!
+                            <br><br><span style="color: #2A4FD6; font-weight: 600;">To proceed, please enter the Student or Parent's Full Name:</span>
+                        `);
+                        updatePlaceholder("Type full name...");
+                    });
+                    return;
+                }
+                regData.name = text;
                 currentStep = 1;
                 showTyping(() => {
                     appendMessage('bot', `
-                        Wonderful to connect, <strong>${regData.name}</strong>! 🌟<br>
-                        Please provide your <strong>10-digit Mobile / WhatsApp Number</strong> so our academic counselors can send the syllabus &amp; prospectus.
+                        Wonderful to connect, <strong>${regData.name}</strong>! 🌟<br><br>
+                        Please provide your <strong>10-digit Mobile / WhatsApp Number</strong> so our academic counselors can send the syllabus &amp; prospectus:
                     `);
                     updatePlaceholder("e.g. 9848012345");
                 });
@@ -369,6 +407,7 @@
                 if (cleanPhone.length < 10) {
                     showTyping(() => {
                         appendMessage('bot', `⚠️ Please enter a valid <strong>10-digit mobile number</strong> so we can reach you:`);
+                        updatePlaceholder("e.g. 9848012345");
                     });
                     return;
                 }
@@ -376,8 +415,8 @@
                 currentStep = 2;
                 showTyping(() => {
                     appendMessage('bot', `
-                        Got it! (+91 ${regData.phone}) ✅<br>
-                        What is your <strong>Email Address</strong>? We'll email your registration receipt and course roadmap.
+                        Got it! (+91 ${regData.phone}) ✅<br><br>
+                        What is your <strong>Email Address</strong>? (or tap skip):
                     `, ["Skip Email"]);
                     updatePlaceholder("e.g. yourname@gmail.com");
                 });
@@ -386,8 +425,6 @@
             case 2: // Email
                 if (text.toLowerCase().includes('skip')) {
                     regData.email = 'Not Provided';
-                } else if (text.includes('@') && text.includes('.')) {
-                    regData.email = text;
                 } else {
                     regData.email = text;
                 }
@@ -398,7 +435,7 @@
                     `, [
                         "Vijayawada", "Guntur", "Hyderabad", "Rajahmundry", "Visakhapatnam", "Tirupati"
                     ]);
-                    updatePlaceholder("e.g. Vijayawada, Guntur...");
+                    updatePlaceholder("Select city or type here...");
                 });
                 break;
 
@@ -407,7 +444,8 @@
                 currentStep = 4;
                 showTyping(() => {
                     appendMessage('bot', `
-                        Awesome! Now, which <strong>Academic Stream / Course</strong> do you want to register for?
+                        Recorded: <strong>${regData.city}</strong> 📍<br><br>
+                        Which <strong>Academic Stream / Course</strong> do you want to register for?
                     `, [
                         "Inter MPC (IIT-JEE Integrated)",
                         "Inter BiPC (NEET Integrated)",
@@ -424,7 +462,7 @@
                 currentStep = 5;
                 showTyping(() => {
                     appendMessage('bot', `
-                        Selected: <strong>${regData.course}</strong> 🎯<br>
+                        Selected: <strong>${regData.course}</strong> 🎯<br><br>
                         Which <strong>Academic Year</strong> are you seeking admission for?
                     `, [
                         { label: "🎓 2027–28 Admissions (In Progress)", value: "2027-28", gold: true },
@@ -438,7 +476,7 @@
                 currentStep = 6;
                 showTyping(() => {
                     appendMessage('bot', `
-                        Got it! For <strong>${regData.academic_year}</strong>.<br>
+                        Target Year: <strong>${regData.academic_year}</strong> 📅<br><br>
                         Do you require <strong>Residential Hostel Accommodation</strong> or prefer <strong>Day Scholar</strong>?
                     `, [
                         "Vijayawada Boys Campus (AC Hostel)",
@@ -466,13 +504,14 @@
                 currentStep = 7;
                 showTyping(() => {
                     appendMessage('bot', `
-                        Almost done! 📝 Do you have any specific query, message, or goal (e.g. AIIMS target, Top 500 IIT)?
+                        Campus Preference: <strong>${regData.campus}</strong> (${regData.hostel}) 🏫<br><br>
+                        Almost done! 📝 Any specific goal, target rank, or question for our counselors?
                     `, [
                         "Looking for Super-60 Batch",
                         "Interested in Scholarship Test",
                         "No specific notes — Register me!"
                     ]);
-                    updatePlaceholder("Type notes or select option...");
+                    updatePlaceholder("Type remarks or tap option...");
                 });
                 break;
 
