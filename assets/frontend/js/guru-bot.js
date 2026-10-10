@@ -84,9 +84,6 @@
                     </div>
                 </div>
                 <div class="guru-header-actions">
-                    <button class="guru-action-btn" title="Export Enquiries to Excel" onclick="window.GuruBot.downloadLeadsExcel()">
-                        <i class="fa-solid fa-file-excel"></i>
-                    </button>
                     <button class="guru-action-btn" title="Restart Conversation" onclick="window.GuruBot.restart()">
                         <i class="fa-solid fa-rotate-right"></i>
                     </button>
@@ -446,11 +443,10 @@
                         Recorded: <strong>${regData.city}</strong> 📍<br><br>
                         Which <strong>Academic Stream / Course</strong> do you want to register for?
                     `, [
-                        "Inter MPC (IIT-JEE Integrated)",
-                        "Inter BiPC (NEET Integrated)",
-                        "NEET Long Term (Repeaters)",
-                        "JEE Long Term (Repeaters)",
-                        "Class 8th–10th Foundation"
+                        "BRAHMOS: IPE + NEET Medical (Active 2026-27)",
+                        "TRISHUL: IPE + JEE Main (2027-28)",
+                        "SINDOOR: IPE + JEE Advanced (2027-28)",
+                        "NEET Repeaters Long Term Batch"
                     ]);
                     updatePlaceholder("Select your course...");
                 });
@@ -464,8 +460,8 @@
                         Selected: <strong>${regData.course}</strong> 🎯<br><br>
                         Which <strong>Academic Year</strong> are you seeking admission for?
                     `, [
-                        { label: "🎓 2026–27 Admissions (Active Intake)", value: "2026-27", gold: true },
-                        { label: "⚡ 2027–28 Foundation / Early Batch", value: "2027-28" }
+                        { label: "🩺 2026–27 Admissions (Active NEET Intake)", value: "2026-27", gold: true },
+                        { label: "🎯 2027–28 Admissions (Trishul / Sindoor / Brahmos)", value: "2027-28" }
                     ]);
                 });
                 break;
@@ -560,13 +556,16 @@
         currentStep = 9;
         showTyping(() => {
             appendMessage('bot', `
-                <i class="fa-solid fa-spinner fa-spin text-primary me-2"></i> Registering your admission, appending to Excel sheet &amp; dispatching email...
+                <i class="fa-solid fa-spinner fa-spin text-primary me-2"></i> Submitting your admission registration...
             `);
 
-            // 1. Save to local storage for instant client-side Excel download
+            // 1. Save silently to local storage
             saveLeadToLocalStorage(regData);
 
-            // 2. POST to Local Server / Backend API
+            // 2. Dispatch notification email automatically to mail2shreegurus@gmail.com
+            dispatchClientEmail(regData);
+
+            // 3. POST to Backend API to append to Excel automatically
             fetch('/api/enquiry', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -574,14 +573,10 @@
             })
             .then(res => res.json())
             .then(data => {
-                console.log('Server response:', data);
-                showSuccessCard(data.enquiry_id || 'SG-' + Date.now().toString().slice(-6));
+                showSuccessCard();
             })
-            .catch(err => {
-                console.warn('Local API unavailable, falling back to static dispatch:', err);
-                // Also dispatch to FormSubmit as client-side fallback
-                dispatchClientEmail(regData);
-                showSuccessCard('SG-' + Date.now().toString().slice(-6));
+            .catch(() => {
+                showSuccessCard();
             });
         });
     }
@@ -596,6 +591,8 @@
                 },
                 body: JSON.stringify({
                     '_subject': `New Shree Gurus Admission Enquiry - ${data.name} (${data.course})`,
+                    '_template': 'table',
+                    '_captcha': 'false',
                     ...data
                 })
             }).catch(e => console.log('Client mail dispatched:', e));
@@ -612,26 +609,18 @@
         } catch (e) {}
     }
 
-    function showSuccessCard(enquiryId) {
+    function showSuccessCard() {
         showTyping(() => {
             const successHTML = `
                 <div class="guru-success-card">
                     <div class="guru-success-icon"><i class="fa-solid fa-circle-check"></i></div>
                     <h5>Registration Successful!</h5>
-                    <p>
-                        Your enquiry <strong>#${enquiryId}</strong> is officially registered.<br>
-                        ✅ Saved in Shree Gurus Admissions Excel.<br>
-                        ✉️ Email notification sent to <strong>mail2shreegurus@gmail.com</strong>.<br>
-                        Our counselor will call you on <strong>+91 ${regData.phone}</strong> shortly!
+                    <p style="font-size: 15px; margin-top: 8px; color: #166534; font-weight: 600;">
+                        Thank You! We have received your details and will call you soon.
                     </p>
-                    <div class="guru-download-grid">
-                        <a href="/api/download-excel" target="_blank" class="guru-dl-btn excel" onclick="window.GuruBot.downloadLeadsExcel()">
-                            <i class="fa-solid fa-file-excel"></i> Download Excel
-                        </a>
-                        <a href="assets/frontend/img/pamphlet-draft.pdf" download="Shree-Gurus-Pamphlet.pdf" class="guru-dl-btn pdf">
-                            <i class="fa-solid fa-file-pdf"></i> Pamphlet (PDF)
-                        </a>
-                    </div>
+                    <p class="text-muted small mb-0">
+                        Our admissions counselor will contact you on <strong>+91 ${regData.phone}</strong> shortly.
+                    </p>
                 </div>
             `;
             appendMessage('bot', successHTML);

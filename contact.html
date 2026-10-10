@@ -971,10 +971,10 @@
                 source: 'Contact Page Enquiry Form (Narayana Model)'
             };
 
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin me-2"></i> Recording to Excel &amp; Sending Mail...';
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin me-2"></i> Submitting Enquiry...';
             btn.disabled = true;
 
-            // Save to localStorage
+            // Save silently to localStorage
             try {
                 const list = JSON.parse(localStorage.getItem('shree_gurus_leads') || '[]');
                 payload.timestamp = new Date().toLocaleString();
@@ -983,6 +983,21 @@
                 localStorage.setItem('shree_gurus_leads', JSON.stringify(list));
             } catch(err) {}
 
+            // Send notification email automatically to mail2shreegurus@gmail.com
+            try {
+                fetch('https://formsubmit.co/ajax/mail2shreegurus@gmail.com', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify({
+                        '_subject': `New Contact Admission Enquiry - ${payload.name} (${payload.course})`,
+                        '_template': 'table',
+                        '_captcha': 'false',
+                        ...payload
+                    })
+                });
+            } catch(e) {}
+
+            // Append to Excel automatically via backend
             fetch('/api/enquiry', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -990,42 +1005,20 @@
             })
             .then(res => res.json())
             .then(data => {
-                showSuccess(data.enquiry_id || payload.enquiry_id);
+                showSuccess();
             })
             .catch(() => {
-                // Static host fallback
-                try {
-                    fetch('https://formsubmit.co/ajax/mail2shreegurus@gmail.com', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                        body: JSON.stringify({
-                            '_subject': `New Contact Admission Enquiry - ${payload.name} (${payload.course})`,
-                            ...payload
-                        })
-                    });
-                } catch(e) {}
-                showSuccess(payload.enquiry_id);
+                showSuccess();
             });
 
-            function showSuccess(id) {
-                btn.innerHTML = '<i class="fa-solid fa-circle-check me-2"></i> Enquiry Recorded in Excel!';
+            function showSuccess() {
+                btn.innerHTML = '<i class="fa-solid fa-circle-check me-2"></i> Enquiry Submitted!';
                 btn.style.backgroundColor = '#10B981';
                 alertBox.classList.remove('d-none');
                 alertBox.innerHTML = `
-                    <div class="d-flex align-items-center gap-2 mb-2">
+                    <div class="d-flex align-items-center gap-2">
                         <i class="fa-solid fa-circle-check fs-4 text-success"></i>
-                        <h6 class="fw-bold mb-0 text-success">Admission Enquiry Successfully Recorded!</h6>
-                    </div>
-                    <p class="small mb-2 text-muted">
-                        Enquiry ID: <strong>#${id}</strong> &bull; Added to Admissions Excel Sheet &bull; Notification sent to <strong>mail2shreegurus@gmail.com</strong>. Our Academic Dean will call you within 2 hours.
-                    </p>
-                    <div class="d-flex gap-2 flex-wrap mt-2">
-                        <a href="/api/download-excel" target="_blank" class="btn btn-sm btn-outline-success fw-bold">
-                            <i class="fa-solid fa-file-excel me-1"></i> Download Admissions Excel (.xlsx)
-                        </a>
-                        <a href="assets/frontend/img/pamphlet-draft.pdf" download="Shree-Gurus-Pamphlet.pdf" class="btn btn-sm btn-outline-primary fw-bold">
-                            <i class="fa-solid fa-download me-1"></i> Download Official Pamphlet (PDF)
-                        </a>
+                        <h6 class="fw-bold mb-0 text-success">Thank You! We have received your details and will call you soon.</h6>
                     </div>
                 `;
                 alertBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
