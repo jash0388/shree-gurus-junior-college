@@ -327,24 +327,23 @@
                 break;
             case 3:
                 appendMessage('bot', `Which <strong>City or District</strong> are you from?`, [
-                    "Vijayawada", "Guntur", "Hyderabad", "Rajahmundry", "Visakhapatnam", "Tirupati"
+                    "Vijayawada (NTR Dist)", "Guntur", "Krishna", "Kurnool", "Visakhapatnam", "Hyderabad"
                 ]);
                 updatePlaceholder("Select city or type here...");
                 break;
             case 4:
-                appendMessage('bot', `Which <strong>Course / Stream</strong> are you interested in?`, [
-                    "Inter MPC (IIT-JEE Integrated)",
-                    "Inter BiPC (NEET Integrated)",
-                    "NEET Long Term (Repeaters)",
-                    "JEE Long Term (Repeaters)",
-                    "Class 8th–10th Foundation"
+                appendMessage('bot', `Which <strong>Course / Program</strong> are you interested in?<br><small style="color: #059669; font-weight: 500;"><em>For 2026–27 session, admissions are active for NEET Medical (Brahmos). For 2027–28, all programs are open.</em></small>`, [
+                    "BRAHMOS: IPE + NEET Medical (Active 2026-27)",
+                    "TRISHUL: IPE + JEE Main (2027-28)",
+                    "SINDOOR: IPE + JEE Advanced (2027-28)",
+                    "NEET Repeaters Long Term Batch"
                 ]);
                 updatePlaceholder("Select or type course...");
                 break;
             case 5:
                 appendMessage('bot', `Which <strong>Academic Year</strong> are you applying for?`, [
-                    { label: "🎓 2026–27 Admissions (Active Intake)", value: "2026-27", gold: true },
-                    { label: "⚡ 2027–28 Foundation / Early Batch", value: "2027-28" }
+                    { label: "🩺 2026–27 Admissions (Active NEET Intake)", value: "2026-27", gold: true },
+                    { label: "🎯 2027–28 Admissions (Trishul / Sindoor / Brahmos)", value: "2027-28" }
                 ]);
                 break;
             case 6:
@@ -379,11 +378,11 @@
                 if (text.toLowerCase().includes('question') || text.toLowerCase().includes('fee') || text.toLowerCase().includes('course')) {
                     showTyping(() => {
                         appendMessage('bot', `
-                            We offer top-ranked 2-Year Intermediate programs:
-                            <br>• <strong>Board + JEE Main &amp; Advanced (M.P.C)</strong>
-                            <br>• <strong>Board + NEET Medical (Bi.P.C)</strong>
-                            <br>• <strong>JEE / NEET Repeaters Long Term</strong>
-                            <br>• <strong>Foundation (Classes 8 to 10)</strong>
+                            We offer top-ranked intermediate competitive programs:
+                            <br>• <strong>BRAHMOS: IPE + NEET Medical (Bi.P.C) — Active 2026–27</strong>
+                            <br>• <strong>TRISHUL: IPE + JEE Main (M.P.C) — 2027–28</strong>
+                            <br>• <strong>SINDOOR: IPE + JEE Advanced (M.P.C) — 2027–28</strong>
+                            <br>• <strong>NEET / JEE Repeaters Super-60 Batch</strong>
                             <br><br>Scholarships up to 100% available!
                             <br><br><span style="color: #2A4FD6; font-weight: 600;">To proceed, please enter the Student or Parent's Full Name:</span>
                         `);

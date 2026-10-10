@@ -387,6 +387,62 @@
             border-bottom: none;
         }
 
+        /* 3 Flagship Program Showcase Cards */
+        .sg-program-poster-card {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 22px;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .sg-program-poster-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 36px rgba(42, 79, 214, 0.12);
+            border-color: #2A4FD6;
+        }
+
+        .sg-poster-img-wrap {
+            position: relative;
+            width: 100%;
+            background: #060A1F;
+            overflow: hidden;
+        }
+
+        .sg-poster-img-wrap img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .sg-program-poster-card:hover .sg-poster-img-wrap img {
+            transform: scale(1.02);
+        }
+
+        .sg-year-tab-btn {
+            padding: 10px 24px;
+            font-size: 14px;
+            font-weight: 700;
+            border-radius: 100px;
+            border: 1.5px solid #E2E8F0;
+            background: #FFFFFF;
+            color: #475467;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .sg-year-tab-btn.active {
+            background: #2A4FD6;
+            color: #FFFFFF;
+            border-color: #2A4FD6;
+            box-shadow: 0 4px 16px rgba(42, 79, 214, 0.3);
+        }
+
         /* Footer (Shree Gurus Pristine White Light Theme) */
         .sg-footer-dark {
             padding: 110px 0 50px 0;
@@ -607,6 +663,135 @@
             </p>
         </div>
     </section>
+
+    <!-- Flagship Programs Showcase (Pamphlet Courses: Trishul, Sindoor, Brahmos) -->
+    <section class="py-5" style="background: #F8FAFC; border-bottom: 1px solid #E2E8F0;">
+        <div class="container py-2">
+            <div class="text-center mb-4">
+                <span class="sg-badge-pill"><i class="fa-solid fa-fire text-danger me-1"></i> OFFICIAL FLAGSHIP PROGRAMS</span>
+                <h2 class="display-6 fw-bold text-dark mb-2">Our Specialized Coaching Cohorts</h2>
+                <p class="text-muted mx-auto mb-4" style="max-width: 650px;">
+                    Featuring dedicated 120-seat cohorts, smart A/C classrooms, air-cooled residential hostels, and rigorous 3-tier competitive coaching.
+                </p>
+
+                <!-- Year Filter Tabs -->
+                <div class="d-inline-flex p-1.5 rounded-pill bg-white border shadow-sm mb-2" style="gap: 6px;">
+                    <button class="sg-year-tab-btn active" id="tab2026" onclick="filterPrograms('2026')">
+                        <i class="fa-solid fa-bolt me-1 text-warning"></i> Academic Year 2026 – 2027 (Active Now)
+                    </button>
+                    <button class="sg-year-tab-btn" id="tab2027" onclick="filterPrograms('2027')">
+                        <i class="fa-solid fa-layer-group me-1 text-primary"></i> Academic Year 2027 – 2028 (All 3 Programs)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Program Cards Row -->
+            <div class="row g-4 justify-content-center" id="programCardsRow">
+                <!-- 1. BRAHMOS (Active 2026-27 & 2027-28) -->
+                <div class="col-md-6 col-lg-4 prog-card-item prog-2026 prog-2027">
+                    <div class="sg-program-poster-card shadow-sm h-100 d-flex flex-column" style="border: 2px solid #16A34A;">
+                        <div class="sg-poster-img-wrap" style="background: #022012;">
+                            <img src="assets/frontend/img/programs/brahmos-neet.jpg" alt="BRAHMOS — IPE + NEET BiPC">
+                            <span class="badge position-absolute top-0 end-0 m-3 px-3 py-2 bg-success text-white fw-bold shadow-sm">
+                                <i class="fa-solid fa-check-circle me-1"></i> ACTIVE INTAKE 2026-27
+                            </span>
+                        </div>
+                        <div class="p-4 d-flex flex-column flex-grow-1">
+                            <span class="badge bg-success-subtle text-success fw-bold px-2 py-1 align-self-start mb-2">MEDICAL BIPC STREAM</span>
+                            <h4 class="fw-bold mb-1 text-dark">BRAHMOS</h4>
+                            <p class="text-muted small mb-3">IPE + NEET Intensive (Bi.P.C Medical)</p>
+                            
+                            <div class="mb-3 p-2.5 rounded-3 bg-light border small">
+                                <div class="d-flex justify-content-between mb-1"><span>Total Intake:</span><strong class="text-dark">120 Seats</strong></div>
+                                <div class="d-flex justify-content-between mb-1"><span>Girls / Boys:</span><strong class="text-dark">90 Girls (3 Sec) • 30 Boys (1 Sec)</strong></div>
+                                <div class="d-flex justify-content-between"><span>Facilities:</span><strong class="text-dark">A/C Class • Non-A/C Hostel</strong></div>
+                            </div>
+
+                            <a href="admissions.html?year=2026-2027&course=brahmos" class="btn btn-success fw-bold w-100 mt-auto py-2.5 rounded-3">
+                                <i class="fa-solid fa-paper-plane me-1"></i> Apply for Brahmos 2026–27
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. TRISHUL (2027-28) -->
+                <div class="col-md-6 col-lg-4 prog-card-item prog-2027" style="display: none;">
+                    <div class="sg-program-poster-card shadow-sm h-100 d-flex flex-column" style="border: 2px solid #2563EB;">
+                        <div class="sg-poster-img-wrap" style="background: #02173E;">
+                            <img src="assets/frontend/img/programs/trishul-jee.jpg" alt="TRISHUL — IPE + JEE Main">
+                            <span class="badge position-absolute top-0 end-0 m-3 px-3 py-2 bg-primary text-white fw-bold shadow-sm">
+                                <i class="fa-solid fa-calendar me-1"></i> 2027 – 2028 INTAKE
+                            </span>
+                        </div>
+                        <div class="p-4 d-flex flex-column flex-grow-1">
+                            <span class="badge bg-primary-subtle text-primary fw-bold px-2 py-1 align-self-start mb-2">ENGINEERING MPC STREAM</span>
+                            <h4 class="fw-bold mb-1 text-dark">TRISHUL</h4>
+                            <p class="text-muted small mb-3">IPE + JEE (Main) Intensive</p>
+                            
+                            <div class="mb-3 p-2.5 rounded-3 bg-light border small">
+                                <div class="d-flex justify-content-between mb-1"><span>Total Intake:</span><strong class="text-dark">120 Seats</strong></div>
+                                <div class="d-flex justify-content-between mb-1"><span>Girls / Boys:</span><strong class="text-dark">40 Girls (1 Sec) • 80 Boys (2 Sec)</strong></div>
+                                <div class="d-flex justify-content-between"><span>Facilities:</span><strong class="text-dark">A/C Class • Non-A/C Hostel</strong></div>
+                            </div>
+
+                            <a href="admissions.html?year=2027-2028&course=trishul" class="btn btn-primary fw-bold w-100 mt-auto py-2.5 rounded-3">
+                                <i class="fa-solid fa-paper-plane me-1"></i> Pre-Book Trishul 2027–28
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. SINDOOR (2027-28) -->
+                <div class="col-md-6 col-lg-4 prog-card-item prog-2027" style="display: none;">
+                    <div class="sg-program-poster-card shadow-sm h-100 d-flex flex-column" style="border: 2px solid #DC2626;">
+                        <div class="sg-poster-img-wrap" style="background: #250308;">
+                            <img src="assets/frontend/img/programs/sindoor-jee-advanced.jpg" alt="SINDOOR — IPE + JEE Advanced">
+                            <span class="badge position-absolute top-0 end-0 m-3 px-3 py-2 bg-danger text-white fw-bold shadow-sm">
+                                <i class="fa-solid fa-calendar me-1"></i> 2027 – 2028 INTAKE
+                            </span>
+                        </div>
+                        <div class="p-4 d-flex flex-column flex-grow-1">
+                            <span class="badge bg-danger-subtle text-danger fw-bold px-2 py-1 align-self-start mb-2">ELITE IIT-JEE ADVANCED</span>
+                            <h4 class="fw-bold mb-1 text-dark">SINDOOR</h4>
+                            <p class="text-muted small mb-3">IPE + JEE Advanced Rankers Cohort</p>
+                            
+                            <div class="mb-3 p-2.5 rounded-3 bg-light border small">
+                                <div class="d-flex justify-content-between mb-1"><span>Total Intake:</span><strong class="text-dark">120 Seats</strong></div>
+                                <div class="d-flex justify-content-between mb-1"><span>Girls / Boys:</span><strong class="text-dark">40 Girls (1 Sec) • 80 Boys (2 Sec)</strong></div>
+                                <div class="d-flex justify-content-between"><span>Facilities:</span><strong class="text-dark">A/C Class • Non-A/C Hostel</strong></div>
+                            </div>
+
+                            <a href="admissions.html?year=2027-2028&course=sindoor" class="btn btn-danger fw-bold w-100 mt-auto py-2.5 rounded-3">
+                                <i class="fa-solid fa-paper-plane me-1"></i> Pre-Book Sindoor 2027–28
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function filterPrograms(year) {
+            const tab2026 = document.getElementById('tab2026');
+            const tab2027 = document.getElementById('tab2027');
+            const allCards = document.querySelectorAll('.prog-card-item');
+
+            if (year === '2026') {
+                if (tab2026) tab2026.classList.add('active');
+                if (tab2027) tab2027.classList.remove('active');
+                allCards.forEach(card => {
+                    card.style.display = card.classList.contains('prog-2026') ? 'block' : 'none';
+                });
+            } else {
+                if (tab2027) tab2027.classList.add('active');
+                if (tab2026) tab2026.classList.remove('active');
+                allCards.forEach(card => {
+                    card.style.display = card.classList.contains('prog-2027') ? 'block' : 'none';
+                });
+            }
+        }
+    </script>
 
     <!-- Bento Programs Grid -->
     <section class="py-5 bg-white">

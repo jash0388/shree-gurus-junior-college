@@ -512,6 +512,71 @@
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
         }
 
+        /* 3 Flagship Program Showcase Cards */
+        .sg-program-poster-card {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 22px;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .sg-program-poster-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 36px rgba(42, 79, 214, 0.12);
+            border-color: #2A4FD6;
+        }
+
+        .sg-poster-img-wrap {
+            position: relative;
+            width: 100%;
+            background: #060A1F;
+            overflow: hidden;
+        }
+
+        .sg-poster-img-wrap img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .sg-program-poster-card:hover .sg-poster-img-wrap img {
+            transform: scale(1.02);
+        }
+
+        .sg-program-badge-active {
+            background: #E8F5E9;
+            color: #166534;
+            font-size: 11.5px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            padding: 5px 12px;
+            border-radius: 100px;
+            border: 1px solid #BBF7D0;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .sg-program-badge-upcoming {
+            background: #EFF6FF;
+            color: #1E40AF;
+            font-size: 11.5px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            padding: 5px 12px;
+            border-radius: 100px;
+            border: 1px solid #DBEAFE;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
         /* Footer */
         .sg-footer-dark {
             padding: 80px 0 40px 0;
@@ -678,18 +743,107 @@
         <div class="container position-relative" style="z-index: 3;">
             <!-- Header above card -->
             <div class="sg-enquiry-header text-center">
-                <div class="sg-enquiry-eyebrow">ADMISSIONS 2026 – 2027</div>
+                <div class="sg-enquiry-eyebrow">ADMISSIONS 2026 – 2027 &amp; 2027 – 2028</div>
                 <h1 class="sg-enquiry-headline">Begin Your Journey<br>with Shree Gurus</h1>
-                <p class="sg-enquiry-subtext">Fill in the enquiry form below. Our academic counselors will get in touch with you within 2 hours.</p>
+                <p class="sg-enquiry-subtext">Vijayawada's Premier Academic Academy. Choose your target pathway below or fill out the enquiry form.</p>
+            </div>
+
+            <!-- ---------------- 3 Flagship Programs Showcase ---------------- -->
+            <div class="mb-5">
+                <div class="row g-4 justify-content-center">
+                    <!-- 1. BRAHMOS (Active 2026-27 & 2027-28) -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="sg-program-poster-card" style="border-top: 4px solid #166534;">
+                            <div class="sg-poster-img-wrap">
+                                <img src="assets/frontend/img/programs/brahmos-neet.jpg" alt="BRAHMOS IPE + NEET Medical Program">
+                            </div>
+                            <div class="p-4 d-flex flex-column flex-grow-1 bg-white">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="sg-program-badge-active"><i class="fa-solid fa-circle-check"></i> ACTIVE 2026–27 &amp; 2027–28</span>
+                                    <span class="small fw-bold text-success">120 SEATS</span>
+                                </div>
+                                <h4 class="fw-bold mb-1" style="color: #07153D;">BRAHMOS</h4>
+                                <div class="fw-bold mb-2" style="color: #166534; font-size: 14px;">IPE + NEET (Bi.P.C MEDICAL)</div>
+                                <p class="small text-muted mb-3" style="line-height: 1.5;">
+                                    Exclusive Medical wing for 2026–27. Intensive NCERT line-by-line rigor, wet labs, and AIIMS test simulation.
+                                </p>
+                                <div class="small mb-3 p-2 rounded-2" style="background: #F4FBF7; border: 1px solid #DCFCE7;">
+                                    <div class="d-flex justify-content-between"><span>Girls Intake:</span><strong class="text-dark">90 Seats (3 Sec)</strong></div>
+                                    <div class="d-flex justify-content-between"><span>Boys Intake:</span><strong class="text-dark">30 Seats (1 Sec)</strong></div>
+                                    <div class="d-flex justify-content-between"><span>Facilities:</span><strong class="text-dark">A/C Class • Non-A/C Hostel</strong></div>
+                                </div>
+                                <button type="button" class="btn btn-outline-success fw-bold w-100 mt-auto rounded-pill py-2" onclick="selectProgram('2026 - 2027', 'BRAHMOS: IPE + NEET Medical (Bi.P.C)')">
+                                    <i class="fa-solid fa-file-signature me-1"></i> Enrol in Brahmos (2026–27)
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. TRISHUL (2027-28 Pre-Booking) -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="sg-program-poster-card" style="border-top: 4px solid #1A3EB8;">
+                            <div class="sg-poster-img-wrap">
+                                <img src="assets/frontend/img/programs/trishul-jee.jpg" alt="TRISHUL IPE + JEE Main Program">
+                            </div>
+                            <div class="p-4 d-flex flex-column flex-grow-1 bg-white">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="sg-program-badge-upcoming"><i class="fa-solid fa-clock"></i> INTAKE: 2027–2028</span>
+                                    <span class="small fw-bold text-primary">120 SEATS</span>
+                                </div>
+                                <h4 class="fw-bold mb-1" style="color: #07153D;">TRISHUL</h4>
+                                <div class="fw-bold mb-2" style="color: #1A3EB8; font-size: 14px;">IPE + JEE (MAIN M.P.C)</div>
+                                <p class="small text-muted mb-3" style="line-height: 1.5;">
+                                    Engineering flagship launching in 2027–28. Multi-concept physics &amp; calculus drills with senior IITian mentors.
+                                </p>
+                                <div class="small mb-3 p-2 rounded-2" style="background: #F4F7FD; border: 1px solid #DDE6F7;">
+                                    <div class="d-flex justify-content-between"><span>Girls Intake:</span><strong class="text-dark">40 Seats (1 Sec)</strong></div>
+                                    <div class="d-flex justify-content-between"><span>Boys Intake:</span><strong class="text-dark">80 Seats (2 Sec)</strong></div>
+                                    <div class="d-flex justify-content-between"><span>Facilities:</span><strong class="text-dark">A/C Class • Non-A/C Hostel</strong></div>
+                                </div>
+                                <button type="button" class="btn btn-outline-primary fw-bold w-100 mt-auto rounded-pill py-2" onclick="selectProgram('2027 - 2028', 'TRISHUL: IPE + JEE Main (M.P.C)')">
+                                    <i class="fa-solid fa-bolt me-1"></i> Pre-Book Trishul (2027–28)
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. SINDOOR (2027-28 Pre-Booking) -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="sg-program-poster-card" style="border-top: 4px solid #A01428;">
+                            <div class="sg-poster-img-wrap">
+                                <img src="assets/frontend/img/programs/sindoor-jee-advanced.jpg" alt="SINDOOR IPE + JEE Advanced Program">
+                            </div>
+                            <div class="p-4 d-flex flex-column flex-grow-1 bg-white">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="sg-program-badge-upcoming" style="background: #FFF1F2; color: #9F1239; border-color: #FECDD3;"><i class="fa-solid fa-gem"></i> INTAKE: 2027–2028</span>
+                                    <span class="small fw-bold" style="color: #A01428;">120 SEATS</span>
+                                </div>
+                                <h4 class="fw-bold mb-1" style="color: #07153D;">SINDOOR</h4>
+                                <div class="fw-bold mb-2" style="color: #A01428; font-size: 14px;">IPE + JEE (ADVANCED M.P.C)</div>
+                                <p class="small text-muted mb-3" style="line-height: 1.5;">
+                                    Elite Top-100 IIT rankers cohort launching in 2027–28. Advanced problem sets and Olympiad-level precision.
+                                </p>
+                                <div class="small mb-3 p-2 rounded-2" style="background: #FFF5F5; border: 1px solid #FED7D7;">
+                                    <div class="d-flex justify-content-between"><span>Girls Intake:</span><strong class="text-dark">40 Seats (1 Sec)</strong></div>
+                                    <div class="d-flex justify-content-between"><span>Boys Intake:</span><strong class="text-dark">80 Seats (2 Sec)</strong></div>
+                                    <div class="d-flex justify-content-between"><span>Facilities:</span><strong class="text-dark">A/C Class • Non-A/C Hostel</strong></div>
+                                </div>
+                                <button type="button" class="btn btn-outline-danger fw-bold w-100 mt-auto rounded-pill py-2" onclick="selectProgram('2027 - 2028', 'SINDOOR: IPE + JEE Advanced (M.P.C)')">
+                                    <i class="fa-solid fa-trophy me-1"></i> Pre-Book Sindoor (2027–28)
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Apple Form Card Container -->
-            <div class="sg-apple-form-card">
+            <div class="sg-apple-form-card" id="formCard">
                 <!-- Card Inner Header -->
                 <div class="sg-card-inner-header">
                     <div>
-                        <h2 class="sg-card-title">Admission Enquiry</h2>
-                        <p class="sg-card-desc">Share your details and we'll reach out soon.</p>
+                        <h2 class="sg-card-title">Admission Enquiry Form</h2>
+                        <p class="sg-card-desc">Select academic year &amp; course below. For 2026–27, only NEET (Brahmos) is active; all 3 programs open for 2027–28.</p>
                     </div>
 
                     <!-- Quick Response Badge from Mockup -->
@@ -710,9 +864,9 @@
                             <label class="sg-field-label">Academic Year</label>
                             <div class="sg-input-wrapper">
                                 <i class="fa-regular fa-calendar sg-input-icon"></i>
-                                <select class="sg-native-select" name="year" required>
-                                    <option value="2026 - 2027 (Active Intake)" selected>2026 - 2027 (Active Intake)</option>
-                                    <option value="2027 - 2028 (Foundation)">2027 - 2028 (Foundation)</option>
+                                <select class="sg-native-select" name="year" id="academicYearSelect" onchange="syncCoursesWithYear()" required>
+                                    <option value="2026 - 2027" selected>2026 – 2027 (Active Intake: NEET Only)</option>
+                                    <option value="2027 - 2028">2027 – 2028 (Full Intake: Trishul, Sindoor &amp; Brahmos)</option>
                                 </select>
                             </div>
                         </div>
@@ -732,12 +886,12 @@
                             </div>
                         </div>
 
-                        <!-- 3. District -->
+                        <!-- 3. District / Campus Location -->
                         <div class="col-md-6">
-                            <label class="sg-field-label">District</label>
+                            <label class="sg-field-label">Campus Location &amp; District</label>
                             <div class="sg-input-wrapper">
-                                <i class="fa-solid fa-landmark sg-input-icon"></i>
-                                <input type="text" class="sg-native-input" name="district" placeholder="e.g. Vijayawada, Guntur, Kurnool, Krishna" required>
+                                <i class="fa-solid fa-location-dot sg-input-icon text-danger"></i>
+                                <input type="text" class="sg-native-input" name="district" value="Vijayawada (NTR Dist)" required>
                             </div>
                         </div>
 
@@ -747,7 +901,7 @@
                             <div class="sg-input-wrapper">
                                 <i class="fa-solid fa-building-columns sg-input-icon"></i>
                                 <select class="sg-native-select" name="campus_type" required>
-                                    <option value="Residential" selected>Residential (Hostel + Food + 24/7 Mentoring)</option>
+                                    <option value="Residential (AC Class / Non-AC Hostel)" selected>Residential (A/C Class + Non-A/C Hostel + Food)</option>
                                     <option value="Semi-Residential">Semi-Residential (Day + Evening Study Care)</option>
                                     <option value="Day Scholar">Day Scholar (Classroom + Labs)</option>
                                 </select>
@@ -764,24 +918,21 @@
                                     <option value="Class 11 / Inter 1st Year">Class 11 / Intermediate 1st Year</option>
                                     <option value="Class 12 / Inter 2nd Year">Class 12 / Intermediate 2nd Year</option>
                                     <option value="Long Term Repeaters">Long Term Repeaters (Target 2027)</option>
-                                    <option value="Foundation Class 6-10">Foundation Courses (Classes VI to X)</option>
                                 </select>
                             </div>
                         </div>
 
                         <!-- 6. Select Course -->
                         <div class="col-md-6">
-                            <label class="sg-field-label">Select Course</label>
+                            <label class="sg-field-label">Select Program / Course</label>
                             <div class="sg-input-wrapper">
                                 <i class="fa-solid fa-book-open sg-input-icon"></i>
-                                <select class="sg-native-select" name="course" required>
-                                    <option value="" disabled selected>-- Choose Course --</option>
-                                    <option value="Board + JEE Main + JEE Advanced">Board + JEE Main &amp; Advanced (M.P.C)</option>
-                                    <option value="Board + NEET">Board + NEET Medical (Bi.P.C)</option>
-                                    <option value="JEE Advanced Repeaters">JEE Main &amp; Advanced Repeater Batch</option>
-                                    <option value="NEET Super-60 Repeaters">NEET Super-60 Medical Repeater Batch</option>
-                                    <option value="Gurus Foundation">Gurus Foundation Olympiad Track</option>
+                                <select class="sg-native-select" name="course" id="courseSelect" required>
+                                    <option value="BRAHMOS: IPE + NEET Medical (Bi.P.C)" selected>BRAHMOS: IPE + NEET Medical (Bi.P.C) — Active Now</option>
                                 </select>
+                            </div>
+                            <div id="yearNotice" class="small mt-2 p-2 rounded-2" style="background: #F0FDF4; border: 1px solid #BBF7D0; color: #166534; font-size: 12.5px;">
+                                <i class="fa-solid fa-circle-info me-1"></i> <strong>2026–2027 Session:</strong> Admissions exclusively active for <strong>NEET Medical (Brahmos)</strong>. Engineering tracks (Trishul &amp; Sindoor) launch for 2027–2028.
                             </div>
                         </div>
 
@@ -948,6 +1099,66 @@
 
     <!-- Form Handler Script with Live Excel & Email Dispatch -->
     <script>
+        function syncCoursesWithYear() {
+            const yearSelect = document.getElementById('academicYearSelect');
+            const courseSelect = document.getElementById('courseSelect');
+            const notice = document.getElementById('yearNotice');
+            if (!yearSelect || !courseSelect) return;
+
+            const selectedYear = yearSelect.value;
+            if (selectedYear.includes('2026')) {
+                // 2026 - 2027: ONLY NEET IS ACTIVE
+                courseSelect.innerHTML = `
+                    <option value="BRAHMOS: IPE + NEET Medical (Bi.P.C)" selected>BRAHMOS: IPE + NEET Medical (Bi.P.C) — Active Now</option>
+                `;
+                if (notice) {
+                    notice.className = "small mt-2 p-2 rounded-2";
+                    notice.style.background = "#F0FDF4";
+                    notice.style.borderColor = "#BBF7D0";
+                    notice.style.color = "#166534";
+                    notice.innerHTML = '<i class="fa-solid fa-circle-check me-1"></i> <strong>2026–2027 Session:</strong> Admissions exclusively active for <strong>NEET Medical (Brahmos Program)</strong>. Engineering tracks (Trishul &amp; Sindoor) launch for 2027–2028.';
+                }
+            } else {
+                // 2027 - 2028: ALL 3 PROGRAMS ACTIVE
+                courseSelect.innerHTML = `
+                    <option value="" disabled selected>-- Select 2027-28 Program --</option>
+                    <option value="TRISHUL: IPE + JEE Main (M.P.C)">TRISHUL: IPE + JEE Main (M.P.C)</option>
+                    <option value="SINDOOR: IPE + JEE Advanced (M.P.C)">SINDOOR: IPE + JEE Advanced (M.P.C)</option>
+                    <option value="BRAHMOS: IPE + NEET Medical (Bi.P.C)">BRAHMOS: IPE + NEET Medical (Bi.P.C)</option>
+                `;
+                if (notice) {
+                    notice.className = "small mt-2 p-2 rounded-2";
+                    notice.style.background = "#EFF6FF";
+                    notice.style.borderColor = "#DBEAFE";
+                    notice.style.color = "#1E40AF";
+                    notice.innerHTML = '<i class="fa-solid fa-sparkles me-1"></i> <strong>2027–2028 Session:</strong> All 3 flagship programs (<strong>Trishul</strong> - JEE Main, <strong>Sindoor</strong> - JEE Advanced, <strong>Brahmos</strong> - NEET) are open for pre-booking!';
+                }
+            }
+        }
+
+        function selectProgram(year, courseName) {
+            const yearSelect = document.getElementById('academicYearSelect');
+            const courseSelect = document.getElementById('courseSelect');
+            const formCard = document.getElementById('formCard');
+            if (yearSelect) {
+                yearSelect.value = year;
+                syncCoursesWithYear();
+            }
+            if (courseSelect) {
+                setTimeout(() => {
+                    for (let opt of courseSelect.options) {
+                        if (opt.value.includes(courseName) || courseName.includes(opt.value)) {
+                            opt.selected = true;
+                            break;
+                        }
+                    }
+                }, 50);
+            }
+            if (formCard) {
+                formCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
         function handleEnquirySubmit(e) {
             e.preventDefault();
             const form = document.getElementById('admissionEnquiryForm');

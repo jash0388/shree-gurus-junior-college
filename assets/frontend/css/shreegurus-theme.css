@@ -1894,3 +1894,86 @@ body.sg-loading-lock {
     color: #FFFFFF !important;
     transform: translateY(-2px);
 }
+
+/* ---------------- Infinite Scrolling Photos Ticker / Premium Facilities ---------------- */
+.sg-sec-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #2A4FD6;
+    background: #EEF2FF;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+    border: 1px solid #C7D2FE;
+}
+
+.sg-photo-scroller-sec {
+    padding: 60px 0;
+    background: #FFFFFF;
+    overflow: hidden;
+    border-bottom: 1px solid #E2E8F0;
+    position: relative;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+}
+
+.sg-scroller-track {
+    display: flex;
+    gap: 24px;
+    width: max-content;
+    animation: scrollPhotos 35s linear infinite;
+}
+
+.sg-scroller-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scrollPhotos {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.sg-photo-card {
+    width: 320px;
+    background: #FFFFFF;
+    border-radius: 16px;
+    border: 1px solid #E2E8F0;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(9, 15, 45, 0.06);
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.sg-photo-card:hover {
+    transform: translateY(-6px);
+}
+
+.sg-photo-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.sg-photo-card .info {
+    padding: 16px;
+}
+
+.sg-photo-card .tag {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: #2A4FD6;
+    margin-bottom: 4px;
+}
+
+.sg-photo-card h6 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #07153D;
+    margin-bottom: 4px;
+}
