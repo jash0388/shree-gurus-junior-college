@@ -100,6 +100,7 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 440px;
     object-fit: contain;
     display: block;
+    margin-left: 36px;
     transition: transform 0.3s ease;
 }
 
@@ -108,6 +109,7 @@ h1, h2, h3, h4, h5, h6 {
     .sg-logo-img {
         height: 68px;
         max-width: 340px;
+        margin-left: 20px;
     }
 }
 
@@ -116,6 +118,7 @@ h1, h2, h3, h4, h5, h6 {
     .sg-logo-img {
         height: 56px;
         max-width: 280px;
+        margin-left: 12px;
     }
 }
 .sg-nav-link {
