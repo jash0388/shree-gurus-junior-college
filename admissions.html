@@ -68,37 +68,38 @@
 
         /* ---------------- Top Information Bar (Identical to Landing Page) ---------------- */
         .sg-topbar {
-            background: #060A1F;
-            color: #FFFFFF;
+            background: #FFFFFF;
+            color: #475467;
             font-size: 13px;
             padding: 8px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid #E2E8F0;
         }
 
         .sg-topbar a {
-            color: rgba(255, 255, 255, 0.85);
+            color: #475467;
             transition: color 0.2s ease;
         }
 
         .sg-topbar a:hover {
-            color: #0373FF;
+            color: var(--sg-blue);
         }
 
         .sg-social-icon {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 26px;
-            height: 26px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            color: #FFFFFF;
+            background: #F0F4FC;
+            color: #07153D;
             font-size: 12px;
+            border: 1px solid #D8E3F5;
             transition: all 0.2s ease;
         }
 
         .sg-social-icon:hover {
-            background: #0373FF;
+            background: var(--sg-blue);
             color: #FFFFFF;
             transform: translateY(-2px);
         }
@@ -514,9 +515,9 @@
         /* Footer */
         .sg-footer-dark {
             padding: 80px 0 40px 0;
-            background: #060A1F;
-            color: #FFFFFF;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            background: #FFFFFF !important;
+            color: #475467 !important;
+            border-top: 1px solid #E2E8F0 !important;
         }
 
         .sg-footer-logo-img {
@@ -529,7 +530,7 @@
         .sg-footer-brand-text {
             font-size: 20px;
             font-weight: 800;
-            color: #FFFFFF;
+            color: #07153D;
         }
 
         .sg-footer-link-list {
@@ -544,12 +545,12 @@
         .sg-footer-link-list li a {
             font-size: 13.5px;
             font-weight: 600;
-            color: #A0AAB8;
+            color: #556582;
             transition: color 0.2s ease;
         }
 
         .sg-footer-link-list li a:hover {
-            color: #FFFFFF;
+            color: var(--sg-blue);
         }
     </style>
 </head>
@@ -891,7 +892,7 @@
         </div>
     </section>
 
-    <!-- ---------------- Footer ---------------- -->
+    <!-- ---------------- Footer (Pristine White Light Theme) ---------------- -->
     <footer class="sg-footer-dark">
         <div class="container">
             <div class="row gy-5">
@@ -899,14 +900,14 @@
                     <div class="d-flex align-items-center gap-3 mb-3">
                         <img src="assets/frontend/img/logo_emblem.png?v=5" alt="Shree Gurus Emblem" class="sg-footer-logo-img">
                         <div>
-                            <div class="fw-bold text-white fs-4" style="line-height: 1.1; letter-spacing: -0.01em;">SHREE GURUS</div>
-                            <div class="fw-semibold" style="color: #F5BA42; font-size: 14px;">Group of Institutions</div>
+                            <div class="fw-bold fs-4" style="color: #07153D; line-height: 1.1; letter-spacing: -0.01em;">SHREE GURUS</div>
+                            <div class="fw-semibold" style="color: #2E5BFF; font-size: 14px;">Group of Institutions</div>
                         </div>
                     </div>
-                    <h2 class="fw-bold fs-2 text-white mb-3">
+                    <h2 class="fw-bold fs-2 mb-3" style="color: #07153D;">
                         Empowering Future Doctors &amp; Engineers.
                     </h2>
-                    <p class="text-white-50 mb-4" style="max-width: 480px;">
+                    <p class="mb-4" style="color: #556582; max-width: 480px;">
                         Vijayawada's premier coaching institute for NEET, IIT-JEE, and Advanced Foundation tracks with 24/7 faculty mentoring.
                     </p>
                 </div>
@@ -919,7 +920,7 @@
                                 <li><a href="index.html#toppers">RANKS &amp; RESULTS</a></li>
                                 <li><a href="pedagogy.html">PEDAGOGY</a></li>
                                 <li><a href="about.html">ABOUT US</a></li>
-                                <li><a href="admissions.html" style="color: var(--sg-gold);">ADMISSIONS 2026</a></li>
+                                <li><a href="admissions.html" style="color: var(--sg-blue); font-weight: 700;">ADMISSIONS 2026</a></li>
                             </ul>
                         </div>
                         <div class="col-6">
@@ -934,12 +935,12 @@
                 </div>
             </div>
 
-            <div class="pt-4 mt-5 border-top border-secondary d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 text-white-50 small">
+            <div class="pt-4 mt-5 border-top border-light-subtle d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 small" style="color: #64748B;">
                 <div>&copy; 2026 Shree Gurus Group of Institutions. All Rights Reserved.</div>
                 <div class="d-flex align-items-center gap-4">
-                    <a href="tel:9640711111" class="text-white-50"><i class="fa-solid fa-phone me-1"></i> +91 9640711111</a>
+                    <a href="tel:9640711111" style="color: #64748B;"><i class="fa-solid fa-phone me-1"></i> +91 9640711111</a>
                     <span>|</span>
-                    <a href="index.html" class="text-white-50">Vijayawada, AP</a>
+                    <a href="index.html" style="color: #64748B;">Vijayawada, AP</a>
                 </div>
             </div>
         </div>

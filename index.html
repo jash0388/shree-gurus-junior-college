@@ -73,15 +73,15 @@
 
         /* ---------------- Top Information Bar ---------------- */
         .sg-topbar {
-            background: #060F2C;
-            color: #FFFFFF;
+            background: #FFFFFF;
+            color: #475467;
             font-size: 13px;
             padding: 8px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid #E2E8F0;
         }
 
         .sg-topbar a {
-            color: rgba(255, 255, 255, 0.85);
+            color: #475467;
             transition: color 0.2s ease;
         }
 
@@ -93,12 +93,13 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 26px;
-            height: 26px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            color: #FFFFFF;
+            background: #F0F4FC;
+            color: #07153D;
             font-size: 12px;
+            border: 1px solid #D8E3F5;
             transition: all 0.2s ease;
         }
 
@@ -1129,12 +1130,13 @@
             box-shadow: 0 12px 32px rgba(37, 211, 102, 0.6);
         }
 
-        /* ---------------- Rich Footer ---------------- */
-        .sg-footer-dark {
-            padding: 90px 0 40px 0;
-            background: #060A1F;
-            color: #FFFFFF;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        /* ---------------- Rich Pristine White Footer ---------------- */
+        .sg-footer-dark,
+        .sg-footer {
+            padding: 85px 0 40px 0;
+            background: #FFFFFF !important;
+            color: #475467 !important;
+            border-top: 1px solid #E2E8F0 !important;
         }
 
         .sg-footer-title {
@@ -1142,7 +1144,7 @@
             font-weight: 800;
             letter-spacing: 1.2px;
             text-transform: uppercase;
-            color: #FFFFFF;
+            color: #07153D !important;
             margin-bottom: 22px;
         }
 
@@ -1156,13 +1158,13 @@
         }
 
         .sg-footer-links a {
-            color: rgba(255, 255, 255, 0.7);
+            color: #556582 !important;
             font-size: 14px;
             transition: all 0.2s ease;
         }
 
         .sg-footer-links a:hover {
-            color: var(--sg-blue);
+            color: var(--sg-blue) !important;
             transform: translateX(4px);
         }
 
@@ -1170,10 +1172,19 @@
             display: flex;
             align-items: flex-start;
             gap: 12px;
-            color: rgba(255, 255, 255, 0.8);
+            color: #475467 !important;
             font-size: 14px;
             line-height: 1.5;
             margin-bottom: 14px;
+        }
+
+        .sg-footer-contact-item a {
+            color: #07153D !important;
+            transition: color 0.2s;
+        }
+
+        .sg-footer-contact-item a:hover {
+            color: var(--sg-blue) !important;
         }
     </style>
 </head>
@@ -2040,7 +2051,7 @@
         </div>
     </section>
 
-    <!-- ---------------- Rich Footer (Handwritten Sketch Architecture) ---------------- -->
+    <!-- ---------------- Rich Footer (Pristine White Light Theme) ---------------- -->
     <footer class="sg-footer-dark">
         <div class="container-fluid px-lg-5">
             <div class="row gy-5">
@@ -2049,17 +2060,17 @@
                     <div class="d-flex align-items-center gap-3 mb-3">
                         <img src="assets/frontend/img/logo_emblem.png?v=5" alt="Shree Gurus Emblem" style="height: 64px; width: 64px; object-fit: contain;">
                         <div>
-                            <div class="fw-bold text-white fs-4" style="line-height: 1.1; letter-spacing: -0.01em;">SHREE GURUS</div>
-                            <div class="fw-semibold" style="color: #F5BA42; font-size: 14px;">Group of Institutions</div>
+                            <div class="fw-bold fs-4" style="color: #07153D; line-height: 1.1; letter-spacing: -0.01em;">SHREE GURUS</div>
+                            <div class="fw-semibold" style="color: #2E5BFF; font-size: 14px;">Group of Institutions</div>
                         </div>
                     </div>
-                    <p class="text-white-50 small mb-3">VIJAYAWADA &bull; Guiding Minds ★ Building Futures</p>
-                    <p class="text-white-50 small mb-4">
+                    <p class="small mb-3" style="color: #556582;">VIJAYAWADA &bull; Guiding Minds ★ Building Futures</p>
+                    <p class="small mb-4" style="color: #556582;">
                         Premier residential and day-scholar academy dedicated to engineering (IIT-JEE) and medical (NEET) excellence with rigorous daily mentorship and 3-tier error analysis.
                     </p>
-                    <div class="p-3 rounded-3" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <div class="fw-bold small text-warning">Academic Director &amp; Director of Operations:</div>
-                        <div class="fw-bold text-white">Sri. A. Guru Brahmam, <span class="text-white-50">M.Sc Mathematics</span></div>
+                    <div class="p-3 rounded-3" style="background: #F4F7FD; border: 1px solid #DDE6F7;">
+                        <div class="fw-bold small" style="color: #2A4FD6;">Academic Director &amp; Director of Operations:</div>
+                        <div class="fw-bold" style="color: #07153D;">Sri. A. Guru Brahmam, <span style="color: #556582;">M.Sc Mathematics</span></div>
                     </div>
                 </div>
 
@@ -2082,7 +2093,7 @@
                     <div class="sg-footer-contact-item">
                         <i class="fa-solid fa-location-dot text-danger mt-1"></i>
                         <div>
-                            <strong>Head Office:</strong><br>
+                            <strong style="color: #07153D;">Head Office:</strong><br>
                             D.No: 48-19-5/9, Ballem Vari Street,<br>
                             Vijayawada - 520007, Andhra Pradesh
                         </div>
@@ -2091,25 +2102,25 @@
                     <div class="sg-footer-contact-item">
                         <i class="fa-solid fa-phone text-warning mt-1"></i>
                         <div>
-                            <strong>Phone Numbers:</strong><br>
-                            <a href="tel:9640711111" class="text-white fw-bold">+91 9640711111</a> / 
-                            <a href="tel:9171222333" class="text-white fw-bold">+91 9171222333</a>
+                            <strong style="color: #07153D;">Phone Numbers:</strong><br>
+                            <a href="tel:9640711111" class="fw-bold" style="color: #07153D;">+91 9640711111</a> / 
+                            <a href="tel:9171222333" class="fw-bold" style="color: #07153D;">+91 9171222333</a>
                         </div>
                     </div>
 
                     <div class="sg-footer-contact-item">
                         <i class="fa-solid fa-envelope text-primary mt-1"></i>
                         <div>
-                            <strong>Email ID:</strong><br>
-                            <a href="mailto:mail2shreegurus@gmail.com" class="text-white">mail2shreegurus@gmail.com</a>
+                            <strong style="color: #07153D;">Email ID:</strong><br>
+                            <a href="mailto:mail2shreegurus@gmail.com" style="color: #07153D;">mail2shreegurus@gmail.com</a>
                         </div>
                     </div>
 
                     <div class="sg-footer-contact-item">
                         <i class="fa-solid fa-globe text-info mt-1"></i>
                         <div>
-                            <strong>Official Website:</strong><br>
-                            <a href="https://www.shreegurus.com" class="text-white">www.shreegurus.com</a>
+                            <strong style="color: #07153D;">Official Website:</strong><br>
+                            <a href="https://www.shreegurus.com" style="color: #07153D;">www.shreegurus.com</a>
                         </div>
                     </div>
 
@@ -2122,12 +2133,12 @@
                 </div>
             </div>
 
-            <div class="mt-5 pt-4 border-top border-secondary border-opacity-25 d-flex justify-content-between align-items-center flex-wrap gap-3 small text-white-50">
+            <div class="mt-5 pt-4 border-top border-light-subtle d-flex justify-content-between align-items-center flex-wrap gap-3 small" style="color: #64748B;">
                 <div>&copy; 2026 Shree Gurus Group of Institutions. All Rights Reserved.</div>
                 <div class="d-flex gap-4">
-                    <a href="privacy-policy.html" class="text-white-50">Privacy Policy</a>
-                    <a href="terms-and-conditions.html" class="text-white-50">Terms &amp; Conditions</a>
-                    <a href="admissions.html" class="text-white-50">Admissions 2026-27</a>
+                    <a href="privacy-policy.html" style="color: #64748B;">Privacy Policy</a>
+                    <a href="terms-and-conditions.html" style="color: #64748B;">Terms &amp; Conditions</a>
+                    <a href="admissions.html" style="color: #64748B;">Admissions 2026-27</a>
                 </div>
             </div>
         </div>
