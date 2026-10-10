@@ -93,10 +93,30 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 999;
     border-bottom: 2px solid rgba(212, 175, 55, 0.25);
 }
+.sg-brand-logo-img,
 .sg-logo-img {
-    height: 58px;
+    height: 82px;
     width: auto;
+    max-width: 440px;
     object-fit: contain;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+@media (max-width: 991px) {
+    .sg-brand-logo-img,
+    .sg-logo-img {
+        height: 68px;
+        max-width: 340px;
+    }
+}
+
+@media (max-width: 575px) {
+    .sg-brand-logo-img,
+    .sg-logo-img {
+        height: 56px;
+        max-width: 280px;
+    }
 }
 .sg-nav-link {
     color: var(--sg-purple-main) !important;
@@ -264,14 +284,19 @@ h1, h2, h3, h4, h5, h6 {
 .sg-flow-btn .flow-arr-left {
     position: absolute;
     left: -28%;
-    width: 16px;
-    height: 16px;
+    width: 16px !important;
+    height: 16px !important;
+    min-width: 16px !important;
+    max-width: 16px !important;
+    min-height: 16px !important;
+    max-height: 16px !important;
     z-index: 9;
-    fill: none;
-    stroke: currentColor;
+    fill: none !important;
+    stroke: currentColor !important;
     stroke-width: 2.2;
     stroke-linecap: round;
     stroke-linejoin: round;
+    pointer-events: none;
     transition: all 800ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
@@ -329,14 +354,19 @@ h1, h2, h3, h4, h5, h6 {
 .sg-flow-btn .flow-arr-right {
     position: absolute;
     right: 16px;
-    width: 16px;
-    height: 16px;
+    width: 16px !important;
+    height: 16px !important;
+    min-width: 16px !important;
+    max-width: 16px !important;
+    min-height: 16px !important;
+    max-height: 16px !important;
     z-index: 9;
-    fill: none;
-    stroke: currentColor;
+    fill: none !important;
+    stroke: currentColor !important;
     stroke-width: 2.2;
     stroke-linecap: round;
     stroke-linejoin: round;
+    pointer-events: none;
     transition: all 800ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
@@ -346,17 +376,21 @@ h1, h2, h3, h4, h5, h6 {
     stroke: #FFFFFF !important;
 }
 
-/* Variant: Gold Flow Button (for header & primary calls to action) */
-.flow-btn-gold {
-    border-color: rgba(184, 138, 68, 0.6);
-    color: #8E6527 !important;
-    background: rgba(184, 138, 68, 0.08);
+/* Variant: Light Blue / Royal Sapphire Flow Button (for header & primary calls to action) */
+.flow-btn-gold,
+.flow-btn-blue {
+    border-color: rgba(42, 79, 214, 0.45);
+    color: #1A3EB8 !important;
+    background: rgba(42, 79, 214, 0.06);
 }
-.flow-btn-gold .flow-circle {
-    background: linear-gradient(135deg, #B88A44 0%, #DFB76C 50%, #8E6527 100%);
+.flow-btn-gold .flow-circle,
+.flow-btn-blue .flow-circle {
+    background: linear-gradient(135deg, #07153D 0%, #163691 50%, #2A4FD6 100%);
 }
-.flow-btn-gold:hover {
-    box-shadow: 0 10px 25px -5px rgba(184, 138, 68, 0.45);
+.flow-btn-gold:hover,
+.flow-btn-blue:hover {
+    box-shadow: 0 10px 25px -5px rgba(42, 79, 214, 0.4);
+    color: #FFFFFF !important;
 }
 
 /* Variant: Royal Navy Flow Button */
@@ -376,16 +410,16 @@ h1, h2, h3, h4, h5, h6 {
     background: rgba(255, 255, 255, 0.08);
 }
 .flow-btn-white .flow-circle {
-    background: linear-gradient(135deg, #B88A44 0%, #DFB76C 50%, #946E2E 100%);
+    background: linear-gradient(135deg, #163691 0%, #2A4FD6 50%, #60A5FA 100%);
 }
 .flow-btn-white:hover {
-    color: #07153D !important;
+    color: #FFFFFF !important;
 }
 .flow-btn-white:hover .flow-text {
-    color: #07153D !important;
+    color: #FFFFFF !important;
 }
 .flow-btn-white:hover .flow-arr-left {
-    stroke: #07153D !important;
+    stroke: #FFFFFF !important;
 }
 
 /* Form Submit Button Variant */
@@ -394,15 +428,26 @@ h1, h2, h3, h4, h5, h6 {
     padding: 15px 32px;
     font-size: 15px;
     font-weight: 700;
-    border-color: rgba(184, 138, 68, 0.7);
-    color: #8E6527 !important;
+    border-color: rgba(42, 79, 214, 0.45);
+    color: #1A3EB8 !important;
     background: #FFFFFF;
 }
 .flow-btn-submit .flow-circle {
-    background: linear-gradient(135deg, #07153D 0%, #0B2265 50%, #1A3999 100%);
+    background: linear-gradient(135deg, #07153D 0%, #163691 50%, #2A4FD6 100%);
 }
 .flow-btn-submit:hover {
-    box-shadow: 0 12px 28px -6px rgba(7, 21, 61, 0.45);
+    box-shadow: 0 12px 28px -6px rgba(42, 79, 214, 0.45);
+    color: #FFFFFF !important;
+}
+
+/* Light Blue Hero Accent */
+.sg-hero-h1 span.gold,
+.sg-hero-h1 span.light-blue {
+    color: #2E5BFF !important;
+    background: linear-gradient(135deg, #1E44D8 0%, #2E5BFF 50%, #38BDF8 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    display: inline-block;
 }
 
 /* ---------------- Hero Section ---------------- */

@@ -41,7 +41,7 @@
         email: '',
         city: '',
         course: '',
-        academic_year: '2027-28',
+        academic_year: '2026-27',
         campus: 'Vijayawada Campus',
         hostel: 'Not Specified',
         notes: '',
@@ -57,8 +57,8 @@
         <!-- Floating Launcher -->
         <div class="guru-bot-launcher" id="guruBotLauncher" onclick="window.GuruBot.toggle()">
             <div class="guru-bot-tooltip" id="guruBotTooltip">
-                <span class="badge-gold">2027-28</span>
-                <span>Admissions in progress! Register here.</span>
+                <span class="badge-gold">2026-27</span>
+                <span>Admissions Open for 2026–27! Register here.</span>
                 <span class="guru-bot-tooltip-close" onclick="event.stopPropagation(); window.GuruBot.dismissTooltip();">&times;</span>
             </div>
             <div class="guru-bot-btn">
@@ -101,7 +101,7 @@
                 <!-- Welcome Banner -->
                 <div class="guru-welcome-banner">
                     <h6>SHREE GURUS NEET &amp; JEE ACADEMY</h6>
-                    <p>Admissions Open for 2027–28 • Boys &amp; Girls Campuses</p>
+                    <p>Admissions Open for 2026–27 • Boys &amp; Girls Campuses</p>
                     <div class="guru-welcome-badges">
                         <span class="guru-badge-chip"><i class="fa-solid fa-award me-1 text-warning"></i> 100% Pass</span>
                         <span class="guru-badge-chip"><i class="fa-solid fa-star me-1 text-warning"></i> 465/470 Topper</span>
@@ -122,7 +122,7 @@
                 <div class="guru-input-helper">
                     <span>Direct Helpline: <strong>+91 9640711111</strong></span>
                     <span>&bull;</span>
-                    <a href="https://wa.me/919640711111?text=Hello%20Shree%20Gurus%20Admissions%20Team,%20I%20want%20to%20know%20about%202027-28%20admissions." target="_blank">
+                    <a href="https://wa.me/919640711111?text=Hello%20Shree%20Gurus%20Admissions%20Team,%20I%20want%20to%20know%20about%202026-27%20admissions." target="_blank">
                         <i class="fa-brands fa-whatsapp me-1"></i> WhatsApp
                     </a>
                 </div>
@@ -242,7 +242,7 @@
                 I am <strong>Guru AI</strong>, your personal Admissions Counselor. I'll guide you step-by-step through our <strong>Course Registration &amp; Admission Enquiry</strong>.<br><br>
                 To get started, may I have your <strong>Full Name</strong> (Student or Parent)?
             `, [
-                { label: "🎓 Register for 2027-28", value: "I want to register for 2027-28" },
+                { label: "🎓 Register for 2026-27", value: "I want to register for 2026-27" },
                 { label: "❓ Ask a Question", value: "What are your courses and fee?" }
             ]);
             updatePlaceholder("Type your full name...");
@@ -343,8 +343,8 @@
                 break;
             case 5:
                 appendMessage('bot', `Which <strong>Academic Year</strong> are you applying for?`, [
-                    { label: "🎓 2027–28 Admissions (In Progress)", value: "2027-28", gold: true },
-                    { label: "⚡ 2026–27 Immediate Admission", value: "2026-27" }
+                    { label: "🎓 2026–27 Admissions (Active Intake)", value: "2026-27", gold: true },
+                    { label: "⚡ 2027–28 Foundation / Early Batch", value: "2027-28" }
                 ]);
                 break;
             case 6:
@@ -371,7 +371,7 @@
             case 0: // Name
                 if (text.toLowerCase().includes('register') || text.toLowerCase().includes('admission') || text.toLowerCase().includes('start')) {
                     showTyping(() => {
-                        appendMessage('bot', "Great! Let's get you registered for <strong>2027–28 Admissions</strong>. 🎓<br><br>Please enter the <strong>Student or Parent's Full Name</strong>:");
+                        appendMessage('bot', "Great! Let's get you registered for <strong>2026–27 Admissions</strong>. 🎓<br><br>Please enter the <strong>Student or Parent's Full Name</strong>:");
                         updatePlaceholder("Type full name (e.g. Rahul Sharma)...");
                     });
                     return;
@@ -465,14 +465,14 @@
                         Selected: <strong>${regData.course}</strong> 🎯<br><br>
                         Which <strong>Academic Year</strong> are you seeking admission for?
                     `, [
-                        { label: "🎓 2027–28 Admissions (In Progress)", value: "2027-28", gold: true },
-                        { label: "⚡ 2026–27 Immediate Joining", value: "2026-27" }
+                        { label: "🎓 2026–27 Admissions (Active Intake)", value: "2026-27", gold: true },
+                        { label: "⚡ 2027–28 Foundation / Early Batch", value: "2027-28" }
                     ]);
                 });
                 break;
 
             case 5: // Academic Year
-                regData.academic_year = text.includes('2026') ? '2026-27' : '2027-28';
+                regData.academic_year = text.includes('2027') ? '2027-28' : '2026-27';
                 currentStep = 6;
                 showTyping(() => {
                     appendMessage('bot', `

@@ -23,8 +23,11 @@
     <link rel="stylesheet" href="assets/frontend/css/vendor/bootstrap.min.css">
     <link rel="stylesheet" href="assets/frontend/css/vendor/fontawesome-pro.css">
 
+    <!-- Shree Gurus Master Theme & FlowButton CSS -->
+    <link rel="stylesheet" href="assets/frontend/css/shreegurus-theme.css?v=9">
+
     <!-- Guru AI Admissions Chatbot Stylesheet -->
-    <link rel="stylesheet" href="assets/frontend/css/guru-bot.css">
+    <link rel="stylesheet" href="assets/frontend/css/guru-bot.css?v=9">
 
     <style>
         :root {
@@ -120,16 +123,30 @@
         }
 
         .sg-brand-logo-img {
-            height: 60px;
+            height: 82px;
             width: auto;
-            max-width: 320px;
+            max-width: 440px;
             object-fit: contain;
             display: block;
             transition: transform 0.3s ease;
         }
 
+        @media (max-width: 991px) {
+            .sg-brand-logo-img {
+                height: 68px;
+                max-width: 340px;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .sg-brand-logo-img {
+                height: 56px;
+                max-width: 280px;
+            }
+        }
+
         .sg-brand-logo-img:hover {
-            transform: scale(1.04);
+            transform: scale(1.02);
         }
 
         .sg-nav-links {
@@ -629,10 +646,10 @@
                 <!-- Action Button: Admission Enquiry (FlowButton) -->
                 <div class="d-flex align-items-center gap-3">
                     <a href="admissions.html" class="flow-btn flow-btn-gold">
-                        <svg class="flow-arr-left" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        <svg class="flow-arr-left" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;min-width:16px;max-width:16px;pointer-events:none;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                         <span class="flow-text">Admission Enquiry</span>
                         <span class="flow-circle"></span>
-                        <svg class="flow-arr-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        <svg class="flow-arr-right" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;min-width:16px;max-width:16px;pointer-events:none;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
                 </div>
             </div>
@@ -797,10 +814,10 @@
                         <!-- Submit Button matching FlowButton Component -->
                         <div class="col-12 mt-4 pt-2">
                             <button type="submit" class="flow-btn flow-btn-submit" id="submitBtn">
-                                <svg class="flow-arr-left" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                <svg class="flow-arr-left" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;min-width:16px;max-width:16px;pointer-events:none;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                                 <span class="flow-text">Submit Admission Enquiry</span>
                                 <span class="flow-circle"></span>
-                                <svg class="flow-arr-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                <svg class="flow-arr-right" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;min-width:16px;max-width:16px;pointer-events:none;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                             </button>
                             
                             <!-- Security disclaimer -->
@@ -1014,6 +1031,6 @@
     </script>
 
     <!-- Guru AI Admissions Chatbot Widget -->
-    <script src="assets/frontend/js/guru-bot.js?v=7"></script>
+    <script src="assets/frontend/js/guru-bot.js?v=9"></script>
 </body>
 </html>

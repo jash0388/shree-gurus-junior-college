@@ -23,8 +23,11 @@
     <link rel="stylesheet" href="assets/frontend/css/vendor/bootstrap.min.css">
     <link rel="stylesheet" href="assets/frontend/css/vendor/fontawesome-pro.css">
 
+    <!-- Shree Gurus Master Theme & FlowButton CSS -->
+    <link rel="stylesheet" href="assets/frontend/css/shreegurus-theme.css?v=9">
+
     <!-- Guru AI Admissions Chatbot Stylesheet -->
-    <link rel="stylesheet" href="assets/frontend/css/guru-bot.css">
+    <link rel="stylesheet" href="assets/frontend/css/guru-bot.css?v=9">
 
     <style>
         :root {
@@ -173,20 +176,34 @@
         }
 
         .sg-brand-logo-img {
-            height: 60px;
+            height: 82px;
             width: auto;
-            max-width: 320px;
+            max-width: 440px;
             object-fit: contain;
             display: block;
             transition: transform 0.3s ease;
         }
 
+        @media (max-width: 991px) {
+            .sg-brand-logo-img {
+                height: 68px;
+                max-width: 340px;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .sg-brand-logo-img {
+                height: 56px;
+                max-width: 280px;
+            }
+        }
+
         .sg-brand-logo-img:hover {
-            transform: scale(1.04);
+            transform: scale(1.02);
         }
 
         .sg-btn-enquiry {
-            background: var(--sg-gold);
+            background: var(--sg-blue);
             color: #FFFFFF !important;
             font-size: 13.5px;
             font-weight: 600;
@@ -199,15 +216,187 @@
             gap: 8px;
             border: none;
             transition: all 0.2s ease;
-            box-shadow: 0 2px 8px rgba(157, 104, 36, 0.25);
+            box-shadow: 0 4px 14px rgba(42, 79, 214, 0.28);
             text-decoration: none;
         }
 
         .sg-btn-enquiry:hover {
-            background: var(--sg-gold-dark);
+            background: var(--sg-blue-dark);
             transform: translateY(-1px);
-            box-shadow: 0 4px 14px rgba(157, 104, 36, 0.35);
+            box-shadow: 0 6px 18px rgba(42, 79, 214, 0.38);
             color: #FFFFFF;
+        }
+
+        /* ---------------- FlowButton (shadcn-inspired Morphing CTA) ---------------- */
+        .flow-btn,
+        .sg-flow-btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            overflow: hidden;
+            border-radius: 100px;
+            padding: 11px 32px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            cursor: pointer;
+            text-decoration: none !important;
+            background: transparent;
+            transition: all 600ms cubic-bezier(0.23, 1, 0.32, 1);
+            border: 1.5px solid rgba(42, 79, 214, 0.45);
+            color: #1A3EB8 !important;
+            user-select: none;
+            outline: none;
+        }
+
+        .flow-btn:active,
+        .sg-flow-btn:active {
+            transform: scale(0.96);
+        }
+
+        .flow-btn:hover,
+        .sg-flow-btn:hover {
+            border-color: transparent !important;
+            color: #FFFFFF !important;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px -5px rgba(42, 79, 214, 0.4);
+        }
+
+        .flow-btn .flow-arr-left,
+        .sg-flow-btn .flow-arr-left {
+            position: absolute;
+            left: -28%;
+            width: 16px !important;
+            height: 16px !important;
+            min-width: 16px !important;
+            max-width: 16px !important;
+            min-height: 16px !important;
+            max-height: 16px !important;
+            z-index: 9;
+            fill: none !important;
+            stroke: currentColor !important;
+            stroke-width: 2.2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            pointer-events: none;
+            transition: all 800ms cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .flow-btn:hover .flow-arr-left,
+        .sg-flow-btn:hover .flow-arr-left {
+            left: 16px;
+            stroke: #FFFFFF !important;
+        }
+
+        .flow-btn .flow-text,
+        .sg-flow-btn .flow-text {
+            position: relative;
+            z-index: 1;
+            transform: translateX(-10px);
+            transition: all 800ms ease-out;
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        .flow-btn:hover .flow-text,
+        .sg-flow-btn:hover .flow-text {
+            transform: translateX(10px);
+            color: #FFFFFF !important;
+        }
+
+        .flow-btn .flow-circle,
+        .sg-flow-btn .flow-circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 0;
+            background: #07153D;
+            transition: width 800ms cubic-bezier(0.19, 1, 0.22, 1),
+                        height 800ms cubic-bezier(0.19, 1, 0.22, 1),
+                        opacity 800ms cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .flow-btn:hover .flow-circle,
+        .sg-flow-btn:hover .flow-circle {
+            width: 420px;
+            height: 420px;
+            opacity: 1;
+        }
+
+        .flow-btn .flow-arr-right,
+        .sg-flow-btn .flow-arr-right {
+            position: absolute;
+            right: 16px;
+            width: 16px !important;
+            height: 16px !important;
+            min-width: 16px !important;
+            max-width: 16px !important;
+            min-height: 16px !important;
+            max-height: 16px !important;
+            z-index: 9;
+            fill: none !important;
+            stroke: currentColor !important;
+            stroke-width: 2.2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            pointer-events: none;
+            transition: all 800ms cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .flow-btn:hover .flow-arr-right,
+        .sg-flow-btn:hover .flow-arr-right {
+            right: -28%;
+            stroke: #FFFFFF !important;
+        }
+
+        .flow-btn-gold,
+        .flow-btn-blue {
+            border-color: rgba(42, 79, 214, 0.45);
+            color: #1A3EB8 !important;
+            background: rgba(42, 79, 214, 0.06);
+        }
+        .flow-btn-gold .flow-circle,
+        .flow-btn-blue .flow-circle {
+            background: linear-gradient(135deg, #07153D 0%, #163691 50%, #2A4FD6 100%);
+        }
+        .flow-btn-gold:hover,
+        .flow-btn-blue:hover {
+            box-shadow: 0 10px 25px -5px rgba(42, 79, 214, 0.4);
+            color: #FFFFFF !important;
+        }
+
+        .flow-btn-navy {
+            border-color: rgba(7, 21, 61, 0.4);
+            color: #07153D !important;
+            background: rgba(7, 21, 61, 0.04);
+        }
+        .flow-btn-navy .flow-circle {
+            background: linear-gradient(135deg, #07153D 0%, #0B2265 60%, #1A3999 100%);
+        }
+
+        .flow-btn-submit {
+            width: 100%;
+            padding: 15px 32px;
+            font-size: 15px;
+            font-weight: 700;
+            border-color: rgba(42, 79, 214, 0.45);
+            color: #1A3EB8 !important;
+            background: #FFFFFF;
+        }
+        .flow-btn-submit .flow-circle {
+            background: linear-gradient(135deg, #07153D 0%, #163691 50%, #2A4FD6 100%);
+        }
+        .flow-btn-submit:hover {
+            box-shadow: 0 12px 28px -6px rgba(42, 79, 214, 0.45);
+            color: #FFFFFF !important;
         }
 
         /* ---------------- Hero Section (Poster Presentation) ---------------- */
@@ -249,8 +438,13 @@
             letter-spacing: -1px;
         }
 
-        .sg-hero-h1 span.gold {
-            color: var(--sg-gold-dark);
+        .sg-hero-h1 span.gold,
+        .sg-hero-h1 span.light-blue {
+            color: #2E5BFF !important;
+            background: linear-gradient(135deg, #1E44D8 0%, #2E5BFF 50%, #38BDF8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
         }
 
         .sg-hero-sub {
@@ -1076,10 +1270,10 @@
                 <!-- Action Button: Admission Enquiry (FlowButton) -->
                 <div class="d-flex align-items-center gap-3">
                     <a href="#enquiry" class="flow-btn flow-btn-gold">
-                        <svg class="flow-arr-left" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        <svg class="flow-arr-left" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;min-width:16px;max-width:16px;pointer-events:none;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                         <span class="flow-text">Admission Enquiry</span>
                         <span class="flow-circle"></span>
-                        <svg class="flow-arr-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        <svg class="flow-arr-right" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;min-width:16px;max-width:16px;pointer-events:none;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
                 </div>
             </div>
@@ -1141,16 +1335,16 @@
 
                     <div class="d-flex align-items-center gap-3 flex-wrap pt-2">
                         <a href="#enquiry" class="flow-btn flow-btn-gold">
-                            <svg class="flow-arr-left" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            <svg class="flow-arr-left" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;min-width:16px;max-width:16px;pointer-events:none;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                             <span class="flow-text">Apply / Enquire Now</span>
                             <span class="flow-circle"></span>
-                            <svg class="flow-arr-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            <svg class="flow-arr-right" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;min-width:16px;max-width:16px;pointer-events:none;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                         </a>
                         <button type="button" class="flow-btn flow-btn-navy" onclick="openPosterModal()">
-                            <svg class="flow-arr-left" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            <svg class="flow-arr-left" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;min-width:16px;max-width:16px;pointer-events:none;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                             <span class="flow-text">View Full Pamphlet</span>
                             <span class="flow-circle"></span>
-                            <svg class="flow-arr-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            <svg class="flow-arr-right" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;min-width:16px;max-width:16px;pointer-events:none;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                         </button>
                     </div>
                 </div>
@@ -1819,10 +2013,10 @@
                         <!-- Submit Button matching FlowButton Component -->
                         <div class="col-12 mt-4 pt-2">
                             <button type="submit" class="flow-btn flow-btn-submit" id="submitBtn">
-                                <svg class="flow-arr-left" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                <svg class="flow-arr-left" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;min-width:16px;max-width:16px;pointer-events:none;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                                 <span class="flow-text">Submit Admission Enquiry</span>
                                 <span class="flow-circle"></span>
-                                <svg class="flow-arr-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                <svg class="flow-arr-right" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;min-width:16px;max-width:16px;pointer-events:none;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                             </button>
                             
                             <!-- Security disclaimer -->
@@ -2002,10 +2196,10 @@
                 <div class="modal-footer border-0 px-4 pb-3 pt-0 d-flex justify-content-between align-items-center flex-wrap gap-2">
                     <div class="text-white-50 small" id="sgVideoModalDesc" style="max-width: 600px;">Campus video documentary.</div>
                     <a href="admissions.html" class="flow-btn flow-btn-gold">
-                        <svg class="flow-arr-left" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        <svg class="flow-arr-left" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;min-width:16px;max-width:16px;pointer-events:none;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                         <span class="flow-text">Admission Enquiry</span>
                         <span class="flow-circle"></span>
-                        <svg class="flow-arr-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        <svg class="flow-arr-right" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;min-width:16px;max-width:16px;pointer-events:none;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
                 </div>
             </div>
@@ -2172,6 +2366,6 @@
     </script>
 
     <!-- Guru AI Admissions Chatbot Widget -->
-    <script src="assets/frontend/js/guru-bot.js?v=7"></script>
+    <script src="assets/frontend/js/guru-bot.js?v=9"></script>
 </body>
 </html>

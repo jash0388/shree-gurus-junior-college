@@ -8,8 +8,8 @@
     --guru-primary-light: #0D2261;
     --guru-accent: #2A4FD6;
     --guru-accent-hover: #1E3EBA;
-    --guru-gold: #B88A44;
-    --guru-gold-light: #F4E8D1;
+    --guru-gold: #2A4FD6;
+    --guru-gold-light: #E0EAFF;
     --guru-bg: #FFFFFF;
     --guru-bubble-bot: #F0F4FC;
     --guru-bubble-user: #0D2261;
@@ -52,14 +52,15 @@
 }
 
 .guru-bot-tooltip .badge-gold {
-    background: var(--guru-gold);
+    background: linear-gradient(135deg, #1E44D8 0%, #2A4FD6 100%);
     color: #FFFFFF;
     font-size: 10px;
     font-weight: 800;
-    padding: 2px 7px;
+    padding: 3px 8px;
     border-radius: 99px;
     letter-spacing: 0.5px;
     text-transform: uppercase;
+    box-shadow: 0 2px 6px rgba(42, 79, 214, 0.35);
 }
 
 .guru-bot-tooltip-close {
