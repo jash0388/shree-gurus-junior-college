@@ -14,5 +14,21 @@
     "notes": "Looking for hostel admission for 2026 batch",
     "source": "AI Chatbot Registration",
     "status": "Pending Followup"
+  },
+  {
+    "enquiry_id": "SG-261010180305",
+    "timestamp": "2026-10-10 18:03:05",
+    "name": "Priya Rao",
+    "parent_name": "",
+    "phone": "9848011223",
+    "email": "priya.rao@example.com",
+    "city": "Vijayawada",
+    "course": "Inter BiPC (NEET Integrated)",
+    "academic_year": "2027-28",
+    "campus": "Vijayawada Girls Campus",
+    "hostel": "Yes",
+    "notes": "FlowButton Integration Test",
+    "source": "AI Chatbot Registration",
+    "status": "Pending Followup"
   }
 ]

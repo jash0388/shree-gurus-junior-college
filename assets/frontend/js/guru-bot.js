@@ -543,8 +543,11 @@
                     <tr><td class="label">Campus:</td><td class="val">${regData.campus}</td></tr>
                     <tr><td class="label">Hostel:</td><td class="val">${regData.hostel}</td></tr>
                 </table>
-                <button class="guru-submit-btn" onclick="window.GuruBot.submitRegistration()">
-                    <i class="fa-solid fa-paper-plane"></i> Confirm &amp; Submit Registration
+                <button class="flow-btn flow-btn-submit guru-submit-btn" style="margin-top:14px;" onclick="window.GuruBot.submitRegistration()">
+                    <svg class="flow-arr-left" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    <span class="flow-text">Confirm &amp; Submit Registration</span>
+                    <span class="flow-circle"></span>
+                    <svg class="flow-arr-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </button>
             </div>
         `;

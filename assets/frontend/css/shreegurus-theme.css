@@ -219,6 +219,192 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--sg-gold-light) !important;
 }
 
+/* ==========================================================================
+   FLOW BUTTON - Interactive Morphing CTA Component (shadcn-inspired)
+   Pill (100px) -> Rounded Rect (12px), Sliding Dual Arrows, Expanding Circle
+   ========================================================================== */
+.flow-btn,
+.sg-flow-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    overflow: hidden;
+    border-radius: 100px;
+    padding: 11px 32px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    text-decoration: none !important;
+    background: transparent;
+    transition: all 600ms cubic-bezier(0.23, 1, 0.32, 1);
+    border: 1.5px solid rgba(7, 21, 61, 0.35);
+    color: #07153D !important;
+    user-select: none;
+    outline: none;
+}
+
+.flow-btn:active,
+.sg-flow-btn:active {
+    transform: scale(0.95);
+}
+
+.flow-btn:hover,
+.sg-flow-btn:hover {
+    border-color: transparent !important;
+    color: #FFFFFF !important;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px -5px rgba(7, 21, 61, 0.28);
+}
+
+/* Left Arrow (arr-2) - enters from off-left */
+.flow-btn .flow-arr-left,
+.sg-flow-btn .flow-arr-left {
+    position: absolute;
+    left: -28%;
+    width: 16px;
+    height: 16px;
+    z-index: 9;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: all 800ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.flow-btn:hover .flow-arr-left,
+.sg-flow-btn:hover .flow-arr-left {
+    left: 16px;
+    stroke: #FFFFFF !important;
+}
+
+/* Text - shifts right on hover */
+.flow-btn .flow-text,
+.sg-flow-btn .flow-text {
+    position: relative;
+    z-index: 1;
+    transform: translateX(-10px);
+    transition: all 800ms ease-out;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.flow-btn:hover .flow-text,
+.sg-flow-btn:hover .flow-text {
+    transform: translateX(10px);
+    color: #FFFFFF !important;
+}
+
+/* Circle - expands from center */
+.flow-btn .flow-circle,
+.sg-flow-btn .flow-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 0;
+    background: #07153D;
+    transition: width 800ms cubic-bezier(0.19, 1, 0.22, 1),
+                height 800ms cubic-bezier(0.19, 1, 0.22, 1),
+                opacity 800ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.flow-btn:hover .flow-circle,
+.sg-flow-btn:hover .flow-circle {
+    width: 420px;
+    height: 420px;
+    opacity: 1;
+}
+
+/* Right Arrow (arr-1) - exits to off-right */
+.flow-btn .flow-arr-right,
+.sg-flow-btn .flow-arr-right {
+    position: absolute;
+    right: 16px;
+    width: 16px;
+    height: 16px;
+    z-index: 9;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: all 800ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.flow-btn:hover .flow-arr-right,
+.sg-flow-btn:hover .flow-arr-right {
+    right: -28%;
+    stroke: #FFFFFF !important;
+}
+
+/* Variant: Gold Flow Button (for header & primary calls to action) */
+.flow-btn-gold {
+    border-color: rgba(184, 138, 68, 0.6);
+    color: #8E6527 !important;
+    background: rgba(184, 138, 68, 0.08);
+}
+.flow-btn-gold .flow-circle {
+    background: linear-gradient(135deg, #B88A44 0%, #DFB76C 50%, #8E6527 100%);
+}
+.flow-btn-gold:hover {
+    box-shadow: 0 10px 25px -5px rgba(184, 138, 68, 0.45);
+}
+
+/* Variant: Royal Navy Flow Button */
+.flow-btn-navy {
+    border-color: rgba(7, 21, 61, 0.4);
+    color: #07153D !important;
+    background: rgba(7, 21, 61, 0.04);
+}
+.flow-btn-navy .flow-circle {
+    background: linear-gradient(135deg, #07153D 0%, #0B2265 60%, #1A3999 100%);
+}
+
+/* Variant: Dark Hero / White Outline */
+.flow-btn-white {
+    border-color: rgba(255, 255, 255, 0.45);
+    color: #FFFFFF !important;
+    background: rgba(255, 255, 255, 0.08);
+}
+.flow-btn-white .flow-circle {
+    background: linear-gradient(135deg, #B88A44 0%, #DFB76C 50%, #946E2E 100%);
+}
+.flow-btn-white:hover {
+    color: #07153D !important;
+}
+.flow-btn-white:hover .flow-text {
+    color: #07153D !important;
+}
+.flow-btn-white:hover .flow-arr-left {
+    stroke: #07153D !important;
+}
+
+/* Form Submit Button Variant */
+.flow-btn-submit {
+    width: 100%;
+    padding: 15px 32px;
+    font-size: 15px;
+    font-weight: 700;
+    border-color: rgba(184, 138, 68, 0.7);
+    color: #8E6527 !important;
+    background: #FFFFFF;
+}
+.flow-btn-submit .flow-circle {
+    background: linear-gradient(135deg, #07153D 0%, #0B2265 50%, #1A3999 100%);
+}
+.flow-btn-submit:hover {
+    box-shadow: 0 12px 28px -6px rgba(7, 21, 61, 0.45);
+}
+
 /* ---------------- Hero Section ---------------- */
 .sg-hero-section {
     background: #08080c;
