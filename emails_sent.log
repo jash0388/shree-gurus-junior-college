@@ -36,3 +36,22 @@ Source       : AI Chatbot Registration
 Remarks/Note : FlowButton Integration Test
 ========================================================================
 
+
+========================================================================
+[EMAIL DISPATCH] New Admission Enquiry Received
+Date & Time  : 2026-10-10 19:35:27
+Enquiry ID   : SG-261010193527
+Target Email : mail2shreegurus@gmail.com
+------------------------------------------------------------------------
+Student Name : testing
+Phone No     : 1234567890
+Email        : testing@gmail.com
+City/Town    : Vijayawada (NTR Dist), Andhra Pradesh
+Target Course: BRAHMOS: IPE + NEET Medical (Bi.P.C)
+Academic Year: 2026 - 2027
+Campus Pref  : Residential (AC Class / Non-AC Hostel)
+Hostel Req   : Yes
+Source       : Admissions Page Enquiry Form
+Remarks/Note : Class: Class 11 / Inter 1st Year | Campus: Residential (AC Class / Non-AC Hostel)
+========================================================================
+

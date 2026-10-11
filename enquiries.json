@@ -30,5 +30,21 @@
     "notes": "FlowButton Integration Test",
     "source": "AI Chatbot Registration",
     "status": "Pending Followup"
+  },
+  {
+    "enquiry_id": "SG-261010193527",
+    "timestamp": "2026-10-10 19:35:27",
+    "name": "testing",
+    "parent_name": "",
+    "phone": "1234567890",
+    "email": "testing@gmail.com",
+    "city": "Vijayawada (NTR Dist), Andhra Pradesh",
+    "course": "BRAHMOS: IPE + NEET Medical (Bi.P.C)",
+    "academic_year": "2026 - 2027",
+    "campus": "Residential (AC Class / Non-AC Hostel)",
+    "hostel": "Yes",
+    "notes": "Class: Class 11 / Inter 1st Year | Campus: Residential (AC Class / Non-AC Hostel)",
+    "source": "Admissions Page Enquiry Form",
+    "status": "Pending Followup"
   }
 ]
