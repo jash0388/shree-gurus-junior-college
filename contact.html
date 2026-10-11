@@ -616,20 +616,19 @@
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="programs.html#repeaters"><i class="fa-solid fa-bolt text-warning me-2"></i> JEE Repeaters / Long Term</a></li>
                                 <li><a class="dropdown-item" href="programs.html#repeaters"><i class="fa-solid fa-heart-pulse text-danger me-2"></i> NEET Repeaters / Long Term</a></li>
-                                <li><a class="dropdown-item" href="programs.html#foundation"><i class="fa-solid fa-graduation-cap text-success me-2"></i> Foundation (Classes VI to X)</a></li>
                             </ul>
                         </li>
 
                         <!-- Life @ Campus Dropdown -->
                         <li class="sg-nav-item dropdown">
-                            <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="dropdown-toggle" href="about.html#facilities" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Life @ Campus
                             </a>
                             <ul class="dropdown-menu shadow">
-                                <li><a class="dropdown-item" href="index.html#facilities"><i class="fa-solid fa-utensils text-warning me-2"></i> Food, Dining &amp; Health</a></li>
-                                <li><a class="dropdown-item" href="index.html#facilities"><i class="fa-solid fa-hotel text-primary me-2"></i> Hostel &amp; Boarding Facilities</a></li>
-                                <li><a class="dropdown-item" href="index.html#facilities"><i class="fa-solid fa-book-open text-info me-2"></i> Library &amp; Study Materials</a></li>
-                                <li><a class="dropdown-item" href="index.html#facilities"><i class="fa-solid fa-volleyball text-success me-2"></i> Social &amp; Cultural Activities</a></li>
+                                <li><a class="dropdown-item" href="about.html#facilities"><i class="fa-solid fa-utensils text-warning me-2"></i> Food, Dining &amp; Health</a></li>
+                                <li><a class="dropdown-item" href="about.html#facilities"><i class="fa-solid fa-hotel text-primary me-2"></i> Hostel &amp; Boarding Facilities</a></li>
+                                <li><a class="dropdown-item" href="about.html#facilities"><i class="fa-solid fa-book-open text-info me-2"></i> Library &amp; Study Materials</a></li>
+                                <li><a class="dropdown-item" href="about.html#facilities"><i class="fa-solid fa-volleyball text-success me-2"></i> Social &amp; Cultural Activities</a></li>
                             </ul>
                         </li>
 
@@ -713,9 +712,9 @@
                             <label class="sg-field-label">Academic Year</label>
                             <div class="sg-input-wrapper">
                                 <i class="fa-regular fa-calendar sg-input-icon"></i>
-                                <select class="sg-native-select" name="year" required>
+                                <select class="sg-native-select" name="year" id="contactYearSelect" onchange="syncContactCoursesWithYear()" required>
                                     <option value="2026 - 2027 (Active Intake)" selected>2026 - 2027 (Active Intake)</option>
-                                    <option value="2027 - 2028 (Foundation)">2027 - 2028 (Foundation)</option>
+                                    <option value="2027 - 2028">2027 - 2028 (Full Intake: Trishul, Sindoor &amp; Brahmos)</option>
                                 </select>
                             </div>
                         </div>
@@ -767,7 +766,6 @@
                                     <option value="Class 11 / Inter 1st Year">Class 11 / Intermediate 1st Year</option>
                                     <option value="Class 12 / Inter 2nd Year">Class 12 / Intermediate 2nd Year</option>
                                     <option value="Long Term Repeaters">Long Term Repeaters (Target 2027)</option>
-                                    <option value="Foundation Class 6-10">Foundation Courses (Classes VI to X)</option>
                                 </select>
                             </div>
                         </div>
@@ -777,14 +775,12 @@
                             <label class="sg-field-label">Select Course</label>
                             <div class="sg-input-wrapper">
                                 <i class="fa-solid fa-book-open sg-input-icon"></i>
-                                <select class="sg-native-select" name="course" required>
-                                    <option value="" disabled selected>-- Choose Course --</option>
-                                    <option value="Board + JEE Main + JEE Advanced">Board + JEE Main &amp; Advanced (M.P.C)</option>
-                                    <option value="Board + NEET">Board + NEET Medical (Bi.P.C)</option>
-                                    <option value="JEE Advanced Repeaters">JEE Main &amp; Advanced Repeater Batch</option>
-                                    <option value="NEET Super-60 Repeaters">NEET Super-60 Medical Repeater Batch</option>
-                                    <option value="Gurus Foundation">Gurus Foundation Olympiad Track</option>
+                                <select class="sg-native-select" name="course" id="contactCourseSelect" required>
+                                    <option value="BRAHMOS: IPE + NEET Medical (Bi.P.C)" selected>BRAHMOS: IPE + NEET Medical (Bi.P.C)</option>
                                 </select>
+                            </div>
+                            <div id="contactYearNotice" class="small mt-2 p-2 rounded-2" style="background:#F0FDF4; border:1px solid #BBF7D0; color:#166534;">
+                                <i class="fa-solid fa-circle-check me-1"></i> <strong>2026–2027 Session:</strong> Admissions exclusively active for <strong>NEET Medical (Brahmos)</strong>.
                             </div>
                         </div>
 
@@ -911,7 +907,7 @@
                         Empowering Future Doctors &amp; Engineers.
                     </h2>
                     <p class="mb-4" style="color: #556582; max-width: 480px;">
-                        Vijayawada's premier coaching institute for NEET, IIT-JEE, and Advanced Foundation tracks with 24/7 faculty mentoring.
+                        Vijayawada's premier coaching institute for NEET and IIT-JEE tracks with 24/7 faculty mentoring.
                     </p>
                 </div>
 
@@ -930,7 +926,7 @@
                             <ul class="sg-footer-link-list">
                                 <li><a href="programs.html#neet">NEET MEDICAL</a></li>
                                 <li><a href="programs.html#jee">IIT-JEE ENGG</a></li>
-                                <li><a href="programs.html#foundation">FOUNDATION (VI–X)</a></li>
+                                <li><a href="programs.html#longterm">LONG-TERM REPEATERS</a></li>
                                 <li><a href="privacy-policy.html">PRIVACY POLICY</a></li>
                             </ul>
                         </div>
@@ -951,6 +947,40 @@
 
     <!-- Form Handler Script with Live Excel & Email Dispatch -->
     <script>
+        function syncContactCoursesWithYear() {
+            const yearSelect = document.getElementById('contactYearSelect');
+            const courseSelect = document.getElementById('contactCourseSelect');
+            const notice = document.getElementById('contactYearNotice');
+            if (!yearSelect || !courseSelect) return;
+
+            if (yearSelect.value.includes('2026')) {
+                // 2026 - 2027: ONLY NEET IS AVAILABLE
+                courseSelect.innerHTML = `
+                    <option value="BRAHMOS: IPE + NEET Medical (Bi.P.C)" selected>BRAHMOS: IPE + NEET Medical (Bi.P.C)</option>
+                `;
+                if (notice) {
+                    notice.style.background = "#F0FDF4";
+                    notice.style.borderColor = "#BBF7D0";
+                    notice.style.color = "#166534";
+                    notice.innerHTML = '<i class="fa-solid fa-circle-check me-1"></i> <strong>2026–2027 Session:</strong> Admissions exclusively active for <strong>NEET Medical (Brahmos)</strong>.';
+                }
+            } else {
+                // 2027 - 2028: TRISHUL, SINDOOR, BRAHMOS
+                courseSelect.innerHTML = `
+                    <option value="" disabled selected>-- Select 2027-28 Program --</option>
+                    <option value="TRISHUL: IPE + JEE Main (M.P.C)">TRISHUL: IPE + JEE Main (M.P.C)</option>
+                    <option value="SINDOOR: IPE + JEE Advanced (M.P.C)">SINDOOR: IPE + JEE Advanced (M.P.C)</option>
+                    <option value="BRAHMOS: IPE + NEET Medical (Bi.P.C)">BRAHMOS: IPE + NEET Medical (Bi.P.C)</option>
+                `;
+                if (notice) {
+                    notice.style.background = "#EFF6FF";
+                    notice.style.borderColor = "#DBEAFE";
+                    notice.style.color = "#1E40AF";
+                    notice.innerHTML = '<i class="fa-solid fa-sparkles me-1"></i> <strong>2027–2028 Session:</strong> All programs (<strong>Trishul</strong> - JEE Main, <strong>Sindoor</strong> - JEE Advanced, <strong>Brahmos</strong> - NEET) open for pre-booking!';
+                }
+            }
+        }
+
         function handleEnquirySubmit(e) {
             e.preventDefault();
             const form = document.getElementById('admissionEnquiryForm');

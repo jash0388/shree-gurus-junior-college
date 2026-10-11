@@ -1980,3 +1980,182 @@ body.sg-loading-lock {
     color: #07153D;
     margin-bottom: 4px;
 }
+
+/* ============================================================
+   PROGRAM BROCHURES / FLYERS SLIDING SCREEN (HOME PAGE)
+   ============================================================ */
+.sg-brochure-scroller-sec {
+    padding: 60px 0 70px 0;
+    background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
+    overflow: hidden;
+    border-bottom: 1px solid #E2E8F0;
+    position: relative;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+}
+
+.sg-brochure-track {
+    display: flex;
+    gap: 28px;
+    width: max-content;
+    animation: scrollBrochures 40s linear infinite;
+}
+
+.sg-brochure-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scrollBrochures {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.sg-brochure-card {
+    width: 310px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    border: 1px solid #E2E8F0;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(7, 21, 61, 0.08);
+    flex-shrink: 0;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.sg-brochure-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 45px rgba(7, 21, 61, 0.18);
+}
+
+.sg-brochure-thumb-wrap {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    overflow: hidden;
+    background: #07153D;
+    cursor: pointer;
+}
+
+.sg-brochure-thumb-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 0.5s ease;
+    display: block;
+}
+
+.sg-brochure-card:hover .sg-brochure-thumb-wrap img {
+    transform: scale(1.04);
+}
+
+.sg-brochure-zoom-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: rgba(7, 21, 61, 0.82);
+    backdrop-filter: blur(8px);
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    z-index: 2;
+    transition: background 0.2s ease;
+}
+
+.sg-brochure-card:hover .sg-brochure-zoom-badge {
+    background: #2A4FD6;
+}
+
+.sg-brochure-intake-badge {
+    position: absolute;
+    bottom: 14px;
+    left: 14px;
+    font-size: 11.5px;
+    font-weight: 800;
+    padding: 6px 14px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    z-index: 2;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.sg-brochure-details {
+    padding: 18px 20px;
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sg-brochure-details h5 {
+    font-size: 17px;
+    font-weight: 800;
+    color: #07153D;
+    margin: 0;
+}
+
+.sg-brochure-details p {
+    font-size: 13px;
+    color: #64748B;
+    margin: 0;
+    line-height: 1.45;
+}
+
+.sg-brochure-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.sg-brochure-btn-view {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: #F1F5F9;
+    color: #0F172A;
+    font-size: 12.5px;
+    font-weight: 700;
+    padding: 9px 12px;
+    border-radius: 10px;
+    text-decoration: none;
+    border: 1px solid #CBD5E1;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.sg-brochure-btn-view:hover {
+    background: #E2E8F0;
+    color: #07153D;
+}
+
+.sg-brochure-btn-enrol {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: #2A4FD6;
+    color: #FFFFFF;
+    font-size: 12.5px;
+    font-weight: 700;
+    padding: 9px 12px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.sg-brochure-btn-enrol:hover {
+    background: #1A3EB8;
+    color: #FFFFFF;
+}
+
