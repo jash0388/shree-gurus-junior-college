@@ -6,13 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shree Gurus Group of Institutions — Vijayawada | NEET &amp; JEE</title>
     <meta name="description" content="Official website of Shree Gurus Group of Institutions, Vijayawada. Admissions Open 2026-27 for NEET &amp; JEE. Small cohorts, proven national ranks.">
-    <link rel="shortcut icon" type="image/png" href="assets/frontend/img/favicon.png?v=12">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/frontend/img/favicon-32.png?v=12">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/frontend/img/favicon-192.png?v=12">
-    <link rel="apple-touch-icon" href="assets/frontend/img/apple-touch-icon.png?v=12">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/frontend/img/favicon-32.png?v=12">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/frontend/img/favicon-192.png?v=12">
-    <link rel="apple-touch-icon" href="assets/frontend/img/apple-touch-icon.png?v=12">
+    <link rel="icon" type="image/svg+xml" href="assets/frontend/img/shreegurus-emblem-favicon.svg?v=30">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/frontend/img/shreegurus-emblem-favicon-32.png?v=30">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/frontend/img/shreegurus-emblem-favicon-192.png?v=30">
+    <link rel="apple-touch-icon" href="assets/frontend/img/shreegurus-apple-touch.png?v=30">
+    <link rel="mask-icon" href="assets/frontend/img/shreegurus-emblem-favicon.svg?v=30" color="#07153D">
+    <link rel="shortcut icon" href="shreegurus-favicon.ico?v=30">
+    <link rel="mask-icon" href="assets/frontend/img/shreegurus-emblem-favicon.svg?v=30" color="#07153D">
+    <link rel="icon" type="image/svg+xml" href="assets/frontend/img/shreegurus-emblem-favicon.svg?v=30">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/frontend/img/shreegurus-emblem-favicon-32.png?v=30">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/frontend/img/shreegurus-emblem-favicon-192.png?v=30">
+    <link rel="apple-touch-icon" href="assets/frontend/img/shreegurus-apple-touch.png?v=30">
+    <link rel="mask-icon" href="assets/frontend/img/shreegurus-emblem-favicon.svg?v=30" color="#07153D">
+    <link rel="shortcut icon" href="shreegurus-favicon.ico?v=30">
 
     <!-- Fonts: Inter Tight -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,12 +30,163 @@
     <link rel="stylesheet" href="assets/frontend/css/vendor/fontawesome-pro.css">
 
     <!-- Shree Gurus Master Theme & FlowButton CSS -->
-    <link rel="stylesheet" href="assets/frontend/css/shreegurus-theme.css?v=9">
+    <link rel="stylesheet" href="assets/frontend/css/shreegurus-theme.css?v=30">
 
     <!-- Guru AI Admissions Chatbot Stylesheet -->
-    <link rel="stylesheet" href="assets/frontend/css/guru-bot.css?v=12">
+    <link rel="stylesheet" href="assets/frontend/css/guru-bot.css?v=30">
 
     <style>
+        /* CRITICAL BROCHURE SCROLLER STYLES (INLINE TO PREVENT CACHE COLLAPSE) */
+        .sg-brochure-scroller-sec {
+            padding: 50px 0 60px 0 !important;
+            background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%) !important;
+            overflow: hidden !important;
+            border-bottom: 1px solid #E2E8F0 !important;
+            position: relative !important;
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+        }
+        .sg-brochure-track {
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: nowrap !important;
+            align-items: stretch !important;
+            gap: 28px !important;
+            width: max-content !important;
+            animation: scrollBrochures 40s linear infinite !important;
+        }
+        .sg-brochure-track:hover {
+            animation-play-state: paused !important;
+        }
+        @keyframes scrollBrochures {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .sg-brochure-card {
+            width: 310px !important;
+            min-width: 310px !important;
+            max-width: 310px !important;
+            background: #FFFFFF !important;
+            border-radius: 20px !important;
+            border: 1px solid #E2E8F0 !important;
+            overflow: hidden !important;
+            box-shadow: 0 10px 30px rgba(7, 21, 61, 0.08) !important;
+            flex-shrink: 0 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease !important;
+        }
+        .sg-brochure-card:hover {
+            transform: translateY(-8px) scale(1.02) !important;
+            box-shadow: 0 20px 45px rgba(7, 21, 61, 0.18) !important;
+        }
+        .sg-brochure-thumb-wrap {
+            position: relative !important;
+            width: 100% !important;
+            height: 400px !important;
+            max-height: 400px !important;
+            overflow: hidden !important;
+            background: #07153D !important;
+            cursor: pointer !important;
+        }
+        .sg-brochure-thumb-wrap img {
+            width: 100% !important;
+            height: 100% !important;
+            max-height: 400px !important;
+            object-fit: cover !important;
+            object-position: top center !important;
+            transition: transform 0.5s ease !important;
+            display: block !important;
+        }
+        .sg-brochure-card:hover .sg-brochure-thumb-wrap img {
+            transform: scale(1.04) !important;
+        }
+        .sg-brochure-zoom-badge {
+            position: absolute !important;
+            top: 14px !important;
+            right: 14px !important;
+            background: rgba(7, 21, 61, 0.85) !important;
+            backdrop-filter: blur(8px) !important;
+            color: #FFFFFF !important;
+            font-size: 11px !important;
+            font-weight: 700 !important;
+            padding: 6px 12px !important;
+            border-radius: 20px !important;
+            letter-spacing: 0.5px !important;
+            border: 1px solid rgba(255, 255, 255, 0.25) !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 6px !important;
+            z-index: 2 !important;
+        }
+        .sg-brochure-intake-badge {
+            position: absolute !important;
+            bottom: 14px !important;
+            left: 14px !important;
+            font-size: 11px !important;
+            font-weight: 800 !important;
+            padding: 6px 14px !important;
+            border-radius: 20px !important;
+            letter-spacing: 0.5px !important;
+            z-index: 2 !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25) !important;
+        }
+        .sg-brochure-details {
+            padding: 16px 18px !important;
+            background: #FFFFFF !important;
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 10px !important;
+            flex-grow: 1 !important;
+        }
+        .sg-brochure-details h5 {
+            font-size: 16px !important;
+            font-weight: 800 !important;
+            color: #07153D !important;
+            margin: 0 !important;
+        }
+        .sg-brochure-details p {
+            font-size: 12.5px !important;
+            color: #64748B !important;
+            margin: 0 !important;
+            line-height: 1.4 !important;
+        }
+        .sg-brochure-actions {
+            display: flex !important;
+            gap: 8px !important;
+            margin-top: 4px !important;
+        }
+        .sg-brochure-btn-view {
+            flex: 1 !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 6px !important;
+            background: #F1F5F9 !important;
+            color: #0F172A !important;
+            font-size: 12px !important;
+            font-weight: 700 !important;
+            padding: 8px 10px !important;
+            border-radius: 10px !important;
+            text-decoration: none !important;
+            border: 1px solid #CBD5E1 !important;
+            cursor: pointer !important;
+        }
+        .sg-brochure-btn-enrol {
+            flex: 1 !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 6px !important;
+            background: #2A4FD6 !important;
+            color: #FFFFFF !important;
+            font-size: 12px !important;
+            font-weight: 700 !important;
+            padding: 8px 10px !important;
+            border-radius: 10px !important;
+            text-decoration: none !important;
+        }
+
         :root {
             --sg-bg-white: #FFFFFF;
             --sg-bg-light: #F4F7FB;
@@ -2553,6 +2710,6 @@
     </script>
 
     <!-- Guru AI Admissions Chatbot Widget -->
-    <script src="assets/frontend/js/guru-bot.js?v=12"></script>
+    <script src="assets/frontend/js/guru-bot.js?v=30"></script>
 </body>
 </html>

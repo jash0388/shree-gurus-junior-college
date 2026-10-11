@@ -15,6 +15,10 @@ JSON_FILE = 'enquiries.json'
 EMAIL_LOG = 'emails_sent.log'
 NOTIFICATION_EMAIL = 'mail2shreegurus@gmail.com'
 
+mimetypes.add_type('image/svg+xml', '.svg')
+mimetypes.add_type('image/webp', '.webp')
+mimetypes.add_type('image/x-icon', '.ico')
+
 # Ensure openpyxl is ready
 try:
     import openpyxl
@@ -203,15 +207,12 @@ Remarks/Note : {notes}
             print(f"FormSubmit email status: {resp.status}")
     except Exception as e:
         print(f"Email dispatch notification attempt: {e} (logged to {EMAIL_LOG})")
-
 class FastHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
     def end_headers(self):
-        # Allow caching for static media
-        path = self.translate_path(self.path)
-        if any(path.endswith(ext) for ext in ['.mp4', '.jpg', '.jpeg', '.png', '.webp', '.woff', '.woff2', '.ttf', '.css', '.js']):
-            self.send_header('Cache-Control', 'public, max-age=86400')
-        else:
-            self.send_header('Cache-Control', 'no-cache, must-revalidate')
+        # Never cache HTML, CSS, JS, icons or static assets during development
+        self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')
+        self.send_header('Pragma', 'no-cache')
+        self.send_header('Expires', '0')
         self.send_header('Access-Control-Allow-Origin', '*')
         self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
         self.send_header('Access-Control-Allow-Headers', 'Content-Type')

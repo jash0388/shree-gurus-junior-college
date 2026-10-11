@@ -6,10 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Sri Guru Brahmam &amp; Legacy — Shree Gurus Academy</title>
     <meta name="description" content="Learn about Sri A. Guru Brahmam's vision, 20+ years track record, and residential campus facilities at Shree Gurus.">
-    <link rel="shortcut icon" type="image/png" href="assets/frontend/img/favicon.png?v=12">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/frontend/img/favicon-32.png?v=12">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/frontend/img/favicon-192.png?v=12">
-    <link rel="apple-touch-icon" href="assets/frontend/img/apple-touch-icon.png?v=12">
+    <link rel="icon" type="image/svg+xml" href="assets/frontend/img/shreegurus-emblem-favicon.svg?v=30">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/frontend/img/shreegurus-emblem-favicon-32.png?v=30">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/frontend/img/shreegurus-emblem-favicon-192.png?v=30">
+    <link rel="apple-touch-icon" href="assets/frontend/img/shreegurus-apple-touch.png?v=30">
+    <link rel="mask-icon" href="assets/frontend/img/shreegurus-emblem-favicon.svg?v=30" color="#07153D">
+    <link rel="shortcut icon" href="shreegurus-favicon.ico?v=30">
+    <link rel="mask-icon" href="assets/frontend/img/shreegurus-emblem-favicon.svg?v=30" color="#07153D">
+    <link rel="icon" type="image/svg+xml" href="assets/frontend/img/shreegurus-emblem-favicon.svg?v=30">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/frontend/img/shreegurus-emblem-favicon-32.png?v=30">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/frontend/img/shreegurus-emblem-favicon-192.png?v=30">
+    <link rel="apple-touch-icon" href="assets/frontend/img/shreegurus-apple-touch.png?v=30">
+    <link rel="mask-icon" href="assets/frontend/img/shreegurus-emblem-favicon.svg?v=30" color="#07153D">
+    <link rel="shortcut icon" href="shreegurus-favicon.ico?v=30">
 
     <!-- Fonts: Inter Tight & System Sans-serif -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,12 +30,81 @@
     <link rel="stylesheet" href="assets/frontend/css/vendor/fontawesome-pro.css">
 
     <!-- Shree Gurus Master Theme & FlowButton CSS -->
-    <link rel="stylesheet" href="assets/frontend/css/shreegurus-theme.css?v=9">
+    <link rel="stylesheet" href="assets/frontend/css/shreegurus-theme.css?v=30">
 
     <!-- Guru AI Admissions Chatbot Stylesheet -->
-    <link rel="stylesheet" href="assets/frontend/css/guru-bot.css?v=12">
+    <link rel="stylesheet" href="assets/frontend/css/guru-bot.css?v=30">
 
     <style>
+        /* CRITICAL CAMPUS PHOTO SCROLLER STYLES (INLINE TO PREVENT CACHE COLLAPSE) */
+        .sg-photo-scroller-sec {
+            padding: 50px 0 !important;
+            background: #FFFFFF !important;
+            overflow: hidden !important;
+            border-bottom: 1px solid #E2E8F0 !important;
+            position: relative !important;
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+        }
+        .sg-scroller-track {
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: nowrap !important;
+            align-items: stretch !important;
+            gap: 24px !important;
+            width: max-content !important;
+            animation: scrollPhotos 35s linear infinite !important;
+        }
+        .sg-scroller-track:hover {
+            animation-play-state: paused !important;
+        }
+        @keyframes scrollPhotos {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .sg-photo-card {
+            width: 320px !important;
+            min-width: 320px !important;
+            max-width: 320px !important;
+            background: #FFFFFF !important;
+            border-radius: 16px !important;
+            border: 1px solid #E2E8F0 !important;
+            overflow: hidden !important;
+            box-shadow: 0 8px 24px rgba(9, 15, 45, 0.06) !important;
+            flex-shrink: 0 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            transition: transform 0.3s ease !important;
+        }
+        .sg-photo-card:hover {
+            transform: translateY(-6px) !important;
+        }
+        .sg-photo-card img {
+            width: 100% !important;
+            height: 200px !important;
+            max-height: 200px !important;
+            object-fit: cover !important;
+            display: block !important;
+        }
+        .sg-photo-card .info {
+            padding: 16px !important;
+            flex-grow: 1 !important;
+        }
+        .sg-photo-card .tag {
+            font-size: 11px !important;
+            font-weight: 800 !important;
+            letter-spacing: 0.6px !important;
+            text-transform: uppercase !important;
+            color: #2A4FD6 !important;
+            margin-bottom: 4px !important;
+        }
+        .sg-photo-card h6 {
+            font-size: 15px !important;
+            font-weight: 700 !important;
+            color: #07153D !important;
+            margin-bottom: 4px !important;
+        }
+
         :root {
             --sg-bg-white: #FFFFFF;
             --sg-bg-light: #F4F7FB;
@@ -818,6 +896,6 @@
     </script>
 
     <!-- Guru AI Admissions Chatbot Widget -->
-    <script src="assets/frontend/js/guru-bot.js?v=12"></script>
+    <script src="assets/frontend/js/guru-bot.js?v=30"></script>
 </body>
 </html>
