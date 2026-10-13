@@ -2,3 +2,5 @@
 .env*
 __pycache__/
 *.pyc
+sheets_synced.json
+sheets_retry_queue.json

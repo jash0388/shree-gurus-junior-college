@@ -153,11 +153,14 @@ class TestGoogleSheetsIntegration(unittest.TestCase):
         # Duplicate retry with exact same enquiry_id
         res2 = google_sheets.append_to_google_sheet(entry)
         self.assertTrue(res2['success'])
+        self.assertTrue(res2.get('duplicate', False) or res2.get('synced', False))
 
-        # Check retry queue has only 1 item, not 2
+        # Verify idempotency: neither synced list nor retry queue has duplicates
+        synced = google_sheets._load_json_file(google_sheets.SYNCED_RECORDS_FILE)
         queue = google_sheets._load_json_file(google_sheets.RETRY_QUEUE_FILE)
-        dup_items = [q for q in queue if q.get('enquiry_id') == 'SG-DUP-001']
-        self.assertEqual(len(dup_items), 1)
+        dup_synced = [s for s in synced if s.get('registration_id') == 'SG-DUP-001']
+        dup_queued = [q for q in queue if q.get('enquiry_id') == 'SG-DUP-001']
+        self.assertEqual(len(dup_synced) + len(dup_queued), 1)
 
     def test_06_email_notification_dispatch_intact(self):
         entry = {

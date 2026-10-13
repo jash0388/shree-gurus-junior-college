@@ -6,6 +6,27 @@ import threading
 import urllib.request
 import urllib.error
 
+# Helper to load .env.local or .env if present
+def _load_env_file():
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    for fname in ['.env.local', '.env']:
+        fpath = os.path.join(base_dir, fname)
+        if os.path.exists(fpath):
+            try:
+                with open(fpath, 'r', encoding='utf-8') as f:
+                    for line in f:
+                        line = line.strip()
+                        if line and not line.startswith('#') and '=' in line:
+                            k, v = line.split('=', 1)
+                            k = k.strip()
+                            v = v.strip().strip('"').strip("'")
+                            if k not in os.environ:
+                                os.environ[k] = v
+            except Exception:
+                pass
+
+_load_env_file()
+
 # Destination Google Spreadsheet ID
 DEFAULT_SPREADSHEET_ID = "1xbImFs_XR-oTXotXXsECbqiN85vq1j1fcuXjd8Xcq-A"
 SPREADSHEET_ID = os.getenv("GOOGLE_SHEET_ID", DEFAULT_SPREADSHEET_ID).strip()
@@ -32,7 +53,7 @@ REQUIRED_HEADERS = [
 RETRY_QUEUE_FILE = "sheets_retry_queue.json"
 SYNCED_RECORDS_FILE = "sheets_synced.json"
 
-_lock = threading.Lock()
+_lock = threading.RLock()
 
 def _load_json_file(filepath):
     if os.path.exists(filepath):
@@ -277,16 +298,41 @@ def append_to_google_sheet(entry):
                     'row_values': row,
                     'data': entry
                 }
-                req = urllib.request.Request(
-                    webhook_url,
-                    data=json.dumps(payload).encode('utf-8'),
-                    headers={'Content-Type': 'application/json'},
-                    method='POST'
-                )
-                with urllib.request.urlopen(req, timeout=8) as resp:
-                    if resp.status in [200, 201]:
+                # Preferred: requests library (handles redirects and SSL certifi bundle cleanly)
+                try:
+                    import requests
+                    resp = requests.post(webhook_url, json=payload, timeout=12)
+                    if resp.status_code in [200, 201]:
                         synced_successfully = True
+                        try:
+                            res_json = resp.json()
+                            if res_json.get('s_no'):
+                                s_no = res_json['s_no']
+                                row[0] = s_no
+                        except Exception:
+                            pass
                         print(f"[GoogleSheets] Webhook delivered row {s_no} to {webhook_url}")
+                    else:
+                        sync_error = f"Webhook returned status {resp.status_code}: {resp.text}"
+                        print(f"[GoogleSheets] {sync_error}")
+                except ImportError:
+                    import ssl
+                    ctx = ssl.create_default_context()
+                    try:
+                        ctx.check_hostname = False
+                        ctx.verify_mode = ssl.CERT_NONE
+                    except Exception:
+                        pass
+                    req = urllib.request.Request(
+                        webhook_url,
+                        data=json.dumps(payload).encode('utf-8'),
+                        headers={'Content-Type': 'application/json'},
+                        method='POST'
+                    )
+                    with urllib.request.urlopen(req, timeout=12, context=ctx) as resp:
+                        if resp.status in [200, 201]:
+                            synced_successfully = True
+                            print(f"[GoogleSheets] Webhook delivered row {s_no} to {webhook_url}")
             except Exception as e:
                 sync_error = str(e)
                 print(f"[GoogleSheets] Webhook delivery failed: {e}")
