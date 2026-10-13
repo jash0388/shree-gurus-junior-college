@@ -316,92 +316,51 @@ class FastHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
             query = chat_data.get('message', '').lower().strip()
             
             # Intelligent Institutional Knowledge Resolver
-            if any(k in query for k in ['fee', 'cost', 'scholarship', 'concession', 'price']):
-                ans = ("🎓 <strong>Fee &amp; Scholarship Policy:</strong><br><br>"
-                       "Course fees depend on stream (Medical vs Engineering) and campus type (Day Scholar vs Residential).<br><br>"
-                       "• <strong>Up to 100% Merit Scholarships</strong> are awarded based on Class 10 GPA and the <em>Shree Gurus Talent Search Exam (SG-SAT)</em>.<br>"
-                       "• Fee schedules are finalized by our Academic Dean during counseling.<br><br>"
-                       "Submit an enquiry or call <strong>+91 9640711111</strong> for official fee details.")
-                chips = ["Register for 2026–27", "Tell me about Scholarships", "Speak with Admissions Desk"]
+            clean_query = ''.join(c for c in query if c.isalnum() or c.isspace()).strip()
+            greeting_words = ['hello', 'hi', 'hey', 'namaste', 'namaskar', 'hlo', 'good morning', 'good afternoon', 'good evening', 'gm', 'yo', 'start', 'bro']
+            if any(clean_query == w or clean_query.startswith(w + ' ') or clean_query.endswith(' ' + w) or w in clean_query.split() for w in greeting_words):
+                ans = "Hello! 🙏 Welcome to <strong>Shree Gurus</strong>. How can I help you today?"
+                chips = ["2026–27 NEET Admissions", "Register Enquiry", "Campus & Hostels", "Fee Structure"]
+            elif any(k in query for k in ['fee', 'cost', 'scholarship', 'concession', 'price']):
+                ans = "🎓 Course fees depend on stream and hostel accommodation. We award up to <strong>100% Merit Scholarships</strong> based on Class 10 GPA and SG-SAT. Would you like a fee quotation for your profile?"
+                chips = ["Register for 2026–27", "Scholarship Details", "Call +91 9640711111"]
             elif any(k in query for k in ['jee', 'engineering', 'mpc', 'iit', 'trishul', 'sindoor']):
                 if '2026' in query:
-                    ans = ("⚠️ <strong>Note regarding 2026–2027:</strong><br>"
-                           "For the 2026–2027 intake, admissions are exclusively active for <strong>NEET Medical (Brahmos)</strong>.<br><br>"
-                           "Our premier Engineering programs open for <strong>2027 – 2028 (Pre-Bookings Open)</strong>:<br>"
-                           "• <strong>TRISHUL:</strong> 2-Year Integrated IPE + JEE Main (120 seats, CBT lab testing)<br>"
-                           "• <strong>SINDOOR:</strong> Elite 2-Year Integrated IPE + JEE Advanced (Super-30 Top 500 AIR cohort)<br><br>"
-                           "Would you like to pre-book a seat for 2027–28?")
-                    chips = ["Pre-Book 2027–28 JEE", "Explore Brahmos (NEET 2026)", "Contact Admissions Desk"]
+                    ans = "⚠️ For 2026–27, admissions are active only for <strong>NEET Medical (Brahmos)</strong>. Our Engineering tracks (Trishul &amp; Sindoor) open for <strong>2027–28 Intake</strong>. Would you like to pre-book?"
+                    chips = ["Pre-Book 2027–28 JEE", "Explore Brahmos NEET 2026", "Helpline +91 9640711111"]
                 else:
-                    ans = ("⚙️ <strong>Engineering Programs (M.P.C):</strong><br><br>"
-                           "We offer two flagship engineering cohorts (open for 2027–2028 Intake):<br><br>"
-                           "1. <strong>TRISHUL (IPE + JEE Main):</strong> Focuses on conceptual clarity, speed & accuracy with our 200+ computer CBT lab. 120 seats (40 Girls, 80 Boys).<br>"
-                           "2. <strong>SINDOOR (IPE + JEE Advanced):</strong> Elite problem-solving cohort mentored by senior IITian faculty targeting All India Top 500 Ranks.<br><br>"
-                           "Both programs feature small 25–30 student batches, evening study care, and Board marks integration.")
+                    ans = "⚙️ We offer <strong>TRISHUL</strong> (JEE Main) and <strong>SINDOOR</strong> (JEE Advanced) for 2027–28 with 25–30 student cohorts, CBT computer labs, and senior IITian mentorship."
                     chips = ["Pre-Book Trishul 2027–28", "Pre-Book Sindoor 2027–28", "Ask about Hostels"]
             elif any(k in query for k in ['2026', 'year', 'intake', 'when']):
-                ans = ("📅 <strong>Academic Year Admissions Status:</strong><br><br>"
-                       "• <strong>2026 – 2027 Session (Active Intake):</strong> Admissions are exclusively open for <strong>NEET Medical (BRAHMOS Track — Bi.P.C)</strong> and Medical Repeaters.<br>"
-                       "• <strong>2027 – 2028 Session (Pre-Bookings Open):</strong> All three programs are open — <strong>BRAHMOS (NEET)</strong>, <strong>TRISHUL (JEE Main)</strong>, and <strong>SINDOOR (JEE Advanced)</strong>.<br><br>"
-                       "Which academic year are you planning for?")
-                chips = ["2026–27 (NEET Only)", "2027–28 (JEE & NEET)", "Tell me about Brahmos"]
+                ans = "📅 <strong>Admissions Status:</strong><br>• <strong>2026–27 (Active):</strong> NEET Medical (BRAHMOS Bi.P.C) &amp; Repeaters.<br>• <strong>2027–28 (Pre-Bookings):</strong> Open for Brahmos, Trishul &amp; Sindoor."
+                chips = ["2026–27 NEET Admissions", "2027–28 JEE & NEET", "Register Enquiry"]
             elif any(k in query for k in ['neet', 'medical', 'bipc', 'brahmos', 'doctor']):
-                ans = ("🩺 <strong>BRAHMOS — IPE + NEET Medical (Bi.P.C):</strong><br><br>"
-                       "Our flagship medical program is <strong>Active for 2026–2027 Admissions</strong>!<br><br>"
-                       "• <strong>Cohort Size:</strong> Strictly 120 seats total (90 Girls across 3 sections, 30 Boys in 1 section).<br>"
-                       "• <strong>NCERT Microscopic Mastery:</strong> Line-by-line coverage in Biology with dedicated botany & zoology wet labs.<br>"
-                       "• <strong>Physics & Chemistry Shortcuts:</strong> High-speed numerical drills and formula maps.<br>"
-                       "• <strong>Daily Testing:</strong> Morning concept classes followed by evening diagnostic tests.<br>"
-                       "• <strong>Facilities:</strong> Smart A/C classrooms with separate residential hostels.<br><br>"
-                       "Would you like to register an admission enquiry for Brahmos 2026–27?")
-                chips = ["Register for Brahmos 2026–27", "Campus & Hostel Details", "Fee & Scholarships"]
-            elif any(k in query for k in ['hostel', 'food', 'mess', 'room', 'residential', 'boarding', 'girls', 'accommodation', 'campus type']):
-                ans = ("🛏️ <strong>Campus Types &amp; Accommodation Options:</strong><br><br>"
-                       "We offer three flexible campus options:<br><br>"
-                       "1. <strong>Residential (Hostel + Food + 24/7 Mentoring):</strong> Independent secured campuses for Boys and Girls. Nutritious doctor-approved South Indian dining, AC/Air-cooled rooms with attached washrooms, 24/7 CCTV, and resident faculty study hours.<br>"
-                       "2. <strong>Semi-Residential (Day + Evening Study Care):</strong> 8:00 AM to 8:00 PM program with classes, lunch, dinner/snacks, and evening doubt clearance.<br>"
-                       "3. <strong>Day Scholar (Classroom + Labs):</strong> Standard daytime classroom coaching and laboratory practicals.<br><br>"
-                       "Which option suits you best?")
-                chips = ["Residential Hostels", "Semi-Residential (Study Care)", "Day Scholar (Day Only)"]
-            elif any(k in query for k in ['contact', 'phone', 'number', 'call', 'email', 'helpline', 'whatsapp']):
-                ans = ("📞 <strong>Official Admissions Helplines:</strong><br><br>"
-                       "• <strong>Phone:</strong> <a href='tel:9640711111'>+91 9640711111</a> / <a href='tel:9171222333'>9171222333</a><br>"
-                       "• <strong>WhatsApp:</strong> <a href='https://wa.me/919640711111' target='_blank'>+91 9640711111</a><br>"
-                       "• <strong>Email:</strong> <a href='mailto:mail2shreegurus@gmail.com'>mail2shreegurus@gmail.com</a><br>"
-                       "• <strong>Counseling Hours:</strong> 8:00 AM to 8:00 PM (Monday – Sunday)<br><br>"
-                       "Our Academic Dean responds to admission enquiries within 2 hours!")
-                chips = ["Register Admission Enquiry", "WhatsApp Chat", "Campus Location"]
+                ans = "🩺 <strong>BRAHMOS (IPE + NEET Medical Bi.P.C):</strong> Active for 2026–27 with 120 seats, line-by-line NCERT Biology mastery, and daily diagnostic testing. Would you like to register an enquiry?"
+                chips = ["Register for Brahmos", "Campus & Hostels", "Fee Structure"]
+            elif any(k in query for k in ['repeat', 'long term', 'dropper', '12th pass']):
+                ans = "🎯 Our <strong>Long-Term Repeaters</strong> batch offers intensive 1-year coaching for NEET &amp; JEE 2027 with daily CBT tests, personalized error tracking, and evening doubt clearance."
+                chips = ["Register for Repeaters", "Hostel Facilities", "Call +91 9640711111"]
             elif any(k in query for k in ['where', 'location', 'address', 'reach', 'city', 'vijayawada']):
-                ans = ("📍 <strong>Campus Location:</strong><br><br>"
-                       "Our primary campus and head office are located at:<br>"
-                       "<strong>SHREE GURUS GROUP OF INSTITUTIONS</strong><br>"
-                       "D.No: 48-19-5/9, Ballem Vari Street, Near Ramavarappadu Ring, Vijayawada - 520007, Andhra Pradesh.<br><br>"
-                       "• We operate separate secured campuses for <strong>Boys</strong> and <strong>Girls</strong> in Vijayawada.<br>"
-                       "• Counseling desk is open <strong>8:00 AM – 8:00 PM</strong> daily.")
-                chips = ["Schedule Campus Visit", "Hostel & Dining Details", "Contact Helplines"]
-            elif any(k in query for k in ['result', 'rank', 'topper', 'pass', 'track record']):
-                ans = ("🏆 <strong>Recent Academic Benchmarks:</strong><br><br>"
-                       "• <strong>100% Pass Percentage</strong> in Intermediate 1st Year Board examinations.<br>"
-                       "• <strong>MPC Stream Topper:</strong> 465 / 470 Marks.<br>"
-                       "• <strong>BiPC Stream Topper:</strong> 450 / 470 Marks.<br>"
-                       "• <strong>35+ Students:</strong> Scored 460+ marks in Mathematics and Natural Sciences.<br><br>"
-                       "Our targeted 3-tier pedagogy guarantees both state board perfection and competitive edge.")
-                chips = ["Explore Brahmos (NEET)", "Explore Trishul (JEE)", "Register for 2026-27"]
+                ans = "📍 <strong>Campus Location:</strong> D.No: 48-19-5/9, Ballem Vari Street, Near Ramavarappadu Ring, Vijayawada - 520007. We operate separate secured campuses for Boys and Girls."
+                chips = ["Hostel Details", "Schedule Visit", "Register Enquiry"]
+            elif any(k in query for k in ['hostel', 'food', 'mess', 'room', 'residential', 'boarding', 'girls', 'accommodation', 'campus type']):
+                ans = "🛏️ We offer Residential (separate AC hostels for Boys &amp; Girls with doctor-approved South Indian dining and 24/7 mentoring), Semi-Residential (8 AM – 8 PM study care), and Day Scholar options."
+                chips = ["Residential Hostels", "Day Scholar Options", "Fee Details"]
+            elif any(k in query for k in ['contact', 'phone', 'number', 'call', 'email', 'helpline', 'whatsapp']):
+                ans = "📞 Admissions Helpline: <a href='tel:9640711111'><strong>+91 96407 11111</strong></a> / <a href='tel:9171222333'><strong>+91 91712 22333</strong></a> (8 AM – 8 PM daily). Email: <a href='mailto:mail2shreegurus@gmail.com'><strong>mail2shreegurus@gmail.com</strong></a>."
+                chips = ["Register Enquiry", "WhatsApp Chat", "Campus Location"]
             elif any(k in query for k in ['batch size', 'strength', 'ratio', 'how many student', 'crowd']):
-                ans = ("👥 <strong>Small Batch Ceiling (Super-30 Cohorts):</strong><br><br>"
-                       "Unlike mass coaching institutions that pack 100 to 150 students into a single lecture hall, Shree Gurus enforces a strict ceiling of <strong>25 to 30 students per classroom</strong>.<br><br>"
-                       "This ensures that every teacher knows every student by name, tracks their daily Error Log, and provides 1-on-1 mentorship after class.")
+                ans = "👥 We strictly limit classes to <strong>25 to 30 students per batch</strong> (Super-30 cohorts) so faculty know every student personally and track their daily error log."
                 chips = ["Explore Programs", "Admission Process", "Register Now"]
+            elif any(k in query for k in ['result', 'rank', 'topper', 'pass', 'track record']):
+                ans = "🏆 <strong>100% Pass Rate</strong> in Inter 1st Year. Top scores: MPC 465/470, BiPC 450/470, with 35+ students scoring 460+ marks."
+                chips = ["Brahmos (NEET)", "Trishul (JEE)", "Register for 2026-27"]
+            elif any(k in query for k in ['apply', 'procedure', 'enroll', 'process']):
+                ans = "📝 Submit your details right here with Guru AI or call <a href='tel:9640711111'><strong>+91 96407 11111</strong></a>. Our Academic Dean will connect with you within 2 hours!"
+                chips = ["Register Now with Guru AI", "Call +91 9640711111", "View Programs"]
             else:
-                ans = ("Namaste! 🙏 I am <strong>Guru AI</strong>, official admissions counsellor for <strong>Shree Gurus Group of Institutions</strong>, Vijayawada.<br><br>"
-                       "I can provide verified information on:<br>"
-                       "• <strong>2026–2027 Admissions:</strong> Active for NEET Medical (BRAHMOS Bi.P.C)<br>"
-                       "• <strong>2027–2028 Admissions:</strong> TRISHUL (JEE Main), SINDOOR (JEE Advanced) &amp; BRAHMOS<br>"
-                       "• <strong>Campus Options:</strong> Residential Boys &amp; Girls Hostels, Semi-Residential, Day Scholar<br>"
-                       "• <strong>Location:</strong> Ballem Vari Street, Near Ramavarappadu Ring, Vijayawada<br>"
-                       "• <strong>Scholarships:</strong> Up to 100% based on Class 10 GPA &amp; SG-SAT<br><br>"
-                       "What would you like to know, or would you like to submit an admission enquiry?")
-                chips = ["Admissions 2026–27", "Campus & Hostels", "Fee & Scholarships", "Register Enquiry"]
+                ans = "<strong>Shree Gurus Group of Institutions</strong>, Vijayawada provides premier competitive coaching for NEET &amp; JEE. Admissions are currently active for 2026–27 NEET Medical (Brahmos). How can I help you today?"
+                chips = ["2026–27 NEET Admissions", "Campus & Hostels", "Fee Structure", "Register Enquiry"]
 
             self.send_response(200)
             self.send_header('Content-Type', 'application/json')

@@ -73,6 +73,26 @@ const REQUIRED_HEADERS = [
   "Registration Status"
 ];
 
+// Adds a handy 1-click menu in Google Sheets
+function onOpen() {
+  SpreadsheetApp.getUi()
+    .createMenu('⚡ Shree Gurus Tools')
+    .addItem('🗑️ Clear All Leads (Keep Headers)', 'clearTestData')
+    .addToUi();
+}
+
+function clearTestData() {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = ss.getSheetByName("Sheet1") || ss.getActiveSheet();
+  var lastRow = sheet.getLastRow();
+  if (lastRow > 1) {
+    sheet.deleteRows(2, lastRow - 1);
+    SpreadsheetApp.getUi().alert("✅ Successfully cleared all rows! Headers preserved.");
+  } else {
+    SpreadsheetApp.getUi().alert("ℹ️ Sheet is already empty.");
+  }
+}
+
 function doPost(e) {
   var lock = LockService.getScriptLock();
   lock.tryLock(10000);
@@ -88,6 +108,17 @@ function doPost(e) {
     }
     
     var payload = JSON.parse(e.postData.contents);
+
+    // Optional remote clear action
+    if (payload.action === 'clear_data') {
+      var lr = sheet.getLastRow();
+      if (lr > 1) sheet.deleteRows(2, lr - 1);
+      return ContentService.createTextOutput(JSON.stringify({
+        success: true,
+        message: "Cleared all test data"
+      })).setMimeType(ContentService.MimeType.JSON);
+    }
+
     var regId = payload.registration_id;
     var rowValues = payload.row_values;
     

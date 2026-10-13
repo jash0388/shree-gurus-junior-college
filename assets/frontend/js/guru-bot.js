@@ -249,9 +249,8 @@
     function startGreeting() {
         showTyping(() => {
             appendMessage('bot', `
-                Namaste! 🙏 Welcome to <strong>Shree Gurus Group of Institutions</strong>, Vijayawada.<br><br>
-                I am <strong>Guru AI</strong>, your official Admissions Counselor. How can I assist you today?<br><br>
-                Feel free to ask about our <strong>2026–27 NEET Admissions</strong>, campus facilities, fee policy, or register an admission enquiry.
+                Hello! 🙏 Welcome to <strong>Shree Gurus</strong>.<br>
+                How can I help you with admissions today?
             `, [
                 { label: "🩺 NEET Brahmos (2026-27)", value: "Tell me about Brahmos NEET 2026-27" },
                 { label: "📝 Register Admission Enquiry", value: "I want to submit an admission enquiry", gold: true },
@@ -328,22 +327,32 @@
         return regPhrases.some(p => lower.includes(p));
     }
 
-    // Intelligent Local Knowledge Resolver (Deterministic & Guaranteed Accurate)
+    // Intelligent Local Knowledge Resolver (Short & Crisp)
     function resolveLocalKnowledge(text) {
         const q = text.toLowerCase().trim();
+
+        // Greetings / Casual hello
+        const cleanQ = q.replace(/[^\w\s]/g, '').trim();
+        const greetingWords = ['hello', 'hi', 'hey', 'namaste', 'namaskar', 'hlo', 'good morning', 'good afternoon', 'good evening', 'gm', 'yo', 'start', 'bro', 'hola', 'sup'];
+        if (greetingWords.some(w => cleanQ === w || cleanQ.startsWith(w + ' ') || cleanQ.endsWith(' ' + w) || cleanQ.split(/\s+/).includes(w))) {
+            return {
+                answer: `Hello! 🙏 Welcome to <strong>Shree Gurus</strong>. How can I help you today?`,
+                chips: ["2026–27 NEET Admissions", "Register Enquiry", "Campus & Hostels", "Fee Structure"]
+            };
+        }
 
         // Fee & Scholarship
         if (q.includes('fee') || q.includes('cost') || q.includes('scholarship') || q.includes('concession') || q.includes('price')) {
             return {
-                answer: `🎓 <strong>Fee &amp; Scholarship Policy:</strong><br><br>Course fees at Shree Gurus vary based on your stream (Medical vs Engineering) and campus type (Day Scholar vs Residential Hostel).<br><br>• <strong>Up to 100% Merit Scholarships</strong> are available based on Class 10 GPA and the <em>Shree Gurus Talent Search Exam (SG-SAT)</em>.<br>• Exact fee schedules are finalized by our Academic Dean during counseling.<br><br>Would you like to register an admission enquiry so our admissions team can share the fee breakdown for your profile? Or call our helpline at <strong>${KB.contacts.phone}</strong>.`,
-                chips: ["Register Admission Enquiry", "Tell me about Brahmos (NEET)", "Speak with Admissions Desk"]
+                answer: `🎓 Course fees depend on stream and hostel accommodation. We award up to <strong>100% Merit Scholarships</strong> based on Class 10 GPA and SG-SAT. Would you like a fee quotation for your profile?`,
+                chips: ["Register Admission Enquiry", "Scholarship Details", "Call +91 9640711111"]
             };
         }
 
         // 2026-27 vs 2027-28 Intake
         if (q.includes('2026') || (q.includes('year') && (q.includes('which') || q.includes('academic') || q.includes('intake')))) {
             return {
-                answer: `📅 <strong>Academic Year Admissions Status:</strong><br><br>• <strong>2026 – 2027 Session (Active Intake):</strong> Admissions are exclusively active for <strong>NEET Medical (BRAHMOS Track — Bi.P.C)</strong> and Medical Repeaters.<br>• <strong>2027 – 2028 Session (Pre-Bookings Open):</strong> All three programs are open — <strong>BRAHMOS (NEET)</strong>, <strong>TRISHUL (JEE Main)</strong>, and <strong>SINDOOR (JEE Advanced)</strong>.<br><br>Which academic year are you seeking admission for?`,
+                answer: `📅 <strong>Admissions Status:</strong><br>• <strong>2026–27 (Active):</strong> NEET Medical (BRAHMOS Bi.P.C) &amp; Repeaters.<br>• <strong>2027–28 (Pre-Bookings):</strong> Open for Brahmos, Trishul &amp; Sindoor.`,
                 chips: ["2026–27 (Active NEET)", "2027–28 (JEE & NEET)", "Register for Brahmos"]
             };
         }
@@ -352,12 +361,12 @@
         if (q.includes('jee') || q.includes('engineering') || q.includes('mpc') || q.includes('iit') || q.includes('trishul') || q.includes('sindoor')) {
             if (q.includes('2026')) {
                 return {
-                    answer: `⚠️ <strong>Note regarding 2026–2027 Session:</strong><br>For the 2026–2027 intake, admissions are exclusively active for <strong>NEET Medical (Brahmos)</strong>.<br><br>Our Engineering programs open for <strong>2027 – 2028 Intake (Pre-Bookings Open)</strong>:<br>• <strong>TRISHUL:</strong> 2-Year Integrated IPE + JEE Main (120 seats, CBT lab testing)<br>• <strong>SINDOOR:</strong> Elite 2-Year Integrated IPE + JEE Advanced (Super-30 Top 500 AIR cohort)<br><br>Would you like to pre-book a seat for 2027–28?`,
-                    chips: ["Pre-Book 2027–28 JEE", "Explore Brahmos (NEET 2026)", "Helpline +91 9640711111"]
+                    answer: `⚠️ For 2026–27, admissions are active only for <strong>NEET Medical (Brahmos)</strong>. Our Engineering tracks (Trishul &amp; Sindoor) open for <strong>2027–28 Intake</strong>. Would you like to pre-book?`,
+                    chips: ["Pre-Book 2027–28 JEE", "Explore Brahmos NEET 2026", "Helpline +91 9640711111"]
                 };
             }
             return {
-                answer: `⚙️ <strong>Engineering Programs (M.P.C):</strong><br><br>We offer two flagship engineering cohorts (open for 2027–2028 Intake):<br><br>1. <strong>TRISHUL (IPE + JEE Main):</strong> Focuses on conceptual clarity, speed & accuracy with our 200+ computer CBT lab. 120 seats (40 Girls, 80 Boys).<br>2. <strong>SINDOOR (IPE + JEE Advanced):</strong> Elite problem-solving cohort mentored by senior IITian faculty targeting All India Top 500 Ranks.<br><br>Both programs feature small 25–30 student batches, evening study care, and Board marks integration.`,
+                answer: `⚙️ We offer <strong>TRISHUL</strong> (JEE Main) and <strong>SINDOOR</strong> (JEE Advanced) for 2027–28 with 25–30 student cohorts, CBT computer labs, and senior IITian mentorship.`,
                 chips: ["Pre-Book Trishul 2027–28", "Pre-Book Sindoor 2027–28", "Ask about Hostels"]
             };
         }
@@ -365,15 +374,15 @@
         // Medical / NEET / Brahmos
         if (q.includes('neet') || q.includes('medical') || q.includes('bipc') || q.includes('brahmos') || q.includes('doctor')) {
             return {
-                answer: `🩺 <strong>BRAHMOS — IPE + NEET Medical (Bi.P.C):</strong><br><br>Our flagship medical program is <strong>Active for 2026–2027 Admissions</strong>!<br><br>• <strong>Cohort Size:</strong> Strictly 120 seats total (90 Girls across 3 sections, 30 Boys in 1 section).<br>• <strong>NCERT Microscopic Mastery:</strong> Line-by-line coverage in Biology with dedicated botany & zoology wet labs.<br>• <strong>Physics & Chemistry Shortcuts:</strong> High-speed numerical drills and formula maps.<br>• <strong>Daily Testing:</strong> Morning concept classes followed by evening diagnostic tests.<br>• <strong>Facilities:</strong> Smart A/C classrooms with separate residential hostels.<br><br>Would you like to register an admission enquiry for Brahmos 2026–27?`,
-                chips: ["Register for Brahmos 2026–27", "Campus & Hostel Details", "Fee & Scholarships"]
+                answer: `🩺 <strong>BRAHMOS (IPE + NEET Medical Bi.P.C):</strong> Active for 2026–27 with 120 seats, line-by-line NCERT Biology mastery, and daily diagnostic testing. Would you like to register an enquiry?`,
+                chips: ["Register for Brahmos 2026–27", "Campus & Hostels", "Fee Structure"]
             };
         }
 
         // Repeaters / Long Term
         if (q.includes('repeat') || q.includes('long term') || q.includes('dropper') || q.includes('12th pass')) {
             return {
-                answer: `🎯 <strong>Long-Term Repeaters Super-60 Batch:</strong><br><br>Designed specifically for 12th pass students targeting NEET & JEE 2027:<br><br>• Intensive 1-year syllabus re-engineering and concept overhaul.<br>• Personalized Error Log Book to diagnose and fix recurring mistakes.<br>• Weekly full-syllabus Computer-Based Tests (CBT) and national benchmarking.<br>• Resident faculty doubt resolution throughout evening study hours.<br><br>Admissions are active now. Would you like to connect with our academic counselor?`,
+                answer: `🎯 Our <strong>Long-Term Repeaters</strong> batch offers intensive 1-year coaching for NEET &amp; JEE 2027 with daily CBT tests, personalized error tracking, and evening doubt clearance.`,
                 chips: ["Register for Repeaters", "Hostel Facilities", "Call +91 9640711111"]
             };
         }
@@ -381,23 +390,23 @@
         // Campus Location / Address
         if (q.includes('where') || q.includes('location') || q.includes('address') || q.includes('reach') || q.includes('city') || q.includes('vijayawada')) {
             return {
-                answer: `📍 <strong>Campus Location:</strong><br><br>Our primary campus and admissions headquarters are located at:<br><strong>SHREE GURUS GROUP OF INSTITUTIONS</strong><br>${KB.location}.<br><br>• We operate separate secured campuses for <strong>Boys</strong> and <strong>Girls</strong> in Vijayawada.<br>• Admissions office is open <strong>8:00 AM – 8:00 PM</strong> daily.`,
-                chips: ["Campus Facilities", "Schedule Visit", "Register Enquiry"]
+                answer: `📍 <strong>Campus Location:</strong> D.No: 48-19-5/9, Ballem Vari Street, Near Ramavarappadu Ring, Vijayawada - 520007. We operate separate secured campuses for Boys and Girls.`,
+                chips: ["Hostel Details", "Schedule Visit", "Register Enquiry"]
             };
         }
 
         // Hostels / Food / Accommodation / Girls Safety
         if (q.includes('hostel') || q.includes('food') || q.includes('mess') || q.includes('room') || q.includes('residential') || q.includes('boarding') || q.includes('girls')) {
             return {
-                answer: `🛏️ <strong>Residential Campus &amp; Hostel Facilities:</strong><br><br>• <strong>Separate Campuses:</strong> Independent, fully secured residential campuses for Boys and Girls.<br>• <strong>Rooms:</strong> Clean, spacious AC and Air-Cooled rooms with attached hygienic washrooms and 24/7 power backup.<br>• <strong>Dining:</strong> Nutritious, doctor-approved South Indian food cooked in sanitized modern kitchens.<br>• <strong>Mentoring:</strong> Resident faculty live on campus for evening study care and doubt clearance.<br>• <strong>Safety:</strong> 24/7 CCTV surveillance and round-the-clock female wardens at the Girls Campus.`,
-                chips: ["Register as Residential", "Day Scholar Options", "Fee Structure"]
+                answer: `🛏️ We offer Residential (separate AC hostels for Boys &amp; Girls with doctor-approved South Indian dining and 24/7 mentoring), Semi-Residential (8 AM – 8 PM study care), and Day Scholar options.`,
+                chips: ["Residential Hostels", "Day Scholar Options", "Fee Structure"]
             };
         }
 
         // Helplines & Contacts
         if (q.includes('contact') || q.includes('phone') || q.includes('number') || q.includes('call') || q.includes('email') || q.includes('helpline') || q.includes('whatsapp')) {
             return {
-                answer: `📞 <strong>Official Admissions Helplines:</strong><br><br>• <strong>Phone:</strong> <a href="tel:9640711111">${KB.contacts.phone}</a> / <a href="tel:9171222333">${KB.contacts.phoneAlt}</a><br>• <strong>WhatsApp:</strong> <a href="${KB.contacts.whatsapp}" target="_blank">${KB.contacts.phone}</a><br>• <strong>Email:</strong> <a href="mailto:${KB.contacts.email}">${KB.contacts.email}</a><br>• <strong>Counseling Hours:</strong> ${KB.contacts.hours}<br><br>Our Academic Dean responds to admission enquiries within 2 hours!`,
+                answer: `📞 Admissions Helpline: <a href="tel:9640711111"><strong>${KB.contacts.phone}</strong></a> / <a href="tel:9171222333"><strong>${KB.contacts.phoneAlt}</strong></a> (8 AM – 8 PM daily). Email: <a href="mailto:${KB.contacts.email}"><strong>${KB.contacts.email}</strong></a>.`,
                 chips: ["Register Admission Enquiry", "WhatsApp Chat", "Campus Location"]
             };
         }
@@ -405,7 +414,7 @@
         // Batch Size
         if (q.includes('batch size') || q.includes('strength') || q.includes('ratio') || q.includes('how many student') || q.includes('crowd')) {
             return {
-                answer: `👥 <strong>Small Batch Ceiling (Super-30 Cohorts):</strong><br><br>Unlike mass coaching institutions that pack 100 to 150 students into a single lecture hall, Shree Gurus enforces a strict ceiling of <strong>25 to 30 students per classroom</strong>.<br><br>This guarantees that our teachers know every student by name, monitor their daily Error Log, and resolve doubts personally.`,
+                answer: `👥 We strictly limit classes to <strong>25 to 30 students per batch</strong> (Super-30 cohorts) so faculty know every student personally and track their daily error log.`,
                 chips: ["Explore Programs", "Admission Process", "Register Now"]
             };
         }
@@ -413,7 +422,7 @@
         // Results & Ranks
         if (q.includes('result') || q.includes('rank') || q.includes('topper') || q.includes('pass') || q.includes('track record')) {
             return {
-                answer: `🏆 <strong>Recent Academic Benchmarks:</strong><br><br>• <strong>100% Pass Percentage</strong> in Intermediate 1st Year Board examinations.<br>• <strong>MPC Stream Topper:</strong> 465 / 470 Marks.<br>• <strong>BiPC Stream Topper:</strong> 450 / 470 Marks.<br>• <strong>35+ Students:</strong> Scored 460+ marks in Mathematics and Natural Sciences.<br><br>Our targeted 3-tier pedagogy guarantees both Board excellence and competitive rank mastery.`,
+                answer: `🏆 <strong>100% Pass Rate</strong> in Inter 1st Year. Top scores: MPC 465/470, BiPC 450/470, with 35+ students scoring 460+ marks.`,
                 chips: ["Explore Brahmos (NEET)", "Explore Trishul (JEE)", "Register for 2026-27"]
             };
         }
@@ -421,15 +430,15 @@
         // Website Navigation Links
         if (q.includes('link') || q.includes('page') || q.includes('website') || q.includes('form') || q.includes('brochure')) {
             return {
-                answer: `🔗 <strong>Quick Official Links:</strong><br><br>• <a href="admissions.html" style="color:#2A4FD6; font-weight:600;">Admissions Enquiry Form</a><br>• <a href="programs.html" style="color:#2A4FD6; font-weight:600;">Programs &amp; Curriculum</a><br>• <a href="about.html#facilities" style="color:#2A4FD6; font-weight:600;">Campus Infrastructure &amp; Hostels</a><br>• <a href="pedagogy.html" style="color:#2A4FD6; font-weight:600;">Our 3-Tier Pedagogy</a><br>• <a href="contact.html" style="color:#2A4FD6; font-weight:600;">Campus Address &amp; Contact Desk</a>`,
+                answer: `🔗 <strong>Quick Links:</strong> <a href="admissions.html">Admissions Form</a> &bull; <a href="programs.html">Programs</a> &bull; <a href="about.html#facilities">Campus &amp; Hostels</a> &bull; <a href="contact.html">Contact Desk</a>`,
                 chips: ["Register Online", "Call Helpline", "Ask a Question"]
             };
         }
 
-        // Default Institutional Overview
+        // Default Institutional Overview (Short & Crisp)
         return {
-            answer: `I am here to help you with verified details about <strong>Shree Gurus Group of Institutions</strong>, Vijayawada.<br><br>• <strong>2026–2027 Admissions:</strong> Active for NEET Medical (BRAHMOS Track — Bi.P.C)<br>• <strong>2027–2028 Admissions:</strong> TRISHUL (JEE Main), SINDOOR (JEE Advanced) &amp; BRAHMOS<br>• <strong>Campus Options:</strong> Residential Boys &amp; Girls Hostels, Semi-Residential, Day Scholar<br>• <strong>Location:</strong> Near Ramavarappadu Ring, Vijayawada<br>• <strong>Scholarships:</strong> Up to 100% Merit Scholarships based on Class 10 GPA &amp; SG-SAT<br><br>Would you like to register an admission enquiry or ask about a specific stream?`,
-            chips: ["Admissions 2026–27", "Hostels & Campuses", "Fee & Scholarships", "Register Enquiry"]
+            answer: `Welcome to <strong>Shree Gurus</strong>, Vijayawada (NEET &amp; JEE). How can I assist you with admissions today?`,
+            chips: ["2026–27 NEET Admissions", "Campus & Hostels", "Fee Structure", "Register Enquiry"]
         };
     }
 

@@ -1798,14 +1798,111 @@ body.sg-loading-lock {
 }
 
 /* ==========================================================================
-   PRISTINE WHITE FOOTER COMPONENT
+   MINIMALIST SIGNATURE FOOTER COMPONENT
    ========================================================================== */
+.sg-site-footer,
 .sg-footer-dark,
 .sg-footer {
-    padding: 85px 0 40px 0 !important;
-    background: #FFFFFF !important;
-    color: #475467 !important;
-    border-top: 1px solid #E2E8F0 !important;
+    background: #FAFAFA !important;
+    border-top: 1px solid #ECECF0 !important;
+    padding: 70px 0 0 0 !important;
+    position: relative !important;
+    overflow: hidden !important;
+    color: #1E293B !important;
+}
+
+.sg-footer-inner {
+    position: relative !important;
+    z-index: 2 !important;
+    padding-bottom: 20px !important;
+}
+
+.sg-footer-brand-logo {
+    height: 54px !important;
+    width: auto !important;
+    max-width: 320px !important;
+    object-fit: contain !important;
+    display: block !important;
+    margin-bottom: 16px !important;
+}
+
+.sg-footer-tagline {
+    font-size: 14.5px !important;
+    line-height: 1.6 !important;
+    color: #64748B !important;
+    max-width: 340px !important;
+    margin: 0 !important;
+    font-weight: 400 !important;
+}
+
+.sg-footer-heading {
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.1em !important;
+    text-transform: uppercase !important;
+    color: #64748B !important;
+    margin-bottom: 20px !important;
+}
+
+.sg-footer-nav {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+}
+
+.sg-footer-nav li {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.sg-footer-nav li a {
+    color: #1E293B !important;
+    font-size: 14.5px !important;
+    font-weight: 400 !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    transition: color 0.2s ease, transform 0.2s ease !important;
+}
+
+.sg-footer-nav li a:hover {
+    color: #2563EB !important;
+    transform: translateX(2px) !important;
+}
+
+.sg-footer-watermark {
+    position: relative !important;
+    z-index: 1 !important;
+    text-align: center !important;
+    font-size: clamp(3.8rem, 15vw, 12.5rem) !important;
+    font-weight: 900 !important;
+    line-height: 0.85 !important;
+    letter-spacing: -0.02em !important;
+    color: #DEE3FB !important;
+    text-transform: uppercase !important;
+    user-select: none !important;
+    pointer-events: none !important;
+    margin-top: 30px !important;
+    margin-bottom: -15px !important;
+    white-space: nowrap !important;
+}
+
+@media (max-width: 768px) {
+    .sg-site-footer,
+    .sg-footer-dark,
+    .sg-footer {
+        padding: 50px 0 0 0 !important;
+    }
+    .sg-footer-tagline {
+        margin-bottom: 25px !important;
+    }
+    .sg-footer-watermark {
+        font-size: clamp(2.6rem, 15vw, 5.2rem) !important;
+        margin-top: 20px !important;
+        margin-bottom: -8px !important;
+    }
 }
 
 .sg-footer-title {
