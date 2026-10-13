@@ -640,7 +640,8 @@
                 state: sessionState.data.state,
                 district: sessionState.data.district,
                 campus_type: sessionState.data.campus_type,
-                source: 'Guru AI Admissions Chatbot',
+                source: 'AI Chatbot',
+                status: 'Pending',
                 notes: 'Chatbot Assisted Registration'
             };
 

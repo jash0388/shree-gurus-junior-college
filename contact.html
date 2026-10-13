@@ -988,16 +988,22 @@
             
             const formData = new FormData(form);
             const payload = {
+                student_name: formData.get('student_name') || '',
                 name: formData.get('student_name') || '',
                 phone: formData.get('phone') || '',
                 email: formData.get('email') || '',
-                city: (formData.get('district') || '') + (formData.get('state') ? ', ' + formData.get('state') : ''),
+                year: formData.get('year') || '2026 - 2027',
+                academic_year: formData.get('year') || '2026 - 2027',
+                state: formData.get('state') || 'Andhra Pradesh',
+                district: formData.get('district') || 'Vijayawada (NTR Dist)',
+                city: formData.get('district') || 'Vijayawada (NTR Dist)',
+                campus_type: formData.get('campus_type') || 'Residential (A/C Class + Non-A/C Hostel + Food)',
+                campus: formData.get('campus_type') || 'Residential (A/C Class + Non-A/C Hostel + Food)',
+                class: formData.get('class') || '',
                 course: formData.get('course') || '',
-                academic_year: formData.get('year') || '2027-28',
-                campus: formData.get('campus_type') || 'Vijayawada Campus',
                 hostel: formData.get('campus_type') && formData.get('campus_type').includes('Residential') ? 'Yes' : 'No',
                 notes: 'Class: ' + (formData.get('class') || '') + ' | Campus: ' + (formData.get('campus_type') || ''),
-                source: 'Contact Page Enquiry Form (Narayana Model)'
+                source: 'Website Form'
             };
 
             btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin me-2"></i> Submitting Enquiry...';

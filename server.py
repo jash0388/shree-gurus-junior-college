@@ -7,6 +7,7 @@ import csv
 import datetime
 import urllib.request
 from urllib.parse import urlparse
+import google_sheets
 
 PORT = 8000
 EXCEL_FILE = 'enquiries.xlsx'
@@ -272,7 +273,38 @@ class FastHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
             self.wfile.write(json.dumps(entries, indent=2).encode('utf-8'))
             return
 
+        # View Google Sheets Sync & Credentials Status
+        if parsed.path == '/api/sheets-status':
+            status = google_sheets.get_sheets_status()
+            self.send_response(200)
+            self.send_header('Content-Type', 'application/json')
+            self.end_headers()
+            self.wfile.write(json.dumps(status, indent=2).encode('utf-8'))
+            return
+
+        # Trigger Sync for Retry Queue via GET
+        if parsed.path == '/api/sync-sheets':
+            sync_res = google_sheets.sync_retry_queue()
+            self.send_response(200)
+            self.send_header('Content-Type', 'application/json')
+            self.end_headers()
+            self.wfile.write(json.dumps(sync_res, indent=2).encode('utf-8'))
+            return
+
         super().do_GET()
+        return
+
+    def do_POST(self):
+        parsed = urlparse(self.path)
+
+        # Trigger Sync for Retry Queue via POST
+        if parsed.path == '/api/sync-sheets':
+            sync_res = google_sheets.sync_retry_queue()
+            self.send_response(200)
+            self.send_header('Content-Type', 'application/json')
+            self.end_headers()
+            self.wfile.write(json.dumps(sync_res, indent=2).encode('utf-8'))
+            return
 
         if parsed.path == '/api/chat':
             content_length = int(self.headers.get('Content-Length', 0))
@@ -388,56 +420,111 @@ class FastHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
                 data = {k: v[0] for k, v in parse_qs(body).items()}
 
             now_str = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            enquiry_id = f"SG-{datetime.datetime.now().strftime('%y%m%d%H%M%S')}"
+            enquiry_id = (data.get('enquiry_id') or data.get('registration_id') or '').strip()
+            if not enquiry_id:
+                enquiry_id = f"SG-{datetime.datetime.now().strftime('%y%m%d%H%M%S')}"
 
             name = (data.get('student_name') or data.get('name') or '').strip()
             parent_name = data.get('parent_name', '').strip()
-            phone = data.get('phone', '').strip()
-            email = data.get('email', '').strip()
-            city = (data.get('district') or data.get('city') or 'Vijayawada (NTR Dist)').strip()
-            course = data.get('course', 'BRAHMOS: IPE + NEET Medical (Bi.P.C)').strip()
+            phone = (data.get('phone') or '').strip()
+            clean_phone = ''.join(c for c in phone if c.isdigit())
+            email = (data.get('email') or '').strip()
+            if email.lower() in ['not provided', 'none', 'null', 'undefined'] or '@' not in email:
+                email = ''
+
+            # Backend Validation
+            if not name or len(name) < 2:
+                self.send_response(400)
+                self.send_header('Content-Type', 'application/json')
+                self.end_headers()
+                self.wfile.write(json.dumps({'success': False, 'error': 'Valid student name is required'}).encode('utf-8'))
+                return
+
+            if len(clean_phone) < 10:
+                self.send_response(400)
+                self.send_header('Content-Type', 'application/json')
+                self.end_headers()
+                self.wfile.write(json.dumps({'success': False, 'error': 'Valid 10-digit phone number is required'}).encode('utf-8'))
+                return
+
+            phone_10 = clean_phone[-10:]
+            state = (data.get('state') or 'Andhra Pradesh').strip()
+            district = (data.get('district') or data.get('city') or 'Vijayawada (NTR Dist)').strip()
+            course = (data.get('course') or 'BRAHMOS: IPE + NEET Medical (Bi.P.C)').strip()
             year = (data.get('year') or data.get('academic_year') or '2026 - 2027 (Active Intake)').strip()
-            campus = (data.get('campus_type') or data.get('campus') or 'Vijayawada Campus').strip()
-            hostel = data.get('hostel', 'Residential (Hostel + Food + 24/7 Mentoring)').strip()
+            campus = (data.get('campus_type') or data.get('campus') or 'Residential (A/C Class + Non-A/C Hostel + Food)').strip()
+            student_class = (data.get('class') or '').strip()
+            hostel = (data.get('hostel') or ('Yes' if 'residential' in campus.lower() else 'No')).strip()
             notes = (data.get('notes') or data.get('message') or 'Admissions Enquiry').strip()
-            source = data.get('source', 'Guru AI Admissions Chatbot').strip()
-            status = 'Pending Followup'
+            source = google_sheets.normalize_source(data.get('source'))
+            status = 'Pending'
+
+            # Idempotency / Duplicate Check
+            existing_entries = []
+            if os.path.exists(JSON_FILE):
+                try:
+                    with open(JSON_FILE, 'r', encoding='utf-8') as f:
+                        existing_entries = json.load(f)
+                except Exception:
+                    existing_entries = []
+
+            is_duplicate = False
+            for prev in existing_entries:
+                if prev.get('enquiry_id') == enquiry_id:
+                    is_duplicate = True
+                    break
 
             entry = {
                 'enquiry_id': enquiry_id,
+                'registration_id': enquiry_id,
                 'timestamp': now_str,
                 'name': name,
+                'student_name': name,
                 'parent_name': parent_name,
-                'phone': phone,
+                'phone': phone_10,
                 'email': email,
-                'city': city,
+                'state': state,
+                'district': district,
+                'city': district,
                 'course': course,
                 'academic_year': year,
+                'year': year,
                 'campus': campus,
+                'campus_type': campus,
+                'class': student_class,
                 'hostel': hostel,
                 'notes': notes,
                 'source': source,
                 'status': status
             }
 
-            row_data = [
-                enquiry_id, now_str, name, phone, email, city,
-                course, year, campus, hostel, parent_name, notes,
-                source, status
-            ]
+            if not is_duplicate:
+                row_data = [
+                    enquiry_id, now_str, name, phone_10, email, district,
+                    course, year, campus, hostel, parent_name, notes,
+                    source, status
+                ]
 
-            # Save to Excel & CSV & JSON
-            append_to_excel(row_data)
-            append_to_csv(row_data)
-            append_to_json(entry)
+                # Save to Excel & CSV & JSON
+                append_to_excel(row_data)
+                append_to_csv(row_data)
+                append_to_json(entry)
 
-            # Dispatch notification
-            dispatch_email_notification(entry)
+                # Dispatch notification email (unchanged)
+                dispatch_email_notification(entry)
+
+            # Sync with Google Sheet
+            sheet_res = google_sheets.append_to_google_sheet(entry)
 
             response_payload = {
                 'success': True,
-                'message': 'Course registration saved to Excel and email notification dispatched!',
+                'message': 'Course registration processed successfully.',
                 'enquiry_id': enquiry_id,
+                'registration_id': enquiry_id,
+                's_no': sheet_res.get('s_no'),
+                'google_sheet_synced': sheet_res.get('synced', False),
+                'queued_for_retry': sheet_res.get('queued', False),
+                'duplicate': is_duplicate or sheet_res.get('duplicate', False),
                 'excel_download_url': '/api/download-excel',
                 'csv_download_url': '/api/download-csv',
                 'data': entry

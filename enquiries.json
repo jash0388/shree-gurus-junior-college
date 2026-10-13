@@ -62,5 +62,59 @@
   {
     "enquiry_id": "SG-TEST999",
     "name": "Test Student"
+  },
+  {
+    "enquiry_id": "SG-TEST999",
+    "name": "Test Student"
+  },
+  {
+    "enquiry_id": "SG-261013123731",
+    "registration_id": "SG-261013123731",
+    "timestamp": "2026-10-13 12:37:31",
+    "name": "Aarav Varma",
+    "student_name": "Aarav Varma",
+    "parent_name": "",
+    "phone": "9849012345",
+    "email": "aarav.varma@gmail.com",
+    "state": "Andhra Pradesh",
+    "district": "Vijayawada (NTR Dist)",
+    "city": "Vijayawada (NTR Dist)",
+    "course": "BRAHMOS: IPE + NEET Medical (Bi.P.C)",
+    "academic_year": "2026 - 2027",
+    "year": "2026 - 2027",
+    "campus": "Residential (A/C Class + Non-A/C Hostel + Food)",
+    "campus_type": "Residential (A/C Class + Non-A/C Hostel + Food)",
+    "class": "Class 11 / Inter 1st Year",
+    "hostel": "Yes",
+    "notes": "Admissions Enquiry",
+    "source": "Website Form",
+    "status": "Pending"
+  },
+  {
+    "enquiry_id": "SG-261013123747",
+    "registration_id": "SG-261013123747",
+    "timestamp": "2026-10-13 12:37:47",
+    "name": "Keerthi Priya",
+    "student_name": "Keerthi Priya",
+    "parent_name": "",
+    "phone": "9171222333",
+    "email": "",
+    "state": "Andhra Pradesh",
+    "district": "Vijayawada",
+    "city": "Vijayawada",
+    "course": "BRAHMOS: IPE + NEET Medical (Bi.P.C)",
+    "academic_year": "2026 - 2027",
+    "year": "2026 - 2027",
+    "campus": "Residential Hostels",
+    "campus_type": "Residential Hostels",
+    "class": "",
+    "hostel": "Yes",
+    "notes": "Admissions Enquiry",
+    "source": "AI Chatbot",
+    "status": "Pending"
+  },
+  {
+    "enquiry_id": "SG-TEST999",
+    "name": "Test Student"
   }
 ]
